@@ -104,19 +104,19 @@
     });
   }
 
-  // ============ 练习核心 ============
+  // ============ 练习核心：优化队列分配 ============
   function buildQueue() {
     const allWords = [...WORD_DATA];
     
-    const reviewWords = []; // 错题、待听写、待默写
-    const newWords = [];    // 待学习 (stage 1)
+    const reviewWords = []; 
+    const newWords = [];    
 
     allWords.forEach(w => {
       const status = Storage.getStatus(w.word);
       if (status.isWrongBook || status.stage === 2 || status.stage === 3) {
-        reviewWords.push(w.word);
+        reviewWords.push(w); // ✅ 修复：推入完整的单词对象，而不是字符串
       } else if (status.stage === 1) {
-        newWords.push(w.word);
+        newWords.push(w);    // ✅ 修复：推入完整的单词对象
       }
     });
 
@@ -134,15 +134,13 @@
     // 复习词全部拉入，并打乱顺序
     reviewWords.sort(() => Math.random() - 0.5);
     
-    // 将复习词与新词交替穿插（比如每 2 个复习词夹 1 个新词）
+    // 将复习词与新词交替穿插
     let finalQueue = [];
     let rIndex = 0, nIndex = 0;
     
     while (rIndex < reviewWords.length || nIndex < pickedNewWords.length) {
-      // 优先排复习词
       if (rIndex < reviewWords.length) finalQueue.push(reviewWords[rIndex++]);
       if (rIndex < reviewWords.length && Math.random() > 0.5) finalQueue.push(reviewWords[rIndex++]);
-      // 穿插新词
       if (nIndex < pickedNewWords.length) finalQueue.push(pickedNewWords[nIndex++]);
     }
 
@@ -335,16 +333,19 @@
 
   // ============ 调度下一个词：加入微循环 ============
   function nextWord() {
+    // 如果队列为空，直接返回
+    if (state.queue.length === 0) return;
+
     if (state.current) Storage.addDailyLearnedWord(state.current.word);
 
     const status = Storage.getStatus(state.current.word);
     
-    // 刚刚学完（stage 1 -> 2），立刻将其插入到队列后面第 3~4 个位置听写
+    // 刚刚学完，立刻将其插入到队列后面第 3~4 个位置听写
     if (status.stage === 2 && !status.isWrongBook) {
        const insertPos = Math.min(state.queue.length, state.index + 3 + Math.floor(Math.random() * 2));
        state.queue.splice(insertPos, 0, state.current);
     } 
-    // 刚刚听写对了（stage 2 -> 3），插入到第 6~8 个位置默写
+    // 刚刚听写对了，插入到第 6~8 个位置默写
     else if (status.stage === 3 && !status.isWrongBook) {
        const insertPos = Math.min(state.queue.length, state.index + 6 + Math.floor(Math.random() * 3));
        state.queue.splice(insertPos, 0, state.current);
@@ -352,7 +353,6 @@
 
     state.index += 1;
     
-    // 如果走到队列末尾了，重新计算队列
     if (state.index >= state.queue.length) {
       state.queue = buildQueue();
       state.index = 0;
