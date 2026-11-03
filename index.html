@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>打字背单词 · 计算机英语</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">TypeWords</div>
+      <nav style="flex:1;">
+        <button class="nav-btn active" data-target="view-practice">
+          <span class="icon">🎯</span><span class="text">练习</span>
+        </button>
+        <button class="nav-btn" data-target="view-wrongbook">
+          <span class="icon">📕</span><span class="text">错题本</span>
+        </button>
+        <button class="nav-btn" data-target="view-mastered">
+          <span class="icon">✅</span><span class="text">已掌握</span>
+        </button>
+        <button class="nav-btn" id="openSettingsBtn">
+          <span class="icon">⚙️</span><span class="text">设置</span>
+        </button>
+      </nav>
+      <button class="toggle-btn" id="toggleSidebar" title="折叠侧边栏">◀</button>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+      
+      <!-- 1. 练习视图 -->
+      <div id="view-practice" class="view active">
+        
+        <div class="top-nav-area">
+          <div class="word-nav">
+            <button id="prevWordBtn" class="word-nav-btn">⬅️ <span>-</span></button>
+            <button id="nextWordBtn" class="word-nav-btn">➡️ <span>-</span></button>
+          </div>
+          <header class="topbar">
+            <span id="progress">已掌握: 0 | 错题: 0</span>
+            <span id="dailyProgress">今日: 0 / 20</span>
+            <span id="accuracy">剩余: 0</span>
+          </header>
+        </div>
+
+        <main class="card">
+          <div class="mode-tag" id="modeTag">学习模式</div>
+          <p class="meaning" id="meaning">加载中…</p>
+          <div class="meta-row">
+            <span class="phonetic" id="phonetic"></span>
+            <button class="speak-btn" id="speakBtn" type="button">🔊</button>
+          </div>
+          <div class="word-zone" id="wordZone">
+            <div class="slots" id="slots"></div>
+            <input id="hiddenInput" class="hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </div>
+          <p class="hint" id="hint">输入对应的英文单词</p>
+        </main>
+
+        <footer class="actions">
+          <button id="skipBtn" class="btn" type="button">跳过</button>
+          <button id="nextBtn" class="btn primary" type="button" disabled>下一个</button>
+        </footer>
+      </div>
+
+      <!-- 2. 错题本视图 -->
+      <div id="view-wrongbook" class="view">
+        <h2 class="view-title">📕 错题本</h2>
+        <p class="view-desc">连续错误两次将自动加入。连续答对三次可移除。</p>
+        <div class="list-container" id="wrongbookList"></div>
+      </div>
+
+      <!-- 3. 已掌握视图 -->
+      <div id="view-mastered" class="view">
+        <h2 class="view-title">✅ 已掌握</h2>
+        <p class="view-desc">完成学习、听写、默写三个阶段。</p>
+        <div class="list-container" id="masteredList"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- 设置弹窗 -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-content">
+      <h3>⚙️ 学习计划设置</h3>
+      <div class="form-group">
+        <label for="goalInput">每日学习目标（词数）</label>
+        <input type="number" id="goalInput" min="1" max="500" value="20">
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="cancelSettingsBtn">取消</button>
+        <button class="btn primary" id="saveSettingsBtn">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/typing.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
