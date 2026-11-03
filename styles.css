@@ -160,24 +160,65 @@ body {
 .list-item .btn { flex: none; width: auto; padding: 8px 12px; font-size: 16px; border-radius: 8px; }
 
 /* 手机端适配 */
-@media (max-width: 600px) {
-  .app-container { flex-direction: column; }
-  .sidebar { width: 100%; flex-direction: row; border-right: none; border-bottom: 1px solid var(--border); overflow-x: auto; transition: none; }
-  .sidebar.collapsed { width: 100%; } /* 手机端默认不折叠 */
-  .toggle-btn { display: none; } /* 隐藏折叠按钮 */
-  .logo { display: none; }
-  .nav-btn { justify-content: center; padding: 15px 20px; }
-  .sidebar.collapsed .nav-btn { justify-content: center; padding: 15px 20px; }
+@media (max-width: 768px) {
+  .app-container { 
+    flex-direction: column; 
+    height: 100dvh; /* 适配手机浏览器地址栏 */
+  }
+  
+  /* 侧边栏变成顶部导航条 */
+  .sidebar { 
+    width: 100%; 
+    flex-direction: row; 
+    border-right: none; 
+    border-bottom: 1px solid var(--border); 
+    overflow-x: auto; 
+    transition: none; 
+    height: 56px; 
+    flex-shrink: 0;
+  }
+  
+  /* 隐藏 Logo 和折叠按钮 */
+  .logo, .toggle-btn { display: none; }
+  
+  /* 让按钮容器水平排列 */
+  .sidebar nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around; /* 按钮均匀分布 */
+  }
+  
+  /* 调整按钮样式 */
+  .nav-btn { 
+    justify-content: center; 
+    padding: 0 16px; 
+    white-space: nowrap;
+    flex: none;
+    border-right: none !important;
+    border-bottom: 3px solid transparent;
+  }
+  
+  /* 选中状态改为底部边框 */
+  .nav-btn.active { 
+    border-right: none; 
+    border-bottom: 3px solid var(--primary); 
+  }
+  
+  .sidebar.collapsed { width: 100%; } 
+  .sidebar.collapsed .nav-btn { justify-content: center; padding: 0 16px; }
   .sidebar.collapsed .nav-btn .text { display: block; }
-  .nav-btn.active { border-right: none; border-bottom: 3px solid var(--primary); }
-  .main-content { padding: 16px; }
-  .card { padding: 20px 16px; }
-}
 
-/* 在 styles.css 末尾追加 */
-.slot.typing {
-  color: #000000;
-  border-color: #1A3B5D; /* 给个深色边框表示已输入 */
+  .main-content { 
+    padding: 16px; 
+    padding-bottom: 20px;
+  }
+  
+  .card { padding: 20px 16px; }
+
+  /* 虚拟键盘显示 */
+  .virtual-keyboard { display: block; }
+  .hidden-input { display: none; }
 }
 
 /* 顶部栏文字调整 */
