@@ -20,6 +20,7 @@
     nextBtn:  document.getElementById("nextBtn"),
     prevWordBtn: document.getElementById("prevWordBtn"),
     nextWordBtn: document.getElementById("nextWordBtn"),
+    virtualKeyboard: document.getElementById("virtualKeyboard"),
     
     // 列表区
     wrongbookList: document.getElementById("wrongbookList"),
@@ -43,17 +44,48 @@
 
   const SPEAK_OVERRIDES = { api: "A P I", url: "U R L", html: "H T M L", css: "C S S", js: "J S", json: "J S O N", xml: "X M L", svg: "S V G", gui: "G U I", dns: "D N S", http: "H T T P", https: "H T T P S", smtp: "S M T P", imap: "I M A P", ssl: "S S L", tls: "T L S", ssh: "S S H", vpn: "V P N", ip: "I P", db: "D B", pid: "P I D", ocr: "O C R", hwnd: "H W N D", sku: "S K U", csrf: "C S R F", oauth: "O Auth", ngrok: "N G rok", nginx: "engine X", venv: "V env", sqlite: "S Q Lite", mysql: "My S Q L", asyncio: "a sync I O", kwargs: "K W args", douyin: "Dou Yin", xiaohongshu: "Xiao Hong Shu", kuaishou: "Kuai Shou", feishu: "Fei Shu", playwright: "Playwright" };
   const audioCache = new Map();
-  function fallbackSpeak(text) { if (!('speechSynthesis' in window)) return; const u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = 0.85; window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
-  async function speak(text) {
-    if (!text) return; const spoken = SPEAK_OVERRIDES[text.toLowerCase()] || text;
-    if (audioCache.has(spoken)) { const a = audioCache.get(spoken); a.currentTime = 0; a.play().catch(e => console.warn(e)); return; }
-    try {
-      const res = await fetch('/tts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: 'tts-1', input: spoken, voice: 'en-US-AvaMultilingualNeural' }) });
-      if (!res.ok) throw new Error(); const blob = await res.blob(); const a = new Audio(URL.createObjectURL(blob)); audioCache.set(spoken, a); await a.play();
-    } catch { fallbackSpeak(spoken); }
+  
+  function fallbackSpeak(text) { 
+    if (!('speechSynthesis' in window)) return; 
+    const u = new SpeechSynthesisUtterance(text); 
+    u.lang = 'en-US'; u.rate = 0.85; 
+    window.speechSynthesis.cancel(); 
+    window.speechSynthesis.speak(u); 
   }
 
-  // ============ 侧边栏折叠 & 视图切换 ============
+  async function speak(text) {
+    if (!text) return; 
+    const spoken = SPEAK_OVERRIDES[text.toLowerCase()] || text;
+    if (audioCache.has(spoken)) { 
+      const a = audioCache.get(spoken); 
+      a.currentTime = 0; 
+      a.play().catch(e => console.warn(e)); 
+      return; 
+    }
+    
+    // 核心：自动识别是本地环境还是线上环境
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const apiUrl = isLocal 
+      ? 'https://edge-tts.x14010560.workers.dev/v1/audio/speech' 
+      : '/tts';
+
+    try {
+      const res = await fetch(apiUrl, { 
+        method: 'POST', 
+        headers: { 'Content-Type': 'application/json' }, 
+        body: JSON.stringify({ model: 'tts-1', input: spoken, voice: 'en-US-AvaMultilingualNeural' }) 
+      });
+      if (!res.ok) throw new Error(); 
+      const blob = await res.blob(); 
+      const a = new Audio(URL.createObjectURL(blob)); 
+      audioCache.set(spoken, a); 
+      await a.play();
+    } catch { 
+      fallbackSpeak(spoken); 
+    }
+  }
+
+  // ============ 侧边栏 & 设置弹窗 ============
   els.toggleSidebar.addEventListener("click", () => els.sidebar.classList.toggle("collapsed"));
   els.navBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -69,27 +101,22 @@
     });
   });
 
-  // ============ 设置弹窗逻辑 ============
   els.openSettingsBtn.addEventListener("click", () => {
     const settings = Storage.getSettings();
     els.goalInput.value = settings.dailyGoal;
     els.settingsModal.classList.add("show");
   });
-
-  els.cancelSettingsBtn.addEventListener("click", () => {
-    els.settingsModal.classList.remove("show");
-  });
-
+  els.cancelSettingsBtn.addEventListener("click", () => els.settingsModal.classList.remove("show"));
   els.saveSettingsBtn.addEventListener("click", () => {
     const val = parseInt(els.goalInput.value, 10);
     if (val > 0) {
       Storage.saveSettings({ dailyGoal: val });
-      renderProgress(); // 刷新 UI
+      renderProgress(); 
     }
     els.settingsModal.classList.remove("show");
   });
 
-  // ============ 列表渲染 ============
+  // ============ 列表 ============
   function renderList(type) {
     const container = type === "wrongbook" ? els.wrongbookList : els.masteredList;
     const words = type === "wrongbook" ? Storage.getWrongBookWords() : Storage.getMasteredWords();
@@ -104,20 +131,15 @@
     });
   }
 
-  // ============ 练习核心：优化队列分配 ============
+  // ============ 练习核心 ============
   function buildQueue() {
     const allWords = [...WORD_DATA];
-    
     const reviewWords = []; 
     const newWords = [];    
-
     allWords.forEach(w => {
       const status = Storage.getStatus(w.word);
-      if (status.isWrongBook || status.stage === 2 || status.stage === 3) {
-        reviewWords.push(w); // ✅ 修复：推入完整的单词对象，而不是字符串
-      } else if (status.stage === 1) {
-        newWords.push(w);    // ✅ 修复：推入完整的单词对象
-      }
+      if (status.isWrongBook || status.stage === 2 || status.stage === 3) reviewWords.push(w);
+      else if (status.stage === 1) newWords.push(w);
     });
 
     const settings = Storage.getSettings();
@@ -125,25 +147,17 @@
     const dailyStats = Storage.getDailyStats();
     const learnedToday = dailyStats.learnedWords.length;
 
-    // 计算今天还能学多少新词
     const remainingNew = Math.max(0, dailyGoal - learnedToday);
-    
-    // 从新词池里随机抽出剩余需要学的数量
     const pickedNewWords = newWords.sort(() => Math.random() - 0.5).slice(0, remainingNew);
-    
-    // 复习词全部拉入，并打乱顺序
     reviewWords.sort(() => Math.random() - 0.5);
     
-    // 将复习词与新词交替穿插
     let finalQueue = [];
     let rIndex = 0, nIndex = 0;
-    
     while (rIndex < reviewWords.length || nIndex < pickedNewWords.length) {
       if (rIndex < reviewWords.length) finalQueue.push(reviewWords[rIndex++]);
       if (rIndex < reviewWords.length && Math.random() > 0.5) finalQueue.push(reviewWords[rIndex++]);
       if (nIndex < pickedNewWords.length) finalQueue.push(pickedNewWords[nIndex++]);
     }
-
     return finalQueue;
   }
 
@@ -231,7 +245,11 @@
     renderSlots(status.stage === 1, false);
     renderProgress();
     renderTopNav();
-    setTimeout(() => els.input.focus(), 50);
+    
+    // 电脑端才自动聚焦
+    if (window.innerWidth > 768) {
+      setTimeout(() => els.input.focus(), 50);
+    }
   }
 
   function judge() {
@@ -252,21 +270,20 @@
     renderProgress(); 
   }
 
-  // ============ 输入与按键事件 ============
-  els.input.addEventListener("input", () => {
-    if (state.locked) { els.input.value = state.input; return; }
-    
+  // ============ 处理输入逻辑 ============
+  function handleInput(val) {
+    if (state.locked) return;
     const target = state.current.word;
-    let val = els.input.value.toLowerCase().replace(/[^a-z]/g, "");
     if (val.length > target.length) val = val.slice(0, target.length);
     
     const status = Storage.getStatus(state.current.word);
 
+    // 学习模式下的自动回退拦截
     if (status.stage === 1 && val.length > state.input.length) {
       const newChar = val[val.length - 1];
       const targetChar = target[val.length - 1];
       if (newChar !== targetChar) {
-        els.input.value = state.input;
+        els.input.value = state.input; 
         els.hint.textContent = "❌ 输入错误，请重试";
         els.hint.style.color = "var(--wrong)";
         setTimeout(() => {
@@ -279,15 +296,14 @@
       }
     }
 
-    els.input.value = val; 
     state.input = val;
-    
+    els.input.value = val; 
     renderSlots(status.stage === 1, false); 
 
     if (val.length > 0) els.nextBtn.disabled = false;
 
     if (status.stage === 1 && Typing.isComplete(target, val)) {
-      judge();
+      judge(); 
     } else if (status.stage > 1 && Typing.isComplete(target, val) && !state.locked) {
       els.hint.textContent = "按 空格/回车 键 检查";
       els.hint.style.color = "var(--primary)";
@@ -295,18 +311,46 @@
       els.hint.textContent = "输入对应的英文单词";
       els.hint.style.color = "var(--muted)";
     }
+  }
+
+  // ============ 键盘事件 ============
+  // 1. 电脑物理键盘
+  els.input.addEventListener("input", () => {
+    if (state.locked) { els.input.value = state.input; return; }
+    let val = els.input.value.toLowerCase().replace(/[^a-z]/g, "");
+    handleInput(val);
   });
 
+  // 2. 电脑实体回车/空格
   els.input.addEventListener("keydown", (e) => {
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault(); 
-      if (state.locked) {
-        nextWord(); 
-      } else if (state.input.length > 0) {
-        judge(); 
-      }
+      if (state.locked) nextWord();
+      else if (state.input.length > 0) judge();
     }
   });
+
+  // 3. 手机虚拟键盘
+  if (els.virtualKeyboard) {
+    els.virtualKeyboard.addEventListener("click", (e) => {
+      const btn = e.target.closest(".vk-key");
+      if (!btn) return;
+      const key = btn.getAttribute("data-key");
+
+      if (key === "Backspace") {
+        if (!state.locked && state.input.length > 0) {
+          handleInput(state.input.slice(0, -1));
+        }
+      } else if (key === "Enter") {
+        if (state.locked) nextWord();
+        else if (state.input.length > 0) judge();
+      } else {
+        if (!state.locked) {
+          handleInput(state.input + key);
+        }
+      }
+    });
+  }
 
   els.nextBtn.addEventListener("click", () => {
     if (state.locked) nextWord();
@@ -331,33 +375,20 @@
   els.prevWordBtn.addEventListener("click", () => { if (state.index > 0) { state.index -= 1; renderCurrent(); } });
   els.nextWordBtn.addEventListener("click", () => { if (state.index < state.queue.length - 1) { state.index += 1; renderCurrent(); } });
 
-  // ============ 调度下一个词：加入微循环 ============
   function nextWord() {
-    // 如果队列为空，直接返回
     if (state.queue.length === 0) return;
-
     if (state.current) Storage.addDailyLearnedWord(state.current.word);
-
     const status = Storage.getStatus(state.current.word);
     
-    // 刚刚学完，立刻将其插入到队列后面第 3~4 个位置听写
     if (status.stage === 2 && !status.isWrongBook) {
        const insertPos = Math.min(state.queue.length, state.index + 3 + Math.floor(Math.random() * 2));
        state.queue.splice(insertPos, 0, state.current);
-    } 
-    // 刚刚听写对了，插入到第 6~8 个位置默写
-    else if (status.stage === 3 && !status.isWrongBook) {
+    } else if (status.stage === 3 && !status.isWrongBook) {
        const insertPos = Math.min(state.queue.length, state.index + 6 + Math.floor(Math.random() * 3));
        state.queue.splice(insertPos, 0, state.current);
     }
-
     state.index += 1;
-    
-    if (state.index >= state.queue.length) {
-      state.queue = buildQueue();
-      state.index = 0;
-    }
-    
+    if (state.index >= state.queue.length) { state.queue = buildQueue(); state.index = 0; }
     renderCurrent();
   }
 

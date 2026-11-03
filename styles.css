@@ -242,3 +242,56 @@ body {
   display: flex;
   gap: 12px;
 }
+
+/* ==========================================
+   虚拟键盘 (仅在手机端显示)
+   ========================================== */
+.virtual-keyboard {
+  display: none; /* 电脑端默认隐藏 */
+  width: 100%;
+  max-width: 520px;
+  margin-top: 16px;
+  background: #e3e6eb; 
+  padding: 8px 4px;
+  border-radius: 12px;
+  user-select: none; 
+}
+
+.vk-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.vk-row:last-child { margin-bottom: 0; }
+
+.vk-key {
+  flex: 1;
+  height: 46px;
+  background: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation; 
+}
+.vk-key:active { background: #d1d5db; }
+
+.vk-key.vk-action {
+  flex: 1.5; 
+  background: #d1d5db;
+  font-size: 16px;
+}
+.vk-key.vk-action:active { background: #9ca3af; }
+
+@media (max-width: 768px) {
+  .virtual-keyboard { display: block; }
+  .hidden-input { display: none; } /* 禁用手机自带键盘 */
+  .main-content { padding-bottom: 20px; }
+}
