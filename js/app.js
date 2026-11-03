@@ -48,7 +48,7 @@
     if (!text) return; const spoken = SPEAK_OVERRIDES[text.toLowerCase()] || text;
     if (audioCache.has(spoken)) { const a = audioCache.get(spoken); a.currentTime = 0; a.play().catch(e => console.warn(e)); return; }
     try {
-      const res = await fetch('https://edge-tts.x14010560.workers.dev/v1/audio/speech', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: 'tts-1', input: spoken, voice: 'en-US-AvaMultilingualNeural' }) });
+      const res = await fetch('/tts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: 'tts-1', input: spoken, voice: 'en-US-AvaMultilingualNeural' }) });
       if (!res.ok) throw new Error(); const blob = await res.blob(); const a = new Audio(URL.createObjectURL(blob)); audioCache.set(spoken, a); await a.play();
     } catch { fallbackSpeak(spoken); }
   }
