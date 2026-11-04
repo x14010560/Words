@@ -131,23 +131,30 @@ body {
 .word-zone { position: relative; width: 100%; display: flex; justify-content: center; min-height: 64px; }
 .slots { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 
+/* ==========================================
+   单词格子颜色（提高优先级，对比更明显）
+   ========================================== */
 .slot {
   width: 44px; height: 56px; border-radius: 10px; background: #ffffff;
   border: 1px solid #e3e6eb; display: flex; align-items: center; justify-content: center;
   font-size: 24px; font-weight: 600; line-height: 1; color: #000000;
 }
-/* 未输入的提示字母：更浅的灰色 */
+
+/* 未输入的提示字母：浅灰色 (使用 !important 确保不被覆盖) */
 .slot-hint { color: #b0b5bd !important; }
 
-/* 学习模式已输入的字母：深蓝色 */
+/* 学习模式已输入的字母：深蓝色 (提高选择器权重) */
 .slot.typing { 
-  color: #1A3B5D; 
-  border-color: #1A3B5D; 
+  color: #1A3B5D !important; 
+  border-color: #1A3B5D !important; 
 }
 
+/* 判定后的正确/错误样式 */
 .slot.correct { color: #000000; border-color: #000000; }
 .slot.wrong { color: var(--wrong); border-color: var(--wrong); }
-.slot.active { border: 2px solid var(--primary); }
+
+/* 当前光标位置 */
+.slot.active { border: 2px solid var(--primary); }.slot.active { border: 2px solid var(--primary); }
 
 .hidden-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 10; }
 .hint { font-size: 14px; color: var(--muted); min-height: 20px; text-align: center; transition: color 0.2s; }
@@ -293,7 +300,7 @@ body {
 }
 
 /* ==========================================
-   虚拟键盘 (仅在手机端显示)
+   虚拟键盘 (放大版，防误触)
    ========================================== */
 .virtual-keyboard {
   display: none; 
@@ -301,31 +308,30 @@ body {
   max-width: 520px;
   margin-top: 16px;
   background: #e3e6eb; 
-  padding: 12px 6px; /* 增加内边距 */
+  padding: 12px 6px;
   border-radius: 16px;
   user-select: none; 
-  /* 适配手机底部安全区（刘海屏） */
   padding-bottom: max(12px, env(safe-area-inset-bottom)); 
 }
 
 .vk-row {
   display: flex;
   justify-content: center;
-  gap: 8px; /* 增加按键间距，防误触 */
-  margin-bottom: 10px; /* 增加行距 */
+  gap: 8px; 
+  margin-bottom: 10px; 
 }
 .vk-row:last-child { margin-bottom: 0; }
 
 .vk-key {
   flex: 1;
-  height: 52px; /* 高度从 46 加到 52 */
+  height: 52px; /* 加高按键 */
   background: #ffffff;
   border: none;
   border-radius: 8px;
-  font-size: 22px; /* 字体加大 */
+  font-size: 22px; /* 加大字体 */
   font-weight: 500;
   color: #000;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15); /* 增加立体感 */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
   cursor: pointer;
   display: flex;
   align-items: center;

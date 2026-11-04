@@ -207,7 +207,7 @@
     }
   }
 
-  // 🎯 修复渲染逻辑，增强对比度
+  // 🎯 修复：先设置 class，再添加提示类，防止样式被覆盖
   function renderSlots(showHint = false, isJudged = false) {
     const target = state.current.word;
     const parts = Typing.compare(target, state.input);
@@ -216,26 +216,31 @@
     parts.forEach((p, i) => {
       const div = document.createElement("div");
       let displayStatus = p.status;
+      let isHint = false;
       
       if (!isJudged && (p.status === "correct" || p.status === "wrong")) {
-        // 已经敲击了字母（无论对错，在未判定前都显示为深蓝）
         displayStatus = "typing";
         div.textContent = state.input[i]; 
       } 
       else if (isJudged && (p.status === "correct" || p.status === "wrong")) {
-        // 判定后，全部显示正确单词的字母（打错的格子会变红）
         div.textContent = target[i]; 
       } 
       else if (showHint && (p.status === "pending" || p.status === "active")) {
-        // 学习模式：未输入的部分显示浅灰色的提示字母
         div.textContent = target[i]; 
-        div.classList.add("slot-hint");
+        isHint = true; // 标记为提示字母
       } 
       else {
         div.textContent = "";
       }
       
+      // 先设置基础类名和状态类名
       div.className = "slot " + displayStatus;
+      
+      // 如果是提示字母，再追加提示类名（不会被覆盖）
+      if (isHint) {
+        div.classList.add("slot-hint");
+      }
+      
       els.slots.appendChild(div);
     });
   }
