@@ -17,9 +17,12 @@
     <!-- 侧边栏 -->
     <aside class="sidebar" id="sidebar">
       <div class="logo">TypeWords</div>
+      
+      <!-- 词库切换器 -->
       <div class="lib-selector">
         <select id="libSelect"></select>
       </div>
+
       <nav style="flex:1;">
         <button class="nav-btn active" data-target="view-practice">
           <span class="icon">🎯</span><span class="text">练习</span>
@@ -29,6 +32,9 @@
         </button>
         <button class="nav-btn" data-target="view-mastered">
           <span class="icon">✅</span><span class="text">已掌握</span>
+        </button>
+        <button class="nav-btn" data-target="view-manager">
+          <span class="icon">📚</span><span class="text">词库管理</span>
         </button>
         <button class="nav-btn" id="openSettingsBtn">
           <span class="icon">⚙️</span><span class="text">设置</span>
@@ -42,7 +48,6 @@
       
       <!-- 1. 练习视图 -->
       <div id="view-practice" class="view active">
-        
         <div class="top-nav-area">
           <div class="word-nav">
             <button id="prevWordBtn" class="word-nav-btn">⬅️ <span>-</span></button>
@@ -111,7 +116,6 @@
             <button class="vk-key vk-action" data-key="Enter">↵</button>
           </div>
         </div>
-
       </div>
 
       <!-- 2. 错题本视图 -->
@@ -128,35 +132,57 @@
         <div class="list-container" id="masteredList"></div>
       </div>
 
+      <!-- 4. 词库管理视图 -->
+      <div id="view-manager" class="view">
+        <h2 class="view-title">📚 在线词库管理</h2>
+        <p class="view-desc">支持导入有道词典 CSV，或手动添加单词/代码指令。</p>
+        
+        <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+          <input type="file" id="csvInput" accept=".csv" style="display:none;">
+          <button class="btn primary" onclick="document.getElementById('csvInput').click()">导入 CSV</button>
+          <button class="btn" id="addManualBtn">手动添加</button>
+        </div>
+        <div class="list-container" id="managerList" style="max-height: 60vh; overflow-y: auto;"></div>
+      </div>
+
     </main>
   </div>
 
-  <!-- 设置弹窗 -->
+  <!-- 设置弹窗 (结构回归) -->
   <div class="modal-overlay" id="settingsModal">
     <div class="modal-content">
-      <h3>⚙️ 学习计划设置</h3>
+      <h3>⚙️ 学习计划与同步</h3>
+      
       <div class="form-group">
         <label for="goalInput">每日学习目标（词数）</label>
         <input type="number" id="goalInput" min="1" max="500" value="20">
       </div>
       
-      <!-- 新增：跨设备同步 -->
+      <!-- 本地导出导入（保留作为备用） -->
       <div class="sync-section">
-        <label>跨设备同步（无网络同步服务，请手动导入导出）</label>
+        <label>本地进度导出/导入</label>
         <div class="sync-actions">
-          <button class="btn" id="exportBtn" type="button">导出进度</button>
-          <button class="btn" id="importBtn" type="button">导入进度</button>
+          <button class="btn" id="exportBtn" type="button">导出</button>
+          <button class="btn" id="importBtn" type="button">导入</button>
+        </div>
+      </div>
+
+      <!-- 云端同步 -->
+      <div class="sync-section">
+        <label>多设备云同步</label>
+        <div class="sync-actions">
+          <button class="btn" id="uploadCloudBtn" type="button">☁️ 上传云端</button>
+          <button class="btn" id="downloadCloudBtn" type="button">☁️ 从云端拉取</button>
         </div>
       </div>
 
       <div class="modal-actions" style="margin-top: 24px;">
-        <button class="btn" id="cancelSettingsBtn">取消</button>
+        <button class="btn" id="cancelSettingsBtn">关闭</button>
         <button class="btn primary" id="saveSettingsBtn">保存</button>
       </div>
     </div>
   </div>
 
-  <script src="js/data.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/typing.js"></script>
   <script src="js/app.js"></script>

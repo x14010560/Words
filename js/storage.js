@@ -2,17 +2,9 @@ window.Storage = (function () {
   const KEY_PREFIX = "typing_words_v3_";
   const CURRENT_LIB_KEY = "typing_words_current_lib";
 
-  // 获取当前学习的词库 ID
-  function getCurrentLib() {
-    return localStorage.getItem(CURRENT_LIB_KEY) || "computer";
-  }
-  
-  // 切换词库
-  function setCurrentLib(id) {
-    localStorage.setItem(CURRENT_LIB_KEY, id);
-  }
+  function getCurrentLib() { return localStorage.getItem(CURRENT_LIB_KEY) || "computer"; }
+  function setCurrentLib(id) { localStorage.setItem(CURRENT_LIB_KEY, id); }
 
-  // 生成基于当前词库的动态 Key
   function getKeys() {
     const lib = getCurrentLib();
     return {
@@ -22,13 +14,11 @@ window.Storage = (function () {
     };
   }
 
-  // 获取今天的日期字符串
   function getTodayString() {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   }
 
-  // --- 单词进度 ---
   function loadAll() {
     try { return JSON.parse(localStorage.getItem(getKeys().progress)) || {}; } catch { return {}; }
   }
@@ -72,18 +62,6 @@ window.Storage = (function () {
     return { mastered, wrongBook };
   }
 
-  // 获取当前词库的所有数据（用于查错题、查已掌握）
-  async function getCurrentData() {
-    const lib = getCurrentLib();
-    if (lib === 'custom') return getCustomLib();
-    try {
-      const res = await fetch(`./data/official/${lib}.json`);
-      if (!res.ok) return [];
-      return await res.json();
-    } catch { return []; }
-  }
-
-  // 由于查错题需要同步返回，这里用一个简单的缓存机制
   let cachedData = [];
   window.setCurrentLibData = (data) => { cachedData = data; };
 
@@ -103,7 +81,6 @@ window.Storage = (function () {
     });
   }
 
-  // --- 设置与每日计划 ---
   function getSettings() {
     try { return JSON.parse(localStorage.getItem(getKeys().settings)) || { dailyGoal: 20 }; } catch { return { dailyGoal: 20 }; }
   }
@@ -126,31 +103,31 @@ window.Storage = (function () {
     } catch {}
   }
 
-  // --- 自定义词库管理 ---
+  // --- 自定义词库 ---
   function getCustomLib() {
     try { return JSON.parse(localStorage.getItem("typing_words_custom_lib")) || []; } catch { return []; }
   }
-  function saveCustomLib(words) { localStorage.setItem("typing_words_custom_lib", JSON.stringify(words)); }
-  function addCustomWord(wordData) {
-    const words = getCustomLib();
-    const index = words.findIndex(w => w.word === wordData.word);
-    if (index > -1) words[index] = wordData;
-    else words.push(wordData);
-    saveCustomLib(words);
+  function saveCustomLib(words) {
+    localStorage.setItem("typing_words_custom_lib", JSON.stringify(words));
   }
-  function deleteCustomWord(wordStr) {
-    let words = getCustomLib();
-    words = words.filter(w => w.word !== wordStr);
-    saveCustomLib(words);
+
+  // --- 同步功能 ---
+  function getAllLocalData() {
+    const data = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith("typing_words_")) {
+        data[key] = localStorage.getItem(key);
+      }
+    }
+    return data;
   }
-  function importCustomWords(newWords) {
-    let words = getCustomLib();
-    newWords.forEach(nw => {
-      const index = words.findIndex(w => w.word === nw.word);
-      if (index > -1) words[index] = nw;
-      else words.push(nw);
-    });
-    saveCustomLib(words);
+
+  function applyCloudData(cloudProgress) {
+    if (!cloudProgress) return;
+    for (const key in cloudProgress) {
+      localStorage.setItem(key, cloudProgress[key]);
+    }
   }
 
   return { 
@@ -158,6 +135,7 @@ window.Storage = (function () {
     getStatus, record, getStats, loadAll, 
     getWrongBookWords, getMasteredWords,
     getSettings, saveSettings, getDailyStats, addDailyLearnedWord,
-    getCustomLib, saveCustomLib, addCustomWord, deleteCustomWord, importCustomWords
+    getCustomLib, saveCustomLib,
+    getAllLocalData, applyCloudData
   };
 })();

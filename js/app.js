@@ -507,6 +507,145 @@
     renderCurrent();
   }
 
+  // ============ 云同步 & 词库管理逻辑 ============
+  const elsCloud = {
+    uploadCloudBtn: document.getElementById("uploadCloudBtn"),
+    downloadCloudBtn: document.getElementById("downloadCloudBtn"),
+    csvInput: document.getElementById("csvInput"),
+    addManualBtn: document.getElementById("addManualBtn"),
+    managerList: document.getElementById("managerList")
+  };
+
+  // 1. 上传到云端
+  elsCloud.uploadCloudBtn.addEventListener("click", async () => {
+    const progress = Storage.getAllLocalData();
+    const customLib = Storage.getCustomLib();
+    
+    elsCloud.uploadCloudBtn.textContent = "上传中...";
+    try {
+      const res = await fetch('/api/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: "123456", progress, customLib })
+      });
+      const data = await res.json();
+      if (data.success) alert("☁️ 所有进度和词库已成功备份到云端！");
+      else alert("上传失败：" + data.error);
+    } catch {
+      alert("网络错误，上传失败");
+    }
+    elsCloud.uploadCloudBtn.textContent = "☁️ 上传云端";
+  });
+
+  // 2. 从云端拉取
+  elsCloud.downloadCloudBtn.addEventListener("click", async () => {
+    if (!confirm("这会覆盖你当前设备的进度和自定义词库，确定拉取吗？")) return;
+    
+    elsCloud.downloadCloudBtn.textContent = "拉取中...";
+    try {
+      const res = await fetch('/api/sync');
+      const data = await res.json();
+      
+      Storage.applyCloudData(data.progress);
+      if (data.customLib && data.customLib.length > 0) Storage.saveCustomLib(data.customLib);
+      
+      alert("☁️ 同步成功！页面将刷新。");
+      location.reload();
+    } catch {
+      alert("网络错误，拉取失败");
+    }
+    elsCloud.downloadCloudBtn.textContent = "☁️ 从云端拉取";
+  });
+
+  // 3. 渲染词库管理列表
+  function renderManagerList() {
+    const words = Storage.getCustomLib();
+    elsCloud.managerList.innerHTML = "";
+    if (words.length === 0) {
+      elsCloud.managerList.innerHTML = `<p style="color:var(--muted);text-align:center;padding:20px;">暂无自定义单词</p>`;
+      return;
+    }
+    words.forEach((w, idx) => {
+      const div = document.createElement("div");
+      div.className = "list-item";
+      div.innerHTML = `
+        <div class="list-info">
+          <span class="list-word">${w.word} <small style="color:var(--muted)">${w.phonetic || ''}</small></span>
+          <span class="list-meaning">${w.meaning || '无释义'}</span>
+        </div>
+        <button class="delete-btn" data-idx="${idx}">删除</button>
+      `;
+      div.querySelector(".delete-btn").addEventListener("click", (e) => {
+        const i = e.target.getAttribute("data-idx");
+        let current = Storage.getCustomLib();
+        current.splice(i, 1);
+        Storage.saveCustomLib(current);
+        renderManagerList();
+      });
+      elsCloud.managerList.appendChild(div);
+    });
+  }
+
+  // 4. 导入 CSV 逻辑
+  elsCloud.csvInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      const text = evt.target.result;
+      const lines = text.split('\n');
+      let newWords = Storage.getCustomLib();
+      
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        const cols = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || line.split(',');
+        if (cols.length >= 2) {
+          const word = cols[0].replace(/"/g, '').trim();
+          let phonetic = '', meaning = '';
+          if (cols.length >= 3) {
+            phonetic = cols[1].replace(/"/g, '').trim();
+            meaning = cols.slice(2).join(',').replace(/"/g, '').trim();
+          } else {
+            meaning = cols[1].replace(/"/g, '').trim();
+          }
+          if (word) {
+            const existingIdx = newWords.findIndex(w => w.word === word);
+            if (existingIdx > -1) newWords[existingIdx] = { word, phonetic, meaning };
+            else newWords.push({ word, phonetic, meaning });
+          }
+        }
+      }
+      Storage.saveCustomLib(newWords);
+      alert(`成功导入/更新 ${newWords.length} 个单词！`);
+      renderManagerList();
+      e.target.value = '';
+    };
+    reader.readAsText(file);
+  });
+
+  // 5. 手动添加
+  elsCloud.addManualBtn.addEventListener("click", () => {
+    const word = prompt("请输入单词或指令（如：git push）：");
+    if (!word) return;
+    const meaning = prompt("请输入释义（可选）：") || "无释义";
+    let current = Storage.getCustomLib();
+    const existingIdx = current.findIndex(w => w.word === word.trim());
+    if (existingIdx > -1) current[existingIdx] = { word: word.trim(), phonetic: "", meaning: meaning.trim() };
+    else current.push({ word: word.trim(), phonetic: "", meaning: meaning.trim() });
+    Storage.saveCustomLib(current);
+    renderManagerList();
+  });
+
+  // 6. 视图切换时渲染
+  els.navBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (btn.getAttribute("data-target") === "view-manager") {
+        renderManagerList();
+      }
+    });
+  });
+
   function start() { 
     state.queue = buildQueue(); 
     state.index = 0; 
