@@ -1,0 +1,4 @@
+[
+  { "id": "computer", "name": "计算机英语", "path": "data/official/computer.json" },
+  { "id": "custom", "name": "🌟 我的自定义词库", "path": "local" }
+]

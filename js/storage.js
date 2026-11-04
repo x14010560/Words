@@ -49,11 +49,23 @@ window.Storage = (function () {
     }
     return { mastered, wrongBook };
   }
+  // 修改 getWrongBookWords 中的查询逻辑
   function getWrongBookWords() {
     const all = loadAll();
     return Object.keys(all).filter(k => all[k].isWrongBook).map(k => {
-      const wordData = window.WORD_DATA.find(w => w.word === k) || { word: k, meaning: "未知", phonetic: "" };
-      return { ...wordData, status: all[k] };
+      // 不再依赖 window.WORD_DATA，改为从本地自定义库或全局缓存找
+      let wordData = getCustomLib().find(w => w.word === k);
+      
+      // 如果没在自定义里，尝试去当前加载的官方数据里找
+      if (!wordData && window.currentLibDataCache) {
+         wordData = window.currentLibDataCache.find(w => w.word === k);
+      }
+      
+      return { 
+        word: k, 
+        meaning: wordData ? wordData.meaning : "未知", 
+        phonetic: wordData ? wordData.phonetic : "" 
+      };
     });
   }
   function getMasteredWords() {

@@ -4,6 +4,7 @@
     views: document.querySelectorAll(".view"),
     sidebar: document.getElementById("sidebar"),
     toggleSidebar: document.getElementById("toggleSidebar"),
+    libSelect: document.getElementById("libSelect"), // 词库切换器
     
     // 练习区
     modeTag: document.getElementById("modeTag"),
@@ -43,6 +44,9 @@
     input: "",
     locked: false,
   };
+
+  // 当前加载的词库数据
+  let currentLibData = [];
 
   const SPEAK_OVERRIDES = { api: "A P I", url: "U R L", html: "H T M L", css: "C S S", js: "J S", json: "J S O N", xml: "X M L", svg: "S V G", gui: "G U I", dns: "D N S", http: "H T T P", https: "H T T P S", smtp: "S M T P", imap: "I M A P", ssl: "S S L", tls: "T L S", ssh: "S S H", vpn: "V P N", ip: "I P", db: "D B", pid: "P I D", ocr: "O C R", hwnd: "H W N D", sku: "S K U", csrf: "C S R F", oauth: "O Auth", ngrok: "N G rok", nginx: "engine X", venv: "V env", sqlite: "S Q Lite", mysql: "My S Q L", asyncio: "a sync I O", kwargs: "K W args", douyin: "Dou Yin", xiaohongshu: "Xiao Hong Shu", kuaishou: "Kuai Shou", feishu: "Fei Shu", playwright: "Playwright" };
   const audioCache = new Map();
@@ -118,13 +122,13 @@
   // ============ 同步功能 (导出/导入) ============
   els.exportBtn.addEventListener("click", () => {
     const data = {
-      progress: localStorage.getItem("typing_words_progress_v2"),
-      settings: localStorage.getItem("typing_words_settings"),
-      daily: localStorage.getItem("typing_words_daily")
+      progress: localStorage.getItem("typing_words_v3_progress_" + Storage.getCurrentLib()),
+      settings: localStorage.getItem("typing_words_v3_settings_" + Storage.getCurrentLib()),
+      daily: localStorage.getItem("typing_words_v3_daily_" + Storage.getCurrentLib())
     };
     const str = btoa(encodeURIComponent(JSON.stringify(data)));
     navigator.clipboard.writeText(str).then(() => {
-      alert("学习进度已复制到剪贴板！\n请发送到另一台设备并在那里选择“导入进度”。");
+      alert("当前词库的学习进度已复制到剪贴板！");
     }).catch(() => {
       prompt("复制失败，请手动复制以下代码：", str);
     });
@@ -135,9 +139,10 @@
     if (!str) return;
     try {
       const data = JSON.parse(decodeURIComponent(atob(str)));
-      if (data.progress) localStorage.setItem("typing_words_progress_v2", data.progress);
-      if (data.settings) localStorage.setItem("typing_words_settings", data.settings);
-      if (data.daily) localStorage.setItem("typing_words_daily", data.daily);
+      const lib = Storage.getCurrentLib();
+      if (data.progress) localStorage.setItem("typing_words_v3_progress_" + lib, data.progress);
+      if (data.settings) localStorage.setItem("typing_words_v3_settings_" + lib, data.settings);
+      if (data.daily) localStorage.setItem("typing_words_v3_daily_" + lib, data.daily);
       alert("导入成功！页面将刷新。");
       location.reload();
     } catch (e) {
@@ -160,9 +165,72 @@
     });
   }
 
+  // ============ 词库加载 ============
+  async function loadLibData(libId) {
+    if (libId === 'custom') {
+      currentLibData = Storage.getCustomLib();
+      return;
+    }
+    try {
+      // 注意：这里直接去请求对应的 JSON 文件
+      const res = await fetch(`./data/official/${libId}.json`);
+      if (!res.ok) throw new Error("找不到词库文件");
+      currentLibData = await res.json();
+    } catch (err) {
+      console.error("加载词库失败", err);
+      alert("加载词库失败，请检查网络或文件是否存在");
+      currentLibData = [];
+    }
+  }
+
+  async function initLibSelector() {
+    // 手动加入 Custom 选项
+    const customOption = document.createElement("option");
+    customOption.value = "custom";
+    customOption.textContent = "🌟 我的自定义词库";
+    els.libSelect.appendChild(customOption);
+
+    // 从 index.json 获取官方词库列表
+    try {
+      const res = await fetch('./data/index.json');
+      const indexList = await res.json();
+      
+      const currentLibId = Storage.getCurrentLib();
+      
+      indexList.forEach(lib => {
+        if (lib.id === 'custom') return; // 上面已经加过了
+        const option = document.createElement("option");
+        option.value = lib.id;
+        option.textContent = lib.name;
+        els.libSelect.appendChild(option);
+      });
+      
+      els.libSelect.value = currentLibId;
+      await loadLibData(currentLibId);
+
+    } catch (err) {
+      console.error("加载词库目录失败", err);
+    }
+
+    els.libSelect.addEventListener("change", async (e) => {
+      const newLibId = e.target.value;
+      Storage.setCurrentLib(newLibId);
+      
+      els.meaning.textContent = "词库加载中...";
+      els.slots.innerHTML = "";
+      
+      await loadLibData(newLibId);
+      
+      state.queue = []; 
+      state.index = 0;
+      renderProgress();
+      start();
+    });
+  }
+
   // ============ 练习核心 ============
   function buildQueue() {
-    const allWords = [...WORD_DATA];
+    const allWords = [...currentLibData];
     const reviewWords = []; 
     const newWords = [];    
     allWords.forEach(w => {
@@ -207,7 +275,6 @@
     }
   }
 
-  // 🎯 修复：先设置 class，再添加提示类，防止样式被覆盖
   function renderSlots(showHint = false, isJudged = false) {
     const target = state.current.word;
     const parts = Typing.compare(target, state.input);
@@ -227,19 +294,14 @@
       } 
       else if (showHint && (p.status === "pending" || p.status === "active")) {
         div.textContent = target[i]; 
-        isHint = true; // 标记为提示字母
+        isHint = true; 
       } 
       else {
         div.textContent = "";
       }
       
-      // 先设置基础类名和状态类名
       div.className = "slot " + displayStatus;
-      
-      // 如果是提示字母，再追加提示类名（不会被覆盖）
-      if (isHint) {
-        div.classList.add("slot-hint");
-      }
+      if (isHint) div.classList.add("slot-hint");
       
       els.slots.appendChild(div);
     });
@@ -303,7 +365,6 @@
     }
   }
 
-  // 🎯 修复问题 2：判定后展示完整的音标和释义
   function judge() {
     const target = state.current.word;
     const ok = Typing.isExact(target, state.input);
@@ -312,7 +373,6 @@
     
     state.locked = true;
     
-    // 判定后，无论听写还是默写，都把正确的音标和释义亮出来让用户核对
     els.meaning.textContent = state.current.meaning;
     els.phonetic.textContent = state.current.phonetic || "";
 
@@ -447,6 +507,15 @@
     renderCurrent();
   }
 
-  function start() { state.queue = buildQueue(); state.index = 0; renderCurrent(); }
-  start();
+  function start() { 
+    state.queue = buildQueue(); 
+    state.index = 0; 
+    renderCurrent(); 
+  }
+
+  // 启动应用
+  initLibSelector().then(() => {
+    start();
+  });
+
 })();
