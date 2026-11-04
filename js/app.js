@@ -31,7 +31,9 @@
     openSettingsBtn: document.getElementById("openSettingsBtn"),
     cancelSettingsBtn: document.getElementById("cancelSettingsBtn"),
     saveSettingsBtn: document.getElementById("saveSettingsBtn"),
-    goalInput: document.getElementById("goalInput")
+    goalInput: document.getElementById("goalInput"),
+    exportBtn: document.getElementById("exportBtn"),
+    importBtn: document.getElementById("importBtn")
   };
 
   const state = {
@@ -63,11 +65,8 @@
       return; 
     }
     
-    // 核心：自动识别是本地环境还是线上环境
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const apiUrl = isLocal 
-      ? 'https://edge-tts.x14010560.workers.dev/v1/audio/speech' 
-      : '/tts';
+    const apiUrl = isLocal ? 'https://edge-tts.x14010560.workers.dev/v1/audio/speech' : '/tts';
 
     try {
       const res = await fetch(apiUrl, { 
@@ -114,6 +113,36 @@
       renderProgress(); 
     }
     els.settingsModal.classList.remove("show");
+  });
+
+  // ============ 同步功能 (导出/导入) ============
+  els.exportBtn.addEventListener("click", () => {
+    const data = {
+      progress: localStorage.getItem("typing_words_progress_v2"),
+      settings: localStorage.getItem("typing_words_settings"),
+      daily: localStorage.getItem("typing_words_daily")
+    };
+    const str = btoa(encodeURIComponent(JSON.stringify(data)));
+    navigator.clipboard.writeText(str).then(() => {
+      alert("学习进度已复制到剪贴板！\n请发送到另一台设备并在那里选择“导入进度”。");
+    }).catch(() => {
+      prompt("复制失败，请手动复制以下代码：", str);
+    });
+  });
+
+  els.importBtn.addEventListener("click", () => {
+    const str = prompt("请粘贴另一台设备导出的进度代码：");
+    if (!str) return;
+    try {
+      const data = JSON.parse(decodeURIComponent(atob(str)));
+      if (data.progress) localStorage.setItem("typing_words_progress_v2", data.progress);
+      if (data.settings) localStorage.setItem("typing_words_settings", data.settings);
+      if (data.daily) localStorage.setItem("typing_words_daily", data.daily);
+      alert("导入成功！页面将刷新。");
+      location.reload();
+    } catch (e) {
+      alert("导入失败，代码格式不正确或已损坏。");
+    }
   });
 
   // ============ 列表 ============
@@ -178,17 +207,35 @@
     }
   }
 
+  // 🎯 修复问题 1：真实的输入字符展示逻辑
   function renderSlots(showHint = false, isJudged = false) {
     const target = state.current.word;
     const parts = Typing.compare(target, state.input);
     els.slots.innerHTML = "";
-    parts.forEach((p) => {
+    
+    parts.forEach((p, i) => {
       const div = document.createElement("div");
       let displayStatus = p.status;
-      if (!isJudged && (p.status === "correct" || p.status === "wrong")) displayStatus = "typing";
+      
+      if (!isJudged && (p.status === "correct" || p.status === "wrong")) {
+        // 还没判定，并且已经敲击了字母
+        displayStatus = "typing";
+        div.textContent = state.input[i]; // 显示用户打出的字（错字就是错字）
+      } 
+      else if (isJudged && (p.status === "correct" || p.status === "wrong")) {
+        // 已判定，全部显示正确单词的字母（打错的格子会变红）
+        div.textContent = target[i]; 
+      } 
+      else if (showHint) {
+        // 学习模式的灰色提示
+        div.textContent = target[i]; 
+        div.classList.add("slot-hint");
+      } 
+      else {
+        div.textContent = "";
+      }
+      
       div.className = "slot " + displayStatus;
-      if (p.status === "correct" || p.status === "wrong") div.textContent = p.char;
-      else if (showHint) { div.textContent = p.char; div.classList.add("slot-hint"); }
       els.slots.appendChild(div);
     });
   }
@@ -246,12 +293,12 @@
     renderProgress();
     renderTopNav();
     
-    // 电脑端才自动聚焦
     if (window.innerWidth > 768) {
       setTimeout(() => els.input.focus(), 50);
     }
   }
 
+  // 🎯 修复问题 2：判定后展示完整的音标和释义
   function judge() {
     const target = state.current.word;
     const ok = Typing.isExact(target, state.input);
@@ -259,18 +306,24 @@
     const newStatus = Storage.record(target, ok);
     
     state.locked = true;
+    
+    // 判定后，无论听写还是默写，都把正确的音标和释义亮出来让用户核对
+    els.meaning.textContent = state.current.meaning;
+    els.phonetic.textContent = state.current.phonetic || "";
+
     if (ok) {
       els.hint.textContent = "✅ 正确！"; els.hint.style.color = "var(--correct)";
     } else {
       els.hint.textContent = `❌ 拼写错误 (正确答案: ${target})`; els.hint.style.color = "var(--wrong)";
       if (newStatus.isWrongBook && !oldStatus.isWrongBook) els.hint.textContent += " | 已加入错题本！";
     }
+    
     els.nextBtn.disabled = false;
     renderSlots(false, true); 
     renderProgress(); 
   }
 
-  // ============ 处理输入逻辑 ============
+  // ============ 输入逻辑 ============
   function handleInput(val) {
     if (state.locked) return;
     const target = state.current.word;
@@ -278,7 +331,6 @@
     
     const status = Storage.getStatus(state.current.word);
 
-    // 学习模式下的自动回退拦截
     if (status.stage === 1 && val.length > state.input.length) {
       const newChar = val[val.length - 1];
       const targetChar = target[val.length - 1];
@@ -313,15 +365,13 @@
     }
   }
 
-  // ============ 键盘事件 ============
-  // 1. 电脑物理键盘
+  // 物理键盘
   els.input.addEventListener("input", () => {
     if (state.locked) { els.input.value = state.input; return; }
     let val = els.input.value.toLowerCase().replace(/[^a-z]/g, "");
     handleInput(val);
   });
 
-  // 2. 电脑实体回车/空格
   els.input.addEventListener("keydown", (e) => {
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault(); 
@@ -330,7 +380,7 @@
     }
   });
 
-  // 3. 手机虚拟键盘
+  // 虚拟键盘
   if (els.virtualKeyboard) {
     els.virtualKeyboard.addEventListener("click", (e) => {
       const btn = e.target.closest(".vk-key");

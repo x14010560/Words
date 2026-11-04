@@ -136,7 +136,17 @@
         <label for="goalInput">每日学习目标（词数）</label>
         <input type="number" id="goalInput" min="1" max="500" value="20">
       </div>
-      <div class="modal-actions">
+      
+      <!-- 新增：跨设备同步 -->
+      <div class="sync-section">
+        <label>跨设备同步（无网络同步服务，请手动导入导出）</label>
+        <div class="sync-actions">
+          <button class="btn" id="exportBtn" type="button">导出进度</button>
+          <button class="btn" id="importBtn" type="button">导入进度</button>
+        </div>
+      </div>
+
+      <div class="modal-actions" style="margin-top: 24px;">
         <button class="btn" id="cancelSettingsBtn">取消</button>
         <button class="btn primary" id="saveSettingsBtn">保存</button>
       </div>
