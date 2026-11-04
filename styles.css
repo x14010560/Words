@@ -365,3 +365,59 @@ body {
 .sync-section label { font-size: 12px; color: var(--muted); }
 .sync-actions { display: flex; gap: 8px; }
 .sync-actions .btn { padding: 10px; font-size: 14px; }
+
+/* ==========================================
+   词库切换器 (美化版)
+   ========================================== */
+.lib-selector {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  background: #ffffff;
+}
+
+.lib-selector select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d0d4db;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  font-size: 14px;
+  color: #1A3B5D;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  appearance: none; /* 去除系统默认下拉箭头 */
+  
+  /* 用 SVG 画一个漂亮的下拉小箭头 */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231A3B5D%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.lib-selector select:hover {
+  border-color: var(--primary);
+  background-color: #fff;
+}
+
+.lib-selector select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(47, 111, 235, 0.1);
+}
+
+/* 手机端适配下拉框 */
+@media (max-width: 768px) {
+  .lib-selector {
+    padding: 8px 12px;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+  }
+  .lib-selector select {
+    padding: 6px 30px 6px 10px;
+    font-size: 13px;
+    width: auto;
+    background-position: right 8px center;
+  }
+}
