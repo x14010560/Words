@@ -136,7 +136,15 @@ body {
   border: 1px solid #e3e6eb; display: flex; align-items: center; justify-content: center;
   font-size: 24px; font-weight: 600; line-height: 1; color: #000000;
 }
-.slot-hint { color: #8a919f !important; }
+/* 未输入的提示字母：更浅的灰色 */
+.slot-hint { color: #b0b5bd !important; }
+
+/* 学习模式已输入的字母：深蓝色 */
+.slot.typing { 
+  color: #1A3B5D; 
+  border-color: #1A3B5D; 
+}
+
 .slot.correct { color: #000000; border-color: #000000; }
 .slot.wrong { color: var(--wrong); border-color: var(--wrong); }
 .slot.active { border: 2px solid var(--primary); }
@@ -288,34 +296,36 @@ body {
    虚拟键盘 (仅在手机端显示)
    ========================================== */
 .virtual-keyboard {
-  display: none; /* 电脑端默认隐藏 */
+  display: none; 
   width: 100%;
   max-width: 520px;
   margin-top: 16px;
   background: #e3e6eb; 
-  padding: 8px 4px;
-  border-radius: 12px;
+  padding: 12px 6px; /* 增加内边距 */
+  border-radius: 16px;
   user-select: none; 
+  /* 适配手机底部安全区（刘海屏） */
+  padding-bottom: max(12px, env(safe-area-inset-bottom)); 
 }
 
 .vk-row {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  margin-bottom: 8px;
+  gap: 8px; /* 增加按键间距，防误触 */
+  margin-bottom: 10px; /* 增加行距 */
 }
 .vk-row:last-child { margin-bottom: 0; }
 
 .vk-key {
   flex: 1;
-  height: 46px;
+  height: 52px; /* 高度从 46 加到 52 */
   background: #ffffff;
   border: none;
-  border-radius: 6px;
-  font-size: 18px;
+  border-radius: 8px;
+  font-size: 22px; /* 字体加大 */
   font-weight: 500;
   color: #000;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15); /* 增加立体感 */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -327,14 +337,14 @@ body {
 .vk-key.vk-action {
   flex: 1.5; 
   background: #d1d5db;
-  font-size: 16px;
+  font-size: 18px;
 }
 .vk-key.vk-action:active { background: #9ca3af; }
 
 @media (max-width: 768px) {
   .virtual-keyboard { display: block; }
-  .hidden-input { display: none; } /* 禁用手机自带键盘 */
-  .main-content { padding-bottom: 20px; }
+  .hidden-input { display: none; }
+  .main-content { padding-bottom: 10px; }
 }
 
 /* 同步区块样式 */

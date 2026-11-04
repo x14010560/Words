@@ -207,7 +207,7 @@
     }
   }
 
-  // 🎯 修复问题 1：真实的输入字符展示逻辑
+  // 🎯 修复渲染逻辑，增强对比度
   function renderSlots(showHint = false, isJudged = false) {
     const target = state.current.word;
     const parts = Typing.compare(target, state.input);
@@ -218,16 +218,16 @@
       let displayStatus = p.status;
       
       if (!isJudged && (p.status === "correct" || p.status === "wrong")) {
-        // 还没判定，并且已经敲击了字母
+        // 已经敲击了字母（无论对错，在未判定前都显示为深蓝）
         displayStatus = "typing";
-        div.textContent = state.input[i]; // 显示用户打出的字（错字就是错字）
+        div.textContent = state.input[i]; 
       } 
       else if (isJudged && (p.status === "correct" || p.status === "wrong")) {
-        // 已判定，全部显示正确单词的字母（打错的格子会变红）
+        // 判定后，全部显示正确单词的字母（打错的格子会变红）
         div.textContent = target[i]; 
       } 
-      else if (showHint) {
-        // 学习模式的灰色提示
+      else if (showHint && (p.status === "pending" || p.status === "active")) {
+        // 学习模式：未输入的部分显示浅灰色的提示字母
         div.textContent = target[i]; 
         div.classList.add("slot-hint");
       } 
