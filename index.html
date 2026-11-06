@@ -2,14 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>打字背单词 · 计算机英语</title>
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,35 +11,21 @@
     <!-- 侧边栏 -->
     <aside class="sidebar" id="sidebar">
       <div class="logo">TypeWords</div>
-      
-      <!-- 词库切换器 -->
       <div class="lib-selector">
         <select id="libSelect"></select>
       </div>
-
       <nav style="flex:1;">
-        <button class="nav-btn active" data-target="view-practice">
-          <span class="icon">🎯</span><span class="text">练习</span>
-        </button>
-        <button class="nav-btn" data-target="view-wrongbook">
-          <span class="icon">📕</span><span class="text">错题本</span>
-        </button>
-        <button class="nav-btn" data-target="view-mastered">
-          <span class="icon">✅</span><span class="text">已掌握</span>
-        </button>
-        <button class="nav-btn" data-target="view-manager">
-          <span class="icon">📚</span><span class="text">词库管理</span>
-        </button>
-        <button class="nav-btn" id="openSettingsBtn">
-          <span class="icon">⚙️</span><span class="text">设置</span>
-        </button>
+        <button class="nav-btn active" data-target="view-practice"><span class="icon">🎯</span><span class="text">练习</span></button>
+        <button class="nav-btn" data-target="view-wrongbook"><span class="icon">📕</span><span class="text">错题本</span></button>
+        <button class="nav-btn" data-target="view-mastered"><span class="icon">✅</span><span class="text">已掌握</span></button>
+        <button class="nav-btn" data-target="view-manager"><span class="icon">📚</span><span class="text">词库管理</span></button>
+        <button class="nav-btn" id="openSettingsBtn"><span class="icon">⚙️</span><span class="text">设置</span></button>
       </nav>
       <button class="toggle-btn" id="toggleSidebar" title="折叠侧边栏">◀</button>
     </aside>
 
     <!-- 主内容区 -->
     <main class="main-content">
-      
       <!-- 1. 练习视图 -->
       <div id="view-practice" class="view active">
         <div class="top-nav-area">
@@ -60,7 +40,7 @@
           </header>
         </div>
 
-        <main class="card">
+        <div class="card">
           <div class="mode-tag" id="modeTag">学习模式</div>
           <p class="meaning" id="meaning">加载中…</p>
           <div class="meta-row">
@@ -72,71 +52,45 @@
             <input id="hiddenInput" class="hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
           </div>
           <p class="hint" id="hint">输入对应的英文单词</p>
-        </main>
+        </div>
 
-        <footer class="actions">
+        <div class="actions">
           <button id="skipBtn" class="btn" type="button">跳过</button>
           <button id="nextBtn" class="btn primary" type="button" disabled>下一个</button>
-        </footer>
+        </div>
 
-        <!-- 手机端虚拟键盘 -->
         <div class="virtual-keyboard" id="virtualKeyboard">
+          <!-- 虚拟键盘保持不变 -->
           <div class="vk-row">
-            <button class="vk-key" data-key="q">q</button>
-            <button class="vk-key" data-key="w">w</button>
-            <button class="vk-key" data-key="e">e</button>
-            <button class="vk-key" data-key="r">r</button>
-            <button class="vk-key" data-key="t">t</button>
-            <button class="vk-key" data-key="y">y</button>
-            <button class="vk-key" data-key="u">u</button>
-            <button class="vk-key" data-key="i">i</button>
-            <button class="vk-key" data-key="o">o</button>
-            <button class="vk-key" data-key="p">p</button>
+            <button class="vk-key" data-key="q">q</button><button class="vk-key" data-key="w">w</button><button class="vk-key" data-key="e">e</button><button class="vk-key" data-key="r">r</button><button class="vk-key" data-key="t">t</button><button class="vk-key" data-key="y">y</button><button class="vk-key" data-key="u">u</button><button class="vk-key" data-key="i">i</button><button class="vk-key" data-key="o">o</button><button class="vk-key" data-key="p">p</button>
           </div>
           <div class="vk-row">
-            <button class="vk-key" data-key="a">a</button>
-            <button class="vk-key" data-key="s">s</button>
-            <button class="vk-key" data-key="d">d</button>
-            <button class="vk-key" data-key="f">f</button>
-            <button class="vk-key" data-key="g">g</button>
-            <button class="vk-key" data-key="h">h</button>
-            <button class="vk-key" data-key="j">j</button>
-            <button class="vk-key" data-key="k">k</button>
-            <button class="vk-key" data-key="l">l</button>
+            <button class="vk-key" data-key="a">a</button><button class="vk-key" data-key="s">s</button><button class="vk-key" data-key="d">d</button><button class="vk-key" data-key="f">f</button><button class="vk-key" data-key="g">g</button><button class="vk-key" data-key="h">h</button><button class="vk-key" data-key="j">j</button><button class="vk-key" data-key="k">k</button><button class="vk-key" data-key="l">l</button>
           </div>
           <div class="vk-row">
-            <button class="vk-key vk-action" data-key="Backspace">⌫</button>
-            <button class="vk-key" data-key="z">z</button>
-            <button class="vk-key" data-key="x">x</button>
-            <button class="vk-key" data-key="c">c</button>
-            <button class="vk-key" data-key="v">v</button>
-            <button class="vk-key" data-key="b">b</button>
-            <button class="vk-key" data-key="n">n</button>
-            <button class="vk-key" data-key="m">m</button>
-            <button class="vk-key vk-action" data-key="Enter">↵</button>
+            <button class="vk-key vk-action" data-key="Backspace">⌫</button><button class="vk-key" data-key="z">z</button><button class="vk-key" data-key="x">x</button><button class="vk-key" data-key="c">c</button><button class="vk-key" data-key="v">v</button><button class="vk-key" data-key="b">b</button><button class="vk-key" data-key="n">n</button><button class="vk-key" data-key="m">m</button><button class="vk-key vk-action" data-key="Enter">↵</button>
           </div>
         </div>
       </div>
 
-      <!-- 2. 错题本视图 -->
+      <!-- 2. 错题本 -->
       <div id="view-wrongbook" class="view">
         <h2 class="view-title">📕 错题本</h2>
         <p class="view-desc">连续错误两次将自动加入。连续答对三次可移除。</p>
         <div class="list-container" id="wrongbookList"></div>
       </div>
 
-      <!-- 3. 已掌握视图 -->
+      <!-- 3. 已掌握 -->
       <div id="view-mastered" class="view">
         <h2 class="view-title">✅ 已掌握</h2>
         <p class="view-desc">完成学习、听写、默写三个阶段。</p>
         <div class="list-container" id="masteredList"></div>
       </div>
 
-      <!-- 4. 词库管理视图 -->
+      <!-- 4. 词库管理 -->
       <div id="view-manager" class="view">
         <h2 class="view-title">📚 在线词库管理</h2>
-        <p class="view-desc">支持导入有道词典 CSV，或手动添加单词/代码指令。</p>
-        
+        <p class="view-desc">支持导入有道词典 CSV，或手动添加指令。</p>
         <div style="display: flex; gap: 12px; margin-bottom: 16px;">
           <input type="file" id="csvInput" accept=".csv" style="display:none;">
           <button class="btn primary" onclick="document.getElementById('csvInput').click()">导入 CSV</button>
@@ -144,47 +98,35 @@
         </div>
         <div class="list-container" id="managerList" style="max-height: 60vh; overflow-y: auto;"></div>
       </div>
-
     </main>
   </div>
 
-  <!-- 设置弹窗 (结构回归) -->
+  <!-- 设置弹窗 -->
   <div class="modal-overlay" id="settingsModal">
     <div class="modal-content">
       <h3>⚙️ 学习计划与同步</h3>
-      
       <div class="form-group">
         <label for="goalInput">每日学习目标（词数）</label>
         <input type="number" id="goalInput" min="1" max="500" value="20">
       </div>
-      
-      <!-- 本地导出导入（保留作为备用） -->
       <div class="sync-section">
-        <label>本地进度导出/导入</label>
-        <div class="sync-actions">
-          <button class="btn" id="exportBtn" type="button">导出</button>
-          <button class="btn" id="importBtn" type="button">导入</button>
+        <label>设备同步码（在其他设备输入此码即可同步）</label>
+        <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+          <input type="text" id="syncKeyDisplay" readonly style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 12px; background: #f5f5f5;">
+          <button class="btn" id="copySyncKeyBtn" type="button">复制</button>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="syncKeyInput" placeholder="输入同步码绑定..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
+          <button class="btn primary" id="bindSyncKeyBtn" type="button">绑定</button>
         </div>
       </div>
-
-      <!-- 云端同步 -->
-      <div class="sync-section">
-        <label>多设备云同步</label>
-        <div class="sync-actions">
-          <button class="btn" id="uploadCloudBtn" type="button">☁️ 上传云端</button>
-          <button class="btn" id="downloadCloudBtn" type="button">☁️ 从云端拉取</button>
-        </div>
-      </div>
-
       <div class="modal-actions" style="margin-top: 24px;">
         <button class="btn" id="cancelSettingsBtn">关闭</button>
         <button class="btn primary" id="saveSettingsBtn">保存</button>
       </div>
     </div>
   </div>
-
-  <script src="js/storage.js"></script>
   <script src="js/typing.js"></script>
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

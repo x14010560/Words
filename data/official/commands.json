@@ -1,0 +1,35 @@
+[
+  { "word": "git pull", "phonetic": "", "meaning": "[Git] 拉取远程代码并合并" },
+  { "word": "git push", "phonetic": "", "meaning": "[Git] 推送本地代码到远程仓库" },
+  { "word": "git fetch", "phonetic": "", "meaning": "[Git] 拉取远程代码但不自动合并" },
+  { "word": "git clone", "phonetic": "", "meaning": "[Git] 克隆远程仓库到本地" },
+  { "word": "git status", "phonetic": "", "meaning": "[Git] 查看当前仓库状态" },
+  { "word": "git add .", "phonetic": "", "meaning": "[Git] 将所有修改添加到暂存区" },
+  { "word": "git commit -m", "phonetic": "", "meaning": "[Git] 提交暂存区并附加说明" },
+  { "word": "git merge", "phonetic": "", "meaning": "[Git] 合并指定分支到当前分支" },
+  { "word": "git branch", "phonetic": "", "meaning": "[Git] 查看、创建或删除分支" },
+  { "word": "git checkout", "phonetic": "", "meaning": "[Git] 切换分支或恢复工作区文件" },
+  
+  { "word": "pip install", "phonetic": "", "meaning": "[Python] 安装第三方库" },
+  { "word": "pip uninstall", "phonetic": "", "meaning": "[Python] 卸载第三方库" },
+  { "word": "pip list", "phonetic": "", "meaning": "[Python] 列出当前安装的所有包" },
+  { "word": "pip freeze", "phonetic": "", "meaning": "[Python] 冻结当前环境的依赖列表" },
+  { "word": "python -m venv", "phonetic": "", "meaning": "[Python] 创建虚拟环境" },
+  { "word": "python -m http.server", "phonetic": "", "meaning": "[Python] 启动本地 HTTP 静态服务器" },
+  { "word": "python manage.py runserver", "phonetic": "", "meaning": "[Django] 启动本地开发服务器" },
+  
+  { "word": "npm install", "phonetic": "", "meaning": "[Node.js] 安装项目依赖" },
+  { "word": "npm run dev", "phonetic": "", "meaning": "[Node.js] 运行开发服务器" },
+  { "word": "npm run build", "phonetic": "", "meaning": "[Node.js] 构建生产环境代码" },
+  
+  { "word": "mkdir", "phonetic": "", "meaning": "[终端] 创建新目录" },
+  { "word": "rm -rf", "phonetic": "", "meaning": "[终端] 强制递归删除文件/目录" },
+  { "word": "cd ..", "phonetic": "", "meaning": "[终端] 返回上一级目录" },
+  { "word": "ls -la", "phonetic": "", "meaning": "[终端] 列出目录详细内容（含隐藏文件）" },
+  { "word": "chmod +x", "phonetic": "", "meaning": "[终端] 赋予文件可执行权限" },
+  { "word": "tail -f", "phonetic": "", "meaning": "[终端] 实时查看文件末尾日志" },
+  { "word": "curl", "phonetic": "", "meaning": "[终端] 发送网络请求并获取数据" },
+  { "word": "grep", "phonetic": "", "meaning": "[终端] 在文本中搜索匹配的字符串" },
+  { "word": "ssh", "phonetic": "", "meaning": "[网络] 远程登录服务器" },
+  { "word": "ping", "phonetic": "", "meaning": "[网络] 测试与目标主机的网络连接" }
+]

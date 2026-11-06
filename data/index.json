@@ -1,4 +1,5 @@
 [
   { "id": "computer", "name": "计算机英语", "path": "data/official/computer.json" },
+  { "id": "commands", "name": "常用指令代码", "path": "data/official/commands.json" },
   { "id": "custom", "name": "🌟 我的自定义词库", "path": "local" }
 ]

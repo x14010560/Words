@@ -1,36 +1,37 @@
-window.Storage = (function () {
-  const KEY_PREFIX = "typing_words_v3_";
-  const CURRENT_LIB_KEY = "typing_words_current_lib";
+const KEY_PREFIX = "typing_words_v3_";
+const CURRENT_LIB_KEY = "typing_words_current_lib";
 
-  function getCurrentLib() { return localStorage.getItem(CURRENT_LIB_KEY) || "computer"; }
-  function setCurrentLib(id) { localStorage.setItem(CURRENT_LIB_KEY, id); }
+export const Storage = {
+  getCurrentLib() { return localStorage.getItem(CURRENT_LIB_KEY) || "computer"; },
+  setCurrentLib(id) { localStorage.setItem(CURRENT_LIB_KEY, id); },
 
-  function getKeys() {
-    const lib = getCurrentLib();
+  getKeys() {
+    const lib = this.getCurrentLib();
     return {
       progress: `${KEY_PREFIX}progress_${lib}`,
       settings: `${KEY_PREFIX}settings_${lib}`,
       daily: `${KEY_PREFIX}daily_${lib}`
     };
-  }
+  },
 
-  function getTodayString() {
+  getTodayString() {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  }
+  },
 
-  function loadAll() {
-    try { return JSON.parse(localStorage.getItem(getKeys().progress)) || {}; } catch { return {}; }
-  }
-  function saveAll(data) { localStorage.setItem(getKeys().progress, JSON.stringify(data)); }
+  loadAll() {
+    try { return JSON.parse(localStorage.getItem(this.getKeys().progress)) || {}; } catch { return {}; }
+  },
+  
+  saveAll(data) { localStorage.setItem(this.getKeys().progress, JSON.stringify(data)); },
 
-  function getStatus(word) {
-    const all = loadAll();
+  getStatus(word) {
+    const all = this.loadAll();
     return all[word] || { stage: 1, consecutiveCorrect: 0, consecutiveErrors: 0, isWrongBook: false };
-  }
+  },
 
-  function record(word, isCorrect) {
-    const all = loadAll();
+  record(word, isCorrect) {
+    const all = this.loadAll();
     let item = all[word] || { stage: 1, consecutiveCorrect: 0, consecutiveErrors: 0, isWrongBook: false };
     if (isCorrect) {
       item.consecutiveCorrect += 1;
@@ -48,94 +49,97 @@ window.Storage = (function () {
       if (item.consecutiveErrors >= 2) item.isWrongBook = true;
     }
     all[word] = item;
-    saveAll(all);
+    this.saveAll(all);
     return item; 
-  }
+  },
 
-  function getStats() {
-    const all = loadAll();
+  getStats() {
+    const all = this.loadAll();
     let mastered = 0, wrongBook = 0;
     for (const k in all) {
       if (all[k].isWrongBook) wrongBook++;
       else if (all[k].stage === 4) mastered++;
     }
     return { mastered, wrongBook };
-  }
+  },
 
-  let cachedData = [];
-  window.setCurrentLibData = (data) => { cachedData = data; };
-
-  function getWrongBookWords() {
-    const all = loadAll();
+  getWrongBookWords() {
+    const all = this.loadAll();
     return Object.keys(all).filter(k => all[k].isWrongBook).map(k => {
-      const wordData = cachedData.find(w => w.word === k) || { word: k, meaning: "未知", phonetic: "" };
+      const wordData = (window.currentLibDataCache || []).find(w => w.word === k) || { word: k, meaning: "未知", phonetic: "" };
       return { ...wordData, status: all[k] };
     });
-  }
+  },
 
-  function getMasteredWords() {
-    const all = loadAll();
+  getMasteredWords() {
+    const all = this.loadAll();
     return Object.keys(all).filter(k => all[k].stage === 4 && !all[k].isWrongBook).map(k => {
-      const wordData = cachedData.find(w => w.word === k) || { word: k, meaning: "未知", phonetic: "" };
+      const wordData = (window.currentLibDataCache || []).find(w => w.word === k) || { word: k, meaning: "未知", phonetic: "" };
       return { ...wordData, status: all[k] };
     });
-  }
+  },
 
-  function getSettings() {
-    try { return JSON.parse(localStorage.getItem(getKeys().settings)) || { dailyGoal: 20 }; } catch { return { dailyGoal: 20 }; }
-  }
-  function saveSettings(settings) { localStorage.setItem(getKeys().settings, JSON.stringify(settings)); }
-  function getDailyStats() {
+  getSettings() {
+    try { return JSON.parse(localStorage.getItem(this.getKeys().settings)) || { dailyGoal: 20 }; } catch { return { dailyGoal: 20 }; }
+  },
+  
+  saveSettings(settings) { localStorage.setItem(this.getKeys().settings, JSON.stringify(settings)); },
+
+  getDailyStats() {
     try {
-      const all = JSON.parse(localStorage.getItem(getKeys().daily)) || {};
-      return all[getTodayString()] || { learnedWords: [] };
+      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      return all[this.getTodayString()] || { learnedWords: [] };
     } catch { return { learnedWords: [] }; }
-  }
-  function addDailyLearnedWord(word) {
+  },
+
+  addDailyLearnedWord(word) {
     try {
-      const all = JSON.parse(localStorage.getItem(getKeys().daily)) || {};
-      const today = getTodayString();
+      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const today = this.getTodayString();
       if (!all[today]) all[today] = { learnedWords: [] };
       if (!all[today].learnedWords.includes(word)) {
         all[today].learnedWords.push(word);
-        localStorage.setItem(getKeys().daily, JSON.stringify(all));
+        localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
       }
     } catch {}
-  }
+  },
 
-  // --- 自定义词库 ---
-  function getCustomLib() {
+  getCustomLib() {
     try { return JSON.parse(localStorage.getItem("typing_words_custom_lib")) || []; } catch { return []; }
-  }
-  function saveCustomLib(words) {
-    localStorage.setItem("typing_words_custom_lib", JSON.stringify(words));
-  }
+  },
+  
+  saveCustomLib(words) { localStorage.setItem("typing_words_custom_lib", JSON.stringify(words)); },
 
-  // --- 同步功能 ---
-  function getAllLocalData() {
+  // --- 同步相关 ---
+  getSyncKey() {
+    let key = localStorage.getItem("typing_words_sync_key");
+    if (!key) {
+      key = "usr_" + Math.random().toString(36).substring(2, 10) + Date.now().toString(36);
+      localStorage.setItem("typing_words_sync_key", key);
+    }
+    return key;
+  },
+
+  setSyncKey(key) { localStorage.setItem("typing_words_sync_key", key); },
+
+  getAllLocalData() {
     const data = {};
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key.startsWith("typing_words_")) {
-        data[key] = localStorage.getItem(key);
-      }
+      if (key.startsWith(KEY_PREFIX)) data[key] = localStorage.getItem(key);
     }
     return data;
-  }
+  },
 
-  function applyCloudData(cloudProgress) {
-    if (!cloudProgress) return;
-    for (const key in cloudProgress) {
-      localStorage.setItem(key, cloudProgress[key]);
+  getSyncData() {
+    return { progress: this.getAllLocalData(), customLib: this.getCustomLib() };
+  },
+
+  applySyncData(data) {
+    if (!data) return;
+    if (data.progress) {
+      for (const key in data.progress) localStorage.setItem(key, data.progress[key]);
     }
+    if (data.customLib && Array.isArray(data.customLib)) this.saveCustomLib(data.customLib);
   }
-
-  return { 
-    getCurrentLib, setCurrentLib,
-    getStatus, record, getStats, loadAll, 
-    getWrongBookWords, getMasteredWords,
-    getSettings, saveSettings, getDailyStats, addDailyLearnedWord,
-    getCustomLib, saveCustomLib,
-    getAllLocalData, applyCloudData
-  };
-})();
+};
