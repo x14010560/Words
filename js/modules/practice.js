@@ -8,13 +8,12 @@ let els = {};
 
 export function setLibData(data) {
   currentLibData = data;
-  window.currentLibDataCache = data; // 供错题本渲染使用
+  window.currentLibDataCache = data; 
 }
 
 export function initPractice(elements) {
   els = elements;
   
-  // 劫持 Storage.record 触发同步
   const originalRecord = Storage.record;
   Storage.record = function(...args) {
     const res = originalRecord.apply(Storage, args);
@@ -29,35 +28,32 @@ export function initPractice(elements) {
     return res;
   };
 
-  // 绑定事件
+  // 绑定基础事件
   els.input.addEventListener("input", handlePhysicalInput);
   document.addEventListener("keydown", handleGlobalKeyDown);
   
-  // 👇 清理掉旧的 preventBlur，改为在点击操作后拉取焦点
-  els.nextBtn.addEventListener("click", () => {
-    if (state.locked) nextWord();
-    else if (state.input.length > 0) judge();
-    if (window.innerWidth <= 768) els.input.focus(); // 移动端点完下一个保持键盘
-  });
+  // 容错绑定按钮，防止因为漏写导致崩溃
+  if (els.nextBtn) els.nextBtn.addEventListener("click", () => state.locked ? nextWord() : (state.input.length > 0 && judge()));
+  if (els.skipBtn) els.skipBtn.addEventListener("click", handleSkip);
+  if (els.speakBtn) els.speakBtn.addEventListener("click", () => state.current && speak(state.current.word));
   
-  els.skipBtn.addEventListener("click", () => {
-    handleSkip();
-    if (window.innerWidth <= 768) els.input.focus(); 
-  });
-}
+  if (els.prevWordBtn) {
+    els.prevWordBtn.addEventListener("click", () => { 
+      if (state.index > 0) { state.index -= 1; renderCurrent(); } 
+    });
+  }
+  if (els.nextWordBtn) {
+    els.nextWordBtn.addEventListener("click", () => { 
+      if (state.index < state.queue.length - 1) { state.index += 1; renderCurrent(); } 
+    });
+  }
 
-  els.speakBtn.addEventListener("click", () => state.current && speak(state.current.word));
-  
-  els.prevWordBtn.addEventListener("click", () => { if (state.index > 0) { state.index -= 1; renderCurrent(); } });
-  els.nextWordBtn.addEventListener("click", () => { if (state.index < state.queue.length - 1) { state.index += 1; renderCurrent(); } });
-
-  // 👇 关键：给整个打字区域绑定触摸和点击事件，强行唤出键盘
+  // 点击拼写区域直接原生聚焦（最稳的手机弹窗方案）
   const wordZone = document.getElementById('wordZone');
   if (wordZone) {
-    const forceFocus = () => els.input.focus();
-    wordZone.addEventListener('click', forceFocus);
-    wordZone.addEventListener('touchstart', forceFocus, { passive: true });
+    wordZone.addEventListener('click', () => els.input.focus());
   }
+}
 
 export function restartPractice() {
   state.queue = buildQueue();
@@ -93,6 +89,7 @@ function buildQueue() {
 }
 
 function renderTopNav() {
+  if (!els.prevWordBtn || !els.nextWordBtn) return; // 容错
   if (state.index > 0 && state.queue[state.index - 1]) {
     els.prevWordBtn.disabled = false;
     els.prevWordBtn.querySelector("span").textContent = state.queue[state.index - 1].meaning;
@@ -195,6 +192,8 @@ export function renderCurrent() {
   renderSlots(status.stage === 1, false);
   renderProgress();
   renderTopNav();
+  
+  // 移除所有 setTimeout 焦点代码，由用户手动点击
 }
 
 function judge() {

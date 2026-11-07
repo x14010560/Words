@@ -161,15 +161,14 @@ body {
   inset: 0; 
   width: 100%;
   height: 100%;
-  opacity: 0.01; /* 👈 必须是 0.01，不能是 0 */
+  opacity: 0.01; /* 手机端唤起键盘的关键 */
   border: none; 
   outline: none; 
   cursor: pointer; 
   z-index: 10; 
-  font-size: 16px; /* 👈 必须 >= 16px，否则 iOS 会阻止弹窗 */
+  font-size: 16px; /* 必须 >= 16px，防止 iOS 自动放大 */
   color: transparent; 
   background: transparent; 
-  caret-color: transparent; 
 }
 
 .hint { font-size: 14px; color: var(--muted); min-height: 20px; text-align: center; transition: color 0.2s; }
