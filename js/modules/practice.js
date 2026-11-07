@@ -14,6 +14,7 @@ export function setLibData(data) {
 export function initPractice(elements) {
   els = elements;
   
+  // 劫持 Storage 触发同步
   const originalRecord = Storage.record;
   Storage.record = function(...args) {
     const res = originalRecord.apply(Storage, args);
@@ -28,11 +29,13 @@ export function initPractice(elements) {
     return res;
   };
 
-  // 绑定基础事件
+  // 监听输入框
   els.input.addEventListener("input", handlePhysicalInput);
+  
+  // 全局监听回车，处理判定和下一个
   document.addEventListener("keydown", handleGlobalKeyDown);
   
-  // 容错绑定按钮，防止因为漏写导致崩溃
+  // 按钮点击事件
   if (els.nextBtn) els.nextBtn.addEventListener("click", () => state.locked ? nextWord() : (state.input.length > 0 && judge()));
   if (els.skipBtn) els.skipBtn.addEventListener("click", handleSkip);
   if (els.speakBtn) els.speakBtn.addEventListener("click", () => state.current && speak(state.current.word));
@@ -46,12 +49,6 @@ export function initPractice(elements) {
     els.nextWordBtn.addEventListener("click", () => { 
       if (state.index < state.queue.length - 1) { state.index += 1; renderCurrent(); } 
     });
-  }
-
-  // 点击拼写区域直接原生聚焦（最稳的手机弹窗方案）
-  const wordZone = document.getElementById('wordZone');
-  if (wordZone) {
-    wordZone.addEventListener('click', () => els.input.focus());
   }
 }
 
@@ -89,7 +86,7 @@ function buildQueue() {
 }
 
 function renderTopNav() {
-  if (!els.prevWordBtn || !els.nextWordBtn) return; // 容错
+  if (!els.prevWordBtn || !els.nextWordBtn) return; 
   if (state.index > 0 && state.queue[state.index - 1]) {
     els.prevWordBtn.disabled = false;
     els.prevWordBtn.querySelector("span").textContent = state.queue[state.index - 1].meaning;
@@ -193,7 +190,7 @@ export function renderCurrent() {
   renderProgress();
   renderTopNav();
   
-  // 移除所有 setTimeout 焦点代码，由用户手动点击
+  // 注意：这里没有任何自动 focus() 了，完全依靠用户点击屏幕
 }
 
 function judge() {
@@ -254,6 +251,7 @@ function handleInput(val) {
   if (val.length > target.length) val = val.slice(0, target.length);
   const status = Storage.getStatus(state.current.word);
 
+  // 学习模式下输入错误自动回退
   if (status.stage === 1 && val.length > state.input.length) {
     const newChar = val[val.length - 1];
     const targetChar = target[val.length - 1];
@@ -289,7 +287,17 @@ function handleInput(val) {
 }
 
 function handlePhysicalInput(e) {
-  if (state.locked) { els.input.value = state.input; return; }
+  // 专门处理手机原生键盘输入（包含空格和连字符）
+  if (state.locked) { 
+    // 如果在等待重试，手机端的输入会自动触发 handleInput 的逻辑重置
+    if (state.waitingForRetry) {
+       const lastChar = els.input.value.slice(-1);
+       handleInput(lastChar);
+       return;
+    }
+    els.input.value = state.input; 
+    return; 
+  }
   
   let val = els.input.value.toLowerCase().replace(/[^a-z0-9\s\.\-]/g, "");
   if (val === state.input) return;
@@ -304,6 +312,7 @@ function handleGlobalKeyDown(e) {
     }
   }
 
+  // 回车判定/下一个
   if (e.key === "Enter") {
     e.preventDefault(); 
     if (state.locked) {
@@ -314,6 +323,7 @@ function handleGlobalKeyDown(e) {
     return;
   }
 
+  // 退格删除
   if (e.key === "Backspace") {
     if (!state.locked && state.input.length > 0) {
       e.preventDefault();
@@ -322,10 +332,12 @@ function handleGlobalKeyDown(e) {
     return;
   }
 
+  // 实体键盘字母输入
   if (/^[a-zA-Z0-9\s\.\-]$/.test(e.key)) {
     if (state.locked && !state.waitingForRetry) return;
     e.preventDefault();
     
+    // 忽略等待重试时敲下的空格
     if (state.locked && state.waitingForRetry && e.key === " ") return;
     
     handleInput(state.input + e.key.toLowerCase());
