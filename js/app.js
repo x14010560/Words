@@ -3,7 +3,7 @@ import { speak } from './modules/audio.js';
 import { fetchFromCloud } from './modules/sync.js';
 import { initPractice, setLibData, restartPractice, renderCurrent, nextWord } from './modules/practice.js';
 import { initManager, renderManagerList } from './modules/manager.js';
-
+import { triggerAutoSync } from './modules/sync.js';
 // 集中管理所有 DOM
 const els = {
   navBtns: document.querySelectorAll(".nav-btn"),
@@ -73,11 +73,34 @@ function renderList(type) {
   const words = type === "wrongbook" ? Storage.getWrongBookWords() : Storage.getMasteredWords();
   container.innerHTML = "";
   if (words.length === 0) { container.innerHTML = `<p style="color:var(--muted);text-align:center;padding:20px;">暂无单词</p>`; return; }
+  
   words.forEach(w => {
     const div = document.createElement("div");
     div.className = "list-item";
-    div.innerHTML = `<div class="list-info"><span class="list-word">${w.word}</span><span class="list-meaning">${w.meaning}</span></div><button class="btn">🔊</button>`;
-    div.querySelector("button").addEventListener("click", () => speak(w.word));
+    
+    // 增加删除按钮
+    div.innerHTML = `
+      <div class="list-info">
+        <span class="list-word">${w.word}</span>
+        <span class="list-meaning">${w.meaning}</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-icon" title="发音">🔊</button>
+        <button class="btn btn-icon btn-delete" title="删除并重置">🗑️</button>
+      </div>
+    `;
+    
+    div.querySelector(".btn-icon:not(.btn-delete)").addEventListener("click", () => speak(w.word));
+    
+    // 绑定删除事件
+    div.querySelector(".btn-delete").addEventListener("click", () => {
+      if (confirm(`确定将 "${w.word}" 移出列表并重置学习进度吗？`)) {
+        Storage.removeWordStatus(w.word);
+        triggerAutoSync(); // 触发云端同步
+        renderList(type);  // 刷新列表
+      }
+    });
+    
     container.appendChild(div);
   });
 }
@@ -98,6 +121,22 @@ els.saveSettingsBtn.addEventListener("click", () => {
     window.location.reload(); 
   }
 });
+
+// 重置当前词库数据
+const resetBtn = document.getElementById("resetAllDataBtn");
+if (resetBtn) {
+  resetBtn.addEventListener("click", () => {
+    if (confirm("⚠️ 警告：这会清空当前词库的所有学习记录（包括错题本、已掌握），且不可恢复！\n确定要重置吗？")) {
+      // 二次确认
+      if (confirm("再次确认：真的要重置所有进度吗？")) {
+        Storage.resetCurrentLibProgress();
+        triggerAutoSync(); // 同步空数据到云端
+        alert("已重置当前词库的所有进度，页面将刷新。");
+        location.reload();
+      }
+    }
+  });
+}
 
 els.copySyncKeyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(Storage.getSyncKey());

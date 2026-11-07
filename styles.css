@@ -154,7 +154,7 @@ body {
 .slot.wrong { color: var(--wrong); border-color: var(--wrong); }
 
 /* 当前光标位置 */
-.slot.active { border: 2px solid var(--primary); }.slot.active { border: 2px solid var(--primary); }
+.slot.active { border: 2px solid var(--primary); }
 
 .hidden-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 10; }
 .hint { font-size: 14px; color: var(--muted); min-height: 20px; text-align: center; transition: color 0.2s; }
@@ -420,4 +420,49 @@ body {
     width: auto;
     background-position: right 8px center;
   }
+}
+
+/* 增加空格格子的辨识度 */
+.slot.slot-space {
+  background: #eef1f5;
+  border-color: transparent;
+  color: var(--muted);
+}
+
+/* 优化长指令的显示 */
+.slot {
+  width: 38px; /* 稍微调小 */
+  height: 50px;
+  font-size: 20px;
+}
+
+/* 手机端进一步缩小，防止换行太多 */
+@media (max-width: 768px) {
+  .slot {
+    width: 32px;
+    height: 46px;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+}
+
+/* 列表中图标按钮的样式 */
+.btn-icon {
+  padding: 8px 12px !important;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.btn-icon:hover {
+  background: #f5f6f8;
+}
+.btn-delete {
+  color: var(--wrong);
+  border-color: #fca5a5;
+}
+.btn-delete:hover {
+  background: #fdecec;
 }

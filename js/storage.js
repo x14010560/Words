@@ -135,6 +135,21 @@ export const Storage = {
     return { progress: this.getAllLocalData(), customLib: this.getCustomLib() };
   },
 
+  // --- 删除单个单词进度 ---
+  removeWordStatus(word) {
+    const all = this.loadAll();
+    if (all[word]) {
+      delete all[word];
+      this.saveAll(all);
+    }
+  },
+
+  // --- 重置当前词库进度 ---
+  resetCurrentLibProgress() {
+    localStorage.removeItem(this.getKeys().progress);
+    localStorage.removeItem(this.getKeys().daily);
+  },
+
   applySyncData(data) {
     if (!data) return;
     if (data.progress) {
