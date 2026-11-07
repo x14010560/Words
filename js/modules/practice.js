@@ -29,27 +29,35 @@ export function initPractice(elements) {
     return res;
   };
 
-  // 点击整个练习区域，让隐藏的 input 聚焦（方便手机弹键盘）
-  const viewPractice = document.getElementById('view-practice');
-  if (viewPractice) {
-    const focusInput = (e) => {
-      if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
-      els.input.focus();
-    };
-    viewPractice.addEventListener('click', focusInput);
-    viewPractice.addEventListener('touchstart', focusInput, { passive: true });
-  }
-
   // 绑定事件
   els.input.addEventListener("input", handlePhysicalInput);
   document.addEventListener("keydown", handleGlobalKeyDown);
-  els.nextBtn.addEventListener("click", () => state.locked ? nextWord() : (state.input.length > 0 && judge()));
-  els.skipBtn.addEventListener("click", handleSkip);
+  
+  // 👇 清理掉旧的 preventBlur，改为在点击操作后拉取焦点
+  els.nextBtn.addEventListener("click", () => {
+    if (state.locked) nextWord();
+    else if (state.input.length > 0) judge();
+    if (window.innerWidth <= 768) els.input.focus(); // 移动端点完下一个保持键盘
+  });
+  
+  els.skipBtn.addEventListener("click", () => {
+    handleSkip();
+    if (window.innerWidth <= 768) els.input.focus(); 
+  });
+}
+
   els.speakBtn.addEventListener("click", () => state.current && speak(state.current.word));
   
   els.prevWordBtn.addEventListener("click", () => { if (state.index > 0) { state.index -= 1; renderCurrent(); } });
   els.nextWordBtn.addEventListener("click", () => { if (state.index < state.queue.length - 1) { state.index += 1; renderCurrent(); } });
-}
+
+  // 👇 关键：给整个打字区域绑定触摸和点击事件，强行唤出键盘
+  const wordZone = document.getElementById('wordZone');
+  if (wordZone) {
+    const forceFocus = () => els.input.focus();
+    wordZone.addEventListener('click', forceFocus);
+    wordZone.addEventListener('touchstart', forceFocus, { passive: true });
+  }
 
 export function restartPractice() {
   state.queue = buildQueue();
@@ -187,14 +195,7 @@ export function renderCurrent() {
   renderSlots(status.stage === 1, false);
   renderProgress();
   renderTopNav();
-  
-  // 让手机端也能尝试重新聚焦
-  setTimeout(() => {
-    if (!state.locked) {
-      els.input.focus();
-    }
-  }, 50);
-} // 👈 就是这个大括号，上一版漏掉了，导致全盘崩溃！
+}
 
 function judge() {
   const target = state.current.word;
