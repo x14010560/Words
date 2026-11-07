@@ -2,7 +2,8 @@ import { Storage } from '../storage.js';
 import { speak } from './audio.js';
 import { triggerAutoSync } from './sync.js';
 
-const state = { queue: [], index: 0, current: null, input: "", locked: false, waitingForRetry: false };let currentLibData = [];
+const state = { queue: [], index: 0, current: null, input: "", locked: false, waitingForRetry: false };
+let currentLibData = [];
 let els = {};
 
 export function setLibData(data) {
@@ -28,15 +29,16 @@ export function initPractice(elements) {
     return res;
   };
 
-    // 点击整个练习区域，让隐藏的 input 聚焦（方便手机弹键盘）
+  // 点击整个练习区域，让隐藏的 input 聚焦（方便手机弹键盘）
   const viewPractice = document.getElementById('view-practice');
   if (viewPractice) {
-    viewPractice.addEventListener('click', (e) => {
-      // 如果点的是按钮，就不聚焦了
+    const focusInput = (e) => {
       if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
       els.input.focus();
-    });
-  };
+    };
+    viewPractice.addEventListener('click', focusInput);
+    viewPractice.addEventListener('touchstart', focusInput, { passive: true });
+  }
 
   // 绑定事件
   els.input.addEventListener("input", handlePhysicalInput);
@@ -85,7 +87,6 @@ function buildQueue() {
 function renderTopNav() {
   if (state.index > 0 && state.queue[state.index - 1]) {
     els.prevWordBtn.disabled = false;
-    // 改为显示 meaning（释义）
     els.prevWordBtn.querySelector("span").textContent = state.queue[state.index - 1].meaning;
   } else {
     els.prevWordBtn.disabled = true;
@@ -93,7 +94,6 @@ function renderTopNav() {
   }
   if (state.index < state.queue.length - 1 && state.queue[state.index + 1]) {
     els.nextWordBtn.disabled = false;
-    // 改为显示 meaning（释义）
     els.nextWordBtn.querySelector("span").textContent = state.queue[state.index + 1].meaning;
   } else {
     els.nextWordBtn.disabled = true;
@@ -113,7 +113,6 @@ function renderSlots(showHint = false, isJudged = false) {
     
     if (!isJudged && (p.status === "correct" || p.status === "wrong")) {
       displayStatus = "typing";
-      // 如果是空格，显示一个特殊符号
       div.textContent = state.input[i] === " " ? "␣" : state.input[i]; 
     } else if (isJudged && (p.status === "correct" || p.status === "wrong")) {
       div.textContent = target[i] === " " ? "␣" : target[i]; 
@@ -125,7 +124,6 @@ function renderSlots(showHint = false, isJudged = false) {
     }
     
     div.className = "slot " + displayStatus;
-    // 如果这个格子是空格，加上特殊样式
     if (target[i] === " ") div.classList.add("slot-space");
     if (isHint) div.classList.add("slot-hint");
     
@@ -166,7 +164,7 @@ export function renderCurrent() {
   state.input = ""; 
   els.input.value = ""; 
   state.locked = false;
-  state.waitingForRetry = false; // 👈 关键：必须加上这一行重置状态
+  state.waitingForRetry = false;
   
   els.hint.textContent = "输入对应的英文单词"; els.hint.style.color = "var(--muted)";
   els.nextBtn.disabled = true;
@@ -190,8 +188,13 @@ export function renderCurrent() {
   renderProgress();
   renderTopNav();
   
-  if (window.innerWidth > 768) setTimeout(() => els.input.focus(), 50);
-}
+  // 让手机端也能尝试重新聚焦
+  setTimeout(() => {
+    if (!state.locked) {
+      els.input.focus();
+    }
+  }, 50);
+} // 👈 就是这个大括号，上一版漏掉了，导致全盘崩溃！
 
 function judge() {
   const target = state.current.word;
@@ -218,8 +221,6 @@ function judge() {
     renderSlots(false, true); 
     renderProgress(); 
 
-    // 👇 修改这里：不是听写/默写，或者已经在错题本里，就不需要重打，直接等下一个
-    // 如果是听写/默写模式打错了，标记为等待重试，展示正确答案
     if (oldStatus.stage > 1) {
       state.waitingForRetry = true;
     }
@@ -227,13 +228,11 @@ function judge() {
 }
 
 function handleInput(val) {
-  // 如果处于等待重试状态，用户的输入会触发重置
   if (state.locked) {
     if (state.waitingForRetry) {
       state.locked = false;
       state.waitingForRetry = false;
       
-      // 👇 核心修复：彻底抛弃之前长串的错误拼写，只保留用户最新按下的那一个字母
       const lastChar = val.slice(-1);
       val = /^[a-zA-Z]$/.test(lastChar) ? lastChar.toLowerCase() : "";
       
@@ -242,22 +241,19 @@ function handleInput(val) {
       els.nextBtn.disabled = !val;
       els.hint.textContent = "请重新拼写正确的单词"; 
       els.hint.style.color = "var(--primary)";
-      renderSlots(false, false); // 隐藏正确答案
+      renderSlots(false, false); 
       
-      if (!val) return; // 如果没有输入有效字母，终止
+      if (!val) return; 
     } else {
-      // 正确状态下按了键，保持锁定并回退
       els.input.value = state.input;
       return;
     }
   }
 
-  // 下面是正常的输入处理逻辑
   const target = state.current.word;
   if (val.length > target.length) val = val.slice(0, target.length);
   const status = Storage.getStatus(state.current.word);
 
-  // 学习模式拦截错误
   if (status.stage === 1 && val.length > state.input.length) {
     const newChar = val[val.length - 1];
     const targetChar = target[val.length - 1];
@@ -295,7 +291,6 @@ function handleInput(val) {
 function handlePhysicalInput(e) {
   if (state.locked) { els.input.value = state.input; return; }
   
-  // 👇 放宽限制：允许英文字母、数字、空格、点、横杠
   let val = els.input.value.toLowerCase().replace(/[^a-z0-9\s\.\-]/g, "");
   if (val === state.input) return;
   
@@ -327,12 +322,10 @@ function handleGlobalKeyDown(e) {
     return;
   }
 
-  // 👇 允许捕获字母、数字、空格、点、横杠
   if (/^[a-zA-Z0-9\s\.\-]$/.test(e.key)) {
     if (state.locked && !state.waitingForRetry) return;
     e.preventDefault();
     
-    // 如果是等待重打状态，且按的是空格，直接忽略，避免误触
     if (state.locked && state.waitingForRetry && e.key === " ") return;
     
     handleInput(state.input + e.key.toLowerCase());
@@ -357,7 +350,6 @@ export function nextWord() {
   if (state.current) Storage.addDailyLearnedWord(state.current.word);
   const status = Storage.getStatus(state.current.word);
   
-  // 微循环插入
   if (status.stage === 2 && !status.isWrongBook) {
      const insertPos = Math.min(state.queue.length, state.index + 3 + Math.floor(Math.random() * 2));
      state.queue.splice(insertPos, 0, state.current);
