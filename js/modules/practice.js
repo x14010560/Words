@@ -5,6 +5,7 @@ import { triggerAutoSync } from './sync.js';
 const state = { queue: [], index: 0, current: null, input: "", locked: false };
 let currentLibData = [];
 let els = {};
+let resetTimer = null;
 
 export function setLibData(data) {
   currentLibData = data;
@@ -36,9 +37,6 @@ export function initPractice(elements) {
   els.skipBtn.addEventListener("click", handleSkip);
   els.speakBtn.addEventListener("click", () => state.current && speak(state.current.word));
   
-  if (els.virtualKeyboard) {
-    els.virtualKeyboard.addEventListener("click", handleVirtualKeyboard);
-  }
   els.prevWordBtn.addEventListener("click", () => { if (state.index > 0) { state.index -= 1; renderCurrent(); } });
   els.nextWordBtn.addEventListener("click", () => { if (state.index < state.queue.length - 1) { state.index += 1; renderCurrent(); } });
 }
@@ -188,15 +186,35 @@ function judge() {
   els.phonetic.textContent = state.current.phonetic || "";
 
   if (ok) {
-    els.hint.textContent = "✅ 正确！"; els.hint.style.color = "var(--correct)";
+    els.hint.textContent = "✅ 正确！"; 
+    els.hint.style.color = "var(--correct)";
+    els.nextBtn.disabled = false;
+    renderSlots(false, true); 
+    renderProgress(); 
   } else {
-    els.hint.textContent = `❌ 拼写错误 (正确答案: ${target})`; els.hint.style.color = "var(--wrong)";
+    els.hint.textContent = `❌ 拼写错误 (正确答案: ${target})`; 
+    els.hint.style.color = "var(--wrong)";
     if (newStatus.isWrongBook && !oldStatus.isWrongBook) els.hint.textContent += " | 已加入错题本！";
+    
+    els.nextBtn.disabled = false; // 依然允许直接点击下一个跳过重打
+    renderSlots(false, true); 
+    renderProgress(); 
+
+    // 👇 新增：如果是听写/默写模式，1.5秒后自动清空，让用户重新输入
+    if (oldStatus.stage > 1 && !oldStatus.isWrongBook) {
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        state.locked = false;
+        state.input = "";
+        els.input.value = "";
+        els.hint.textContent = "请重新拼写正确的单词"; 
+        els.hint.style.color = "var(--primary)";
+        els.nextBtn.disabled = true; // 必须重新打对才能过
+        renderSlots(false, false); // 恢复未输入状态
+        if (window.innerWidth > 768) els.input.focus();
+      }, 1500); // 停顿 1.5 秒
+    }
   }
-  
-  els.nextBtn.disabled = false;
-  renderSlots(false, true); 
-  renderProgress(); 
 }
 
 function handleInput(val) {
@@ -281,6 +299,7 @@ function handleSkip() {
 }
 
 export function nextWord() {
+  clearTimeout(resetTimer);
   if (state.queue.length === 0) return;
   if (state.current) Storage.addDailyLearnedWord(state.current.word);
   const status = Storage.getStatus(state.current.word);
