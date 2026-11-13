@@ -3,6 +3,7 @@ import { speak } from './audio.js';
 import { triggerAutoSync } from './sync.js';
 
 let els = {};
+const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 
 export function initManager(elements) {
   els = elements;
@@ -14,7 +15,7 @@ export function renderManagerList() {
   const words = Storage.getCustomLib();
   els.managerList.innerHTML = "";
   if (words.length === 0) {
-    els.managerList.innerHTML = `<p style="color:var(--muted);text-align:center;padding:20px;">暂无自定义单词</p>`;
+    els.managerList.innerHTML = `<p class="empty">暂无自定义单词</p>`;
     return;
   }
   words.forEach((w, idx) => {
@@ -22,19 +23,22 @@ export function renderManagerList() {
     div.className = "list-item";
     div.innerHTML = `
       <div class="list-info">
-        <span class="list-word">${w.word} <small style="color:var(--muted)">${w.phonetic || ''}</small></span>
+        <span class="list-word">${w.word}${w.phonetic ? `<small class="list-phonetic">${w.phonetic}</small>` : ""}</span>
         <span class="list-meaning">${w.meaning || '无释义'}</span>
       </div>
-      <button class="delete-btn" data-idx="${idx}">删除</button>
+      <div class="list-actions">
+        <button class="icon-btn btn-delete" data-idx="${idx}" type="button" aria-label="删除 ${w.word}">${icon("trash")}</button>
+      </div>
     `;
-    div.querySelector(".delete-btn").addEventListener("click", (e) => {
-      const i = e.target.getAttribute("data-idx");
+    div.querySelector(".btn-delete").addEventListener("click", (e) => {
+      const i = e.currentTarget.getAttribute("data-idx");
       let current = Storage.getCustomLib();
       current.splice(i, 1);
       Storage.saveCustomLib(current);
       triggerAutoSync();
       renderManagerList();
     });
+
     els.managerList.appendChild(div);
   });
 }
@@ -47,7 +51,7 @@ function handleCSV(e) {
     const text = evt.target.result;
     const lines = text.split('\n');
     let newWords = Storage.getCustomLib();
-    
+
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim();
       if (!line) continue;
@@ -70,7 +74,7 @@ function handleCSV(e) {
     }
     Storage.saveCustomLib(newWords);
     triggerAutoSync();
-    alert(`成功导入/更新 ${newWords.length} 个单词！`);
+    alert(`词库现有 ${newWords.length} 个词条`);
     renderManagerList();
     e.target.value = '';
   };
@@ -78,9 +82,9 @@ function handleCSV(e) {
 }
 
 function handleManualAdd() {
-  const word = prompt("请输入单词或指令（如：git push）：");
+  const word = prompt("输入单词或指令，如 git push");
   if (!word) return;
-  const meaning = prompt("请输入释义（可选）：") || "无释义";
+  const meaning = prompt("输入释义（可选）") || "无释义";
   let current = Storage.getCustomLib();
   const existingIdx = current.findIndex(w => w.word === word.trim());
   if (existingIdx > -1) current[existingIdx] = { word: word.trim(), phonetic: "", meaning: meaning.trim() };

@@ -4,122 +4,162 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>打字背单词 · 计算机英语</title>
+  <meta name="theme-color" content="#F7F4EE">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-library" viewBox="0 0 24 24"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/><path d="M2 20h20"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"/><path d="M14 11a5 5 0 0 0-7.1-.1l-2 2a5 5 0 0 0 7.1 7.1l1.1-1.1"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  </svg>
+
   <div class="app-container">
-    <!-- 侧边栏 -->
     <aside class="sidebar" id="sidebar">
-      <div class="logo">TypeWords</div>
-      <div class="lib-selector">
-        <select id="libSelect"></select>
+      <div class="sidebar-head">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="6" width="6" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="9" y="6" width="6" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="16" y="6" width="6" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M3 18c2.2-.7 4.2.5 6.6 0s4.4.6 6.8 0 3.4-.3 4.6.2" fill="none" stroke="#92400E" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-name">TypeWords</span>
+        </div>
+        <div class="lib-selector">
+          <label class="field-label" for="libSelect">词库</label>
+          <select id="libSelect"></select>
+        </div>
       </div>
-      <nav style="flex:1;">
-        <button class="nav-btn active" data-target="view-practice"><span class="icon">🎯</span><span class="text">练习</span></button>
-        <button class="nav-btn" data-target="view-wrongbook"><span class="icon">📕</span><span class="text">错题本</span></button>
-        <button class="nav-btn" data-target="view-mastered"><span class="icon">✅</span><span class="text">已掌握</span></button>
-        <button class="nav-btn" data-target="view-manager"><span class="icon">📚</span><span class="text">词库管理</span></button>
-        <button class="nav-btn" id="openSettingsBtn"><span class="icon">⚙️</span><span class="text">设置</span></button>
+
+      <nav aria-label="主导航">
+        <button class="nav-btn active" data-target="view-practice"><span class="icon-box"><svg class="icon"><use href="#i-target"/></svg></span><span class="text">练习</span></button>
+        <button class="nav-btn" data-target="view-wrongbook"><span class="icon-box"><svg class="icon"><use href="#i-book"/></svg></span><span class="text">错题本</span></button>
+        <button class="nav-btn" data-target="view-mastered"><span class="icon-box"><svg class="icon"><use href="#i-check"/></svg></span><span class="text">已掌握</span></button>
+        <button class="nav-btn" data-target="view-manager"><span class="icon-box"><svg class="icon"><use href="#i-library"/></svg></span><span class="text">词库管理</span></button>
+        <button class="nav-btn" id="openSettingsBtn"><span class="icon-box"><svg class="icon"><use href="#i-settings"/></svg></span><span class="text">设置</span></button>
       </nav>
-      <button class="toggle-btn" id="toggleSidebar" title="折叠侧边栏">◀</button>
+
+      <button class="toggle-btn" id="toggleSidebar" type="button" aria-label="折叠侧边栏">
+        <svg class="icon"><use href="#i-chevron-left"/></svg><span class="text">折叠侧边栏</span>
+      </button>
     </aside>
 
-    <!-- 主内容区 -->
     <main class="main-content">
-      <!-- 1. 练习视图 -->
       <div id="view-practice" class="view active">
         <div class="top-nav-area">
           <div class="word-nav">
-            <button id="prevWordBtn" class="word-nav-btn">⬅️ <span>-</span></button>
-            <button id="nextWordBtn" class="word-nav-btn">➡️ <span>-</span></button>
+            <button id="prevWordBtn" class="word-nav-btn" type="button"><svg class="icon"><use href="#i-chevron-left"/></svg><span>无</span></button>
+            <button id="nextWordBtn" class="word-nav-btn" type="button"><span>无</span><svg class="icon"><use href="#i-chevron-right"/></svg></button>
           </div>
-          <header class="topbar">
-            <span id="progress">已掌握: 0 | 错题: 0</span>
-            <span id="dailyProgress">今日: 0 / 20</span>
-            <span id="accuracy">剩余: 0</span>
-          </header>
+          <div class="stats" aria-label="学习进度">
+            <div class="stat"><span class="stat-label">已掌握</span><span class="stat-value" id="progress">0</span></div>
+            <div class="stat"><span class="stat-label">错题</span><span class="stat-value" id="wrongCount">0</span></div>
+            <div class="stat"><span class="stat-label">剩余</span><span class="stat-value" id="accuracy">0</span></div>
+            <div class="stat stat--daily"><span class="stat-label">今日</span><span class="stat-value" id="dailyProgress">0 / 20</span></div>
+            <div class="daily-track" id="dailyTrack"><div class="daily-fill"></div></div>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="mode-tag" id="modeTag">学习模式</div>
-          <p class="meaning" id="meaning">加载中…</p>
-          <div class="meta-row">
-            <span class="phonetic" id="phonetic"></span>
-            <button class="speak-btn" id="speakBtn" type="button">🔊</button>
+        <section class="practice-stage" aria-label="当前单词">
+          <div class="stage-left">
+            <span class="pane-label">提示</span>
+            <div class="stage-body">
+              <p class="stage-kicker" id="modeTag" data-mode="learn">学习 · 第 1 遍</p>
+              <p class="meaning" id="meaning">正在加载词库</p>
+              <div class="meta-row">
+                <span class="phonetic" id="phonetic"></span>
+                <button class="speak-btn" id="speakBtn" type="button" aria-label="播放发音"><svg class="icon"><use href="#i-volume"/></svg></button>
+              </div>
+              <p class="stage-steps" id="stageSteps" data-stage="1"><span class="step">学习</span><span class="step">听写</span><span class="step">默写</span></p>
+            </div>
           </div>
-          <div class="word-zone" id="wordZone">
-            <div class="slots" id="slots"></div>
-            <input id="hiddenInput" class="hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          </div>
-          <p class="hint" id="hint">输入对应的英文单词</p>
-        </div>
 
-        <div class="actions">
-          <button id="skipBtn" class="btn" type="button">跳过</button>
-          <button id="nextBtn" class="btn primary" type="button" disabled>下一个</button>
-        </div>
+          <div class="stage-right">
+            <span class="pane-label">拼写</span>
+            <div class="stage-answer">
+              <div class="word-zone" id="wordZone">
+                <div class="slots" id="slots"></div>
+                <input id="hiddenInput" class="hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="输入英文单词">
+              </div>
+              <p class="hint" id="hint">输入对应的英文单词</p>
+              <div class="actions">
+                <button id="skipBtn" class="btn" type="button"><svg class="icon"><use href="#i-rotate"/></svg>跳过</button>
+                <button id="nextBtn" class="btn primary" type="button" disabled>下一个<svg class="icon"><use href="#i-chevron-right"/></svg></button>
+              </div>
+            </div>
+            <p class="stage-foot"><kbd>Enter</kbd> 检查 <span class="foot-sep">·</span> <kbd>Backspace</kbd> 删除</p>
+          </div>
+        </section>
       </div>
 
-      <!-- 2. 错题本 -->
       <div id="view-wrongbook" class="view">
-        <h2 class="view-title">📕 错题本</h2>
-        <p class="view-desc">连续错误两次将自动加入。连续答对三次可移除。</p>
+        <h2 class="view-title">错题本</h2>
+        <p class="view-desc">连续错误两次自动加入，连续答对三次移除</p>
         <div class="list-container" id="wrongbookList"></div>
       </div>
 
-      <!-- 3. 已掌握 -->
       <div id="view-mastered" class="view">
-        <h2 class="view-title">✅ 已掌握</h2>
-        <p class="view-desc">完成学习、听写、默写三个阶段。</p>
+        <h2 class="view-title">已掌握</h2>
+        <p class="view-desc">完成学习、听写、默写三个阶段</p>
         <div class="list-container" id="masteredList"></div>
       </div>
 
-      <!-- 4. 词库管理 -->
       <div id="view-manager" class="view">
-        <h2 class="view-title">📚 在线词库管理</h2>
-        <p class="view-desc">支持导入有道词典 CSV，或手动添加指令。</p>
-        <div style="display: flex; gap: 12px; margin-bottom: 16px;">
-          <input type="file" id="csvInput" accept=".csv" style="display:none;">
-          <button class="btn primary" onclick="document.getElementById('csvInput').click()">导入 CSV</button>
-          <button class="btn" id="addManualBtn">手动添加</button>
+        <h2 class="view-title">词库管理</h2>
+        <p class="view-desc">导入有道词典 CSV，或手动添加词条</p>
+        <div class="view-toolbar">
+          <input type="file" id="csvInput" accept=".csv" hidden>
+          <button class="btn" id="importCsvBtn" type="button"><svg class="icon"><use href="#i-upload"/></svg>导入 CSV</button>
+          <button class="btn" id="addManualBtn" type="button"><svg class="icon"><use href="#i-plus"/></svg>手动添加</button>
         </div>
-        <div class="list-container" id="managerList" style="max-height: 60vh; overflow-y: auto;"></div>
+        <div class="list-container list-container--scroll" id="managerList"></div>
       </div>
     </main>
   </div>
 
-  <!-- 设置弹窗 -->
-  <div class="modal-overlay" id="settingsModal">
+  <div class="modal-overlay" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="modal-content">
-      <h3>⚙️ 学习计划与同步</h3>
+      <h3 class="modal-title" id="settingsTitle">学习计划与同步</h3>
       <div class="form-group">
         <label for="goalInput">每日学习目标（词数）</label>
         <input type="number" id="goalInput" min="1" max="500" value="20">
       </div>
       <div class="sync-section">
-        <label>设备同步码（在其他设备输入此码即可同步）</label>
-        <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-          <input type="text" id="syncKeyDisplay" readonly style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 12px; background: #f5f5f5;">
-          <button class="btn" id="copySyncKeyBtn" type="button">复制</button>
+        <span class="field-label">设备同步码 · 在其他设备输入即可同步</span>
+        <div class="sync-row">
+          <input type="text" class="text-input" id="syncKeyDisplay" readonly aria-label="当前同步码">
+          <button class="btn" id="copySyncKeyBtn" type="button"><svg class="icon"><use href="#i-copy"/></svg>复制</button>
         </div>
-        <div style="display: flex; gap: 8px;">
-          <input type="text" id="syncKeyInput" placeholder="输入同步码绑定..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
-          <button class="btn primary" id="bindSyncKeyBtn" type="button">绑定</button>
+        <div class="sync-row">
+          <input type="text" class="text-input" id="syncKeyInput" placeholder="输入同步码" aria-label="输入同步码">
+          <button class="btn primary" id="bindSyncKeyBtn" type="button"><svg class="icon"><use href="#i-link"/></svg>绑定</button>
         </div>
       </div>
-      <div class="modal-actions" style="margin-top: 24px;">
-        <button class="btn" id="cancelSettingsBtn">关闭</button>
-        <button class="btn primary" id="saveSettingsBtn">保存</button>
+      <div class="modal-actions">
+        <button class="btn" id="cancelSettingsBtn" type="button">关闭</button>
+        <button class="btn primary" id="saveSettingsBtn" type="button">保存</button>
       </div>
-      
-      <!-- 👇 新增：重置数据区域 👇 -->
-      <div style="margin-top: 20px; border-top: 1px dashed #eee; padding-top: 20px;">
-        <button class="btn" id="resetAllDataBtn" style="width: 100%; color: var(--wrong); border-color: var(--wrong); background: #fdecec;">
-          ⚠️ 重置当前词库所有进度
-        </button>
+      <div class="danger-zone">
+        <button class="danger-btn" id="resetAllDataBtn" type="button"><svg class="icon"><use href="#i-alert"/></svg>重置当前词库进度</button>
       </div>
     </div>
   </div>
+
   <script src="js/typing.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>
