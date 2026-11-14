@@ -1,0 +1,4632 @@
+[
+  {
+    "word": "abdicate",
+    "phonetic": "/ˈæbdɪkeɪt/",
+    "meaning": "v. 退位、放弃"
+  },
+  {
+    "word": "abide",
+    "phonetic": "/əˈbaɪd/",
+    "meaning": "v. 遵守、忍受"
+  },
+  {
+    "word": "abolish",
+    "phonetic": "/əˈbɒlɪʃ/",
+    "meaning": "v. 废除，取消"
+  },
+  {
+    "word": "abound",
+    "phonetic": "/əˈbaʊnd/",
+    "meaning": "v. 充满；到处都是"
+  },
+  {
+    "word": "absolute",
+    "phonetic": "/ˈæbsəluːt/",
+    "meaning": "adj. 绝对的、专制的"
+  },
+  {
+    "word": "absorb",
+    "phonetic": "/əbˈsɔːb/",
+    "meaning": "v. 吸收、承受"
+  },
+  {
+    "word": "abstract",
+    "phonetic": "/æbˈstrækt/",
+    "meaning": "adj. 抽象的"
+  },
+  {
+    "word": "abundantly",
+    "phonetic": "/əˈbʌndəntli/",
+    "meaning": "adv. 大量地、非常地"
+  },
+  {
+    "word": "abuse",
+    "phonetic": "/əˈbjuːz/",
+    "meaning": "v/n. 虐待、滥用"
+  },
+  {
+    "word": "academic",
+    "phonetic": "/ˌækəˈdemɪk/",
+    "meaning": "adj. 学术的"
+  },
+  {
+    "word": "accelerate",
+    "phonetic": "/əkˈseləreɪt/",
+    "meaning": "v. 加速、促进"
+  },
+  {
+    "word": "access",
+    "phonetic": "/ˈækses/",
+    "meaning": "v/n. 进入、使用"
+  },
+  {
+    "word": "acclaim",
+    "phonetic": "/əˈkleɪm/",
+    "meaning": "v/n. 称赞、喝彩"
+  },
+  {
+    "word": "accommodate",
+    "phonetic": "/əˈkɒmədeɪt/",
+    "meaning": "v. 容纳、（使）适应"
+  },
+  {
+    "word": "accompany",
+    "phonetic": "/əˈkʌmpəni/",
+    "meaning": "v. 陪伴、伴随"
+  },
+  {
+    "word": "account",
+    "phonetic": "/əˈkaʊnt/",
+    "meaning": "v. 占比、解释 n. 账户、资料"
+  },
+  {
+    "word": "accuracy",
+    "phonetic": "/ˈækjərəsi/",
+    "meaning": "n. 精确（性）、准确（性）"
+  },
+  {
+    "word": "achieve",
+    "phonetic": "/əˈtʃiːv/",
+    "meaning": "v. 获得、实现"
+  },
+  {
+    "word": "acknowledge",
+    "phonetic": "/əkˈnɒlɪdʒ/",
+    "meaning": "v. 承认、认可"
+  },
+  {
+    "word": "acquire",
+    "phonetic": "/əˈkwaɪə/",
+    "meaning": "v. 获得、习得"
+  },
+  {
+    "word": "activate",
+    "phonetic": "/ˈæktɪveɪt/",
+    "meaning": "v. 刺激、激发"
+  },
+  {
+    "word": "acute",
+    "phonetic": "/əˈkjuːt/",
+    "meaning": "adj. 严重的、急性的"
+  },
+  {
+    "word": "adaptable",
+    "phonetic": "/əˈdæptəbl/",
+    "meaning": "adj. 适合的、能适应的"
+  },
+  {
+    "word": "adequate",
+    "phonetic": "/ˈædɪkwɪt/",
+    "meaning": "adj. 充足的、充分的"
+  },
+  {
+    "word": "adhere",
+    "phonetic": "/ədˈhɪə/",
+    "meaning": "v. 坚持、遵守"
+  },
+  {
+    "word": "adjoining",
+    "phonetic": "/əˈdʒɔɪnɪŋ/",
+    "meaning": "adj. 邻接的、相邻的"
+  },
+  {
+    "word": "adjust",
+    "phonetic": "/əˈdʒʌst/",
+    "meaning": "v. 调整、适应"
+  },
+  {
+    "word": "administration",
+    "phonetic": "/ədˌmɪnɪˈstreɪʃ(ə)n/",
+    "meaning": "n. 管理、（美国）政府"
+  },
+  {
+    "word": "admire",
+    "phonetic": "/ədˈmaɪə/",
+    "meaning": "v. 钦佩、欣赏"
+  },
+  {
+    "word": "admit",
+    "phonetic": "/ədˈmɪt/",
+    "meaning": "v. 承认"
+  },
+  {
+    "word": "adopt",
+    "phonetic": "/əˈdɒpt/",
+    "meaning": "v. 收养、采纳"
+  },
+  {
+    "word": "adornment",
+    "phonetic": "/əˈdɔːnmənt/",
+    "meaning": "n. 装饰(品)"
+  },
+  {
+    "word": "advocate",
+    "phonetic": "/ˈædvəkeɪt/",
+    "meaning": "v. 提倡、拥护 n. 支持者、拥护者"
+  },
+  {
+    "word": "affect",
+    "phonetic": "/əˈfekt/",
+    "meaning": "v. 影响、感动 n. 情感"
+  },
+  {
+    "word": "affiliation",
+    "phonetic": "/əˌfɪliˈeɪʃ(ə)n/",
+    "meaning": "n. 联系、有关联的事物"
+  },
+  {
+    "word": "affirm",
+    "phonetic": "/əˈfɜːm/",
+    "meaning": "v. 肯定、证实"
+  },
+  {
+    "word": "agency",
+    "phonetic": "/ˈeɪdʒənsi/",
+    "meaning": "n. 代理、机构"
+  },
+  {
+    "word": "aggravate",
+    "phonetic": "/ˈæɡrəveɪt/",
+    "meaning": "v. 加重、恶化"
+  },
+  {
+    "word": "aggregation",
+    "phonetic": "/ˌæɡrɪˈɡeɪʃ(ə)n/",
+    "meaning": "n. 聚合、形成"
+  },
+  {
+    "word": "aggressive",
+    "phonetic": "/əˈɡresɪv/",
+    "meaning": "adj. 激进的、过激的、有进取心的"
+  },
+  {
+    "word": "agitated",
+    "phonetic": "/ˈædʒɪteɪtɪd/",
+    "meaning": "adj. 激动的、焦虑的"
+  },
+  {
+    "word": "agony",
+    "phonetic": "/ˈæɡəni/",
+    "meaning": "n. 痛苦"
+  },
+  {
+    "word": "alien",
+    "phonetic": "/ˈeɪliən/",
+    "meaning": "adj. 外国的 n. 外国人"
+  },
+  {
+    "word": "allay",
+    "phonetic": "/əˈleɪ/",
+    "meaning": "v. 减轻、使缓和"
+  },
+  {
+    "word": "allegation",
+    "phonetic": "/ˌæləˈɡeɪʃ(ə)n/",
+    "meaning": "n. 指控、陈述"
+  },
+  {
+    "word": "alleviate",
+    "phonetic": "/əˈliːvieɪt/",
+    "meaning": "v. 减轻、（使）缓和"
+  },
+  {
+    "word": "alliance",
+    "phonetic": "/əˈlaɪəns/",
+    "meaning": "n. 联合、联盟"
+  },
+  {
+    "word": "allocation",
+    "phonetic": "/ˌæləʊˈkeɪʃ(ə)n/",
+    "meaning": "n. 分配、配置"
+  },
+  {
+    "word": "alter",
+    "phonetic": "/ˈɔːltə/",
+    "meaning": "v. 改变、更改"
+  },
+  {
+    "word": "amateur",
+    "phonetic": "/ˈæmətə(ː)/",
+    "meaning": "adj. 业余的 n. 业余爱好者"
+  },
+  {
+    "word": "amazing",
+    "phonetic": "/əˈmeɪzɪŋ/",
+    "meaning": "adj. 令人惊讶的"
+  },
+  {
+    "word": "ambiguous",
+    "phonetic": "/æmˈbɪɡjuəs/",
+    "meaning": "adj. 模糊不清的，模棱两可的"
+  },
+  {
+    "word": "ambition",
+    "phonetic": "/æmˈbɪʃ(ə)n/",
+    "meaning": "n. 雄心、志向"
+  },
+  {
+    "word": "amplify",
+    "phonetic": "/ˈæmplɪfaɪ/",
+    "meaning": "v. 扩大、加强"
+  },
+  {
+    "word": "analogy",
+    "phonetic": "/əˈnælədʒi/",
+    "meaning": "n. 类比"
+  },
+  {
+    "word": "ancestor",
+    "phonetic": "/ˈænsɪstə/",
+    "meaning": "n. 先驱者，祖先"
+  },
+  {
+    "word": "announce",
+    "phonetic": "/əˈnaʊns/",
+    "meaning": "v. 宣布、声明"
+  },
+  {
+    "word": "annoy",
+    "phonetic": "/əˈnɔɪ/",
+    "meaning": "v/n. 困扰、烦扰"
+  },
+  {
+    "word": "annual",
+    "phonetic": "/ˈænjuəl/",
+    "meaning": "adj. 年度的、每年的、四季常青的"
+  },
+  {
+    "word": "anonymity",
+    "phonetic": "/ˌænəˈnɪməti/",
+    "meaning": "n. 匿名"
+  },
+  {
+    "word": "anticipate",
+    "phonetic": "/ænˈtɪsɪpeɪt/",
+    "meaning": "v. 预测、预料"
+  },
+  {
+    "word": "apparent",
+    "phonetic": "/əˈpærənt/",
+    "meaning": "adj. 明显的"
+  },
+  {
+    "word": "appeal",
+    "phonetic": "/əˈpiːl/",
+    "meaning": "v/n. 吸引、请求、上诉"
+  },
+  {
+    "word": "appease",
+    "phonetic": "/əˈpiːz/",
+    "meaning": "v. 安抚、抚慰"
+  },
+  {
+    "word": "apply",
+    "phonetic": "/əˈplaɪ/",
+    "meaning": "v. 运用、适用、申请"
+  },
+  {
+    "word": "appoint",
+    "phonetic": "/əˈpɔɪnt/",
+    "meaning": "v. 指定、任命"
+  },
+  {
+    "word": "appreciate",
+    "phonetic": "/əˈpriːʃieɪt/",
+    "meaning": "v. 感激、欣赏、理解"
+  },
+  {
+    "word": "apprehensive",
+    "phonetic": "/ˌæprɪˈhensɪv/",
+    "meaning": "adj. 忧虑的、不安的"
+  },
+  {
+    "word": "approach",
+    "phonetic": "/əˈprəʊtʃ/",
+    "meaning": "v. 接近、处理 n. 接近、方法"
+  },
+  {
+    "word": "appropriate",
+    "phonetic": "/əˈprəʊpriət/",
+    "meaning": "adj. 适当的、合适的"
+  },
+  {
+    "word": "arbiter",
+    "phonetic": "/ˈɑːbɪtə/",
+    "meaning": "n. 仲裁者、主宰者"
+  },
+  {
+    "word": "arouse",
+    "phonetic": "/əˈraʊz/",
+    "meaning": "v. 引起、激发"
+  },
+  {
+    "word": "array",
+    "phonetic": "/əˈreɪ/",
+    "meaning": "v/n. 排列"
+  },
+  {
+    "word": "artificial",
+    "phonetic": "/ˌɑːtɪˈfɪʃ(ə)l/",
+    "meaning": "adj. 人造的、人工的"
+  },
+  {
+    "word": "aspect",
+    "phonetic": "/ˈæspekt/",
+    "meaning": "n. 方面"
+  },
+  {
+    "word": "aspire",
+    "phonetic": "/əsˈpaɪə/",
+    "meaning": "v. 渴望、追求"
+  },
+  {
+    "word": "assembly",
+    "phonetic": "/əˈsembli/",
+    "meaning": "n. 集合、组装"
+  },
+  {
+    "word": "assert",
+    "phonetic": "/əˈsɜːt/",
+    "meaning": "v. 宣称、断言"
+  },
+  {
+    "word": "assess",
+    "phonetic": "/əˈses/",
+    "meaning": "v. 评估、估算"
+  },
+  {
+    "word": "asset",
+    "phonetic": "/ˈæset/",
+    "meaning": "n. 资产"
+  },
+  {
+    "word": "assign",
+    "phonetic": "/əˈsaɪn/",
+    "meaning": "v. 分配、布置"
+  },
+  {
+    "word": "assimilation",
+    "phonetic": "/əˌsɪmɪˈleɪʃ(ə)n/",
+    "meaning": "n. 同化"
+  },
+  {
+    "word": "assist",
+    "phonetic": "/əˈsɪst/",
+    "meaning": "v. 帮助、协助"
+  },
+  {
+    "word": "associate",
+    "phonetic": "/əˈsəʊʃieɪt/",
+    "meaning": "v. 联合、使有联系"
+  },
+  {
+    "word": "assume",
+    "phonetic": "/əˈsjuːm/",
+    "meaning": "v. 假设"
+  },
+  {
+    "word": "astrological",
+    "phonetic": "/ˌæstrəˈlɒdʒɪk(ə)l/",
+    "meaning": "adj. 占星的"
+  },
+  {
+    "word": "astronomy",
+    "phonetic": "/əsˈtrɒnəmi/",
+    "meaning": "n. 天文学"
+  },
+  {
+    "word": "atmosphere",
+    "phonetic": "/ˈætməsfɪə/",
+    "meaning": "n. 大气（层）、空气、气氛"
+  },
+  {
+    "word": "attract",
+    "phonetic": "/əˈtrækt/",
+    "meaning": "v. 吸引"
+  },
+  {
+    "word": "auction",
+    "phonetic": "/ˈɔːkʃ(ə)n/",
+    "meaning": "v/n. 拍卖"
+  },
+  {
+    "word": "authority",
+    "phonetic": "/ɔːˈθɒrəti/",
+    "meaning": "n. 权力、权威、官方"
+  },
+  {
+    "word": "automated",
+    "phonetic": "/ˈɔːtəmeɪtɪd/",
+    "meaning": "adj. 自动（化）的"
+  },
+  {
+    "word": "available",
+    "phonetic": "/əˈveɪləbl/",
+    "meaning": "adj. 可得到的、存在的"
+  },
+  {
+    "word": "awkward",
+    "phonetic": "/ˈɔːkwəd/",
+    "meaning": "adj. 尴尬的"
+  },
+  {
+    "word": "bankruptcy",
+    "phonetic": "/ˈbæŋkrʌptsi/",
+    "meaning": "n. 破产"
+  },
+  {
+    "word": "barely",
+    "phonetic": "/ˈbeəli/",
+    "meaning": "adv. 仅仅、几乎没有"
+  },
+  {
+    "word": "barrier",
+    "phonetic": "/ˈbærɪə/",
+    "meaning": "n. 障碍"
+  },
+  {
+    "word": "behavior",
+    "phonetic": "/bɪˈheɪvjə/",
+    "meaning": "n. 行为、举止"
+  },
+  {
+    "word": "bellyful",
+    "phonetic": "/ˈbelɪfʊl/",
+    "meaning": "n. 满腹"
+  },
+  {
+    "word": "benefactor",
+    "phonetic": "/ˈbenɪfæktə/",
+    "meaning": "n. 捐助者"
+  },
+  {
+    "word": "benign",
+    "phonetic": "/bɪˈnaɪn/",
+    "meaning": "adj. 良性的、无害的"
+  },
+  {
+    "word": "betray",
+    "phonetic": "/bɪˈtreɪ/",
+    "meaning": "v. 背叛、揭露"
+  },
+  {
+    "word": "bias",
+    "phonetic": "/ˈbaɪəs/",
+    "meaning": "n. 偏见"
+  },
+  {
+    "word": "bid",
+    "phonetic": "/bɪd/",
+    "meaning": "v/n. 投标、出价"
+  },
+  {
+    "word": "bilingual",
+    "phonetic": "/baɪˈlɪŋɡwəl/",
+    "meaning": "adj. 双语的"
+  },
+  {
+    "word": "binary",
+    "phonetic": "/ˈbaɪnəri/",
+    "meaning": "adj. 非黑即白的、二元的"
+  },
+  {
+    "word": "binding",
+    "phonetic": "/ˈbaɪndɪŋ/",
+    "meaning": "adj. 有约束力的"
+  },
+  {
+    "word": "biographical",
+    "phonetic": "/ˌbaɪəʊˈɡræfɪkəl/",
+    "meaning": "adj. 传记的"
+  },
+  {
+    "word": "board",
+    "phonetic": "/bɔːd/",
+    "meaning": "n. 委员会、董事会"
+  },
+  {
+    "word": "boom",
+    "phonetic": "/buːm/",
+    "meaning": "v. 迅速发展 n. 繁荣"
+  },
+  {
+    "word": "bother",
+    "phonetic": "/ˈbɒðə/",
+    "meaning": "v/n. 操心、麻烦"
+  },
+  {
+    "word": "boundary",
+    "phonetic": "/ˈbaʊndəri/",
+    "meaning": "n. 界限、范围"
+  },
+  {
+    "word": "bribery",
+    "phonetic": "/ˈbraɪbəri/",
+    "meaning": "n. 行贿、受贿"
+  },
+  {
+    "word": "brief",
+    "phonetic": "/briːf/",
+    "meaning": "adj. 简短的、简洁的 n. 摘要、简报"
+  },
+  {
+    "word": "broaden",
+    "phonetic": "/ˈbrɔːdn/",
+    "meaning": "v. 扩大、加宽"
+  },
+  {
+    "word": "broker",
+    "phonetic": "/ˈbrəʊkə/",
+    "meaning": "n. 经纪人"
+  },
+  {
+    "word": "bubble",
+    "phonetic": "/ˈbʌbl/",
+    "meaning": "v. 冒泡 n. 气泡、泡沫"
+  },
+  {
+    "word": "budget",
+    "phonetic": "/ˈbʌdʒɪt/",
+    "meaning": "v/n. 预算"
+  },
+  {
+    "word": "bureaucratic",
+    "phonetic": "/ˌbjʊərəˈkrætɪk/",
+    "meaning": "adj. 官僚主义的"
+  },
+  {
+    "word": "burst",
+    "phonetic": "/bɜːst/",
+    "meaning": "v/n. 爆炸、爆发"
+  },
+  {
+    "word": "campaign",
+    "phonetic": "/kæmˈpeɪn/",
+    "meaning": "n. 战役、运动、活动"
+  },
+  {
+    "word": "candidate",
+    "phonetic": "/ˈkændɪdət/",
+    "meaning": "n. 候选人"
+  },
+  {
+    "word": "capable",
+    "phonetic": "/ˈkeɪpəbl/",
+    "meaning": "adj. 有能力的"
+  },
+  {
+    "word": "capture",
+    "phonetic": "/ˈkæptʃə/",
+    "meaning": "v. 捕捉、吸引 n. 俘虏、战利品"
+  },
+  {
+    "word": "carve",
+    "phonetic": "/kɑːv/",
+    "meaning": "v. 分割、雕刻"
+  },
+  {
+    "word": "category",
+    "phonetic": "/ˈkætəɡəri/",
+    "meaning": "n. 种类、范畴"
+  },
+  {
+    "word": "cater",
+    "phonetic": "/ˈkeɪtə/",
+    "meaning": "v. 迎合、为……服务"
+  },
+  {
+    "word": "caution",
+    "phonetic": "/ˈkɔːʃən/",
+    "meaning": "v. 警告 n. 小心、谨慎、警告"
+  },
+  {
+    "word": "cavity",
+    "phonetic": "/ˈkævəti/",
+    "meaning": "n. 腔、（牙齿的）龋洞"
+  },
+  {
+    "word": "celebrate",
+    "phonetic": "/ˈselɪbreɪt/",
+    "meaning": "v. 庆祝"
+  },
+  {
+    "word": "challenge",
+    "phonetic": "/ˈtʃælɪndʒ/",
+    "meaning": "v/n. 挑战、质疑"
+  },
+  {
+    "word": "character",
+    "phonetic": "/ˈkærəktə/",
+    "meaning": "n. 特征、性质、性格、字符"
+  },
+  {
+    "word": "charge",
+    "phonetic": "/tʃɑːdʒ/",
+    "meaning": "v. 收费、指控 n. 费用、控告"
+  },
+  {
+    "word": "charity",
+    "phonetic": "/ˈtʃærəti/",
+    "meaning": "n. 慈善（机构）"
+  },
+  {
+    "word": "chronic",
+    "phonetic": "/ˈkrɒnɪk/",
+    "meaning": "adj. 长期的、慢性的"
+  },
+  {
+    "word": "circuit",
+    "phonetic": "/ˈsɜːkɪt/",
+    "meaning": "v. 环行 n. 环行、电路"
+  },
+  {
+    "word": "civil",
+    "phonetic": "/ˈsɪvl/",
+    "meaning": "adj. 公民的、文明的"
+  },
+  {
+    "word": "claim",
+    "phonetic": "/kleɪm/",
+    "meaning": "v/n. 声称、要求、索赔"
+  },
+  {
+    "word": "clarity",
+    "phonetic": "/ˈklærəti/",
+    "meaning": "n. 清晰"
+  },
+  {
+    "word": "client",
+    "phonetic": "/ˈklaɪənt/",
+    "meaning": "n. 客户、顾客"
+  },
+  {
+    "word": "cloak",
+    "phonetic": "/kləʊk/",
+    "meaning": "v. 遮盖、掩饰 n. 斗篷"
+  },
+  {
+    "word": "clue",
+    "phonetic": "/kluː/",
+    "meaning": "n. 提示、线索"
+  },
+  {
+    "word": "clumsy",
+    "phonetic": "/ˈklʌmzi/",
+    "meaning": "adj. 笨拙的、不灵活的"
+  },
+  {
+    "word": "coalition",
+    "phonetic": "/ˌkəʊəˈlɪʃən/",
+    "meaning": "n. 联合、联盟"
+  },
+  {
+    "word": "cognitive",
+    "phonetic": "/ˈkɒɡnɪtɪv/",
+    "meaning": "adj. 认知的"
+  },
+  {
+    "word": "coherent",
+    "phonetic": "/kəʊˈhɪərənt/",
+    "meaning": "adj. 连贯的、一致的、粘在一起的"
+  },
+  {
+    "word": "coincidence",
+    "phonetic": "/kəʊˈɪnsɪdəns/",
+    "meaning": "n. 巧合"
+  },
+  {
+    "word": "collaborative",
+    "phonetic": "/kəˈlæbərətɪv/",
+    "meaning": "adj. 合作的、协作的"
+  },
+  {
+    "word": "collapse",
+    "phonetic": "/kəˈlæps/",
+    "meaning": "v/n. 倒塌、瓦解"
+  },
+  {
+    "word": "collect",
+    "phonetic": "/kəˈlekt/",
+    "meaning": "v. 收集、采集"
+  },
+  {
+    "word": "combat",
+    "phonetic": "/kəmˈbæt/",
+    "meaning": "adj. 战斗的、斗争的 v/n. 战斗、斗争"
+  },
+  {
+    "word": "command",
+    "phonetic": "/kəˈmɑːnd/",
+    "meaning": "v/n. 命令、控制、掌握"
+  },
+  {
+    "word": "commemorate",
+    "phonetic": "/kəˈmeməreɪt/",
+    "meaning": "v. 纪念"
+  },
+  {
+    "word": "commercial",
+    "phonetic": "/kəˈmɜːʃəl/",
+    "meaning": "adj. 商业的、商务的"
+  },
+  {
+    "word": "commit",
+    "phonetic": "/kəˈmɪt/",
+    "meaning": "v. 进行、实施"
+  },
+  {
+    "word": "commodity",
+    "phonetic": "/kəˈmɒdɪti/",
+    "meaning": "n. 商品"
+  },
+  {
+    "word": "community",
+    "phonetic": "/kəˈmjuːnɪti/",
+    "meaning": "n. 社群、（学术）界"
+  },
+  {
+    "word": "compact",
+    "phonetic": "/kəmˈpækt/",
+    "meaning": "n. 合同、契约"
+  },
+  {
+    "word": "compare",
+    "phonetic": "/kəmˈpeə/",
+    "meaning": "v. 比较、相比"
+  },
+  {
+    "word": "compelling",
+    "phonetic": "/kəmˈpelɪŋ/",
+    "meaning": "adj. 强制的、令人信服的"
+  },
+  {
+    "word": "compensate",
+    "phonetic": "/ˈkɒmpenseɪt/",
+    "meaning": "v. 补偿、赔偿、弥补、抵消"
+  },
+  {
+    "word": "competent",
+    "phonetic": "/ˈkɒmpɪtənt/",
+    "meaning": "adj. 有能力的、能胜任的"
+  },
+  {
+    "word": "competitive",
+    "phonetic": "/kəmˈpetɪtɪv/",
+    "meaning": "adj. 竞争的"
+  },
+  {
+    "word": "compile",
+    "phonetic": "/kəmˈpaɪl/",
+    "meaning": "v. 汇编；收集"
+  },
+  {
+    "word": "complex",
+    "phonetic": "/ˈkɒmpleks/",
+    "meaning": "adj. 复杂的"
+  },
+  {
+    "word": "complicated",
+    "phonetic": "/ˈkɒmplɪkeɪtɪd/",
+    "meaning": "adj. 复杂的"
+  },
+  {
+    "word": "comply",
+    "phonetic": "/kəmˈplaɪ/",
+    "meaning": "v. 遵守、遵从"
+  },
+  {
+    "word": "component",
+    "phonetic": "/kəmˈpəʊnənt/",
+    "meaning": "n. 组成部分"
+  },
+  {
+    "word": "composition",
+    "phonetic": "/ˌkɒmpəˈzɪʃən/",
+    "meaning": "n. （文学、音乐、美术等）作品"
+  },
+  {
+    "word": "compound",
+    "phonetic": "/kɒmpaʊnd/",
+    "meaning": "v. 加剧、混合 n. 化合物"
+  },
+  {
+    "word": "comprehensive",
+    "phonetic": "/ˌkɒmprɪˈhensɪv/",
+    "meaning": "adj. 综合的、全面的"
+  },
+  {
+    "word": "compromise",
+    "phonetic": "/ˈkɒmprəmaɪz/",
+    "meaning": "v/n. 妥协、破坏"
+  },
+  {
+    "word": "conceive",
+    "phonetic": "/kənˈsiːv/",
+    "meaning": "v. 怀孕、构想、认为"
+  },
+  {
+    "word": "concentrate",
+    "phonetic": "/ˈkɒnsntreɪt/",
+    "meaning": "v. 集中、浓缩、专心"
+  },
+  {
+    "word": "concept",
+    "phonetic": "/ˈkɒnsept/",
+    "meaning": "n. 概念、观念"
+  },
+  {
+    "word": "concession",
+    "phonetic": "/kənˈseʃən/",
+    "meaning": "n. 妥协、让步"
+  },
+  {
+    "word": "conclude",
+    "phonetic": "/kənˈkluːd/",
+    "meaning": "v. 结束、推断、做出结论"
+  },
+  {
+    "word": "concrete",
+    "phonetic": "/ˈkɒŋkriːt/",
+    "meaning": "n. 混凝土 adj. 具体的、明确的"
+  },
+  {
+    "word": "condemn",
+    "phonetic": "/kənˈdem/",
+    "meaning": "v. 谴责、责备"
+  },
+  {
+    "word": "conduct",
+    "phonetic": "/kənˈdʌkt/",
+    "meaning": "v. 实施、管理、指挥、引导 n. 行为"
+  },
+  {
+    "word": "confer",
+    "phonetic": "/kənˈfɜː/",
+    "meaning": "v. 赋予、协商"
+  },
+  {
+    "word": "confident",
+    "phonetic": "/ˈkɒnfɪdənt/",
+    "meaning": "adj. 自信的、有信心的"
+  },
+  {
+    "word": "confine",
+    "phonetic": "/kənˈfaɪn/",
+    "meaning": "v. 限制、约束 n. 限制、界限"
+  },
+  {
+    "word": "confirm",
+    "phonetic": "/kənˈfɜːm/",
+    "meaning": "v. 确认、确定"
+  },
+  {
+    "word": "conflict",
+    "phonetic": "/kənˈflɪkt/",
+    "meaning": "v. 与……相冲突 n. 冲突、矛盾"
+  },
+  {
+    "word": "confront",
+    "phonetic": "/kənˈfrʌnt/",
+    "meaning": "v. 遭遇、面对"
+  },
+  {
+    "word": "confuse",
+    "phonetic": "/kənˈfjuːz/",
+    "meaning": "v. 迷惑、使困惑"
+  },
+  {
+    "word": "conjunction",
+    "phonetic": "/kənˈdʒʌŋkʃən/",
+    "meaning": "n. 结合、同时发生"
+  },
+  {
+    "word": "conquer",
+    "phonetic": "/ˈkɒŋkə/",
+    "meaning": "v. 征服、克服"
+  },
+  {
+    "word": "conscience",
+    "phonetic": "/ˈkɒnʃəns/",
+    "meaning": "n. 良心、良知"
+  },
+  {
+    "word": "conscious",
+    "phonetic": "/ˈkɒnʃəs/",
+    "meaning": "adj. 有意识的"
+  },
+  {
+    "word": "consent",
+    "phonetic": "/kənˈsent/",
+    "meaning": "v/n. 赞同、同意"
+  },
+  {
+    "word": "consequence",
+    "phonetic": "/ˈkɒnsɪkwəns/",
+    "meaning": "n. 后果"
+  },
+  {
+    "word": "conservative",
+    "phonetic": "/kənˈsɜːvətɪv/",
+    "meaning": "adj. 保守的 n. 保守派、保守党"
+  },
+  {
+    "word": "consistent",
+    "phonetic": "/kənˈsɪstənt/",
+    "meaning": "adj. 一致的、相符的"
+  },
+  {
+    "word": "consolidation",
+    "phonetic": "/kənˌsɒlɪˈdeɪʃən/",
+    "meaning": "n. 合并"
+  },
+  {
+    "word": "constant",
+    "phonetic": "/ˈkɒnstənt/",
+    "meaning": "adj. 不变的、经常的 n. 常数、不变的事物"
+  },
+  {
+    "word": "constitute",
+    "phonetic": "/ˈkɒnstɪtjuːt/",
+    "meaning": "v. 组成、构成"
+  },
+  {
+    "word": "constrain",
+    "phonetic": "/kənˈstreɪn/",
+    "meaning": "v. 限制、约束"
+  },
+  {
+    "word": "construction",
+    "phonetic": "/kənˈstrʌkʃən/",
+    "meaning": "n. 建立、建造、建筑（物）"
+  },
+  {
+    "word": "consume",
+    "phonetic": "/kənˈsjuːm/",
+    "meaning": "v. 消费、消耗"
+  },
+  {
+    "word": "contempt",
+    "phonetic": "/kənˈtempt/",
+    "meaning": "n. 轻蔑、蔑视"
+  },
+  {
+    "word": "content",
+    "phonetic": "/kənˈtent/",
+    "meaning": "adj. 满意的 n. 满意、内容"
+  },
+  {
+    "word": "contest",
+    "phonetic": "/kənˈtest/",
+    "meaning": "v/n. 竞争、争论"
+  },
+  {
+    "word": "contract",
+    "phonetic": "/kənˈtrækt/",
+    "meaning": "n. 合约、合同"
+  },
+  {
+    "word": "contradictory",
+    "phonetic": "/ˌkɒntrəˈdɪktəri/",
+    "meaning": "adj. 矛盾的"
+  },
+  {
+    "word": "contrary",
+    "phonetic": "/kənˈtreəri/",
+    "meaning": "adj/adv. 相反的/地 n. 相反"
+  },
+  {
+    "word": "contrast",
+    "phonetic": "/kənˈtrɑːst/",
+    "meaning": "v/n. 对比、对照"
+  },
+  {
+    "word": "contribute",
+    "phonetic": "/kənˈtrɪbjuːt/",
+    "meaning": "v. 贡献、导致"
+  },
+  {
+    "word": "controversial",
+    "phonetic": "/ˌkɒntrəˈvɜːʃl/",
+    "meaning": "adj. 有争议的"
+  },
+  {
+    "word": "conventional",
+    "phonetic": "/kənˈvenʃənl/",
+    "meaning": "adj. 传统的、常规的"
+  },
+  {
+    "word": "converge",
+    "phonetic": "/kənˈvɜːdʒ/",
+    "meaning": "v. 集中、达成一致"
+  },
+  {
+    "word": "convert",
+    "phonetic": "/kənˈvɜːt/",
+    "meaning": "v. 转变、转化"
+  },
+  {
+    "word": "convey",
+    "phonetic": "/kənˈveɪ/",
+    "meaning": "v. 运输、表达"
+  },
+  {
+    "word": "conviction",
+    "phonetic": "/kənˈvɪkʃən/",
+    "meaning": "n. 判决、定罪"
+  },
+  {
+    "word": "convincing",
+    "phonetic": "/kənˈvɪnsɪŋ/",
+    "meaning": "adj. 有说服力的、令人信服的"
+  },
+  {
+    "word": "cooperate",
+    "phonetic": "/kəʊˈɒpəreɪt/",
+    "meaning": "v. 配合、合作"
+  },
+  {
+    "word": "coordination",
+    "phonetic": "/kəʊˌɔːdɪˈneɪʃən/",
+    "meaning": "n. 协调、协作"
+  },
+  {
+    "word": "core",
+    "phonetic": "/kɔː/",
+    "meaning": "n. 核心、要点"
+  },
+  {
+    "word": "corporate",
+    "phonetic": "/ˈkɔːpərət/",
+    "meaning": "adj. 公司的、企业的"
+  },
+  {
+    "word": "correct",
+    "phonetic": "/kəˈrekt/",
+    "meaning": "adj. 正确的"
+  },
+  {
+    "word": "correlate",
+    "phonetic": "/ˈkɒrəleɪt/",
+    "meaning": "v. 使相互关联、和……相关"
+  },
+  {
+    "word": "correspond",
+    "phonetic": "/ˌkɒrɪˈspɒnd/",
+    "meaning": "v. 符合、与……一致、与……通信"
+  },
+  {
+    "word": "corruption",
+    "phonetic": "/kəˈrʌpʃən/",
+    "meaning": "n. 贪污、腐败"
+  },
+  {
+    "word": "counterbalance",
+    "phonetic": "/ˈkaʊntəbæləns/",
+    "meaning": "v. 抵消、使平衡 n. 平衡力"
+  },
+  {
+    "word": "counterpart",
+    "phonetic": "/ˈkaʊntəpɑːt/",
+    "meaning": "n. 极其相似的人或物、对比物"
+  },
+  {
+    "word": "courageous",
+    "phonetic": "/kəˈreɪdʒəs/",
+    "meaning": "adj. 勇敢的、大胆的"
+  },
+  {
+    "word": "craft",
+    "phonetic": "/krɑːft/",
+    "meaning": "v. 精心制作 n. 手艺、工艺"
+  },
+  {
+    "word": "crash",
+    "phonetic": "/kræʃ/",
+    "meaning": "v/n. 撞击、坠落、崩溃"
+  },
+  {
+    "word": "credit",
+    "phonetic": "/ˈkredɪt/",
+    "meaning": "v. 信任、认可 n. 信用、认可、学分"
+  },
+  {
+    "word": "creep",
+    "phonetic": "/kriːp/",
+    "meaning": "v. 爬行、悄然而至"
+  },
+  {
+    "word": "crisis",
+    "phonetic": "/ˈkraɪsɪs/",
+    "meaning": "n. 危机、关键时刻"
+  },
+  {
+    "word": "critical",
+    "phonetic": "/ˈkrɪtɪkl/",
+    "meaning": "adj. 批判（性）的、关键的、临界的"
+  },
+  {
+    "word": "crucial",
+    "phonetic": "/ˈkruːʃəl/",
+    "meaning": "adj. 至关重要的"
+  },
+  {
+    "word": "cue",
+    "phonetic": "/kjuː/",
+    "meaning": "n. 线索、提示"
+  },
+  {
+    "word": "cultivate",
+    "phonetic": "/ˈkʌltɪveɪt/",
+    "meaning": "v. 种植、培养"
+  },
+  {
+    "word": "cunning",
+    "phonetic": "/ˈkʌnɪŋ/",
+    "meaning": "adj. 巧妙的、可爱的、狡猾的"
+  },
+  {
+    "word": "curb",
+    "phonetic": "/kɜːb/",
+    "meaning": "v/n. 控制、限制"
+  },
+  {
+    "word": "cure",
+    "phonetic": "/kjʊə/",
+    "meaning": "v. 治疗、治愈 n. 治疗、疗法"
+  },
+  {
+    "word": "curiosity",
+    "phonetic": "/ˌkjʊəriˈɒsəti/",
+    "meaning": "n. 好奇心"
+  },
+  {
+    "word": "current",
+    "phonetic": "/ˈkʌrənt/",
+    "meaning": "adj. 当前的、流行的"
+  },
+  {
+    "word": "curriculum",
+    "phonetic": "/kəˈrɪkjələm/",
+    "meaning": "n. （学校等的）全部课程"
+  },
+  {
+    "word": "cursory",
+    "phonetic": "/ˈkɜːsəri/",
+    "meaning": "adj. 粗略的、草率的、匆忙的"
+  },
+  {
+    "word": "dampen",
+    "phonetic": "/ˈdæmpən/",
+    "meaning": "v. 使沮丧"
+  },
+  {
+    "word": "dawn",
+    "phonetic": "/dɔːn/",
+    "meaning": "v. 破晓、出现 n. 黎明、开端"
+  },
+  {
+    "word": "dearth",
+    "phonetic": "/dɜːθ/",
+    "meaning": "n. 缺乏、不足"
+  },
+  {
+    "word": "debate",
+    "phonetic": "/dɪˈbeɪt/",
+    "meaning": "v/n. 争论、辩论"
+  },
+  {
+    "word": "deceptive",
+    "phonetic": "/dɪˈseptɪv/",
+    "meaning": "adj. 骗人的、虚伪的"
+  },
+  {
+    "word": "declaration",
+    "phonetic": "/ˌdekləˈreɪʃən/",
+    "meaning": "n. 申明、宣称"
+  },
+  {
+    "word": "decline",
+    "phonetic": "/dɪˈklaɪm/",
+    "meaning": "v/n. 下降、衰退"
+  },
+  {
+    "word": "decoration",
+    "phonetic": "/ˌdekəˈreɪʃən/",
+    "meaning": "n. 装饰（品）"
+  },
+  {
+    "word": "dedicate",
+    "phonetic": "/ˈdedɪkeɪt/",
+    "meaning": "v. 献身、致力于"
+  },
+  {
+    "word": "deduce",
+    "phonetic": "/dɪˈdjuːs/",
+    "meaning": "v. 推理、推断"
+  },
+  {
+    "word": "deem",
+    "phonetic": "/diːm/",
+    "meaning": "v. 认为、视作"
+  },
+  {
+    "word": "defend",
+    "phonetic": "/dɪˈfend/",
+    "meaning": "v. 保护、为……辩护"
+  },
+  {
+    "word": "defer",
+    "phonetic": "/dɪˈfɜː/",
+    "meaning": "v. 延期、延迟"
+  },
+  {
+    "word": "deficiency",
+    "phonetic": "/dɪˈfɪʃənsi/",
+    "meaning": "n. 缺点、缺乏"
+  },
+  {
+    "word": "define",
+    "phonetic": "/dɪˈfaɪn/",
+    "meaning": "v. 定义、（使）明确"
+  },
+  {
+    "word": "deliberate",
+    "phonetic": "/dɪˈlɪbərət/",
+    "meaning": "v. 仔细考虑 adj. 刻意的、故意的"
+  },
+  {
+    "word": "delicate",
+    "phonetic": "/ˈdelɪkət/",
+    "meaning": "adj. 精致的、微妙的"
+  },
+  {
+    "word": "deliver",
+    "phonetic": "/dɪˈlɪvə/",
+    "meaning": "v. 发表（演讲/讲话）、递送"
+  },
+  {
+    "word": "delusion",
+    "phonetic": "/dɪˈluːʒən/",
+    "meaning": "n. 错觉、妄想"
+  },
+  {
+    "word": "democratic",
+    "phonetic": "/ˌdeməˈkrætɪk/",
+    "meaning": "adj. 民主的"
+  },
+  {
+    "word": "demographic",
+    "phonetic": "/ˌdeməˈɡræfɪk/",
+    "meaning": "adj. 人口学的 n. 人口统计数据"
+  },
+  {
+    "word": "dense",
+    "phonetic": "/dens/",
+    "meaning": "adj. 浓密的、稠密的"
+  },
+  {
+    "word": "deny",
+    "phonetic": "/dɪˈnaɪ/",
+    "meaning": "v. 拒绝、否认"
+  },
+  {
+    "word": "depart",
+    "phonetic": "/dɪˈpɑːt/",
+    "meaning": "v. 离开、出发"
+  },
+  {
+    "word": "depict",
+    "phonetic": "/dɪˈpɪkt/",
+    "meaning": "v. 描述、描绘"
+  },
+  {
+    "word": "depression",
+    "phonetic": "/dɪˈpreʃən/",
+    "meaning": "n. 沮丧、抑郁、（经济）萧条"
+  },
+  {
+    "word": "deprive",
+    "phonetic": "/dɪˈpraɪv/",
+    "meaning": "v. 剥夺、使丧失"
+  },
+  {
+    "word": "derive",
+    "phonetic": "/dɪˈraɪv/",
+    "meaning": "v. 来自、源于"
+  },
+  {
+    "word": "descend",
+    "phonetic": "/dɪˈsend/",
+    "meaning": "v. 下降、遗传"
+  },
+  {
+    "word": "describe",
+    "phonetic": "/dɪˈskraɪb/",
+    "meaning": "v. 描述、形容"
+  },
+  {
+    "word": "deserve",
+    "phonetic": "/dɪˈzɜːv/",
+    "meaning": "v. 值得、应得"
+  },
+  {
+    "word": "designate",
+    "phonetic": "/ˈdezɪɡneɪt/",
+    "meaning": "v. 把……命名为；把……定义为"
+  },
+  {
+    "word": "desire",
+    "phonetic": "/dɪˈzaɪə/",
+    "meaning": "v. 渴望、想要 n. 欲望、心愿"
+  },
+  {
+    "word": "desperate",
+    "phonetic": "/ˈdespərət/",
+    "meaning": "adj. 令人绝望的、不顾一切的"
+  },
+  {
+    "word": "deteriorate",
+    "phonetic": "/dɪˈtɪəriəreɪt/",
+    "meaning": "v. 恶化"
+  },
+  {
+    "word": "determine",
+    "phonetic": "/dɪˈtɜːmɪn/",
+    "meaning": "v. 决定、下定决心"
+  },
+  {
+    "word": "detrimental",
+    "phonetic": "/ˌdetrɪˈmentl/",
+    "meaning": "adj. 有害的、不利的"
+  },
+  {
+    "word": "devastating",
+    "phonetic": "/ˈdevəsteɪtɪŋ/",
+    "meaning": "adj. 毁灭性的、破坏性极强的"
+  },
+  {
+    "word": "devise",
+    "phonetic": "/dɪˈvaɪz/",
+    "meaning": "v. 设计、发明"
+  },
+  {
+    "word": "devoted",
+    "phonetic": "/dɪˈvəʊtɪd/",
+    "meaning": "adj. 忠实的、忠诚的、热衷于……的"
+  },
+  {
+    "word": "differentiate",
+    "phonetic": "/ˌdɪfəˈrenʃieɪt/",
+    "meaning": "v. 区分、区别"
+  },
+  {
+    "word": "diffuse",
+    "phonetic": "/dɪˈfjuːz/",
+    "meaning": "v. 传播、缓解"
+  },
+  {
+    "word": "disaster",
+    "phonetic": "/dɪˈzɑːstə/",
+    "meaning": "n. 灾难"
+  },
+  {
+    "word": "discipline",
+    "phonetic": "/ˈdɪsɪplɪn/",
+    "meaning": "n. 纪律、原则"
+  },
+  {
+    "word": "disclose",
+    "phonetic": "/dɪsˈkləʊz/",
+    "meaning": "v. 揭露、公开"
+  },
+  {
+    "word": "disconcerting",
+    "phonetic": "/ˌdɪskənˈsɜːtɪŋ/",
+    "meaning": "adj. 焦虑的、不安的"
+  },
+  {
+    "word": "discover",
+    "phonetic": "/dɪsˈkʌvə/",
+    "meaning": "v. 发现、发觉"
+  },
+  {
+    "word": "discrimination",
+    "phonetic": "/dɪˌskrɪmɪˈneɪʃən/",
+    "meaning": "n. 歧视、区别对待"
+  },
+  {
+    "word": "disgrace",
+    "phonetic": "/dɪsˈɡreɪs/",
+    "meaning": "v. 使丢脸、使蒙受 n. 耻辱、不光彩的事"
+  },
+  {
+    "word": "disguise",
+    "phonetic": "/dɪsˈɡaɪz/",
+    "meaning": "v/n. 掩饰、伪装"
+  },
+  {
+    "word": "disintegrate",
+    "phonetic": "/dɪsˈɪntɪɡreɪt/",
+    "meaning": "v. 分解、衰退"
+  },
+  {
+    "word": "dismiss",
+    "phonetic": "/dɪsˈmɪs/",
+    "meaning": "v. 解散、解雇、排除"
+  },
+  {
+    "word": "disorder",
+    "phonetic": "/dɪsˈɔːdə/",
+    "meaning": "v. 扰乱、使失调 n. 混乱、病症（心理学）"
+  },
+  {
+    "word": "display",
+    "phonetic": "/dɪsˈpleɪ/",
+    "meaning": "v/n. 展示、显示、表现"
+  },
+  {
+    "word": "disposable",
+    "phonetic": "/dɪsˈpəʊzəbl/",
+    "meaning": "adj. 一次性的、可任意处理的"
+  },
+  {
+    "word": "disproportionately",
+    "phonetic": "/ˌdɪsprəˈpɔːʃənətli/",
+    "meaning": "adv. 不成比例地"
+  },
+  {
+    "word": "dispute",
+    "phonetic": "/dɪsˈpjuːt/",
+    "meaning": "v/n. 反对、争论"
+  },
+  {
+    "word": "disruptive",
+    "phonetic": "/dɪsˈrʌptɪv/",
+    "meaning": "adj. 破坏（性）的、颠覆（性）的"
+  },
+  {
+    "word": "distort",
+    "phonetic": "/dɪsˈtɔːt/",
+    "meaning": "v. 歪曲、扭曲"
+  },
+  {
+    "word": "distraction",
+    "phonetic": "/dɪsˈtrækʃən/",
+    "meaning": "n. 分心、分神"
+  },
+  {
+    "word": "distressed",
+    "phonetic": "/dɪsˈtrest/",
+    "meaning": "adj. 烦恼的、难过的"
+  },
+  {
+    "word": "distribute",
+    "phonetic": "/dɪsˈtrɪbjuːt/",
+    "meaning": "v. 分发、分配"
+  },
+  {
+    "word": "district",
+    "phonetic": "/ˈdɪstrɪkt/",
+    "meaning": "n. 区域、地区"
+  },
+  {
+    "word": "disturb",
+    "phonetic": "/dɪsˈtɜːb/",
+    "meaning": "v. 打搅、使混乱"
+  },
+  {
+    "word": "diverse",
+    "phonetic": "/daɪˈvɜːs/",
+    "meaning": "adj. 不同的、多样的"
+  },
+  {
+    "word": "divisive",
+    "phonetic": "/dɪˈvaɪsɪv/",
+    "meaning": "adj. 分裂的、有分歧的"
+  },
+  {
+    "word": "domestic",
+    "phonetic": "/dəˈmestɪk/",
+    "meaning": "adj. 家庭的、国内的"
+  },
+  {
+    "word": "dominate",
+    "phonetic": "/ˈdɒmɪneɪt/",
+    "meaning": "v. 统治、主导"
+  },
+  {
+    "word": "donate",
+    "phonetic": "/dəʊˈneɪt/",
+    "meaning": "v. 捐献、捐赠"
+  },
+  {
+    "word": "doom",
+    "phonetic": "/duːm/",
+    "meaning": "n. 厄运、灾难"
+  },
+  {
+    "word": "dormant",
+    "phonetic": "/ˈdɔːmənt/",
+    "meaning": "adj. 休眠的、静止的"
+  },
+  {
+    "word": "dramatic",
+    "phonetic": "/drəˈmætɪk/",
+    "meaning": "adj. 戏剧（性）的、剧烈的"
+  },
+  {
+    "word": "drastic",
+    "phonetic": "/ˈdræstɪk/",
+    "meaning": "adj. 激烈的、剧烈的"
+  },
+  {
+    "word": "dreadful",
+    "phonetic": "/ˈdredfəl/",
+    "meaning": "adj. 可怕的、糟糕的"
+  },
+  {
+    "word": "drought",
+    "phonetic": "/draʊt/",
+    "meaning": "n. 干旱、旱灾"
+  },
+  {
+    "word": "duplication",
+    "phonetic": "/ˌdjuːplɪˈkeɪʃən/",
+    "meaning": "n. 重复、复制、副本"
+  },
+  {
+    "word": "durable",
+    "phonetic": "/ˈdjʊərəbl/",
+    "meaning": "adj. 持续的、持久的、耐用的"
+  },
+  {
+    "word": "dynamic",
+    "phonetic": "/daɪˈnæmɪk/",
+    "meaning": "adj. 动力（学）的、动态的 n. 动力、动态"
+  },
+  {
+    "word": "economic",
+    "phonetic": "/ˌiːkəˈnɒmɪk/",
+    "meaning": "adj. 经济（学）的"
+  },
+  {
+    "word": "effective",
+    "phonetic": "/ɪˈfektɪv/",
+    "meaning": "adj. 有效的"
+  },
+  {
+    "word": "efficient",
+    "phonetic": "/ɪˈfɪʃənt/",
+    "meaning": "adj. 有效率的"
+  },
+  {
+    "word": "effort",
+    "phonetic": "/ˈefət/",
+    "meaning": "n. 努力、尝试"
+  },
+  {
+    "word": "elaborate",
+    "phonetic": "/ɪˈlæbərət/",
+    "meaning": "v. 精心准备、详细阐述 adj. 精心的、详尽的"
+  },
+  {
+    "word": "elect",
+    "phonetic": "/ɪˈlekt/",
+    "meaning": "v. 推选、选举"
+  },
+  {
+    "word": "elegant",
+    "phonetic": "/ˈelɪɡənt/",
+    "meaning": "adj. 优美的、优雅的"
+  },
+  {
+    "word": "element",
+    "phonetic": "/ˈeləmənt/",
+    "meaning": "n. 元素、要素、成分"
+  },
+  {
+    "word": "elevate",
+    "phonetic": "/ˈelɪveɪt/",
+    "meaning": "v. 提高、提升"
+  },
+  {
+    "word": "eligible",
+    "phonetic": "/ˈelɪdʒəbl/",
+    "meaning": "adj. 合格的、有资格的"
+  },
+  {
+    "word": "eliminate",
+    "phonetic": "/ɪˈlɪmɪneɪt/",
+    "meaning": "v. 消除、排除"
+  },
+  {
+    "word": "elite",
+    "phonetic": "/eɪˈliːt/",
+    "meaning": "n. 精英"
+  },
+  {
+    "word": "embarrassing",
+    "phonetic": "/ɪmˈbærəsɪŋ/",
+    "meaning": "adj. 令人尴尬的"
+  },
+  {
+    "word": "embrace",
+    "phonetic": "/ɪmˈbreɪs/",
+    "meaning": "v/n. 拥抱、接受"
+  },
+  {
+    "word": "emerge",
+    "phonetic": "/ɪˈmɜːdʒ/",
+    "meaning": "v. 出现、显现"
+  },
+  {
+    "word": "emigrate",
+    "phonetic": "/ˈemɪɡreɪt/",
+    "meaning": "v. 移民（出），离开"
+  },
+  {
+    "word": "emission",
+    "phonetic": "/ɪˈmɪʃən/",
+    "meaning": "n. 排放（量）"
+  },
+  {
+    "word": "emotional",
+    "phonetic": "/ɪˈməʊʃənl/",
+    "meaning": "adj. 情绪的、情感的"
+  },
+  {
+    "word": "emphasize",
+    "phonetic": "/ˈemfəsaɪz/",
+    "meaning": "v. 强调、重视"
+  },
+  {
+    "word": "empower",
+    "phonetic": "/ɪmˈpaʊə/",
+    "meaning": "v. 授权、允许"
+  },
+  {
+    "word": "encode",
+    "phonetic": "/ɪnˈkəʊd/",
+    "meaning": "v. 编码"
+  },
+  {
+    "word": "encounter",
+    "phonetic": "/ɪnˈkaʊntə/",
+    "meaning": "v/n. 遭遇、对抗"
+  },
+  {
+    "word": "endeavor",
+    "phonetic": "/ɪnˈdevə/",
+    "meaning": "v/n. 努力、尝试"
+  },
+  {
+    "word": "endure",
+    "phonetic": "/ɪnˈdjʊə/",
+    "meaning": "v. 忍受、延续"
+  },
+  {
+    "word": "engage",
+    "phonetic": "/ɪnˈɡeɪdʒ/",
+    "meaning": "v. 从事、参与"
+  },
+  {
+    "word": "enhance",
+    "phonetic": "/ɪnˈhɑːns/",
+    "meaning": "v. 提高、增加、加强"
+  },
+  {
+    "word": "enlarge",
+    "phonetic": "/ɪnˈlɑːdʒ/",
+    "meaning": "v. 扩大、放大"
+  },
+  {
+    "word": "enormous",
+    "phonetic": "/ɪˈnɔːməs/",
+    "meaning": "adj. 巨大的"
+  },
+  {
+    "word": "enrage",
+    "phonetic": "/ɪnˈreɪdʒ/",
+    "meaning": "v. 激怒"
+  },
+  {
+    "word": "ensure",
+    "phonetic": "/ɪnˈʃʊə/",
+    "meaning": "v. 确保、保证"
+  },
+  {
+    "word": "entail",
+    "phonetic": "/ɪnˈteɪl/",
+    "meaning": "v. 需要"
+  },
+  {
+    "word": "entertainment",
+    "phonetic": "/ˌentəˈteɪnmənt/",
+    "meaning": "n. 娱乐、消遣"
+  },
+  {
+    "word": "enthusiasm",
+    "phonetic": "/ɪnˈθjuːziæzm/",
+    "meaning": "n. 热情"
+  },
+  {
+    "word": "entirely",
+    "phonetic": "/ɪnˈtaɪəli/",
+    "meaning": "adv. 完全地、彻底地"
+  },
+  {
+    "word": "entitle",
+    "phonetic": "/ɪnˈtaɪtl/",
+    "meaning": "v. 给……命名、授予……称号、使有权利/资格"
+  },
+  {
+    "word": "envision",
+    "phonetic": "/ɪnˈvɪʒən/",
+    "meaning": "v. 想象、构想"
+  },
+  {
+    "word": "epidemic",
+    "phonetic": "/ˌepɪˈdemɪk/",
+    "meaning": "adj. 传染性的、流行的 n. 传染病、流行病、流行、风行"
+  },
+  {
+    "word": "equality",
+    "phonetic": "/ɪˈkwɒləti/",
+    "meaning": "n. 公平、平等"
+  },
+  {
+    "word": "equivalent",
+    "phonetic": "/ɪˈkwɪvələnt/",
+    "meaning": "adj. 等价的、相当于 n. 等价物"
+  },
+  {
+    "word": "essential",
+    "phonetic": "/ɪˈsenʃəl/",
+    "meaning": "adj. 本质的、必要的 n. 要素、必需品"
+  },
+  {
+    "word": "establish",
+    "phonetic": "/ɪˈstæblɪʃ/",
+    "meaning": "v. 创立、建立"
+  },
+  {
+    "word": "esteem",
+    "phonetic": "/ɪˈstiːm/",
+    "meaning": "v/n. 尊敬、尊重"
+  },
+  {
+    "word": "estimate",
+    "phonetic": "/ˈestɪmət/",
+    "meaning": "v/n. 评估、估价"
+  },
+  {
+    "word": "ethical",
+    "phonetic": "/ˈeθɪkəl/",
+    "meaning": "adj. 伦理的、道德的"
+  },
+  {
+    "word": "evade",
+    "phonetic": "/ɪˈveɪd/",
+    "meaning": "v. 使……感到困难、逃避"
+  },
+  {
+    "word": "evaluate",
+    "phonetic": "/ɪˈvæljueɪt/",
+    "meaning": "v. 评价、评估"
+  },
+  {
+    "word": "evaporate",
+    "phonetic": "/ɪˈvæpəreɪt/",
+    "meaning": "v. 蒸发、消失"
+  },
+  {
+    "word": "eventually",
+    "phonetic": "/ɪˈventʃəli/",
+    "meaning": "adv. 最终、终于"
+  },
+  {
+    "word": "evidence",
+    "phonetic": "/ˈevɪdəns/",
+    "meaning": "n. 证据、证明"
+  },
+  {
+    "word": "evolve",
+    "phonetic": "/ɪˈvɒlv/",
+    "meaning": "v. 发展、进化"
+  },
+  {
+    "word": "exaggerate",
+    "phonetic": "/ɪɡˈzædʒəreɪt/",
+    "meaning": "v. 夸大、夸张"
+  },
+  {
+    "word": "excellent",
+    "phonetic": "/ˈeksələnt/",
+    "meaning": "adj. 优秀的、很好的"
+  },
+  {
+    "word": "exception",
+    "phonetic": "/ɪkˈsepʃən/",
+    "meaning": "n. 例外"
+  },
+  {
+    "word": "excessive",
+    "phonetic": "/ɪkˈsesɪv/",
+    "meaning": "adj. 过度的、过量的"
+  },
+  {
+    "word": "exclusive",
+    "phonetic": "/ɪkˈkluːsɪv/",
+    "meaning": "adj. 排他的、专有的"
+  },
+  {
+    "word": "executive",
+    "phonetic": "/ɪɡˈzekjʊtɪv/",
+    "meaning": "adj. 执行的、行政的 n. 执行者、经理"
+  },
+  {
+    "word": "exert",
+    "phonetic": "/ɪɡˈzɜːt/",
+    "meaning": "v. 施加、发挥"
+  },
+  {
+    "word": "exhaust",
+    "phonetic": "/ɪɡˈzɔːst/",
+    "meaning": "v. 排出、耗尽、使精疲力尽"
+  },
+  {
+    "word": "exhibit",
+    "phonetic": "/ɪɡˈzɪbɪt/",
+    "meaning": "v. 显示、表现出、展览"
+  },
+  {
+    "word": "expand",
+    "phonetic": "/ɪksˈpænd/",
+    "meaning": "v. 扩大、扩展"
+  },
+  {
+    "word": "expensive",
+    "phonetic": "/ɪksˈpensɪv/",
+    "meaning": "adj. 昂贵的、奢侈的"
+  },
+  {
+    "word": "expire",
+    "phonetic": "/ɪksˈpaɪə/",
+    "meaning": "v. 到期、终止"
+  },
+  {
+    "word": "explicit",
+    "phonetic": "/ɪksˈplɪsɪt/",
+    "meaning": "adj. 清楚的、明确的"
+  },
+  {
+    "word": "exploit",
+    "phonetic": "/ɪksˈplɔɪt/",
+    "meaning": "v. 开发、利用"
+  },
+  {
+    "word": "explore",
+    "phonetic": "/ɪksˈplɔː/",
+    "meaning": "v. 探索、探测、探险"
+  },
+  {
+    "word": "explosion",
+    "phonetic": "/ɪksˈpləʊʒən/",
+    "meaning": "n. 爆炸、爆发、激增"
+  },
+  {
+    "word": "export",
+    "phonetic": "/ɪksˈpɔːt/",
+    "meaning": "v/n. 输出、出口"
+  },
+  {
+    "word": "expose",
+    "phonetic": "/ɪksˈpəʊz/",
+    "meaning": "v. 面临、遭受、（使）暴露、（使）曝光"
+  },
+  {
+    "word": "express",
+    "phonetic": "/ɪksˈpres/",
+    "meaning": "v. 表露、表达"
+  },
+  {
+    "word": "extend",
+    "phonetic": "/ɪksˈtend/",
+    "meaning": "v. 延长、延期"
+  },
+  {
+    "word": "external",
+    "phonetic": "/eksˈtɜːnl/",
+    "meaning": "adj. 外部的、表面的"
+  },
+  {
+    "word": "extinguish",
+    "phonetic": "/ɪksˈtɪŋɡwɪʃ/",
+    "meaning": "v. 使熄灭、使破灭"
+  },
+  {
+    "word": "extract",
+    "phonetic": "/ɪksˈtrækt/",
+    "meaning": "v. 提炼、提取、取出、拔出"
+  },
+  {
+    "word": "extraordinarily",
+    "phonetic": "/ɪksˈtrɔːdnrɪli/",
+    "meaning": "adv. 极度地"
+  },
+  {
+    "word": "fabric",
+    "phonetic": "/ˈfæbrɪk/",
+    "meaning": "n. 织物、结构"
+  },
+  {
+    "word": "facilitate",
+    "phonetic": "/fəˈsɪlɪteɪt/",
+    "meaning": "v. 促进、有助于"
+  },
+  {
+    "word": "fade",
+    "phonetic": "/feɪd/",
+    "meaning": "v. 褪色、变弱、逐渐消失"
+  },
+  {
+    "word": "faint",
+    "phonetic": "/feɪnt/",
+    "meaning": "adj. 模糊的、微弱的、勉强的"
+  },
+  {
+    "word": "fake",
+    "phonetic": "/feɪk/",
+    "meaning": "adj. 假的、伪造的 n. 假货、赝品"
+  },
+  {
+    "word": "familiar",
+    "phonetic": "/fəˈmɪliə/",
+    "meaning": "adj. 熟悉的、常见的"
+  },
+  {
+    "word": "fantastic",
+    "phonetic": "/fænˈtæstɪk/",
+    "meaning": "adj. 异想天开的、不切实际的、极好的"
+  },
+  {
+    "word": "fascinate",
+    "phonetic": "/ˈfæsɪneɪt/",
+    "meaning": "v. 入迷、使着迷"
+  },
+  {
+    "word": "fatal",
+    "phonetic": "/ˈfeɪtl/",
+    "meaning": "adj. 致命的、重大的"
+  },
+  {
+    "word": "favor",
+    "phonetic": "/ˈfeɪvə/",
+    "meaning": "v/n. 喜爱、帮助"
+  },
+  {
+    "word": "feverish",
+    "phonetic": "/ˈfiːvərɪʃ/",
+    "meaning": "adj. 发烧的、发热的、狂热的"
+  },
+  {
+    "word": "fiction",
+    "phonetic": "/ˈfɪkʃən/",
+    "meaning": "n. 小说"
+  },
+  {
+    "word": "fierce",
+    "phonetic": "/fɪəs/",
+    "meaning": "adj. 凶猛的、激烈的"
+  },
+  {
+    "word": "figure",
+    "phonetic": "/ˈfɪɡə/",
+    "meaning": "v. 计算 n. 数字、图表、人物"
+  },
+  {
+    "word": "financial",
+    "phonetic": "/faɪˈnænʃəl/",
+    "meaning": "adj. 金融的、财务的"
+  },
+  {
+    "word": "finite",
+    "phonetic": "/ˈfaɪnaɪt/",
+    "meaning": "adj. 有限的"
+  },
+  {
+    "word": "flaw",
+    "phonetic": "/flɔː/",
+    "meaning": "n. 缺陷、瑕疵、裂缝"
+  },
+  {
+    "word": "flexibility",
+    "phonetic": "/ˌfleksəˈbɪləti/",
+    "meaning": "n. 弹性、灵活性"
+  },
+  {
+    "word": "flourish",
+    "phonetic": "/ˈflʌrɪʃ/",
+    "meaning": "v/n. 繁荣、兴旺"
+  },
+  {
+    "word": "folk",
+    "phonetic": "/fəʊk/",
+    "meaning": "adj. 民间的 n. 人们（多用复数）"
+  },
+  {
+    "word": "foresee",
+    "phonetic": "/fɔːˈsiː/",
+    "meaning": "v. 预见、预知"
+  },
+  {
+    "word": "foreshadow",
+    "phonetic": "/fɔːˈʃædəʊ/",
+    "meaning": "v. 预示、是…的预兆"
+  },
+  {
+    "word": "formal",
+    "phonetic": "/ˈfɔːməl/",
+    "meaning": "adj. 正式的、正规的"
+  },
+  {
+    "word": "foster",
+    "phonetic": "/ˈfɒstə/",
+    "meaning": "v. 促进、助长"
+  },
+  {
+    "word": "foundation",
+    "phonetic": "/faʊnˈdeɪʃən/",
+    "meaning": "n. 创立、根据、基础、基金（会）"
+  },
+  {
+    "word": "fraction",
+    "phonetic": "/ˈfrækʃən/",
+    "meaning": "n. （小）部分、少量"
+  },
+  {
+    "word": "fragile",
+    "phonetic": "/ˈfrædʒaɪl/",
+    "meaning": "adj. 脆弱的、易碎的"
+  },
+  {
+    "word": "frame",
+    "phonetic": "/freɪm/",
+    "meaning": "n. 框架、体系、（人或动物的）躯体"
+  },
+  {
+    "word": "freeze",
+    "phonetic": "/friːz/",
+    "meaning": "v. 冻结"
+  },
+  {
+    "word": "frugal",
+    "phonetic": "/ˈfruːɡəl/",
+    "meaning": "adj. 朴素的、节俭的"
+  },
+  {
+    "word": "frustrate",
+    "phonetic": "/frʌˈstreɪt/",
+    "meaning": "v. 挫败、（使）受挫"
+  },
+  {
+    "word": "fulfill",
+    "phonetic": "/fʊlˈfɪl/",
+    "meaning": "v. 完成、实现"
+  },
+  {
+    "word": "function",
+    "phonetic": "/ˈfʌŋkʃən/",
+    "meaning": "v. 运行、起作用 n. 功能"
+  },
+  {
+    "word": "fund",
+    "phonetic": "/fʌnd/",
+    "meaning": "v. 投资、资助 n. 资金、基金"
+  },
+  {
+    "word": "fuse",
+    "phonetic": "/fjuːz/",
+    "meaning": "v. 融入、融合"
+  },
+  {
+    "word": "garment",
+    "phonetic": "/ˈɡɑːmənt/",
+    "meaning": "n. 衣服、服装"
+  },
+  {
+    "word": "generate",
+    "phonetic": "/ˈdʒenəreɪt/",
+    "meaning": "v. 产生、引起"
+  },
+  {
+    "word": "generous",
+    "phonetic": "/ˈdʒenərəs/",
+    "meaning": "adj. 慷慨的、大方的、大量的"
+  },
+  {
+    "word": "genetic",
+    "phonetic": "/dʒəˈnetɪk/",
+    "meaning": "adj. 基因的、遗传的"
+  },
+  {
+    "word": "genius",
+    "phonetic": "/ˈdʒiːniəs/",
+    "meaning": "n. 天才、天赋"
+  },
+  {
+    "word": "genuinely",
+    "phonetic": "/ˈdʒenjuɪnli/",
+    "meaning": "adv. 真诚地、诚实地"
+  },
+  {
+    "word": "giant",
+    "phonetic": "/ˈdʒaɪənt/",
+    "meaning": "adj. 巨大的"
+  },
+  {
+    "word": "glamorous",
+    "phonetic": "/ˈɡlæmərəs/",
+    "meaning": "adj. 迷人的、富有魅力的"
+  },
+  {
+    "word": "gloom",
+    "phonetic": "/ɡluːm/",
+    "meaning": "n. 阴暗、忧郁"
+  },
+  {
+    "word": "glory",
+    "phonetic": "/ˈɡlɔːri/",
+    "meaning": "n. 荣耀、辉煌"
+  },
+  {
+    "word": "grant",
+    "phonetic": "/ɡrɑːnt/",
+    "meaning": "v. 授予、允许"
+  },
+  {
+    "word": "grasp",
+    "phonetic": "/ɡrɑːsp/",
+    "meaning": "v/n. 抓住、理解"
+  },
+  {
+    "word": "gratification",
+    "phonetic": "/ˌɡrætɪfɪˈkeɪʃən/",
+    "meaning": "n. 喜悦、满足（感）"
+  },
+  {
+    "word": "gratitude",
+    "phonetic": "/ˈɡrætɪtjuːd/",
+    "meaning": "n. 感激、感谢"
+  },
+  {
+    "word": "greed",
+    "phonetic": "/ɡriːd/",
+    "meaning": "n. 贪婪"
+  },
+  {
+    "word": "grievance",
+    "phonetic": "/ˈɡriːvəns/",
+    "meaning": "n. 委屈、不满"
+  },
+  {
+    "word": "grip",
+    "phonetic": "/ɡrɪp/",
+    "meaning": "v/n. 抓住、握紧、控制"
+  },
+  {
+    "word": "guarantee",
+    "phonetic": "/ˌɡærənˈtiː/",
+    "meaning": "v/n. 保证、确保"
+  },
+  {
+    "word": "habitat",
+    "phonetic": "/ˈhæbɪtæt/",
+    "meaning": "n. 栖息地、生长环境"
+  },
+  {
+    "word": "hasten",
+    "phonetic": "/ˈheɪsn/",
+    "meaning": "v. 加速"
+  },
+  {
+    "word": "hemisphere",
+    "phonetic": "/ˈhemɪsfɪə/",
+    "meaning": "n. 半球"
+  },
+  {
+    "word": "heritage",
+    "phonetic": "/ˈherɪtɪdʒ/",
+    "meaning": "n. 遗产、传统"
+  },
+  {
+    "word": "hierarchical",
+    "phonetic": "/ˌhaɪəˈrɑːkɪkəl/",
+    "meaning": "adj. 分层的、分级的、等级森严的"
+  },
+  {
+    "word": "hijack",
+    "phonetic": "/ˈhaɪdʒæk/",
+    "meaning": "v/n. 劫持、强行控制"
+  },
+  {
+    "word": "hinder",
+    "phonetic": "/ˈhɪndə/",
+    "meaning": "v. 阻碍、妨碍"
+  },
+  {
+    "word": "horizon",
+    "phonetic": "/həˈraɪzn/",
+    "meaning": "n. 地平线"
+  },
+  {
+    "word": "hostile",
+    "phonetic": "/ˈhɒstaɪl/",
+    "meaning": "adj. 敌对的"
+  },
+  {
+    "word": "humane",
+    "phonetic": "/hjuːˈmeɪn/",
+    "meaning": "adj. 人道的、仁慈的"
+  },
+  {
+    "word": "humble",
+    "phonetic": "/ˈhʌmbl/",
+    "meaning": "adj. 谦逊的、普通的"
+  },
+  {
+    "word": "hybrid",
+    "phonetic": "/ˈhaɪbrɪd/",
+    "meaning": "adj. 混合的 n. 混合物、结合物"
+  },
+  {
+    "word": "identify",
+    "phonetic": "/aɪˈdentɪfaɪ/",
+    "meaning": "v. 确定、辨认"
+  },
+  {
+    "word": "ignore",
+    "phonetic": "/ɪɡˈnɔː/",
+    "meaning": "v. 忽视、对……置之不理"
+  },
+  {
+    "word": "illuminate",
+    "phonetic": "/ɪˈljuːmɪneɪt/",
+    "meaning": "v. 阐明、说明"
+  },
+  {
+    "word": "illusory",
+    "phonetic": "/ɪˈluːsəri/",
+    "meaning": "adj. 虚假的、虚幻的"
+  },
+  {
+    "word": "illustrate",
+    "phonetic": "/ˈɪləstreɪt/",
+    "meaning": "v. 阐明、说明"
+  },
+  {
+    "word": "imitate",
+    "phonetic": "/ˈɪmɪteɪt/",
+    "meaning": "v. 模仿"
+  },
+  {
+    "word": "immediate",
+    "phonetic": "/ɪˈmiːdiət/",
+    "meaning": "adj. 直接的、立即的"
+  },
+  {
+    "word": "immense",
+    "phonetic": "/ɪˈmens/",
+    "meaning": "adj. 巨大的、大量的"
+  },
+  {
+    "word": "immigrate",
+    "phonetic": "/ˈɪmɪɡreɪt/",
+    "meaning": "v. 移民（入）、迁徙"
+  },
+  {
+    "word": "immune",
+    "phonetic": "/ɪˈmjuːn/",
+    "meaning": "adj. 免疫的、免除的、不受影响的"
+  },
+  {
+    "word": "impact",
+    "phonetic": "/ɪmˈpækt/",
+    "meaning": "v/n. 影响"
+  },
+  {
+    "word": "impel",
+    "phonetic": "/ɪmˈpel/",
+    "meaning": "v. 推动、促使"
+  },
+  {
+    "word": "implement",
+    "phonetic": "/ˈɪmplɪment/",
+    "meaning": "v. 实施、执行"
+  },
+  {
+    "word": "implication",
+    "phonetic": "/ˌɪmplɪˈkeɪʃən/",
+    "meaning": "n. 含义、暗示"
+  },
+  {
+    "word": "impose",
+    "phonetic": "/ɪmˈpəʊz/",
+    "meaning": "v. 把……强加于、使承受"
+  },
+  {
+    "word": "impoverished",
+    "phonetic": "/ɪmˈpɒvərɪʃt/",
+    "meaning": "adj. 贫困的"
+  },
+  {
+    "word": "impressive",
+    "phonetic": "/ɪmˈpresɪv/",
+    "meaning": "adj. 令人印象深刻的、很好的"
+  },
+  {
+    "word": "impulse",
+    "phonetic": "/ˈɪmpʌls/",
+    "meaning": "n. 冲动、心血来潮"
+  },
+  {
+    "word": "inability",
+    "phonetic": "/ˌɪnəˈbɪləti/",
+    "meaning": "n. 无能为力"
+  },
+  {
+    "word": "incentive",
+    "phonetic": "/ɪnˈsentɪv/",
+    "meaning": "adj. 激励的、刺激的 n. 激励、刺激"
+  },
+  {
+    "word": "incite",
+    "phonetic": "/ɪnˈsaɪt/",
+    "meaning": "v. 鼓动、煽动"
+  },
+  {
+    "word": "incline",
+    "phonetic": "/ɪnˈklaɪn/",
+    "meaning": "v. 倾斜、倾向于"
+  },
+  {
+    "word": "include",
+    "phonetic": "/ɪnˈkluːd/",
+    "meaning": "v. 包含、包括"
+  },
+  {
+    "word": "incomplete",
+    "phonetic": "/ˌɪnkəmˈpliːt/",
+    "meaning": "adj. 不完整的、不充分的"
+  },
+  {
+    "word": "independent",
+    "phonetic": "/ˌɪndɪˈpendənt/",
+    "meaning": "adj. 独立的、自主的"
+  },
+  {
+    "word": "indicate",
+    "phonetic": "/ˈɪndɪkeɪt/",
+    "meaning": "v. 指出、表明、预示"
+  },
+  {
+    "word": "indifferent",
+    "phonetic": "/ɪnˈdɪfrənt/",
+    "meaning": "adj. 中立的、冷漠的、漠不关心的"
+  },
+  {
+    "word": "indispensable",
+    "phonetic": "/ˌɪndɪˈspensəbl/",
+    "meaning": "adj. 必不可少的、不可或缺的"
+  },
+  {
+    "word": "induce",
+    "phonetic": "/ɪnˈdjuːs/",
+    "meaning": "v. 引诱、引起"
+  },
+  {
+    "word": "indulge",
+    "phonetic": "/ɪnˈdʌldʒ/",
+    "meaning": "v. 放任、纵容"
+  },
+  {
+    "word": "inedible",
+    "phonetic": "/ɪnˈedəbl/",
+    "meaning": "adj. 不能吃的、难吃的"
+  },
+  {
+    "word": "inevitable",
+    "phonetic": "/ɪnˈevɪtəbl/",
+    "meaning": "adj. 不可避免的、必然的"
+  },
+  {
+    "word": "infection",
+    "phonetic": "/ɪnˈfekʃən/",
+    "meaning": "n. 感染（病）、传染（病）"
+  },
+  {
+    "word": "infer",
+    "phonetic": "/ɪnˈfɜː/",
+    "meaning": "v. 推测、推断"
+  },
+  {
+    "word": "inferior",
+    "phonetic": "/ɪnˈfɪəriə/",
+    "meaning": "adj. 较差的、逊色的"
+  },
+  {
+    "word": "infirm",
+    "phonetic": "/ɪnˈfɜːm/",
+    "meaning": "adj. （年老）体弱的、意志薄弱的、不坚固的"
+  },
+  {
+    "word": "inflation",
+    "phonetic": "/ɪnˈfleɪʃən/",
+    "meaning": "n. 通货膨胀"
+  },
+  {
+    "word": "influential",
+    "phonetic": "/ˌɪnfluˈenʃəl/",
+    "meaning": "adj. 有影响力的 n. 有影响力的人"
+  },
+  {
+    "word": "infrastructure",
+    "phonetic": "/ˈɪnfrəstrʌktʃə/",
+    "meaning": "n. 基础设施"
+  },
+  {
+    "word": "infuriating",
+    "phonetic": "/ɪnˈfjʊəriətɪŋ/",
+    "meaning": "adj. 令人愤怒的"
+  },
+  {
+    "word": "infuse",
+    "phonetic": "/ɪnˈfjuːz/",
+    "meaning": "v. 注入、灌输"
+  },
+  {
+    "word": "ingenuity",
+    "phonetic": "/ˌɪndʒəˈnjuːəti/",
+    "meaning": "n. 创造力、智慧"
+  },
+  {
+    "word": "inherent",
+    "phonetic": "/ɪnˈhɪərənt/",
+    "meaning": "adj. 内在的、与生俱来的"
+  },
+  {
+    "word": "initial",
+    "phonetic": "/ɪˈnɪʃəl/",
+    "meaning": "adj. 最初的、初始的"
+  },
+  {
+    "word": "inject",
+    "phonetic": "/ɪnˈdʒekt/",
+    "meaning": "v. 注射、注入"
+  },
+  {
+    "word": "innate",
+    "phonetic": "/ɪˈneɪt/",
+    "meaning": "adj. 天生的、与生俱来的"
+  },
+  {
+    "word": "innocent",
+    "phonetic": "/ˈɪnəsənt/",
+    "meaning": "adj. 无辜的、无罪的"
+  },
+  {
+    "word": "innovation",
+    "phonetic": "/ˌɪnəˈveɪʃən/",
+    "meaning": "n. 创新、革新"
+  },
+  {
+    "word": "inquire",
+    "phonetic": "/ɪnˈkwaɪə/",
+    "meaning": "v. 调查、询问"
+  },
+  {
+    "word": "insidious",
+    "phonetic": "/ɪnˈsɪdiəs/",
+    "meaning": "adj. 潜伏的、不易察觉的"
+  },
+  {
+    "word": "insightful",
+    "phonetic": "/ˈɪnsaɪtf(ə)l/",
+    "meaning": "adj. 有深刻见解的、富有洞察力的"
+  },
+  {
+    "word": "insist",
+    "phonetic": "/ɪnˈsɪst/",
+    "meaning": "v. 坚持、坚决要求"
+  },
+  {
+    "word": "inspire",
+    "phonetic": "/ɪnˈspaɪə/",
+    "meaning": "v. 激发、使产生灵感"
+  },
+  {
+    "word": "instinct",
+    "phonetic": "/ˈɪnstɪŋkt/",
+    "meaning": "n. 本能、直觉"
+  },
+  {
+    "word": "institution",
+    "phonetic": "/ˌɪnstɪˈtjuːʃən/",
+    "meaning": "n. 机构、制度"
+  },
+  {
+    "word": "instruct",
+    "phonetic": "/ɪnˈstrʌkt/",
+    "meaning": "v. 指导、命令"
+  },
+  {
+    "word": "insure",
+    "phonetic": "/ɪnˈʃʊə/",
+    "meaning": "v. 确保、保障"
+  },
+  {
+    "word": "intangible",
+    "phonetic": "/ɪnˈtændʒəbl/",
+    "meaning": "adj. 无形的、触摸不到的"
+  },
+  {
+    "word": "integrity",
+    "phonetic": "/ɪnˈteɡrəti/",
+    "meaning": "n. 完整、诚信、正直"
+  },
+  {
+    "word": "intellectual",
+    "phonetic": "/ˌɪntəˈlektʃuəl/",
+    "meaning": "adj. 学术的、知识的 n. 知识分子"
+  },
+  {
+    "word": "intelligence",
+    "phonetic": "/ɪnˈtelɪdʒəns/",
+    "meaning": "n. 智力、智能"
+  },
+  {
+    "word": "intend",
+    "phonetic": "/ɪnˈtend/",
+    "meaning": "v. 打算、想要"
+  },
+  {
+    "word": "intense",
+    "phonetic": "/ɪnˈtens/",
+    "meaning": "adj. 紧张的、强烈的"
+  },
+  {
+    "word": "interact",
+    "phonetic": "/ˌɪntərˈækt/",
+    "meaning": "v. 相互影响、互动"
+  },
+  {
+    "word": "interpersonal",
+    "phonetic": "/ˌɪntəˈpɜːsənəl/",
+    "meaning": "adj. 人际的、人与人之间的"
+  },
+  {
+    "word": "interpretation",
+    "phonetic": "/ɪnˌtɜːprɪˈteɪʃən/",
+    "meaning": "n. 翻译、解释"
+  },
+  {
+    "word": "interrupt",
+    "phonetic": "/ˌɪntəˈrʌpt/",
+    "meaning": "v. 中断、打扰"
+  },
+  {
+    "word": "intervention",
+    "phonetic": "/ˌɪntəˈvenʃən/",
+    "meaning": "n. 干预、介入"
+  },
+  {
+    "word": "intimate",
+    "phonetic": "/ˈɪntɪmət/",
+    "meaning": "adj. 亲密的、私密的"
+  },
+  {
+    "word": "intricate",
+    "phonetic": "/ˈɪntrɪkət/",
+    "meaning": "adj. 错综复杂的"
+  },
+  {
+    "word": "intrude",
+    "phonetic": "/ɪnˈtruːd/",
+    "meaning": "v. 侵扰、侵犯"
+  },
+  {
+    "word": "intuitive",
+    "phonetic": "/ɪnˈtjuː(ɪ)ntɪv/",
+    "meaning": "adj. 本能的、直觉的"
+  },
+  {
+    "word": "invert",
+    "phonetic": "/ɪnˈvɜːt/",
+    "meaning": "v. 使颠覆、使反转"
+  },
+  {
+    "word": "invest",
+    "phonetic": "/ɪnˈvest/",
+    "meaning": "v. 投资"
+  },
+  {
+    "word": "investigation",
+    "phonetic": "/ɪnˌvestɪˈɡeɪʃən/",
+    "meaning": "n. 调查、研究"
+  },
+  {
+    "word": "involve",
+    "phonetic": "/ɪnˈvɒlv/",
+    "meaning": "v. 包括、参与"
+  },
+  {
+    "word": "ironic",
+    "phonetic": "/aɪˈrɒnɪk/",
+    "meaning": "adj. 讽刺的"
+  },
+  {
+    "word": "isolate",
+    "phonetic": "/ˈaɪsəleɪt/",
+    "meaning": "v. （使）孤立、（使）免于"
+  },
+  {
+    "word": "issue",
+    "phonetic": "/ˈɪʃuː/",
+    "meaning": "v. 发布、发行 n. 问题、发行物"
+  },
+  {
+    "word": "joint",
+    "phonetic": "/dʒɔɪnt/",
+    "meaning": "adj. 联合的、共同的"
+  },
+  {
+    "word": "journal",
+    "phonetic": "/ˈdʒɜːnl/",
+    "meaning": "n. 日报、杂志、期刊"
+  },
+  {
+    "word": "jury",
+    "phonetic": "/ˈdʒʊəri/",
+    "meaning": "n. 陪审团、评委会"
+  },
+  {
+    "word": "justice",
+    "phonetic": "/ˈdʒʌstɪs/",
+    "meaning": "n. 法官、公正"
+  },
+  {
+    "word": "lag",
+    "phonetic": "/læɡ/",
+    "meaning": "v/n. 落后、滞后"
+  },
+  {
+    "word": "lame",
+    "phonetic": "/leɪm/",
+    "meaning": "adj. 瘸的、蹩脚的"
+  },
+  {
+    "word": "launch",
+    "phonetic": "/lɔːntʃ/",
+    "meaning": "v. 发起、推出（新产品）"
+  },
+  {
+    "word": "leakage",
+    "phonetic": "/ˈliːkɪdʒ/",
+    "meaning": "n. 泄露"
+  },
+  {
+    "word": "lean",
+    "phonetic": "/liːn/",
+    "meaning": "v. 倾斜、倚靠 adj. 瘦的、贫乏的"
+  },
+  {
+    "word": "legacy",
+    "phonetic": "/ˈleɡəsi/",
+    "meaning": "n. 遗产、传统"
+  },
+  {
+    "word": "legal",
+    "phonetic": "/ˈliːɡəl/",
+    "meaning": "adj. 法律的、合法的"
+  },
+  {
+    "word": "legitimate",
+    "phonetic": "/lɪˈdʒɪtɪmət/",
+    "meaning": "adj. 合法的、合理的"
+  },
+  {
+    "word": "leisure",
+    "phonetic": "/ˈleʒə/",
+    "meaning": "adj. 空闲的、休闲的 n. 空闲、休闲"
+  },
+  {
+    "word": "liberal",
+    "phonetic": "/ˈlɪbərəl/",
+    "meaning": "adj. 自由（主义）的、开明的 n. 自由主义者、自由党"
+  },
+  {
+    "word": "lineage",
+    "phonetic": "/ˈlɪnɪdʒ/",
+    "meaning": "n. 血统、谱系"
+  },
+  {
+    "word": "literate",
+    "phonetic": "/ˈlɪtərət/",
+    "meaning": "adj. 有读写能力的、精通的"
+  },
+  {
+    "word": "lobby",
+    "phonetic": "/ˈlɒbi/",
+    "meaning": "v. 游说 n. 游说团体、大厅"
+  },
+  {
+    "word": "locate",
+    "phonetic": "/ləʊˈkeɪt/",
+    "meaning": "v. 定位、位于"
+  },
+  {
+    "word": "lure",
+    "phonetic": "/ljʊə/",
+    "meaning": "v/n. 引诱、诱惑"
+  },
+  {
+    "word": "luxury",
+    "phonetic": "/ˈlʌkʃəri/",
+    "meaning": "adj. 奢侈的 n. 奢侈（品）"
+  },
+  {
+    "word": "magnify",
+    "phonetic": "/ˈmæɡnɪfaɪ/",
+    "meaning": "v. 放大、扩大"
+  },
+  {
+    "word": "maintain",
+    "phonetic": "/meɪnˈteɪn/",
+    "meaning": "v. 保持、坚持认为"
+  },
+  {
+    "word": "majestic",
+    "phonetic": "/məˈdʒestɪk/",
+    "meaning": "adj. 宏伟的、壮观的、华丽的"
+  },
+  {
+    "word": "major",
+    "phonetic": "/ˈmeɪdʒə/",
+    "meaning": "adj. 主要的、重要的"
+  },
+  {
+    "word": "mandatory",
+    "phonetic": "/ˈmændətəri/",
+    "meaning": "adj. 强制性的、必修的"
+  },
+  {
+    "word": "manipulate",
+    "phonetic": "/məˈnɪpjʊleɪt/",
+    "meaning": "v. 操作、处理、控制"
+  },
+  {
+    "word": "manufacture",
+    "phonetic": "/ˌmænjuˈfæktʃə/",
+    "meaning": "v. 加工、制造 n. 制造业"
+  },
+  {
+    "word": "manuscript",
+    "phonetic": "/ˈmænjʊskrɪpt/",
+    "meaning": "adj. 手写的 n. 手稿、原稿"
+  },
+  {
+    "word": "margin",
+    "phonetic": "/ˈmɑːdʒɪn/",
+    "meaning": "n. 边缘"
+  },
+  {
+    "word": "marine",
+    "phonetic": "/məˈriːn/",
+    "meaning": "adj. 海洋的"
+  },
+  {
+    "word": "marvel",
+    "phonetic": "/ˈmɑːvəl/",
+    "meaning": "v. 对……感到惊讶 n. 令人惊奇的事物"
+  },
+  {
+    "word": "massive",
+    "phonetic": "/ˈmæsɪv/",
+    "meaning": "adj. 大量的、巨大的"
+  },
+  {
+    "word": "mastery",
+    "phonetic": "/ˈmɑːstəri/",
+    "meaning": "n. 掌握、精通、优势、统治权"
+  },
+  {
+    "word": "materialistic",
+    "phonetic": "/məˌtɪəriəˈlɪstɪk/",
+    "meaning": "adj. 唯物主义的、物质至上的"
+  },
+  {
+    "word": "mature",
+    "phonetic": "/məˈtʃʊə/",
+    "meaning": "adj. 成熟的"
+  },
+  {
+    "word": "measure",
+    "phonetic": "/ˈmeʒə/",
+    "meaning": "v. 测量、估量、权衡 n. 措施"
+  },
+  {
+    "word": "mechanical",
+    "phonetic": "/məˈkænɪkəl/",
+    "meaning": "adj. 机械的、呆板的"
+  },
+  {
+    "word": "memorize",
+    "phonetic": "/ˈmeməraɪz/",
+    "meaning": "v. 记住、记忆"
+  },
+  {
+    "word": "mental",
+    "phonetic": "/ˈmentl/",
+    "meaning": "adj. 精神的、心理的"
+  },
+  {
+    "word": "merger",
+    "phonetic": "/ˈmɜːdʒə/",
+    "meaning": "n. 合并、兼并"
+  },
+  {
+    "word": "merit",
+    "phonetic": "/ˈmerɪt/",
+    "meaning": "n. 价值、优点"
+  },
+  {
+    "word": "minimal",
+    "phonetic": "/ˈmɪnɪməl/",
+    "meaning": "adj. 最小的、最低的"
+  },
+  {
+    "word": "minister",
+    "phonetic": "/ˈmɪnɪstə/",
+    "meaning": "n. 牧师、大臣、部长"
+  },
+  {
+    "word": "minority",
+    "phonetic": "/maɪˈnɒrəti/",
+    "meaning": "n. 少数（派）"
+  },
+  {
+    "word": "misery",
+    "phonetic": "/ˈmɪzəri/",
+    "meaning": "n. 不幸、苦难、悲惨的境遇"
+  },
+  {
+    "word": "mislead",
+    "phonetic": "/mɪsˈliːd/",
+    "meaning": "v. 误导"
+  },
+  {
+    "word": "mobilize",
+    "phonetic": "/ˈməʊbɪlaɪz/",
+    "meaning": "v. 调动、动员"
+  },
+  {
+    "word": "modest",
+    "phonetic": "/ˈmɒdɪst/",
+    "meaning": "adj. 谦虚的、适度的"
+  },
+  {
+    "word": "monarch",
+    "phonetic": "/ˈmɒnək/",
+    "meaning": "n. 君主、最高统治者"
+  },
+  {
+    "word": "monitor",
+    "phonetic": "/ˈmɒnɪtə/",
+    "meaning": "v. 监控、监测 n. 监视器、显示屏、班长"
+  },
+  {
+    "word": "monopoly",
+    "phonetic": "/məˈnɒpəli/",
+    "meaning": "n. 垄断"
+  },
+  {
+    "word": "motivate",
+    "phonetic": "/ˈməʊtɪveɪt/",
+    "meaning": "v. 激发、驱使"
+  },
+  {
+    "word": "multiply",
+    "phonetic": "/ˈmʌltɪplaɪ/",
+    "meaning": "v. 乘、大大增加"
+  },
+  {
+    "word": "mutually",
+    "phonetic": "/ˈmjuːtʃuəli/",
+    "meaning": "adv. 相互地、共同地"
+  },
+  {
+    "word": "nasty",
+    "phonetic": "/ˈnɑːsti/",
+    "meaning": "adj. 肮脏的、令人厌恶的、严重的"
+  },
+  {
+    "word": "native",
+    "phonetic": "/ˈneɪtɪv/",
+    "meaning": "adj. 天生的、天然的、本国的、本地的"
+  },
+  {
+    "word": "negative",
+    "phonetic": "/ˈneɡətɪv/",
+    "meaning": "adj. 负面的、否定的"
+  },
+  {
+    "word": "neglect",
+    "phonetic": "/nɪˈɡlekt/",
+    "meaning": "v. 疏忽、忽视（无意）"
+  },
+  {
+    "word": "negotiate",
+    "phonetic": "/nɪˈɡəʊʃɪeɪt/",
+    "meaning": "v. 协商、谈判"
+  },
+  {
+    "word": "nightmare",
+    "phonetic": "/ˈnaɪtmeə/",
+    "meaning": "n. 恶梦、噩梦"
+  },
+  {
+    "word": "nonsense",
+    "phonetic": "/ˈnɒnsəns/",
+    "meaning": "adj. 荒谬的 n. 胡说"
+  },
+  {
+    "word": "normal",
+    "phonetic": "/ˈnɔːml/",
+    "meaning": "adj. 正常的、标准的"
+  },
+  {
+    "word": "notably",
+    "phonetic": "/ˈnəʊtəbli/",
+    "meaning": "adv. 明显地、尤其地"
+  },
+  {
+    "word": "noteworthy",
+    "phonetic": "/ˈnəʊtwɜːði/",
+    "meaning": "adj. 值得注意的、显著的"
+  },
+  {
+    "word": "novel",
+    "phonetic": "/ˈnɒvl/",
+    "meaning": "adj. 新的、新颖的 n. 小说"
+  },
+  {
+    "word": "nurture",
+    "phonetic": "/ˈnɜːtʃə/",
+    "meaning": "v/n. 培养、培育、养育"
+  },
+  {
+    "word": "object",
+    "phonetic": "/əbˈdʒekt/",
+    "meaning": "v. 反对、拒绝 n. 物体、对象、目标"
+  },
+  {
+    "word": "oblige",
+    "phonetic": "/əˈblaɪdʒ/",
+    "meaning": "v. 强制、强迫"
+  },
+  {
+    "word": "obscure",
+    "phonetic": "/əbˈskjʊə/",
+    "meaning": "adj. 模糊的、不清楚的"
+  },
+  {
+    "word": "obsess",
+    "phonetic": "/əbˈses/",
+    "meaning": "v. 使着迷"
+  },
+  {
+    "word": "obstruct",
+    "phonetic": "/əbˈstrʌkt/",
+    "meaning": "v. 阻碍、妨碍"
+  },
+  {
+    "word": "occupy",
+    "phonetic": "/ˈɒkjʊpaɪ/",
+    "meaning": "v. 占用、占有、占领"
+  },
+  {
+    "word": "occur",
+    "phonetic": "/əˈkɜː/",
+    "meaning": "v. 出现、发生"
+  },
+  {
+    "word": "odds",
+    "phonetic": "/ɒdz/",
+    "meaning": "n. 几率、胜算"
+  },
+  {
+    "word": "official",
+    "phonetic": "/əˈfɪʃəl/",
+    "meaning": "adj. 官方的、正式的 n. 官员"
+  },
+  {
+    "word": "omission",
+    "phonetic": "/əˈmɪʃən/",
+    "meaning": "n. 遗漏"
+  },
+  {
+    "word": "opponent",
+    "phonetic": "/əˈpəʊnənt/",
+    "meaning": "adj. 敌对的、对立的 n. 对手、反对者"
+  },
+  {
+    "word": "oppose",
+    "phonetic": "/əˈpəʊz/",
+    "meaning": "v. 反对"
+  },
+  {
+    "word": "oppressive",
+    "phonetic": "/əˈpresɪv/",
+    "meaning": "adj. 压迫的、压抑的"
+  },
+  {
+    "word": "optimistic",
+    "phonetic": "/ˌɒptɪˈmɪstɪk/",
+    "meaning": "adj. 乐观的"
+  },
+  {
+    "word": "option",
+    "phonetic": "/ˈɒpʃən/",
+    "meaning": "n. 选项、期权"
+  },
+  {
+    "word": "organism",
+    "phonetic": "/ˈɔːɡənɪzəm/",
+    "meaning": "n. 生物体、有机体"
+  },
+  {
+    "word": "organization",
+    "phonetic": "/ˌɔːɡənaɪˈzeɪʃən/",
+    "meaning": "n. 组织、机构"
+  },
+  {
+    "word": "original",
+    "phonetic": "/əˈrɪdʒənl/",
+    "meaning": "adj. 起初的、原始的"
+  },
+  {
+    "word": "ornament",
+    "phonetic": "/ˈɔːnəmənt/",
+    "meaning": "n. 装饰（物）"
+  },
+  {
+    "word": "outlive",
+    "phonetic": "/aʊtˈlɪv/",
+    "meaning": "v. 比……活得长"
+  },
+  {
+    "word": "outraged",
+    "phonetic": "/ˈaʊtreɪdʒd/",
+    "meaning": "adj. 愤怒的"
+  },
+  {
+    "word": "overlook",
+    "phonetic": "/ˌəʊvəˈlʊk/",
+    "meaning": "v/n. 忽略、忽视"
+  },
+  {
+    "word": "overshadow",
+    "phonetic": "/ˌəʊvəˈʃædəʊ/",
+    "meaning": "v. 给……蒙上阴影、遮盖"
+  },
+  {
+    "word": "overturn",
+    "phonetic": "/ˌəʊvəˈtɜːn/",
+    "meaning": "v/n. 推翻、打翻、翻倒"
+  },
+  {
+    "word": "overwhelming",
+    "phonetic": "/ˌəʊvəˈwelmɪŋ/",
+    "meaning": "adj. 压倒性的、绝大部分的"
+  },
+  {
+    "word": "panel",
+    "phonetic": "/ˈpænl/",
+    "meaning": "n. 专家组、仪表盘"
+  },
+  {
+    "word": "panic",
+    "phonetic": "/ˈpænɪk/",
+    "meaning": "adj. 恐慌的 n. 恐慌"
+  },
+  {
+    "word": "paradox",
+    "phonetic": "/ˈpærədɒks/",
+    "meaning": "n. 悖论、矛盾"
+  },
+  {
+    "word": "parallel",
+    "phonetic": "/ˈpærəlel/",
+    "meaning": "adj. 平行的、类似的 n. 平行线、类似的事情"
+  },
+  {
+    "word": "paralysis",
+    "phonetic": "/pəˈræləsɪs/",
+    "meaning": "n. 麻痹、瘫痪"
+  },
+  {
+    "word": "partial",
+    "phonetic": "/ˈpɑːʃəl/",
+    "meaning": "adj. 局部的、偏袒的"
+  },
+  {
+    "word": "participate",
+    "phonetic": "/pɑːˈtɪsɪpeɪt/",
+    "meaning": "v. 参加、参与"
+  },
+  {
+    "word": "passionate",
+    "phonetic": "/ˈpæʃənət/",
+    "meaning": "adj. 热情的、易怒的"
+  },
+  {
+    "word": "patent",
+    "phonetic": "/ˈpeɪtənt/",
+    "meaning": "v. 授予/取得专利 n. 专利"
+  },
+  {
+    "word": "peak",
+    "phonetic": "/piːk/",
+    "meaning": "n. 顶峰"
+  },
+  {
+    "word": "peer",
+    "phonetic": "/pɪə/",
+    "meaning": "v. 凝视、盯着 n. 同辈、同行"
+  },
+  {
+    "word": "penalty",
+    "phonetic": "/ˈpenlti/",
+    "meaning": "n. 处罚、惩罚"
+  },
+  {
+    "word": "pension",
+    "phonetic": "/ˈpenʃən/",
+    "meaning": "n. 津贴、退休金"
+  },
+  {
+    "word": "perceive",
+    "phonetic": "/pəˈsiːv/",
+    "meaning": "v. 感知、察觉"
+  },
+  {
+    "word": "perish",
+    "phonetic": "/ˈperɪʃ/",
+    "meaning": "v. 死亡、消亡"
+  },
+  {
+    "word": "permanent",
+    "phonetic": "/ˈpɜːmənənt/",
+    "meaning": "adj. 永久的、永恒的"
+  },
+  {
+    "word": "permissible",
+    "phonetic": "/pəˈmɪsəbl/",
+    "meaning": "adj. 允许的"
+  },
+  {
+    "word": "perpetuate",
+    "phonetic": "/pəˈpetʃueɪt/",
+    "meaning": "v. 持续、使长期存在"
+  },
+  {
+    "word": "perplexed",
+    "phonetic": "/pəˈplekst/",
+    "meaning": "adj. 困惑的"
+  },
+  {
+    "word": "persistent",
+    "phonetic": "/pəˈsɪstənt/",
+    "meaning": "adj. 坚持的、持续的"
+  },
+  {
+    "word": "perspective",
+    "phonetic": "/pəˈspektɪv/",
+    "meaning": "n. 视角、观点"
+  },
+  {
+    "word": "pervasive",
+    "phonetic": "/pəˈveɪsɪv/",
+    "meaning": "adj. 普遍的、流行的"
+  },
+  {
+    "word": "pessimistic",
+    "phonetic": "/ˌpesɪˈmɪstɪk/",
+    "meaning": "adj. 悲观的"
+  },
+  {
+    "word": "philosophy",
+    "phonetic": "/fɪˈlɒsəfi/",
+    "meaning": "n. 哲学"
+  },
+  {
+    "word": "phony",
+    "phonetic": "/ˈfəʊni/",
+    "meaning": "adj. 假的、虚伪的"
+  },
+  {
+    "word": "physical",
+    "phonetic": "/ˈfɪzɪkəl/",
+    "meaning": "adj. 身体的、生理的、实体的"
+  },
+  {
+    "word": "plead",
+    "phonetic": "/pliːd/",
+    "meaning": "v. 请求、恳求"
+  },
+  {
+    "word": "polarize",
+    "phonetic": "/ˈpəʊləraɪz/",
+    "meaning": "v. （使）两极分化"
+  },
+  {
+    "word": "ponder",
+    "phonetic": "/ˈpɒndə/",
+    "meaning": "v. 仔细考虑、深思"
+  },
+  {
+    "word": "popularity",
+    "phonetic": "/ˌpɒpjuˈlærəti/",
+    "meaning": "n. 普及、流行"
+  },
+  {
+    "word": "portray",
+    "phonetic": "/pɔːˈtreɪ/",
+    "meaning": "v. 描述、描绘"
+  },
+  {
+    "word": "possession",
+    "phonetic": "/pəˈzeʃən/",
+    "meaning": "n. 财产、所有物"
+  },
+  {
+    "word": "potential",
+    "phonetic": "/pəˈtenʃəl/",
+    "meaning": "adj. 潜在的、可能的 n. 潜能、可能"
+  },
+  {
+    "word": "precede",
+    "phonetic": "/prɪˈsiːd/",
+    "meaning": "v. 在……之前、高于"
+  },
+  {
+    "word": "precious",
+    "phonetic": "/ˈpreʃəs/",
+    "meaning": "adj. 珍贵的、宝贵的"
+  },
+  {
+    "word": "precisely",
+    "phonetic": "/prɪˈsaɪsli/",
+    "meaning": "adv. 准确地、恰恰是"
+  },
+  {
+    "word": "predecessor",
+    "phonetic": "/ˈpredəsesə/",
+    "meaning": "n. 前任、前辈"
+  },
+  {
+    "word": "predict",
+    "phonetic": "/prɪˈdɪkt/",
+    "meaning": "v. 预言、预知"
+  },
+  {
+    "word": "preference",
+    "phonetic": "/ˈprefərəns/",
+    "meaning": "n. 喜好、偏好"
+  },
+  {
+    "word": "prejudice",
+    "phonetic": "/ˈpredʒədɪs/",
+    "meaning": "n. 偏见"
+  },
+  {
+    "word": "preliminary",
+    "phonetic": "/prɪˈlɪmɪnəri/",
+    "meaning": "adj. 初步的、预备的"
+  },
+  {
+    "word": "premise",
+    "phonetic": "/ˈpremɪs/",
+    "meaning": "n. 前提"
+  },
+  {
+    "word": "prescribe",
+    "phonetic": "/prɪˈskraɪb/",
+    "meaning": "v. 开药、开处方"
+  },
+  {
+    "word": "preserve",
+    "phonetic": "/prɪˈzɜːv/",
+    "meaning": "v. 保存、保持"
+  },
+  {
+    "word": "pressure",
+    "phonetic": "/ˈpreʃə/",
+    "meaning": "n. 压力"
+  },
+  {
+    "word": "prestige",
+    "phonetic": "/presˈtiːʒ/",
+    "meaning": "n. 声望、声誉"
+  },
+  {
+    "word": "presumptively",
+    "phonetic": "/prɪˈzʌmptɪvli/",
+    "meaning": "adv. 假定地、推测地"
+  },
+  {
+    "word": "prevailing",
+    "phonetic": "/prɪˈveɪlɪŋ/",
+    "meaning": "adj. 流行的、现行的"
+  },
+  {
+    "word": "prevent",
+    "phonetic": "/prɪˈvent/",
+    "meaning": "v. 阻止、防止"
+  },
+  {
+    "word": "previous",
+    "phonetic": "/ˈpriːviəs/",
+    "meaning": "adj. 之前的"
+  },
+  {
+    "word": "primary",
+    "phonetic": "/ˈpraɪməri/",
+    "meaning": "adj. 主要的、基本的、初级的"
+  },
+  {
+    "word": "principle",
+    "phonetic": "/ˈprɪnsəpl/",
+    "meaning": "n. 原理、原则"
+  },
+  {
+    "word": "prior",
+    "phonetic": "/ˈpraɪə/",
+    "meaning": "adj. 在……之前的、优先的"
+  },
+  {
+    "word": "private",
+    "phonetic": "/ˈpraɪvət/",
+    "meaning": "adj. 私人的、私密的"
+  },
+  {
+    "word": "privilege",
+    "phonetic": "/ˈprɪvəlɪdʒ/",
+    "meaning": "n. 特权"
+  },
+  {
+    "word": "procedure",
+    "phonetic": "/prəˈsiːdʒə/",
+    "meaning": "n. 程序、步骤"
+  },
+  {
+    "word": "proceed",
+    "phonetic": "/prəˈsiːd/",
+    "meaning": "v. 接着、继续 n. 收入"
+  },
+  {
+    "word": "proclaim",
+    "phonetic": "/prəˈkleɪm/",
+    "meaning": "v. 宣布、宣告"
+  },
+  {
+    "word": "productive",
+    "phonetic": "/prəˈdʌktɪv/",
+    "meaning": "adj. 生产的、多产的、有效的"
+  },
+  {
+    "word": "professional",
+    "phonetic": "/prəˈfeʃənl/",
+    "meaning": "adj. 专业的、职业的"
+  },
+  {
+    "word": "proficient",
+    "phonetic": "/prəˈfɪʃənt/",
+    "meaning": "adj. 熟练的、精通的"
+  },
+  {
+    "word": "profit",
+    "phonetic": "/ˈprɒfɪt/",
+    "meaning": "v. 获利、受益 n. 利益、利润"
+  },
+  {
+    "word": "profound",
+    "phonetic": "/prəˈfaʊnd/",
+    "meaning": "adj. 深刻的、深远的"
+  },
+  {
+    "word": "progress",
+    "phonetic": "/ˈprəʊɡres/",
+    "meaning": "v/n. 进步、发展"
+  },
+  {
+    "word": "prohibition",
+    "phonetic": "/ˌprəʊɪˈbɪʃən/",
+    "meaning": "n. 禁止、禁令"
+  },
+  {
+    "word": "prominent",
+    "phonetic": "/ˈprɒmɪnənt/",
+    "meaning": "adj. 显著的、杰出的"
+  },
+  {
+    "word": "promising",
+    "phonetic": "/ˈprɒmɪsɪŋ/",
+    "meaning": "adj. 有希望的、好的"
+  },
+  {
+    "word": "promote",
+    "phonetic": "/prəˈməʊt/",
+    "meaning": "v. 促进、推广"
+  },
+  {
+    "word": "prompt",
+    "phonetic": "/prɒmpt/",
+    "meaning": "adj. 迅速的、立即的 v. 促使、引起"
+  },
+  {
+    "word": "prone",
+    "phonetic": "/prəʊn/",
+    "meaning": "adj. 易于……的、倾向于……的"
+  },
+  {
+    "word": "pronounced",
+    "phonetic": "/prəˈnaʊnst/",
+    "meaning": "adj. 明显的、显著的"
+  },
+  {
+    "word": "proper",
+    "phonetic": "/ˈprɒpə/",
+    "meaning": "adj. 合适的、恰当的"
+  },
+  {
+    "word": "property",
+    "phonetic": "/ˈprɒpəti/",
+    "meaning": "n. 资产、财产"
+  },
+  {
+    "word": "propose",
+    "phonetic": "/prəˈpəʊz/",
+    "meaning": "v. 计划、建议"
+  },
+  {
+    "word": "prospect",
+    "phonetic": "/ˈprɒspekt/",
+    "meaning": "n. 前途、前景"
+  },
+  {
+    "word": "prosperity",
+    "phonetic": "/prɒˈsperəti/",
+    "meaning": "n. 繁荣"
+  },
+  {
+    "word": "protest",
+    "phonetic": "/prəˈtest/",
+    "meaning": "v/n. 抗议"
+  },
+  {
+    "word": "provide",
+    "phonetic": "/prəˈvaɪd/",
+    "meaning": "v. 提供、供应"
+  },
+  {
+    "word": "provoke",
+    "phonetic": "/prəˈvəʊk/",
+    "meaning": "v. 激起、引起"
+  },
+  {
+    "word": "prudent",
+    "phonetic": "/ˈpruːdənt/",
+    "meaning": "adj. 谨慎的"
+  },
+  {
+    "word": "psychology",
+    "phonetic": "/saɪˈkɒlədʒi/",
+    "meaning": "n. 心理（学）"
+  },
+  {
+    "word": "publication",
+    "phonetic": "/ˌpʌblɪˈkeɪʃən/",
+    "meaning": "n. 出版（物）"
+  },
+  {
+    "word": "purchase",
+    "phonetic": "/ˈpɜːtʃəs/",
+    "meaning": "v/n. 购买"
+  },
+  {
+    "word": "pursuit",
+    "phonetic": "/pəˈsjuːt/",
+    "meaning": "n. 追求、职业"
+  },
+  {
+    "word": "radical",
+    "phonetic": "/ˈrædɪkl/",
+    "meaning": "adj. 根本的、激进的"
+  },
+  {
+    "word": "random",
+    "phonetic": "/ˈrændəm/",
+    "meaning": "adj. 随机的、随便的"
+  },
+  {
+    "word": "rarely",
+    "phonetic": "/ˈreəli/",
+    "meaning": "adv. 很少地、罕有地"
+  },
+  {
+    "word": "readily",
+    "phonetic": "/ˈredɪli/",
+    "meaning": "adv. 乐意地"
+  },
+  {
+    "word": "realm",
+    "phonetic": "/relm/",
+    "meaning": "n. 领域、范围"
+  },
+  {
+    "word": "reap",
+    "phonetic": "/riːp/",
+    "meaning": "v. 收获、收割"
+  },
+  {
+    "word": "reasonable",
+    "phonetic": "/ˈriːznəbl/",
+    "meaning": "adj. 合理的"
+  },
+  {
+    "word": "recessing",
+    "phonetic": "/rɪˈsesɪŋ/",
+    "meaning": "n. 衰退（期）、萧条（期）"
+  },
+  {
+    "word": "recipient",
+    "phonetic": "/rɪˈsɪpiənt/",
+    "meaning": "n. 接受者、获得者"
+  },
+  {
+    "word": "recitation",
+    "phonetic": "/ˌresɪˈteɪʃən/",
+    "meaning": "n. 背诵、朗诵"
+  },
+  {
+    "word": "recklessly",
+    "phonetic": "/ˈrekləsli/",
+    "meaning": "adv. 鲁莽地、不计后果地"
+  },
+  {
+    "word": "recognize",
+    "phonetic": "/ˈrekəɡnaɪz/",
+    "meaning": "v. 认出、识别"
+  },
+  {
+    "word": "recommend",
+    "phonetic": "/ˌrekəˈmend/",
+    "meaning": "v. 推荐、建议"
+  },
+  {
+    "word": "recovery",
+    "phonetic": "/rɪˈkʌvəri/",
+    "meaning": "n. 恢复、复苏"
+  },
+  {
+    "word": "recruit",
+    "phonetic": "/rɪˈkruːt/",
+    "meaning": "v. 招聘、招募 n. 招聘、新兵、新成员"
+  },
+  {
+    "word": "rectify",
+    "phonetic": "/ˈrektɪfaɪ/",
+    "meaning": "v. 改正、矫正"
+  },
+  {
+    "word": "reduce",
+    "phonetic": "/rɪˈdjuːs/",
+    "meaning": "v. 降低、减少"
+  },
+  {
+    "word": "refer",
+    "phonetic": "/rɪˈfɜː/",
+    "meaning": "v. 涉及、提到"
+  },
+  {
+    "word": "reflect",
+    "phonetic": "/rɪˈflekt/",
+    "meaning": "v. 反射、反映"
+  },
+  {
+    "word": "reform",
+    "phonetic": "/rɪˈfɔːm/",
+    "meaning": "v/n. 改革"
+  },
+  {
+    "word": "refutation",
+    "phonetic": "/ˌrefjuˈteɪʃən/",
+    "meaning": "n. 反驳、驳斥"
+  },
+  {
+    "word": "regime",
+    "phonetic": "/reɪˈʒiːm/",
+    "meaning": "n. 政权、政治制度"
+  },
+  {
+    "word": "region",
+    "phonetic": "/ˈriːdʒən/",
+    "meaning": "n. 地区、范围"
+  },
+  {
+    "word": "register",
+    "phonetic": "/ˈredʒɪstə/",
+    "meaning": "v/n. 登记、注册"
+  },
+  {
+    "word": "regrettable",
+    "phonetic": "/rɪˈɡretəbl/",
+    "meaning": "adj. 可惜的、令人遗憾的"
+  },
+  {
+    "word": "regulation",
+    "phonetic": "/ˌreɡjuˈleɪʃən/",
+    "meaning": "n. 管理、法规"
+  },
+  {
+    "word": "reign",
+    "phonetic": "/reɪn/",
+    "meaning": "v/n. 统治、支配"
+  },
+  {
+    "word": "reinforce",
+    "phonetic": "/ˌriːɪnˈfɔːs/",
+    "meaning": "v. 强化、加强"
+  },
+  {
+    "word": "reject",
+    "phonetic": "/rɪˈdʒekt/",
+    "meaning": "v. 拒绝、排斥"
+  },
+  {
+    "word": "release",
+    "phonetic": "/rɪˈliːs/",
+    "meaning": "v. 发布、释放"
+  },
+  {
+    "word": "reliance",
+    "phonetic": "/rɪˈlaɪəns/",
+    "meaning": "n. 信赖、依赖"
+  },
+  {
+    "word": "relieve",
+    "phonetic": "/rɪˈliːv/",
+    "meaning": "v. 缓解、减轻"
+  },
+  {
+    "word": "religious",
+    "phonetic": "/rɪˈlɪdʒəs/",
+    "meaning": "adj. 宗教的、虔诚的"
+  },
+  {
+    "word": "reluctant",
+    "phonetic": "/rɪˈlʌktənt/",
+    "meaning": "adj. 勉强的、不情愿的"
+  },
+  {
+    "word": "remark",
+    "phonetic": "/rɪˈmɑːk/",
+    "meaning": "v. 评论、注意到 n. 言论、评论"
+  },
+  {
+    "word": "reminder",
+    "phonetic": "/rɪˈmaɪndə/",
+    "meaning": "n. 提醒、暗示"
+  },
+  {
+    "word": "remote",
+    "phonetic": "/rɪˈməʊt/",
+    "meaning": "adj. 遥远的、偏僻的"
+  },
+  {
+    "word": "renovation",
+    "phonetic": "/ˌrenəʊˈveɪʃən/",
+    "meaning": "n. 整修、翻新"
+  },
+  {
+    "word": "represent",
+    "phonetic": "/ˌreprɪˈzent/",
+    "meaning": "v. 代表、表现"
+  },
+  {
+    "word": "reproducibility",
+    "phonetic": "/ˌriːprəˌdjuːsəˈbɪləti/",
+    "meaning": "n. 重现性、再生性"
+  },
+  {
+    "word": "reputation",
+    "phonetic": "/ˌrepjuˈteɪʃən/",
+    "meaning": "n. 名声、名誉"
+  },
+  {
+    "word": "require",
+    "phonetic": "/rɪˈkwaɪə/",
+    "meaning": "v. 需要、要求"
+  },
+  {
+    "word": "resent",
+    "phonetic": "/rɪˈzent/",
+    "meaning": "v. 厌恶、对……感到不满"
+  },
+  {
+    "word": "resident",
+    "phonetic": "/ˈrezɪdənt/",
+    "meaning": "n. 居民"
+  },
+  {
+    "word": "resistant",
+    "phonetic": "/rɪˈzɪstənt/",
+    "meaning": "adj. 抵制的、抗拒的"
+  },
+  {
+    "word": "respect",
+    "phonetic": "/rɪˈspekt/",
+    "meaning": "v. 尊敬、尊重 n. 尊敬、方面"
+  },
+  {
+    "word": "responsible",
+    "phonetic": "/rɪˈspɒnsəbl/",
+    "meaning": "adj. 负责的、有责任的"
+  },
+  {
+    "word": "restore",
+    "phonetic": "/rɪˈstɔː/",
+    "meaning": "v. 修复、恢复、（使）复原"
+  },
+  {
+    "word": "resume",
+    "phonetic": "/rɪˈzjuːm/",
+    "meaning": "v. 恢复、重新开始 n. 简历"
+  },
+  {
+    "word": "retail",
+    "phonetic": "/ˈriːteɪl/",
+    "meaning": "adj. 零售的 v/n. 零售"
+  },
+  {
+    "word": "retain",
+    "phonetic": "/rɪˈteɪn/",
+    "meaning": "v. 保持、保留"
+  },
+  {
+    "word": "retreat",
+    "phonetic": "/rɪˈtriːt/",
+    "meaning": "v. 后退、衰退 n. 后退、衰退"
+  },
+  {
+    "word": "retrospection",
+    "phonetic": "/ˌretrəʊˈspekʃən/",
+    "meaning": "n. 回忆、反思"
+  },
+  {
+    "word": "reveal",
+    "phonetic": "/rɪˈviːl/",
+    "meaning": "v. 揭露、表明"
+  },
+  {
+    "word": "revenue",
+    "phonetic": "/ˈrevənjuː/",
+    "meaning": "n. 收入、收益"
+  },
+  {
+    "word": "reverse",
+    "phonetic": "/rɪˈvɜːs/",
+    "meaning": "v. 颠倒、扭转、（使）转变"
+  },
+  {
+    "word": "review",
+    "phonetic": "/rɪˈvjuː/",
+    "meaning": "v/n. 回顾、审核"
+  },
+  {
+    "word": "revival",
+    "phonetic": "/rɪˈvaɪvl/",
+    "meaning": "n. 复活、复兴、苏醒"
+  },
+  {
+    "word": "revolutionary",
+    "phonetic": "/ˌrevəˈluːʃənəri/",
+    "meaning": "adj. 革命的、革命性的"
+  },
+  {
+    "word": "righteous",
+    "phonetic": "/ˈraɪtʃəs/",
+    "meaning": "adj. 公正的、正义的"
+  },
+  {
+    "word": "rigid",
+    "phonetic": "/ˈrɪdʒɪd/",
+    "meaning": "adj. 过于严格的、僵化的"
+  },
+  {
+    "word": "rigorous",
+    "phonetic": "/ˈrɪɡərəs/",
+    "meaning": "adj. 严格的、枯燥的"
+  },
+  {
+    "word": "ritual",
+    "phonetic": "/ˈrɪtʃuəl/",
+    "meaning": "n. 仪式、习惯"
+  },
+  {
+    "word": "rival",
+    "phonetic": "/ˈraɪvl/",
+    "meaning": "n. 竞争者、对手"
+  },
+  {
+    "word": "robust",
+    "phonetic": "/rəʊˈbʌst/",
+    "meaning": "adj. 健壮的、强有力的"
+  },
+  {
+    "word": "rough",
+    "phonetic": "/rʌf/",
+    "meaning": "adj. 粗糙的、大致的"
+  },
+  {
+    "word": "routine",
+    "phonetic": "/ruːˈtiːn/",
+    "meaning": "adj. 日常的、常规的 n. 常规、惯例"
+  },
+  {
+    "word": "satisfy",
+    "phonetic": "/ˈsætɪsfaɪ/",
+    "meaning": "v. 满足、使满意"
+  },
+  {
+    "word": "saturate",
+    "phonetic": "/ˈsætʃəreɪt/",
+    "meaning": "v. 浸透、使饱和"
+  },
+  {
+    "word": "scapegoat",
+    "phonetic": "/ˈskeɪpɡəʊt/",
+    "meaning": "n. 替罪羊"
+  },
+  {
+    "word": "scary",
+    "phonetic": "/ˈskeəri/",
+    "meaning": "adj. 可怕的"
+  },
+  {
+    "word": "scorn",
+    "phonetic": "/skɔːn/",
+    "meaning": "v/n. 轻蔑、鄙视"
+  },
+  {
+    "word": "screen",
+    "phonetic": "/skriːn/",
+    "meaning": "v. 检查、审查 n. 屏幕"
+  },
+  {
+    "word": "scrutinize",
+    "phonetic": "/ˈskruːtənaɪz/",
+    "meaning": "v. 仔细察看、详细检查"
+  },
+  {
+    "word": "section",
+    "phonetic": "/ˈsekʃən/",
+    "meaning": "n. 部分、阶层"
+  },
+  {
+    "word": "secure",
+    "phonetic": "/sɪˈkjʊə/",
+    "meaning": "adj. 安全的；无忧的 v. 保护、得到"
+  },
+  {
+    "word": "segment",
+    "phonetic": "/ˈseɡmənt/",
+    "meaning": "v. 切分、分割 n. 部分"
+  },
+  {
+    "word": "selective",
+    "phonetic": "/sɪˈlektɪv/",
+    "meaning": "adj. 选择的、挑剔的"
+  },
+  {
+    "word": "senior",
+    "phonetic": "/ˈsiːniə/",
+    "meaning": "adj. 年长的、高级的"
+  },
+  {
+    "word": "sensitive",
+    "phonetic": "/ˈsensətɪv/",
+    "meaning": "adj. 敏感的"
+  },
+  {
+    "word": "sentiment",
+    "phonetic": "/ˈsentɪmənt/",
+    "meaning": "n. 感情、情绪"
+  },
+  {
+    "word": "separate",
+    "phonetic": "/ˈsepərət/",
+    "meaning": "adj. 单独的、分开的 v. 分开、使分离"
+  },
+  {
+    "word": "series",
+    "phonetic": "/ˈsɪəriːz/",
+    "meaning": "n. 系列（节目）、丛书"
+  },
+  {
+    "word": "severe",
+    "phonetic": "/sɪˈvɪə/",
+    "meaning": "adj. 严重的、严峻的、严厉的"
+  },
+  {
+    "word": "shed",
+    "phonetic": "/ʃed/",
+    "meaning": "v. 脱落、流出"
+  },
+  {
+    "word": "shield",
+    "phonetic": "/ʃiːld/",
+    "meaning": "v. 遮挡、保护 n. 盾牌"
+  },
+  {
+    "word": "shift",
+    "phonetic": "/ʃɪft/",
+    "meaning": "v/n. 转移、转变"
+  },
+  {
+    "word": "shrinking",
+    "phonetic": "/ˈʃrɪŋkɪŋ/",
+    "meaning": "adj. 收缩的、萎缩的 n. 收缩、萎缩"
+  },
+  {
+    "word": "signature",
+    "phonetic": "/ˈsɪɡnətʃə/",
+    "meaning": "n. 签名"
+  },
+  {
+    "word": "significant",
+    "phonetic": "/sɪɡˈnɪfɪkənt/",
+    "meaning": "adj. 重要的"
+  },
+  {
+    "word": "skeptical",
+    "phonetic": "/ˈskeptɪkəl/",
+    "meaning": "adj. 怀疑的"
+  },
+  {
+    "word": "skip",
+    "phonetic": "/skɪp/",
+    "meaning": "v/n. 跳跃、跳过、跳读"
+  },
+  {
+    "word": "slacking",
+    "phonetic": "/ˈslækɪŋ/",
+    "meaning": "adj. 懒惰的"
+  },
+  {
+    "word": "slim",
+    "phonetic": "/slɪm/",
+    "meaning": "adj. 苗条的、薄的"
+  },
+  {
+    "word": "sole",
+    "phonetic": "/səʊl/",
+    "meaning": "adj. 单独的、唯一的"
+  },
+  {
+    "word": "sophisticated",
+    "phonetic": "/səˈfɪstɪkeɪtɪd/",
+    "meaning": "adj. 复杂的、精致的"
+  },
+  {
+    "word": "species",
+    "phonetic": "/ˈspiːʃiːz/",
+    "meaning": "n. 种类、物种"
+  },
+  {
+    "word": "split",
+    "phonetic": "/splɪt/",
+    "meaning": "v. 分解、分开、使分离"
+  },
+  {
+    "word": "sponsor",
+    "phonetic": "/ˈspɒnsə/",
+    "meaning": "v. 赞助、发起 n. 赞助商、发起者"
+  },
+  {
+    "word": "spontaneity",
+    "phonetic": "/ˌspɒntəˈniːəti/",
+    "meaning": "n. 自然流露、即兴发挥"
+  },
+  {
+    "word": "spread",
+    "phonetic": "/spred/",
+    "meaning": "v/n. 传播、分布"
+  },
+  {
+    "word": "squeeze",
+    "phonetic": "/skwiːz/",
+    "meaning": "v. 挤压、榨取"
+  },
+  {
+    "word": "stable",
+    "phonetic": "/ˈsteɪbl/",
+    "meaning": "adj. 稳定的、稳固的"
+  },
+  {
+    "word": "stagnation",
+    "phonetic": "/stæɡˈneɪʃən/",
+    "meaning": "n. 停滞"
+  },
+  {
+    "word": "statement",
+    "phonetic": "/ˈsteɪtmənt/",
+    "meaning": "n. 陈述、报表"
+  },
+  {
+    "word": "statistical",
+    "phonetic": "/stəˈtɪstɪkl/",
+    "meaning": "adj. 统计（学）的"
+  },
+  {
+    "word": "status",
+    "phonetic": "/ˈsteɪtəs/",
+    "meaning": "n. 身份、地位、状况"
+  },
+  {
+    "word": "steep",
+    "phonetic": "/stiːp/",
+    "meaning": "adj. 陡峭的、（上升/下降）急剧的"
+  },
+  {
+    "word": "steer",
+    "phonetic": "/stɪə/",
+    "meaning": "v. 驾驶、引导"
+  },
+  {
+    "word": "stem",
+    "phonetic": "/stem/",
+    "meaning": "v. 起源 n. 茎、干"
+  },
+  {
+    "word": "stick",
+    "phonetic": "/stɪk/",
+    "meaning": "v. 刺、粘住 n. 棍子、棒子"
+  },
+  {
+    "word": "straight",
+    "phonetic": "/streɪt/",
+    "meaning": "adj/adv. 笔直的/地、直接的/地"
+  },
+  {
+    "word": "strain",
+    "phonetic": "/streɪn/",
+    "meaning": "v. 拉紧 n. 张力、压力"
+  },
+  {
+    "word": "strategy",
+    "phonetic": "/ˈstrætədʒi/",
+    "meaning": "n. 战略、策略"
+  },
+  {
+    "word": "stress",
+    "phonetic": "/stres/",
+    "meaning": "v. 强调 n. 压力、重点"
+  },
+  {
+    "word": "strict",
+    "phonetic": "/strɪkt/",
+    "meaning": "adj. 严格的、严谨的"
+  },
+  {
+    "word": "striking",
+    "phonetic": "/ˈstraɪkɪŋ/",
+    "meaning": "adj. 惊人的、显著的、突出的"
+  },
+  {
+    "word": "strive",
+    "phonetic": "/straɪv/",
+    "meaning": "v. 努力、争取"
+  },
+  {
+    "word": "subject",
+    "phonetic": "/səbˈdʒekt/",
+    "meaning": "v. （使）遭受 n. 主题、被试（研究对象）"
+  },
+  {
+    "word": "submit",
+    "phonetic": "/səbˈmɪt/",
+    "meaning": "v. 提交、（使）服从"
+  },
+  {
+    "word": "subscribe",
+    "phonetic": "/səbˈskraɪb/",
+    "meaning": "v. 签署、赞同、订阅"
+  },
+  {
+    "word": "subsequent",
+    "phonetic": "/ˈsʌbsɪkwənt/",
+    "meaning": "adj. 随后的、后来的"
+  },
+  {
+    "word": "subsidize",
+    "phonetic": "/ˈsʌbsɪdaɪz/",
+    "meaning": "v. 资助、补贴"
+  },
+  {
+    "word": "substantial",
+    "phonetic": "/səbˈstænʃəl/",
+    "meaning": "adj. 大量的、实质的"
+  },
+  {
+    "word": "substitute",
+    "phonetic": "/ˈsʌbstɪtjuːt/",
+    "meaning": "v. 替代 n. 替代（品）"
+  },
+  {
+    "word": "subtle",
+    "phonetic": "/ˈsʌtl/",
+    "meaning": "adj. 不明显的、不易察觉的"
+  },
+  {
+    "word": "succeed",
+    "phonetic": "/səkˈsiːd/",
+    "meaning": "v. 成功、继承"
+  },
+  {
+    "word": "suffer",
+    "phonetic": "/ˈsʌfə/",
+    "meaning": "v. 遭受、经受"
+  },
+  {
+    "word": "suicide",
+    "phonetic": "/ˈsjuːɪsaɪd/",
+    "meaning": "v. 自杀 n. 自杀（者）"
+  },
+  {
+    "word": "suitable",
+    "phonetic": "/ˈsjuːtəbl/",
+    "meaning": "adj. 合适的、适当的、恰当的"
+  },
+  {
+    "word": "summit",
+    "phonetic": "/ˈsʌmɪt/",
+    "meaning": "n. 顶点、顶峰"
+  },
+  {
+    "word": "superb",
+    "phonetic": "/sjuːˈpɜːb/",
+    "meaning": "adj. 极好的"
+  },
+  {
+    "word": "superior",
+    "phonetic": "/sjuːˈpɪəriə/",
+    "meaning": "adj. 比……好的、出众的"
+  },
+  {
+    "word": "supervision",
+    "phonetic": "/ˌsuːpəˈvɪʒən/",
+    "meaning": "n. 监督、管理"
+  },
+  {
+    "word": "supplement",
+    "phonetic": "/ˈsʌplɪmənt/",
+    "meaning": "v. 补充 n. 补充、增刊"
+  },
+  {
+    "word": "suppose",
+    "phonetic": "/səˈpəʊz/",
+    "meaning": "v. 假设、猜想"
+  },
+  {
+    "word": "suppress",
+    "phonetic": "/səˈpres/",
+    "meaning": "v. 镇压、压制、抑制"
+  },
+  {
+    "word": "surface",
+    "phonetic": "/ˈsɜːfɪs/",
+    "meaning": "v. （使）出现、浮出水面 n. 表面"
+  },
+  {
+    "word": "surgery",
+    "phonetic": "/ˈsɜːdʒəri/",
+    "meaning": "n. 外科、手术"
+  },
+  {
+    "word": "survive",
+    "phonetic": "/səˈvaɪv/",
+    "meaning": "v. 幸存、存留"
+  },
+  {
+    "word": "suspect",
+    "phonetic": "/səˈspekt/",
+    "meaning": "v. 怀疑、猜想 n. 嫌疑犯"
+  },
+  {
+    "word": "suspend",
+    "phonetic": "/səˈspend/",
+    "meaning": "v. 悬挂、暂停"
+  },
+  {
+    "word": "sustain",
+    "phonetic": "/səˈsteɪn/",
+    "meaning": "v. 保持、维持、支撑"
+  },
+  {
+    "word": "swamp",
+    "phonetic": "/swɒmp/",
+    "meaning": "v. 淹没、（使）陷入困境 n. 沼泽"
+  },
+  {
+    "word": "swing",
+    "phonetic": "/swɪŋ/",
+    "meaning": "v/n. 摇摆、波动"
+  },
+  {
+    "word": "switch",
+    "phonetic": "/swɪtʃ/",
+    "meaning": "v. 转移、转换 n. 开关"
+  },
+  {
+    "word": "symbolic",
+    "phonetic": "/sɪmˈbɒlɪk/",
+    "meaning": "adj. 象征的、符号的"
+  },
+  {
+    "word": "sympathy",
+    "phonetic": "/ˈsɪmpəθi/",
+    "meaning": "n. 同情"
+  },
+  {
+    "word": "temper",
+    "phonetic": "/ˈtempə/",
+    "meaning": "v. 调和、控制 n. 脾气、性情"
+  },
+  {
+    "word": "temporary",
+    "phonetic": "/ˈtemprəri/",
+    "meaning": "adj. 暂时的、临时的"
+  },
+  {
+    "word": "tempt",
+    "phonetic": "/tempt/",
+    "meaning": "v. 引诱、诱使、吸引"
+  },
+  {
+    "word": "tendency",
+    "phonetic": "/ˈtendənsi/",
+    "meaning": "n. 趋势、倾向"
+  },
+  {
+    "word": "terminal",
+    "phonetic": "/ˈtɜːmɪnl/",
+    "meaning": "adj. 终点的、（疾病）晚期的 n. 终点、终端（机）"
+  },
+  {
+    "word": "terrify",
+    "phonetic": "/ˈterɪfaɪ/",
+    "meaning": "v. 恐吓、使害怕"
+  },
+  {
+    "word": "testify",
+    "phonetic": "/ˈtestɪfaɪ/",
+    "meaning": "v. 证实、作证"
+  },
+  {
+    "word": "thorny",
+    "phonetic": "/ˈθɔːni/",
+    "meaning": "adj. 棘手的、麻烦的"
+  },
+  {
+    "word": "threaten",
+    "phonetic": "/ˈθretn/",
+    "meaning": "v. 威胁"
+  },
+  {
+    "word": "thrive",
+    "phonetic": "/θraɪv/",
+    "meaning": "v. 繁荣、盛行"
+  },
+  {
+    "word": "tissue",
+    "phonetic": "/ˈtɪʃuː/",
+    "meaning": "n. （动植物的）组织"
+  },
+  {
+    "word": "tolerate",
+    "phonetic": "/ˈtɒləreɪt/",
+    "meaning": "v. 容忍、忍受"
+  },
+  {
+    "word": "tough",
+    "phonetic": "/tʌf/",
+    "meaning": "adj. 强硬的、严苛的"
+  },
+  {
+    "word": "toxic",
+    "phonetic": "/ˈtɒksɪk/",
+    "meaning": "adj. 有毒的、不良的"
+  },
+  {
+    "word": "transaction",
+    "phonetic": "/trænˈzækʃən/",
+    "meaning": "n. 交易"
+  },
+  {
+    "word": "transcendence",
+    "phonetic": "/trenˈsendəns/",
+    "meaning": "n. 超越"
+  },
+  {
+    "word": "transfer",
+    "phonetic": "/trænsˈfɜː/",
+    "meaning": "v/n. 传递、转移"
+  },
+  {
+    "word": "transform",
+    "phonetic": "/trænsˈfɔːm/",
+    "meaning": "v. 改变、转变"
+  },
+  {
+    "word": "transition",
+    "phonetic": "/trænˈzɪʃ(ə)n/",
+    "meaning": "n. 转型、过渡"
+  },
+  {
+    "word": "transparency",
+    "phonetic": "/trænsˈpærənsi/",
+    "meaning": "n. 透明（度）"
+  },
+  {
+    "word": "transplant",
+    "phonetic": "/trænsˈplɑːnt/",
+    "meaning": "v/n. 移植"
+  },
+  {
+    "word": "transportation",
+    "phonetic": "/ˌtrænspɔːˈteɪʃən/",
+    "meaning": "n. 运输、交通工具"
+  },
+  {
+    "word": "tremendous",
+    "phonetic": "/trəˈmendəs/",
+    "meaning": "adj. 巨大的"
+  },
+  {
+    "word": "triumph",
+    "phonetic": "/ˈtraɪəmf/",
+    "meaning": "v/n. 成功、胜利"
+  },
+  {
+    "word": "turbulent",
+    "phonetic": "/ˈtɜːbjələnt/",
+    "meaning": "adj. 混乱的、湍急的"
+  },
+  {
+    "word": "ultimate",
+    "phonetic": "/ˈʌltɪmət/",
+    "meaning": "adj. 最终的、根本的、极限的"
+  },
+  {
+    "word": "unanimous",
+    "phonetic": "/juːˈnænɪməs/",
+    "meaning": "adj. 全体同意的、一致通过的"
+  },
+  {
+    "word": "undermine",
+    "phonetic": "/ˌʌndəˈmaɪn/",
+    "meaning": "v. 破坏"
+  },
+  {
+    "word": "uniform",
+    "phonetic": "/ˈjuːnɪfɔːm/",
+    "meaning": "adj. 统一的、相同的 n. 制服"
+  },
+  {
+    "word": "unique",
+    "phonetic": "/juˈniːk/",
+    "meaning": "adj. 独特的、唯一的"
+  },
+  {
+    "word": "unite",
+    "phonetic": "/juˈnaɪt/",
+    "meaning": "v. 联合、团结、统一"
+  },
+  {
+    "word": "universal",
+    "phonetic": "/ˌjuːnɪˈvɜːsəl/",
+    "meaning": "adj. 普遍的、通用的"
+  },
+  {
+    "word": "unsurpassed",
+    "phonetic": "/ˌʌnsəˈpɑːst/",
+    "meaning": "adj. 难以超越的、无与伦比的"
+  },
+  {
+    "word": "upset",
+    "phonetic": "/ʌpˈset/",
+    "meaning": "v. 打乱、使心烦（生气）"
+  },
+  {
+    "word": "urban",
+    "phonetic": "/ˈɜːbən/",
+    "meaning": "adj. 城市的"
+  },
+  {
+    "word": "urge",
+    "phonetic": "/ɜːdʒ/",
+    "meaning": "v. 推动、驱使 n. 欲望、要求"
+  },
+  {
+    "word": "utility",
+    "phonetic": "/juːˈtɪləti/",
+    "meaning": "n. 功用、效用"
+  },
+  {
+    "word": "vacuum",
+    "phonetic": "/ˈvækjuəm/",
+    "meaning": "v. （用真空吸尘器）清扫、吸入 n. 真空"
+  },
+  {
+    "word": "vague",
+    "phonetic": "/veɪɡ/",
+    "meaning": "adj. 模糊的、含糊的"
+  },
+  {
+    "word": "vain",
+    "phonetic": "/veɪn/",
+    "meaning": "adj. 自负的"
+  },
+  {
+    "word": "valid",
+    "phonetic": "/ˈvælɪd/",
+    "meaning": "adj. 有效的、正当的"
+  },
+  {
+    "word": "vanish",
+    "phonetic": "/ˈvænɪʃ/",
+    "meaning": "v. 消失"
+  },
+  {
+    "word": "vanity",
+    "phonetic": "/ˈvænəti/",
+    "meaning": "n. 虚荣"
+  },
+  {
+    "word": "various",
+    "phonetic": "/ˈveəriəs/",
+    "meaning": "adj. 各种各样的"
+  },
+  {
+    "word": "verbal",
+    "phonetic": "/ˈvɜːbəl/",
+    "meaning": "adj. 口头的、语言的、文字的"
+  },
+  {
+    "word": "verdict",
+    "phonetic": "/ˈvɜːdɪkt/",
+    "meaning": "n. 结论、判决"
+  },
+  {
+    "word": "verify",
+    "phonetic": "/ˈverɪfaɪ/",
+    "meaning": "v. 证实、核实"
+  },
+  {
+    "word": "viable",
+    "phonetic": "/ˈvaɪəbl/",
+    "meaning": "adj. 可行的"
+  },
+  {
+    "word": "vibrant",
+    "phonetic": "/ˈvaɪbrənt/",
+    "meaning": "adj. 充满活力的"
+  },
+  {
+    "word": "victory",
+    "phonetic": "/ˈvɪktəri/",
+    "meaning": "n. 胜利"
+  },
+  {
+    "word": "vigorously",
+    "phonetic": "/ˈvɪɡərəsli/",
+    "meaning": "adv. 精力充沛地、强烈地"
+  },
+  {
+    "word": "violate",
+    "phonetic": "/ˈvaɪəleɪt/",
+    "meaning": "v. 违反、侵犯"
+  },
+  {
+    "word": "virtually",
+    "phonetic": "/ˈvɜːtʃuəli/",
+    "meaning": "adv. 几乎、事实上"
+  },
+  {
+    "word": "visible",
+    "phonetic": "/ˈvɪzəbl/",
+    "meaning": "adj. 看得见的、明显的"
+  },
+  {
+    "word": "vision",
+    "phonetic": "/ˈvɪʒən/",
+    "meaning": "n. 视力、憧憬"
+  },
+  {
+    "word": "visualize",
+    "phonetic": "/ˈvɪʒuəlaɪz/",
+    "meaning": "v. 想像、（使）形象化"
+  },
+  {
+    "word": "vital",
+    "phonetic": "/ˈvaɪtl/",
+    "meaning": "adj. 至关重要的、生死攸关的"
+  },
+  {
+    "word": "vivid",
+    "phonetic": "/ˈvɪvɪd/",
+    "meaning": "adj. 生动的、逼真的"
+  },
+  {
+    "word": "vocation",
+    "phonetic": "/vəʊˈkeɪʃən/",
+    "meaning": "n. 职业"
+  },
+  {
+    "word": "withdraw",
+    "phonetic": "/wɪðˈdrɔː/",
+    "meaning": "v. 撤销、收回"
+  },
+  {
+    "word": "withstand",
+    "phonetic": "/wɪðˈstænd/",
+    "meaning": "v. 承受"
+  },
+  {
+    "word": "worship",
+    "phonetic": "/ˈwɜːʃɪp/",
+    "meaning": "v/n. 敬奉、崇拜"
+  },
+  {
+    "word": "yield",
+    "phonetic": "/jiːld/",
+    "meaning": "v. 生产、产生 n. 产量、收益"
+  },
+  {
+    "word": "zone",
+    "phonetic": "/zəʊn/",
+    "meaning": "n. 地区"
+  }
+]

@@ -1,0 +1,2372 @@
+[
+  {
+    "word": "technology",
+    "phonetic": "/tɛkˈnɒlədʒi/",
+    "meaning": "n. 工业技术，应用科学"
+  },
+  {
+    "word": "result",
+    "phonetic": "/rɪˈzʌlt/",
+    "meaning": "n. 1.结果，效果，成果2.计算结果，答案"
+  },
+  {
+    "word": "statement",
+    "phonetic": "/ˈsteɪtm(ə)nt/",
+    "meaning": "n. 1.陈述，声明 2.财务报表，申报单"
+  },
+  {
+    "word": "global",
+    "phonetic": "/ˈgləʊbəl/",
+    "meaning": "a. 地球的，全球的，环球的；全局的"
+  },
+  {
+    "word": "paragraph",
+    "phonetic": "/ˈpɛrəˌgræf/",
+    "meaning": "n.1.段，节 2.（报刊的）短讯"
+  },
+  {
+    "word": "live",
+    "phonetic": "/lɪv/",
+    "meaning": "v. 1.住，居住2.生存，（过）生活 a. 1.有生命的，活的2.现场直播的 ad. 实况地"
+  },
+  {
+    "word": "means",
+    "phonetic": "/miːnz/",
+    "meaning": "n. 1.手段，方法2.财产，收入"
+  },
+  {
+    "word": "cent",
+    "phonetic": "/sɛnt/",
+    "meaning": "n. 1.分币 2.（作单位的）百"
+  },
+  {
+    "word": "consume",
+    "phonetic": "/kənˈsum/",
+    "meaning": "vt./vi. 1.消费，花费 2.消灭，毁灭3.枯萎"
+  },
+  {
+    "word": "radiation",
+    "phonetic": "/ˌreɪdiˈeɪʃən/",
+    "meaning": "n. 辐射（线/能）"
+  },
+  {
+    "word": "company",
+    "phonetic": "/ˈkəmpəˌni/",
+    "meaning": "n. 1.交往，同伴，陪伴2.公司，商号3.一伙，一队"
+  },
+  {
+    "word": "lack",
+    "phonetic": "/lak/",
+    "meaning": "v./n. 缺乏，缺少，短缺"
+  },
+  {
+    "word": "medical",
+    "phonetic": "/ˈmɛdɪkl̩/",
+    "meaning": "a. 医学的，医疗的"
+  },
+  {
+    "word": "murder",
+    "phonetic": "/ˈmɜːdə(r)/",
+    "meaning": "n. 1.谋杀2.谋杀罪 v. 1.谋杀，屠杀2.破坏"
+  },
+  {
+    "word": "program(me)",
+    "phonetic": "/ˈprəʊgræm/",
+    "meaning": "n. 1.电脑程序2.节目单，说明书3.节目4.计划，程序表 v. 1.编制程序 2. 安排节目"
+  },
+  {
+    "word": "increase",
+    "phonetic": "/ˌɪnˈkris/",
+    "meaning": "vt./vi. 增加，增大，增长 n. 增加，增长"
+  },
+  {
+    "word": "space",
+    "phonetic": "/speɪs/",
+    "meaning": "n 1.空间，面积 2.太空 3.场所，区域 vt. 把…隔开"
+  },
+  {
+    "word": "step",
+    "phonetic": "/stɛp/",
+    "meaning": "n. .步，脚步2.梯级，台阶3.步骤，措施 vi. 走，行走；踩"
+  },
+  {
+    "word": "aid",
+    "phonetic": "/eɪd/",
+    "meaning": "vt. 帮助，援助，救援 n. 1.帮助，援助2.助手，辅助设备3.救护"
+  },
+  {
+    "word": "mark",
+    "phonetic": "/mɑrk/",
+    "meaning": "n. 1.痕迹，斑点 2.记号，标记 3.（考试）分数 v. 1.（给试卷）打分2.标志，表 示3.弄污"
+  },
+  {
+    "word": "possible",
+    "phonetic": "/ˈpɒsɪbl̩/",
+    "meaning": "a. 1.可能的，有可能做得到的2.可接受的"
+  },
+  {
+    "word": "rate",
+    "phonetic": "/reɪt/",
+    "meaning": "n. 1.比率 2.等级，程度 3.价格，费用 vt. 1.评级，评价 2.列为"
+  },
+  {
+    "word": "used",
+    "phonetic": "/juːzd/",
+    "meaning": "a. 1.用过的，旧的2.习惯于…的 v. 过去惯于"
+  },
+  {
+    "word": "choice",
+    "phonetic": "/tʃɔɪs/",
+    "meaning": "n. 1.选择，抉择2.选择权，选择机会3.供选择的东西"
+  },
+  {
+    "word": "deal",
+    "phonetic": "/diːl/",
+    "meaning": "vt. 1.处理，对付 2.分给，给予 n. 买卖，交易"
+  },
+  {
+    "word": "social",
+    "phonetic": "/ˈsəʊʃəl/",
+    "meaning": "a. 1.社会的 2.社交的，交际的"
+  },
+  {
+    "word": "center/tre",
+    "phonetic": "/ˈsɛn.tə(r)/",
+    "meaning": "n. 中心，中央，核心 vt./vi. 1.集中，集中于2.居中"
+  },
+  {
+    "word": "graph",
+    "phonetic": "/græf/",
+    "meaning": "n. 图表，曲线图"
+  },
+  {
+    "word": "point",
+    "phonetic": "/pɔɪnt/",
+    "meaning": "n. 1.尖，尖端2.点，小数点 3.条款，细目 4.分数，得分5.要点，论点6.意义 vi. 1.指向2.表明"
+  },
+  {
+    "word": "interview",
+    "phonetic": "/ˈɪntəvjuː/",
+    "meaning": "n. 1.接见，会见 2.面谈，面试 3.访问 vt. 接见，会见；访问；（记者）采访"
+  },
+  {
+    "word": "less",
+    "phonetic": "/lɛs/",
+    "meaning": "a./ad. 1.更小的（地），更少的（地） 2.较次（劣）的（地），较不重要的（地）"
+  },
+  {
+    "word": "mental",
+    "phonetic": "/ˈmɛntəl/",
+    "meaning": "a. 1.心智的，精神的2.神经不正常的"
+  },
+  {
+    "word": "Physical",
+    "phonetic": "/ˈfɪzɪkəl/",
+    "meaning": "a. 1.物质的2.身体的3.物理的"
+  },
+  {
+    "word": "reason",
+    "phonetic": "/ˈriːzən/",
+    "meaning": "n. 1.理由，原因2.理性，判断力3.理智，清醒的头脑4.道理，常识vt. 1.论证， 推断2.与…评理，劝说 vi. 1.推理，思考2.评理，劝说"
+  },
+  {
+    "word": "soup",
+    "phonetic": "/suːp/",
+    "meaning": "n. 汤，羹"
+  },
+  {
+    "word": "climate",
+    "phonetic": "/ˈklaɪmɪt/",
+    "meaning": "n. 气候"
+  },
+  {
+    "word": "modern",
+    "phonetic": "/ˈmɒd(ə)n/",
+    "meaning": "a. 1.现代的，近代的 2.新式的，时新的"
+  },
+  {
+    "word": "provide",
+    "phonetic": "/prəˈvaɪd/",
+    "meaning": "vt. 1.提供，供给 2.规定"
+  },
+  {
+    "word": "purpose",
+    "phonetic": "/ˈpɜːpəs/",
+    "meaning": "n. 1.目的，意图2.意志，决心"
+  },
+  {
+    "word": "tech",
+    "phonetic": "/tɛk/",
+    "meaning": "n. 技术专科学校"
+  },
+  {
+    "word": "traditional",
+    "phonetic": "/trəˈdɪʃənəl/",
+    "meaning": "a. 传统的"
+  },
+  {
+    "word": "ability",
+    "phonetic": "/əˈ.bɪl.ɪ.ti/",
+    "meaning": "n. 1.能力，本领 2.（用复数）才能，才识"
+  },
+  {
+    "word": "drought",
+    "phonetic": "/[drʌʊt]/",
+    "meaning": "n. 干旱，旱灾"
+  },
+  {
+    "word": "kill",
+    "phonetic": "/kɪl/",
+    "meaning": "vt./vi. 1.杀，杀死2.破坏，摧毁3.消磨（时间）"
+  },
+  {
+    "word": "knowledge",
+    "phonetic": "/ˈnɒlɪdʒ/",
+    "meaning": "n. 1.知识，学识，学问2.知道，了解"
+  },
+  {
+    "word": "last",
+    "phonetic": "/lɑːst/",
+    "meaning": "a. 1.最后的 2.最近的，紧接前面的 ad. 最后（地），上一次，最近一次 vi. 持续，维持"
+  },
+  {
+    "word": "matter",
+    "phonetic": "/ˈmætə/",
+    "meaning": "n. 1.事情，问题2.毛病，麻烦，困难3.物质，物品"
+  },
+  {
+    "word": "million",
+    "phonetic": "/ˈmɪljən/",
+    "meaning": "num. 百万，百万个 n. (pl.)无数"
+  },
+  {
+    "word": "pollution",
+    "phonetic": "/pəˈl(j)uːʃn̩/",
+    "meaning": "n. 污染"
+  },
+  {
+    "word": "public",
+    "phonetic": "/ˈpʌblɪk/",
+    "meaning": "a. 1.公共的 2.公众的 3.公开的 n. 民众，公众"
+  },
+  {
+    "word": "revenge",
+    "phonetic": "/rɪˈvɛndʒ/",
+    "meaning": "vt./n.报复，复仇"
+  },
+  {
+    "word": "rise",
+    "phonetic": "/raɪs/",
+    "meaning": "vi. 1.上升，上涨2.升起3.站起，起床4.增强5.起义 n. 1.增加，升高 2.加薪 3.高 地，高坡"
+  },
+  {
+    "word": "society",
+    "phonetic": "/səˈsaɪ.ə.ti/",
+    "meaning": "n. 1.社会 2.协会，团体"
+  },
+  {
+    "word": "spend",
+    "phonetic": "/spɛnd/",
+    "meaning": "vt. 1.花费（钱、时间、心血等） 2.消磨，度过 vi. 1.花费，浪费 2.耗尽"
+  },
+  {
+    "word": "stock",
+    "phonetic": "/stɒk/",
+    "meaning": "n. 1.储备，贮存2.存货，现货3.股票4.家畜，牲畜 vt. 储备，备货"
+  },
+  {
+    "word": "title",
+    "phonetic": "/ˈtaɪtl̩/",
+    "meaning": "n. 1.标题 2.头衔，称号"
+  },
+  {
+    "word": "volunteer",
+    "phonetic": "/vɒl.ənˈtɪə/",
+    "meaning": "n. 自（志）愿者"
+  },
+  {
+    "word": "culture",
+    "phonetic": "/ˈkʌlt͡ʃə/",
+    "meaning": "n. 1.教养，修养 2.文化，文明"
+  },
+  {
+    "word": "emission",
+    "phonetic": "/ɪˈmɪʃn̩/",
+    "meaning": "n. 1.发射，散发 2.发出物，发射物"
+  },
+  {
+    "word": "function",
+    "phonetic": "/ˈfəŋkʃən/",
+    "meaning": "n. 1.功能，作用 2.职务，职责 3.〈数学〉函数 vi. 1.（器官等）活动，（机 器等）运行2.行使职责"
+  },
+  {
+    "word": "importance",
+    "phonetic": "/ˌɪmˈpɔrtəns/",
+    "meaning": "n. 重要，重要性"
+  },
+  {
+    "word": "individual",
+    "phonetic": "/ˌɪndəˈvɪdʒəwəl/",
+    "meaning": "a. 1.单独的，个人的 2.独特的，个性的 n. 个人，个体；独立单位"
+  },
+  {
+    "word": "late",
+    "phonetic": "/leɪt/",
+    "meaning": "a. 1.迟的，晚的2.晚期的，末期的3.最近的，已故的 ad. 迟，晚"
+  },
+  {
+    "word": "level",
+    "phonetic": "/ˈlɛvəl/",
+    "meaning": "n. 1.水平面，水平线2.等线，水平 a. 平的，水平的"
+  },
+  {
+    "word": "limit",
+    "phonetic": "/ˈlɪmət/",
+    "meaning": "vt. 限制，限定 n. 界限，限定，限度"
+  },
+  {
+    "word": "material",
+    "phonetic": "/məˈtɪərɪəl/",
+    "meaning": "n. 1.物质，材料，原料 2.素材，资料，题材 a. 物质的"
+  },
+  {
+    "word": "minute",
+    "phonetic": "/ˈmɪnɪt/",
+    "meaning": "n. 1.分，分钟2.一会儿，片刻3.(pl.)会议记录"
+  },
+  {
+    "word": "necessary",
+    "phonetic": "/ˈnɛsəˌsɛri/",
+    "meaning": "a. 1.必要的，必需的 2.必然的 n. (pl.)必需品"
+  },
+  {
+    "word": "nuclear",
+    "phonetic": "/ˈnjuː.klɪə/",
+    "meaning": "a. 1.原子核的 2.核心的，中心的"
+  },
+  {
+    "word": "patient",
+    "phonetic": "/ˈpeɪʃənt/",
+    "meaning": "n. 病人 a. 有耐心的，能忍耐的"
+  },
+  {
+    "word": "research",
+    "phonetic": "/rɪˈsɜːtʃ/",
+    "meaning": "vi./n 研究，探讨"
+  },
+  {
+    "word": "travel",
+    "phonetic": "/ˈtrævəl/",
+    "meaning": "vi. 1.旅行2.行进，走 3.运行，传播 n. 旅行"
+  },
+  {
+    "word": "type",
+    "phonetic": "/taɪp/",
+    "meaning": "n. 1.类型，式样2.印刷字体3.活字，铅字v. 打字"
+  },
+  {
+    "word": "applicant",
+    "phonetic": "/ˈæplɪkənt/",
+    "meaning": "n. 申请者"
+  },
+  {
+    "word": "cell",
+    "phonetic": "/sɛl/",
+    "meaning": "n. 1.细胞2.电池 3.单人牢房4.小房间"
+  },
+  {
+    "word": "common",
+    "phonetic": "/ˈkɒmən/",
+    "meaning": "a. 1.普通的，寻常的 2.共有的，公共的"
+  },
+  {
+    "word": "crime",
+    "phonetic": "/kraɪm/",
+    "meaning": "n. 罪，犯罪"
+  },
+  {
+    "word": "factor",
+    "phonetic": "/ˈfæktə/",
+    "meaning": "n. 1.因素，要素 2.〈数学〉因数，因子"
+  },
+  {
+    "word": "harmful",
+    "phonetic": "/ˈhɑːmfl̩/",
+    "meaning": "a. 有害的"
+  },
+  {
+    "word": "international",
+    "phonetic": "/ˌɪntəˈnæʃ(ə)n(ə)l/",
+    "meaning": "a. 国际的，世界性的"
+  },
+  {
+    "word": "least",
+    "phonetic": "/list/",
+    "meaning": "a. 最小的，最少的 ad. 最少，最小，最不 n. 最小，最少"
+  },
+  {
+    "word": "line",
+    "phonetic": "/laɪn/",
+    "meaning": "n. 1.线，（文章的）行2.电线，线路3.路线，航线 vt. （使）排成行"
+  },
+  {
+    "word": "main",
+    "phonetic": "/meɪn/",
+    "meaning": "a. 主要的，最重要的 n. （输送水或煤气的）总管道，干线"
+  },
+  {
+    "word": "manner",
+    "phonetic": "/ˈmænə/",
+    "meaning": "n 1.方式，方法2.态度，举止3.（pl.）礼貌，规矩"
+  },
+  {
+    "word": "personal",
+    "phonetic": "/ˈpɜː.sən.əl/",
+    "meaning": "a. 1.个人的，私人的2.本人的3.身体的，容貌的"
+  },
+  {
+    "word": "pressure",
+    "phonetic": "/[ˈprɛʃ.ə(r)]/",
+    "meaning": "n. 1.压力，压强 2.强制，压迫"
+  },
+  {
+    "word": "prevent",
+    "phonetic": "/prɪˈvɛnt/",
+    "meaning": "v. 预防，防止"
+  },
+  {
+    "word": "researcher",
+    "phonetic": "/ˈrisərtʃər/",
+    "meaning": "n. 研究者，调查员"
+  },
+  {
+    "word": "scientific",
+    "phonetic": "/ˌsaɪənˈtɪfɪk/",
+    "meaning": "a. 科学的"
+  },
+  {
+    "word": "serious",
+    "phonetic": "/ˈsɪə.ri.əs/",
+    "meaning": "a. 1.严重的 2.认真的，严肃的"
+  },
+  {
+    "word": "sheet",
+    "phonetic": "/ʃiːt/",
+    "meaning": "n. 1.张，片，页2.被单"
+  },
+  {
+    "word": "complete",
+    "phonetic": "/kəmˈpliːt/",
+    "meaning": "vt. 完成，结束3 a. 1.完整的，全部的2.已完成的，结束的3.彻底的"
+  },
+  {
+    "word": "confidence",
+    "phonetic": "/ˈkɒnfɪdəns/",
+    "meaning": "n. 1.信任2.信心，自信，把握"
+  },
+  {
+    "word": "current",
+    "phonetic": "/ˈkʌrənt/",
+    "meaning": "a. 1.通用的2.现时的，当前的 n. 1.水流，气流2.电流3.趋势，倾向"
+  },
+  {
+    "word": "drop",
+    "phonetic": "/drɒp/",
+    "meaning": "n. 1.点滴，滴2.下降3.微量 vt./vi. 1.滴下2.投下，落下，跌落"
+  },
+  {
+    "word": "effort",
+    "phonetic": "/ˈɛfət/",
+    "meaning": "n. 努力，尝试"
+  },
+  {
+    "word": "environment",
+    "phonetic": "/-mɪnt/",
+    "meaning": "n. 环境，周围状况"
+  },
+  {
+    "word": "estimate",
+    "phonetic": "/ˈɛstɨmɨt/",
+    "meaning": "vt. 估计，评价，判断 n. 估计，估价；（用复数）预算"
+  },
+  {
+    "word": "expect",
+    "phonetic": "/ɪkˈspɛkt/",
+    "meaning": "vt. 1.期待，预期，盼望2.认为；料想"
+  },
+  {
+    "word": "general",
+    "phonetic": "/ˈd͡ʒɛnrəl/",
+    "meaning": "a. 1.全体的，普遍的2.综合的，普通的3.通用的 n. 将军"
+  },
+  {
+    "word": "government",
+    "phonetic": "/ˈgʌvə(n)mənt/",
+    "meaning": "n. 1.管理，支配 2.政府，内阁"
+  },
+  {
+    "word": "investment",
+    "phonetic": "/ɪnˈvɛsmənt/",
+    "meaning": "n. 投资，投资额"
+  },
+  {
+    "word": "lead",
+    "phonetic": "/lɛd/",
+    "meaning": "n. 铅 v. 1.领导，引导2.为…带路；指引3.导致；通向 n. 领导，领先"
+  },
+  {
+    "word": "limited",
+    "phonetic": "/ˈlɪmɪtɪd/",
+    "meaning": "a. 小的，有限的"
+  },
+  {
+    "word": "remain",
+    "phonetic": "/rɪˈmeɪn/",
+    "meaning": "vi. 1.停留，留下 2.保持，依然"
+  },
+  {
+    "word": "save",
+    "phonetic": "/seɪv/",
+    "meaning": "v. 1.拯救 2.储蓄 3.节省"
+  },
+  {
+    "word": "sell",
+    "phonetic": "/sɛl/",
+    "meaning": "vt. 1.卖，出售 2.出卖，背叛 vi. 卖，销售"
+  },
+  {
+    "word": "set",
+    "phonetic": "/sɛt/",
+    "meaning": "vt. 1.放置2.使处于某种状态（位置）3.调校4.树立，规定 vi. 1.（日、月等）落下2. 凝结，固定3.着手，从事 n. （一）套 a. 固定的，规定的"
+  },
+  {
+    "word": "traffic",
+    "phonetic": "/ˈtræfɪk/",
+    "meaning": "n. 交通（量）"
+  },
+  {
+    "word": "video",
+    "phonetic": "/ˈvɪ.di.əʊ/",
+    "meaning": "n. 录像（机） a. 录像的，视频的"
+  },
+  {
+    "word": "capable",
+    "phonetic": "/ˈkeɪpəbl̩/",
+    "meaning": "a. （指人）有能力的，有本领，能干的"
+  },
+  {
+    "word": "certain",
+    "phonetic": "/ˈsɝtn̩/",
+    "meaning": "a. 1.（只作表语）肯定的，无疑的2.必然的 3.（只作定语）某一，某些"
+  },
+  {
+    "word": "continue",
+    "phonetic": "/kənˈtɪnjuː/",
+    "meaning": "vi. 连续，继续"
+  },
+  {
+    "word": "decade",
+    "phonetic": "/dəˈkeɪd/",
+    "meaning": "n. 十年"
+  },
+  {
+    "word": "effect",
+    "phonetic": "/ɪˈfɛkt/",
+    "meaning": "n. 结果，效果，作用 vt. 产生，招致，完成"
+  },
+  {
+    "word": "fuel",
+    "phonetic": "/fjuəl/",
+    "meaning": "n. 燃料，养料 vt./vi. 供给燃料，加燃料；刺激；推动"
+  },
+  {
+    "word": "imply",
+    "phonetic": "/ɪmˈplaɪ/",
+    "meaning": "vt. 意指，含…的意思"
+  },
+  {
+    "word": "involve",
+    "phonetic": "/ɪnˈvɒlv/",
+    "meaning": "vt. 1.使卷入，使参与2.包含，包括 3.牵涉"
+  },
+  {
+    "word": "likely",
+    "phonetic": "/ˈlaɪkli/",
+    "meaning": "a. 很可能的，有希望的 ad. 可能地"
+  },
+  {
+    "word": "living",
+    "phonetic": "/ˈlɪvɪŋ/",
+    "meaning": "a. 活着的，现存的 n. 生计，生活"
+  },
+  {
+    "word": "measure",
+    "phonetic": "/ˈmɛʒə/",
+    "meaning": "n. 1.量度，尺寸 2.措施，方法 vt. 量，测量 vi. 有…长（宽，高）"
+  },
+  {
+    "word": "product",
+    "phonetic": "/ˈprɒd.əkt/",
+    "meaning": "n. 1.产品，制品 2.结果，成果 3.乘积"
+  },
+  {
+    "word": "relate",
+    "phonetic": "/riˈleɪt/",
+    "meaning": "vt. 1.使有联系 2.叙述，讲 vi. 与…有关系"
+  },
+  {
+    "word": "tend",
+    "phonetic": "/tɛnd/",
+    "meaning": "vt 照料，护理 vi. 易于，有某种倾向"
+  },
+  {
+    "word": "term",
+    "phonetic": "/tɜːm/",
+    "meaning": "n. 1.学期2.期限，期间3.术语，措词4.(pl.)条款，条件 vt. 称为，叫做 频率 出现7 次的word"
+  },
+  {
+    "word": "available",
+    "phonetic": "/əˈveɪləbəl/",
+    "meaning": "a. 可利用的；有效的；可得到的"
+  },
+  {
+    "word": "average",
+    "phonetic": "/ˈævərɪd͡ʒ/",
+    "meaning": "n. 1.平均（数） 2.一般水平，平均标准 a. 1.平均的 2.一般的，通常的"
+  },
+  {
+    "word": "avoid",
+    "phonetic": "/əˈvɔɪd/",
+    "meaning": "vt. 避免，回避，逃避"
+  },
+  {
+    "word": "behavio(u)r",
+    "phonetic": "/[bɪˈheɪvjə]/",
+    "meaning": "n. 1.行为，表现 2.（机器等的）运转情况"
+  },
+  {
+    "word": "care",
+    "phonetic": "/kɛə/",
+    "meaning": "n. 1.牵挂，担心 2.照应，照料 3.烦恼，烦人的事 vi. 1.担心，关心，介意2.喜 欢，愿意"
+  },
+  {
+    "word": "comprehension",
+    "phonetic": "/kɒmprɪˈhɛnʃn̩/",
+    "meaning": "n. 1.理解，理解力2.领悟"
+  },
+  {
+    "word": "cross",
+    "phonetic": "/krɔs/",
+    "meaning": "v. 1.穿越 2.相交 3.划横线，勾掉 n. 1.十字架，十字形的东西2.交叉路3. 苦难"
+  },
+  {
+    "word": "electronic",
+    "phonetic": "/ɪˌlɛkˈtrɒn.ɪk/",
+    "meaning": "a. 电子（学）的"
+  },
+  {
+    "word": "fall",
+    "phonetic": "/fɔl/",
+    "meaning": "vi. 1.落下，降落，跌落2.陷落，失守 3.降低，减退 n. 1.秋季2.落下，降落3.陷落 4.下降；减弱"
+  },
+  {
+    "word": "keep",
+    "phonetic": "/kiːp/",
+    "meaning": "vt./vi. 1.保存，保留2.（使…）保持（着某一状态），使得3.保守，遵守4.保卫，防 卫5.赡养，饲养6.看管，经营7.履行，遵循"
+  },
+  {
+    "word": "majority",
+    "phonetic": "/məˈd͡ʒɒrɪti/",
+    "meaning": "n. 多数，大多数"
+  },
+  {
+    "word": "motorist",
+    "phonetic": "/ˈmoʊtərɪst/",
+    "meaning": "n. 驾车的人，乘车旅行的人"
+  },
+  {
+    "word": "murderer",
+    "phonetic": "/ˈmɜːdərə/",
+    "meaning": "n. 杀人犯，凶手"
+  },
+  {
+    "word": "natural",
+    "phonetic": "/ˈnætʃərəl/",
+    "meaning": "a. 1.自然界的，天然的2.正常的，惯常的3.天赋，天生的"
+  },
+  {
+    "word": "occur",
+    "phonetic": "/əˈkɜː/",
+    "meaning": "vi. 1.发生 2.出现，存在4"
+  },
+  {
+    "word": "popular",
+    "phonetic": "/ˈpɒpjʊlə/",
+    "meaning": "a. 1.大众喜爱的，喜闻乐见的2.大众化的，普及的"
+  },
+  {
+    "word": "price",
+    "phonetic": "/praɪs/",
+    "meaning": "n. 1.价格 2.代价 vt. 标价，定价"
+  },
+  {
+    "word": "project",
+    "phonetic": "/ˈprɑdʒɛkt/",
+    "meaning": "n. 1.方案，计划 2.工程，项目 vt. 1.投掷，发射2.放映3.设计，规划4.突出， 使凸出"
+  },
+  {
+    "word": "pure",
+    "phonetic": "/ˈpjɔː/",
+    "meaning": "a. 1.纯粹的2.纯净纯洁的3.无邪，贞洁的4.完全，彻底的"
+  },
+  {
+    "word": "record",
+    "phonetic": "/ˈrɛkɔːd/",
+    "meaning": "n. 1.记录，报告2.经历，履历 3.记录，最好成绩 a. 创纪录的 vt. 1.记录， 记载 2.录音，录影，录下"
+  },
+  {
+    "word": "refer",
+    "phonetic": "/rɪˈfɜː/",
+    "meaning": "vi. 1.提到，引用 2.查阅，参考1. vt. 叫（人）去…（以便得到消息、援助等） 2.把…归因于 3.把…委托（交给）…"
+  },
+  {
+    "word": "regard",
+    "phonetic": "/rɪˈgɑːd/",
+    "meaning": "vt. 1.把…看作，把…认为 2.注意，注视3.对待，看待 4.尊重，尊敬 n. 1.注意，注视2.尊敬，尊重 3.(pl.)问候，致意"
+  },
+  {
+    "word": "retail",
+    "phonetic": "/ˈriˌteɪl/",
+    "meaning": "n. 零售 v. 零售 ad. 以零售价格"
+  },
+  {
+    "word": "seal",
+    "phonetic": "/sil/",
+    "meaning": "n. 1.封条 2.印章 vt. 1.密封 2.盖章"
+  },
+  {
+    "word": "section",
+    "phonetic": "/ˈsɛkʃən/",
+    "meaning": "n. 1.节，段，部分2.科室3.截面，剖视图"
+  },
+  {
+    "word": "single",
+    "phonetic": "/ˈsɪŋgəl/",
+    "meaning": "a. 1.单个的，单一的2.独身的3.每个的，个别的 vt. 挑选"
+  },
+  {
+    "word": "species",
+    "phonetic": "/ˈspiːsiːz/",
+    "meaning": "n. 物种，种类"
+  },
+  {
+    "word": "suggest",
+    "phonetic": "/səˈdʒɛst/",
+    "meaning": "vt. 1.建议，提议 2.表明，暗示"
+  },
+  {
+    "word": "trend",
+    "phonetic": "/trɛnd/",
+    "meaning": "n. 趋势，倾向 vi. 趋向，倾向"
+  },
+  {
+    "word": "typical",
+    "phonetic": "/ˈtɪpɪkl̩/",
+    "meaning": "a. 1.典型的，有代表性的2.特有的，独特的"
+  },
+  {
+    "word": "victim",
+    "phonetic": "/ˈvɪktɪm/",
+    "meaning": "n. 受害者，牺牲者，遇难者"
+  },
+  {
+    "word": "acquisition",
+    "phonetic": "/æ.kwɪ.ˈzɪ.ʃən/",
+    "meaning": "n 获得（物）"
+  },
+  {
+    "word": "adapt",
+    "phonetic": "/əˈdæpt/",
+    "meaning": "vt 1.使适应，使适合 2.改编，改写"
+  },
+  {
+    "word": "allow",
+    "phonetic": "/əˈlaʊ/",
+    "meaning": "vt 1.允许，准许 2.承认 3.给予 vi （~for）考虑到，顾及"
+  },
+  {
+    "word": "apply",
+    "phonetic": "/əˈplaɪ/",
+    "meaning": "vi./vt. 1.请求，申请 2.适用，应用，运用3.把…应用于"
+  },
+  {
+    "word": "approach",
+    "phonetic": "/əˈprəʊt͡ʃ/",
+    "meaning": "vi./vt. 1.走近，接近，临近 2.处理，对待 n. 1.走近，接近2.（处理的）方 法 3.看法，观点"
+  },
+  {
+    "word": "astronaut",
+    "phonetic": "/ˈæstrəˌnɒt/",
+    "meaning": "n. 宇航员"
+  },
+  {
+    "word": "attack",
+    "phonetic": "/əˈtæk/",
+    "meaning": "vt./n.1.攻击，袭击 2.（疾病）发作"
+  },
+  {
+    "word": "attitude",
+    "phonetic": "/ˈætəˌtud/",
+    "meaning": "n. (与介词to,towards 连用）态度，看法"
+  },
+  {
+    "word": "balance",
+    "phonetic": "/ˈbæləns/",
+    "meaning": "n. 1.平衡，均衡 2.收支平衡，收付余款3.秤，天平 vt./vi. 1.（用天平）秤 2. 使平衡3.（收支）相抵"
+  },
+  {
+    "word": "clear",
+    "phonetic": "/klɪə(r)/",
+    "meaning": "a. 1.光亮的，清澈的 2.清晰的，条理清楚的3.晴（天）的 vt. 打扫；使清楚， 晴朗起来；清除，收走"
+  },
+  {
+    "word": "complex",
+    "phonetic": "/ˈkɑmplɛks/",
+    "meaning": "a. 复杂的；综合的"
+  },
+  {
+    "word": "concept",
+    "phonetic": "/ˈkɒn.sɛpt/",
+    "meaning": "n. 概念，观念；思想"
+  },
+  {
+    "word": "control",
+    "phonetic": "/kənˈtrəʊl/",
+    "meaning": "n./vt.1.管理，控制，支配 2.（感情等的）抑制，节制"
+  },
+  {
+    "word": "corporation",
+    "phonetic": "/ˌkɔrpərˈeɪʃən/",
+    "meaning": "n. （大）公司"
+  },
+  {
+    "word": "damage",
+    "phonetic": "/ˈdæmɪdʒ/",
+    "meaning": "n. 1.损害，毁坏 2.（用复数）损害赔偿金 vt. 损害，损伤；毁坏"
+  },
+  {
+    "word": "data",
+    "phonetic": "/ˈdaetə/",
+    "meaning": "n. 资料，数据"
+  },
+  {
+    "word": "decline",
+    "phonetic": "/dɪˈklaɪn/",
+    "meaning": "vt./vi. 1.拒绝，婉谢 2.下降；（太阳）落山；衰弱 n. 1.衰弱 2.斜坡"
+  },
+  {
+    "word": "emergency",
+    "phonetic": "/ɪˈmɝ.dʒən.si/",
+    "meaning": "n. 突发事件，紧急关头，非常时刻"
+  },
+  {
+    "word": "endanger",
+    "phonetic": "/ənˈdeɪndʒə/",
+    "meaning": "vt. 危害，危及"
+  },
+  {
+    "word": "extinct",
+    "phonetic": "/ɛkˈstɪŋkt/",
+    "meaning": "a. 1.熄灭的 2.灭绝的，绝种的"
+  },
+  {
+    "word": "jam",
+    "phonetic": "/ˈdʒæːm/",
+    "meaning": "vt./vi.1.压紧；（被）夹住2.突然用力推 n. 1.果酱2.阻塞，轧住"
+  },
+  {
+    "word": "leave",
+    "phonetic": "/liːv/",
+    "meaning": "vt. 1.离开 2.留下，剩下，使处于（某种状态）3. 遗留，遗忘4.听任，让5.交托， 委托 vi. 离开，出发 n. 1.许可，准许 2.准假；假期"
+  },
+  {
+    "word": "lie",
+    "phonetic": "/laɪ̯/",
+    "meaning": "vi. 1.躺，平放 2.位于，在于3.撒谎，说谎 n 谎话，假话"
+  },
+  {
+    "word": "loss",
+    "phonetic": "/lɒs/",
+    "meaning": "n. 1.遗失，丧失2.亏损，减少，损失3.失败，输掉"
+  },
+  {
+    "word": "nature",
+    "phonetic": "/ˈnæɪ̯tʃə/",
+    "meaning": "n. 1.自然界，大自然2.性质，本性"
+  },
+  {
+    "word": "object",
+    "phonetic": "/ˈɒb.d͡ʒɛkt/",
+    "meaning": "n. 1.物，物体 2.目的，目标 3.对象 v. 不赞成，反对"
+  },
+  {
+    "word": "perception",
+    "phonetic": "/pəˈsɛpʃ(ə)n/",
+    "meaning": "n. 1.知觉，知觉力2.理解，认识"
+  },
+  {
+    "word": "progress",
+    "phonetic": "/ˈprɑˌgrɛs/",
+    "meaning": "n 1.前进，进展 2.进步，发展 vi. 1.前进，进展 2.进步，发展"
+  },
+  {
+    "word": "prove",
+    "phonetic": "/pruːv/",
+    "meaning": "v. 1.证明，证实 2.证明是，表明是"
+  },
+  {
+    "word": "reflect",
+    "phonetic": "/rɪˈflɛkt/",
+    "meaning": "vt. 1.反射 2.反映，表达 vi. 1.反射，映出 2.仔细考虑，思考 replace vt. 1. 把…放回原处2.取代 3.替换，更换"
+  },
+  {
+    "word": "response",
+    "phonetic": "/rɪˈspɒns/",
+    "meaning": "n. 1.回答，回应 2.反应，反响"
+  },
+  {
+    "word": "restrict",
+    "phonetic": "/rɪˈstrɪkt/",
+    "meaning": "vt. 限制，约束"
+  },
+  {
+    "word": "riot",
+    "phonetic": "/ˈraɪ.ət/",
+    "meaning": "n. 骚乱，暴动 vi. 闹事，骚乱"
+  },
+  {
+    "word": "safety",
+    "phonetic": "/ˈseɪfti/",
+    "meaning": "n. 安全service n. 1.服务 2.公共事业 3.服役 vt. 维护，保养"
+  },
+  {
+    "word": "shift",
+    "phonetic": "/ʃɪft/",
+    "meaning": "v. 1.变换，转换 2.变（速），调（档）5 n. 1.转变，更换 2.轮班，换班"
+  },
+  {
+    "word": "significance",
+    "phonetic": "/sɪgˈnɪfɪkəns/",
+    "meaning": "n. 1.意义2.重要性"
+  },
+  {
+    "word": "smoke",
+    "phonetic": "/sməʊk/",
+    "meaning": "n. 1.烟，烟雾 2.吸烟 vt. 1.吸（烟） 2.烟熏 vi. 1.吸烟 2.冒烟"
+  },
+  {
+    "word": "solve",
+    "phonetic": "/sɒlv/",
+    "meaning": "vt. 解决，解答"
+  },
+  {
+    "word": "surrounding",
+    "phonetic": "/səˈraʊndɪŋ/",
+    "meaning": "n. (pl.)环境，周围的事物 a. 周围的"
+  },
+  {
+    "word": "theory",
+    "phonetic": "/ˈθiːəri/",
+    "meaning": "n. 1.理论，原理 2.意见"
+  },
+  {
+    "word": "thought",
+    "phonetic": "/θɔt/",
+    "meaning": "n. 1.想法，看法2.思想，思维 3.打算，意图"
+  },
+  {
+    "word": "total",
+    "phonetic": "/ˈtəʊ.təl/",
+    "meaning": "a. 总的，全部的 n. 总数，总计 vt. 计算…的总和 vi. 总计，合计"
+  },
+  {
+    "word": "tradition",
+    "phonetic": "/trəˈdɪʃən/",
+    "meaning": "n. 1.传统 2.惯例，规矩"
+  },
+  {
+    "word": "university",
+    "phonetic": "/juːnɪˈvɜːsətiː/",
+    "meaning": "n. （综合性）大学"
+  },
+  {
+    "word": "value",
+    "phonetic": "/ˈvæljuː/",
+    "meaning": "n 1.重要性，用途，用处 2.价值 3.评价 vt. 1.给…估价 2.看重，珍视"
+  },
+  {
+    "word": "view",
+    "phonetic": "/vjuː/",
+    "meaning": "n. 1.风景，景色 2.看法，见解 3.视野，眼界 vt. 1.把…看成是，认为 2.观察， 检查"
+  },
+  {
+    "word": "adequate",
+    "phonetic": "/ˈædəkˌweɪt/",
+    "meaning": "a. 足够的，充分的"
+  },
+  {
+    "word": "appear",
+    "phonetic": "/əˈpɪə/",
+    "meaning": "vi. 1.出现，露出 2.似乎，好像"
+  },
+  {
+    "word": "atmosphere",
+    "phonetic": "/ˈæt.məsˌfɪə(r)/",
+    "meaning": "n. 1.大气层 2.气氛，环境"
+  },
+  {
+    "word": "aware",
+    "phonetic": "/əˈwɛr/",
+    "meaning": "a. （用作表语，与介词of 连用）意识到的，觉察到的"
+  },
+  {
+    "word": "belong",
+    "phonetic": "/bɪˈlɒŋ/",
+    "meaning": "vi. 1.属于 2.应归入（类别、派别、范畴等）"
+  },
+  {
+    "word": "bother",
+    "phonetic": "/[ˈbɒðə(r)]/",
+    "meaning": "vi./t. 1.打扰，麻烦2.费心，烦心 n. 1.麻烦，困扰2.麻烦的人或事物"
+  },
+  {
+    "word": "creature",
+    "phonetic": "/ˈkriːt͡ʃə/",
+    "meaning": "n. 人，动物，生物"
+  },
+  {
+    "word": "cue",
+    "phonetic": "/kju/",
+    "meaning": "n. 暗示，提示"
+  },
+  {
+    "word": "custom",
+    "phonetic": "/ˈkʌstəm/",
+    "meaning": "n. 1.习惯，习俗2.海关；（用复数）关税"
+  },
+  {
+    "word": "dependent",
+    "phonetic": "/dɪˈpɛndənt/",
+    "meaning": "a. 1.依靠的，依赖的 2.从属的"
+  },
+  {
+    "word": "diagnosis",
+    "phonetic": "/daɪəgˈnəʊsɪs/",
+    "meaning": "n. 1.诊断 2.调查分析"
+  },
+  {
+    "word": "electrical",
+    "phonetic": "/ɪˈlɛktrɪkəl/",
+    "meaning": "a. 与电有关的，电气科学的；用电的"
+  },
+  {
+    "word": "entire",
+    "phonetic": "/ənˈtaɪə/",
+    "meaning": "a. 全部的，整个的"
+  },
+  {
+    "word": "exchange",
+    "phonetic": "/ɪksˈtʃeɪndʒ/",
+    "meaning": "vt. 1.交换，调换 2.交流，互换 n. 交换，调换"
+  },
+  {
+    "word": "failure",
+    "phonetic": "/ˈfeɪl.jə(r)/",
+    "meaning": "n. 1.失败，不及格2.失败的人（或事）3.故障，失灵 4.没做到，不履行"
+  },
+  {
+    "word": "feedback",
+    "phonetic": "/ˈfiːdˌbæk/",
+    "meaning": "n. 反馈"
+  },
+  {
+    "word": "former",
+    "phonetic": "/ˈfɔːmə/",
+    "meaning": "a. 以前的，在前的"
+  },
+  {
+    "word": "heap",
+    "phonetic": "/heːp/",
+    "meaning": "n. 1.堆 2.大量，许多 vt. 使成堆，堆积，堆起"
+  },
+  {
+    "word": "image",
+    "phonetic": "/ˈɪmɪdʒ/",
+    "meaning": "n. 1.像，形象 2.影像，图像"
+  },
+  {
+    "word": "immediate",
+    "phonetic": "/ˌɪˈmiˌdiət/",
+    "meaning": "a. 1.立即的，即刻的 2.直接的，最接近的"
+  },
+  {
+    "word": "impact",
+    "phonetic": "/ˌɪmˈpækt/",
+    "meaning": "n. 1.碰撞，冲击力2.效果，影响"
+  },
+  {
+    "word": "improve",
+    "phonetic": "/ɪmˈpruːv/",
+    "meaning": "vt./vi. 1.改善，改进，增进2.好转，进步"
+  },
+  {
+    "word": "insight",
+    "phonetic": "/ˈɪnsaɪt/",
+    "meaning": "n. 洞悉，洞察力，见识，深刻的了解"
+  },
+  {
+    "word": "Issue",
+    "phonetic": "/ˈɪsjuː/",
+    "meaning": "vi./vt. 1.流出，放出 2.发行，出版，颁布 n. 1.发行（物），（报刊）期号2.问题， 争论点，争端"
+  },
+  {
+    "word": "lot",
+    "phonetic": "/lɒt/",
+    "meaning": "n. 1.许多，大量 2.签，抽签"
+  },
+  {
+    "word": "lower",
+    "phonetic": "/ˈləʊə/",
+    "meaning": "a. 较低的，下等的，下游的 vt. 放下，放低，降低"
+  },
+  {
+    "word": "marry",
+    "phonetic": "/ˈmærɪ/",
+    "meaning": "vt. 同…结婚"
+  },
+  {
+    "word": "mention",
+    "phonetic": "/ˈmɛnʃən/",
+    "meaning": "v. 提到，谈到 n. 提述，提及"
+  },
+  {
+    "word": "national",
+    "phonetic": "/ˈnæʃ(ə)nəl/",
+    "meaning": "n. 国民（指侨居国外的） a. 1.全国性的 2.国内的，本国的 3.民族的 4.国 有的"
+  },
+  {
+    "word": "network",
+    "phonetic": "/nɛtwɜːk/",
+    "meaning": "n. 1.网状织物2.网状系统 3.广播（电视）网"
+  },
+  {
+    "word": "objective",
+    "phonetic": "/əˈbdʒɛktɪv/",
+    "meaning": "a. 客观的 n. 目标，目的"
+  },
+  {
+    "word": "organize/-ise",
+    "phonetic": "/ˈɔrgəˌnaɪz/",
+    "meaning": "vt. 1.组织，安排 2.筹办"
+  },
+  {
+    "word": "practical",
+    "phonetic": "/ˈpræktɪkəl/",
+    "meaning": "a. 实际的，实用的"
+  },
+  {
+    "word": "prefer",
+    "phonetic": "/prɪˈfɜː/",
+    "meaning": "v. 更喜欢，宁愿"
+  },
+  {
+    "word": "previous",
+    "phonetic": "/ˈpriːvɪəs/",
+    "meaning": "a. 先的，前的，以前的"
+  },
+  {
+    "word": "raise",
+    "phonetic": "/reɪz/",
+    "meaning": "vt. 1.抬起，举起2.提出，发起3.抚养，饲养4. 募集,筹集 n. 加薪"
+  },
+  {
+    "word": "reduce",
+    "phonetic": "/rɪˈdus/",
+    "meaning": "vt. 1.减少，减低2.使…变低3.贬低，使沦落4.（数学）约简 vi. 1.减小，减少 2.减肥"
+  },
+  {
+    "word": "relation",
+    "phonetic": "/riˈleɪʃən/",
+    "meaning": "n. 1.家人，亲戚 2.关系 3.叙述，陈述"
+  },
+  {
+    "word": "relationship",
+    "phonetic": "/rɪˈleɪʃ(ə)nʃɪp/",
+    "meaning": "n. 1.关系 2.亲属关系"
+  },
+  {
+    "word": "rescue",
+    "phonetic": "/ˈrɛs.kjuː/",
+    "meaning": "vt./n. 救援"
+  },
+  {
+    "word": "safe",
+    "phonetic": "/seɪf/",
+    "meaning": "a. 安全的 n. 保险箱"
+  },
+  {
+    "word": "self",
+    "phonetic": "/sɛlf/",
+    "meaning": "n. 1.自己，本身 2.私心"
+  },
+  {
+    "word": "sense",
+    "phonetic": "/sɛns/",
+    "meaning": "n. 1.意思，意味 2.感觉，感知3.见识，判断能力4.意识，理智 vt. 觉得，意识 到share vt. 分享，分给，分担 n. 1.部分，一份 2.股份，股 3.分担，均摊sign n. 1.符号，记号 2.姿势，手势3.标识，牌示4.征兆，迹象6 v. 1.签名 2.作手势（表 示）"
+  },
+  {
+    "word": "similar",
+    "phonetic": "/ˈsɪmələ/",
+    "meaning": "a. 相似的，类似的"
+  },
+  {
+    "word": "situation",
+    "phonetic": "/sɪtjuːˈeɪʃən/",
+    "meaning": "n. 1.形势，情况 2.处境，境况3.位置，场所"
+  },
+  {
+    "word": "status",
+    "phonetic": "/ˈstætəs/",
+    "meaning": "n. 1.地位，身份 2.情形，状况，状态"
+  },
+  {
+    "word": "store",
+    "phonetic": "/stɔː/",
+    "meaning": "n. 1.商店，店铺 2.贮备品 vt. 贮藏，贮备"
+  },
+  {
+    "word": "suffer",
+    "phonetic": "/ˈsʌfə/",
+    "meaning": "vt. 1.忍受，承受 2.遭受 vi. 1.忍受痛苦 2.受损失"
+  },
+  {
+    "word": "survival",
+    "phonetic": "/sɚˈvaɪvəl/",
+    "meaning": "n. 1.幸存（者） 2.遗物"
+  },
+  {
+    "word": "threat",
+    "phonetic": "/θrɛt/",
+    "meaning": "n. 1.威胁，恐吓 2.凶兆，征兆"
+  },
+  {
+    "word": "transmit",
+    "phonetic": "/trænsˈmɪt/",
+    "meaning": "vt. 传播，播送；传递，传导，传送"
+  },
+  {
+    "word": "tribe",
+    "phonetic": "/traɪb/",
+    "meaning": "n. 部落，宗族"
+  },
+  {
+    "word": "various",
+    "phonetic": "/ˈvɛriəs/",
+    "meaning": "a. 1.不同的，各种各样的2.多方面的"
+  },
+  {
+    "word": "vast",
+    "phonetic": "/vɑːst/",
+    "meaning": "a. 1.巨大的，广大的2.大量的3.非常的"
+  },
+  {
+    "word": "wave",
+    "phonetic": "/weɪv/",
+    "meaning": "n. 1.波，波浪 2.（手等的）挥动 vt. 挥动，向…挥手 vi. 1.挥手示意 2.波动， 飘动"
+  },
+  {
+    "word": "zone",
+    "phonetic": "/zəʊn/",
+    "meaning": "n. 地区，地带，区域"
+  },
+  {
+    "word": "account",
+    "phonetic": "/əˈkaʊnt/",
+    "meaning": "n. 1.账目，（复数）账户2.说明，陈述3.原因，理由 vi. 说明（理由等）"
+  },
+  {
+    "word": "agreement",
+    "phonetic": "/əˈgrimənt/",
+    "meaning": "n. 1.同意，达成协议 2.协定，协议"
+  },
+  {
+    "word": "amount",
+    "phonetic": "/əˈmaʊnt/",
+    "meaning": "vi. 1.总计 2.（与介词to 连用）等于 n. 总额；数量"
+  },
+  {
+    "word": "appliance",
+    "phonetic": "/əˈplaɪəns/",
+    "meaning": "n. 1.器械，装置 2.应用，适用"
+  },
+  {
+    "word": "arrow",
+    "phonetic": "/ˈær.əʊ/",
+    "meaning": "n. 1.箭（状物） 2.箭头符号"
+  },
+  {
+    "word": "aspect",
+    "phonetic": "/ˈæspɛkt/",
+    "meaning": "n. 1.（问题，事物等的）方面 2.样子，面貌"
+  },
+  {
+    "word": "bamboo",
+    "phonetic": "/bæmˈbu/",
+    "meaning": "n. 竹，竹类"
+  },
+  {
+    "word": "block",
+    "phonetic": "/blɒk/",
+    "meaning": "n. 1.大块（木料或石料，金属等）2.障碍物，阻塞物 3.街区（四条街道当中的地 区） vt. 阻拦，堵塞"
+  },
+  {
+    "word": "broadcast",
+    "phonetic": "/ˈbrɔdˌkæst/",
+    "meaning": "vt./vi. 〈无线电〉广播（节目） n. 无线电广播，播音"
+  },
+  {
+    "word": "career",
+    "phonetic": "/kəˈrɪə/",
+    "meaning": "n. 1.职业 2.生涯"
+  },
+  {
+    "word": "cast",
+    "phonetic": "/kæst/",
+    "meaning": "vt. 1.投，抛 2.撒（网） 3.铸造，浇铸 n. 一掷；撒网；铸件"
+  },
+  {
+    "word": "cause",
+    "phonetic": "/kɔːz/",
+    "meaning": "n. 1.原因 2.理由，缘故 3.事业，奋斗目标 vt. 1.造成，引起2.使得"
+  },
+  {
+    "word": "chase",
+    "phonetic": "/tʃeɪs/",
+    "meaning": "vt. 追赶，追逐 n. 追赶，追击"
+  },
+  {
+    "word": "choose",
+    "phonetic": "/tʃuz/",
+    "meaning": "vt. 1.挑选，选择 2.愿意，决定"
+  },
+  {
+    "word": "consider",
+    "phonetic": "/kənˈsɪdə/",
+    "meaning": "vt. 1.考虑，细想2.体谅，顾及3.认为，以为，把…看作 vi. 考虑"
+  },
+  {
+    "word": "convention",
+    "phonetic": "/kənˈvɛnʃən/",
+    "meaning": "n. 1.习俗，惯例2.（社团，政党等）大会，会议 3.公约，契约"
+  },
+  {
+    "word": "cope",
+    "phonetic": "/kəʊp/",
+    "meaning": "vi. 1.（善于）应付，妥善处理 2.竞争"
+  },
+  {
+    "word": "detail",
+    "phonetic": "/ˈdiːteɪl/",
+    "meaning": "n. 1.细节，详情 2.枝节，琐事 vt. 详述，详谈"
+  },
+  {
+    "word": "enormous",
+    "phonetic": "/ɪˈnɔː(r)məs/",
+    "meaning": "a. 巨大的，庞大的"
+  },
+  {
+    "word": "entertain",
+    "phonetic": "/ˌɛntəˈteɪn/",
+    "meaning": "vt. 1.使欢乐，使娱乐2.招待，款待3.持有(意见、见解等)"
+  },
+  {
+    "word": "evidence",
+    "phonetic": "/ˈɛvədəns/",
+    "meaning": "n. 1.根据，证据 2.形迹，迹象"
+  },
+  {
+    "word": "executive",
+    "phonetic": "/ɛgˈzɛkjʊtɪv/",
+    "meaning": "a. 实施的，执行的，行政的 n. 1.总经理，董事2.执行者3.行政部门"
+  },
+  {
+    "word": "exist",
+    "phonetic": "/ɪgˈzɪst/",
+    "meaning": "vi. 1.存在 2.生存，生活"
+  },
+  {
+    "word": "express",
+    "phonetic": "/ɛk.ˈsprɛs/",
+    "meaning": "vt. 表示，表达 n. 快车；快递，快汇"
+  },
+  {
+    "word": "extreme",
+    "phonetic": "/ɛkˈstriːm/",
+    "meaning": "a. 1.极度的，极端的2.尽头的，末端的 n. 极端，最大程度；在末端的事物"
+  },
+  {
+    "word": "flight",
+    "phonetic": "/flaɪt/",
+    "meaning": "n. 1.飞行，飞翔 2.航空旅行，航程 3.航班"
+  },
+  {
+    "word": "focus",
+    "phonetic": "/ˈfəʊ.kəs/",
+    "meaning": "n. 焦点，（活动、兴趣等的）中心 vi./vt. 使聚焦，集中"
+  },
+  {
+    "word": "fossil",
+    "phonetic": "/ˈfɒsəl/",
+    "meaning": "n. 化石"
+  },
+  {
+    "word": "fundamental",
+    "phonetic": "/ˌfʌndəˈmɛntəl/",
+    "meaning": "a. 基本的，根本的，主要的；原始的 n. (常用复数）基本原理，基本原则"
+  },
+  {
+    "word": "historical",
+    "phonetic": "/hɪˈstɔrɪkəl/",
+    "meaning": "a. 历史的，有关历史的"
+  },
+  {
+    "word": "ideal",
+    "phonetic": "/aɪˈdiː.əl/",
+    "meaning": "a. 1.理想的，完美的 2.观念的 n. 理想"
+  },
+  {
+    "word": "impression",
+    "phonetic": "/ˌɪmˈprɛʃən/",
+    "meaning": "n. 1.印，印痕 2.印象，感想 3.印记"
+  },
+  {
+    "word": "intend",
+    "phonetic": "/ɪnˈtɛnd/",
+    "meaning": "vt. 想要，打算，企图"
+  },
+  {
+    "word": "locate",
+    "phonetic": "/ləʊˈkeɪt/",
+    "meaning": "vt. 1.把…设置在，使…坐落于2.探明，找到"
+  },
+  {
+    "word": "logical",
+    "phonetic": "/ˈlɒdʒɪkəɫ/",
+    "meaning": "a. 逻辑的，合乎逻辑的"
+  },
+  {
+    "word": "lost",
+    "phonetic": "/lɔst/",
+    "meaning": "a. 1.失去的 2.错过的，浪费掉的3.无望的，迷路的"
+  },
+  {
+    "word": "maintain",
+    "phonetic": "/meɪnˈteɪn/",
+    "meaning": "vt. 1.维持，保持2.保养，维修3.坚持，主张"
+  },
+  {
+    "word": "major",
+    "phonetic": "/ˈmeɪ.dʒə(r)/",
+    "meaning": "a. 1.较重要的，较大的 2.主要的 n. 1.主修课程 2.少校 vi. （in）主修"
+  },
+  {
+    "word": "market",
+    "phonetic": "/ˈmɑːkɪt/",
+    "meaning": "n. 1.市场，集市 2.销路，需求 vt. 销售"
+  },
+  {
+    "word": "mid",
+    "phonetic": "/mɪd/",
+    "meaning": "adj. 中央的，中间的mystery n. 1.神秘，奥秘2.神秘的事物"
+  },
+  {
+    "word": "notion",
+    "phonetic": "/ˈnəʊʃən/",
+    "meaning": "n. 1.概念，意念2.想法，见解"
+  },
+  {
+    "word": "opinion",
+    "phonetic": "/əˈpɪnjən/",
+    "meaning": "n. 1.意见，看法2.舆论，评价"
+  },
+  {
+    "word": "organization",
+    "phonetic": "/ˌɔrgənəˈzeɪʃən/",
+    "meaning": "n. 1.组织，安排2.团体 3.有机体"
+  },
+  {
+    "word": "overseas",
+    "phonetic": "/ˌəʊvəˈsiːz/",
+    "meaning": "ad./a. 到国外（的），到海外（去的）"
+  },
+  {
+    "word": "ownership",
+    "phonetic": "/ˈoʊnərˌʃɪp/",
+    "meaning": "n. 所有权，所有制"
+  },
+  {
+    "word": "participate",
+    "phonetic": "/pɑːˈtɪsɪpeɪt/",
+    "meaning": "vi. 1.参与，参加2.分享，分担"
+  },
+  {
+    "word": "predict",
+    "phonetic": "/prɪˈdɪkt/",
+    "meaning": "v. 预言，预测，预告"
+  },
+  {
+    "word": "protect",
+    "phonetic": "/prəˈtɛkt/",
+    "meaning": "vt. 保护，保卫"
+  },
+  {
+    "word": "protection",
+    "phonetic": "/prəˈtɛkʃən/",
+    "meaning": "n. 保护"
+  },
+  {
+    "word": "pump",
+    "phonetic": "/pəmp/",
+    "meaning": "n. 泵，抽水机，打气机 v. 用抽水机抽，打气"
+  },
+  {
+    "word": "purchase",
+    "phonetic": "/ˈpɜːtʃəs/",
+    "meaning": "vt. 购买 n. 1.购买 2.购买的物品"
+  },
+  {
+    "word": "rapid",
+    "phonetic": "/ˈræpɪd/",
+    "meaning": "a. 迅速的，快速的"
+  },
+  {
+    "word": "realize/is",
+    "phonetic": "/ˈrɪə.laɪz/",
+    "meaning": "Vt. 1.认识到，了解 2.实现"
+  },
+  {
+    "word": "receive",
+    "phonetic": "/rɪˈsiːv/",
+    "meaning": "vt. 1.收到，领到2.接受，得到3.接待，接见4.遭受，遭到"
+  },
+  {
+    "word": "recipe",
+    "phonetic": "/ˈrɛs.ə.pi/",
+    "meaning": "n. 1.食谱 2.方法，窍门"
+  },
+  {
+    "word": "register",
+    "phonetic": "/ˈrɛdʒ.ɪs.tə/",
+    "meaning": "vt. 1.注册，登记2.（仪表等）显示3.将（邮件）挂号 vi. 登记，注册 n. 1.登 记，注册2.登记簿，花名册"
+  },
+  {
+    "word": "regulation",
+    "phonetic": "/ˌrɛgjəˈleɪʃən/",
+    "meaning": "n. 1.规定，条例，法令 2.管制，控制 3.调节，调整"
+  },
+  {
+    "word": "relief",
+    "phonetic": "/rɪˈlif/",
+    "meaning": "n. 1.（痛苦、烦恼等的）解除，减轻 2.浮雕3.救济，赈灾"
+  },
+  {
+    "word": "remains",
+    "phonetic": "/rɪˈmeɪnz/",
+    "meaning": "n. 1.剩余物，残留物2.遗体，遗迹"
+  },
+  {
+    "word": "report",
+    "phonetic": "/rɪˈpɔrt/",
+    "meaning": "vt./n.1.报告，报道 2.汇报[ ] vi. 1.报到 2.报告"
+  },
+  {
+    "word": "responsible",
+    "phonetic": "/rɪˈspɒnsəbl̩/",
+    "meaning": "a. 1.应负责的 2.有责任心的"
+  },
+  {
+    "word": "revolution",
+    "phonetic": "/ˌrɛvəˈl(j)uːʃən/",
+    "meaning": "n. 1.革命，大变革 2.旋转 3.周期，循环"
+  },
+  {
+    "word": "risk",
+    "phonetic": "/rɪsk/",
+    "meaning": "n./vt.（冒）风险"
+  },
+  {
+    "word": "rule",
+    "phonetic": "/ruːl/",
+    "meaning": "vt./vi. 1.统治，控制 2.裁决 n. 1.规则，规定 2.习惯，惯例3.支配，统治"
+  },
+  {
+    "word": "satellite",
+    "phonetic": "/ˈsætəˌlaɪt/",
+    "meaning": "n. 1.卫星，人造卫星2.附庸国"
+  },
+  {
+    "word": "scheme",
+    "phonetic": "/skiːm/",
+    "meaning": "n. 1.计划，方案 2.阴谋，诡计 v. 计划，图谋"
+  },
+  {
+    "word": "select",
+    "phonetic": "/sɪˈlɛkt/",
+    "meaning": "vt. 选择，挑选 a. 选择的，精选的"
+  },
+  {
+    "word": "sentence",
+    "phonetic": "/[ˈsɛntn̩t͡s]/",
+    "meaning": "n. 1.句子 2.宣判，判决 vt. 宣判，判决"
+  },
+  {
+    "word": "silence",
+    "phonetic": "/ˈsaɪ.ləns/",
+    "meaning": "n. 1.寂静 2.沉默，无言 vt. 使沉默，使安静"
+  },
+  {
+    "word": "simple",
+    "phonetic": "/ˈsɪmpəl/",
+    "meaning": "a. 1.朴素的，简朴的2.简易的，简单的 3.纯真的 4.完全的5.头脑简单的"
+  },
+  {
+    "word": "standard",
+    "phonetic": "/ˈstændəd/",
+    "meaning": "n. 标准，规格"
+  },
+  {
+    "word": "subject",
+    "phonetic": "/ˈsʌb.dʒɪkt/",
+    "meaning": "n. 1.主题，题目 2.学科，科目 3.实验对象 a. 容易患（感冒等）的 vt. 2.从 属的，受…支配的使服从，使遭受"
+  },
+  {
+    "word": "support",
+    "phonetic": "/səˈpɔːt/",
+    "meaning": "n. 1.支持，支撑 2.支撑物3.拥护，支持，鼓励4.生活费 vt. 1.支持，支撑 2. 支持，鼓励 3.拥护，为…助威 4.供养，资助"
+  },
+  {
+    "word": "survey",
+    "phonetic": "/ˈsərˌveɪ/",
+    "meaning": "vt. 1.纵览，环视 2.调查，检查3.测量，勘定 n. 1.调查，研究 2.概说，概观3. 测量"
+  },
+  {
+    "word": "switch",
+    "phonetic": "/swɪtʃ/",
+    "meaning": "n. 1.开关 2.突然转变 v. 改变，交换"
+  },
+  {
+    "word": "system",
+    "phonetic": "/ˈsɪstəm/",
+    "meaning": "n. 1.系统，体系 2.制度，体制"
+  },
+  {
+    "word": "taste",
+    "phonetic": "/teɪst/",
+    "meaning": "n. 1.滋味，味道 2.味觉 3.鉴赏力，审美力 vt. 1.尝，品尝 2.体验，领略 vi. 尝起来有某种味道"
+  },
+  {
+    "word": "technique",
+    "phonetic": "/tɛkˈniːk/",
+    "meaning": "n. 1.技巧，手艺 2.技能，技术"
+  },
+  {
+    "word": "throw",
+    "phonetic": "/θrəʊ/",
+    "meaning": "vt. 1.投，抛，扔 2.摔落，摔倒"
+  },
+  {
+    "word": "topic",
+    "phonetic": "/ˈtɒpɪk/",
+    "meaning": "n. 话题，主题"
+  },
+  {
+    "word": "trade",
+    "phonetic": "/treɪd/",
+    "meaning": "n. 1.贸易，商业 2.行业 vt. 用…进行交换，相互交换"
+  },
+  {
+    "word": "train",
+    "phonetic": "/treɪn/",
+    "meaning": "n. 1.火车，列车 2.一连串，一系列 vt. 训练，培训"
+  },
+  {
+    "word": "training",
+    "phonetic": "/ˈtreɪnɪŋ/",
+    "meaning": "n. 培训，训练，培养"
+  },
+  {
+    "word": "transport",
+    "phonetic": "/ˈtrænspɔrt/",
+    "meaning": "vt. 运输，运送"
+  },
+  {
+    "word": "understanding",
+    "phonetic": "/ʌndəˈstandɪŋ/",
+    "meaning": "n. 1.洞察力，理解力 2.理解，领会 a. 能体谅人的，宽容的"
+  },
+  {
+    "word": "universal",
+    "phonetic": "/ˌjuːnɪˈvɜːsl̩/",
+    "meaning": "a. 全世界的，普遍的"
+  },
+  {
+    "word": "unusual",
+    "phonetic": "/ʌnˈjuːʒuəl/",
+    "meaning": "a. 1.异常的，不寻常的 2.独特的，与众不同的"
+  },
+  {
+    "word": "vehicle",
+    "phonetic": "/ˈvɪː(ə).kəl/",
+    "meaning": "n. 1.交通工具，车辆 2.工具，手段"
+  },
+  {
+    "word": "visual",
+    "phonetic": "/ˈvɪʒuəl/",
+    "meaning": "a. 1.看得见的 2.视觉的"
+  },
+  {
+    "word": "voltage",
+    "phonetic": "/voʊltɪdʒ/",
+    "meaning": "n. 电压"
+  },
+  {
+    "word": "whole",
+    "phonetic": "/həʊl/",
+    "meaning": "n. 全部，整体 a. 1.全体的，全部的 2.完整的，无缺的"
+  },
+  {
+    "word": "absorb",
+    "phonetic": "/əbˈzɔrb/",
+    "meaning": "vt. 1.吸收2.使专心，使全神贯注"
+  },
+  {
+    "word": "academic",
+    "phonetic": "/ˌækəˈdɛmɪk/",
+    "meaning": "a. 1.学院的，研究院的 2.学术的"
+  },
+  {
+    "word": "access",
+    "phonetic": "/ˈæksɛs/",
+    "meaning": "n. 1.接近，获得（机会等）2.入口，通道"
+  },
+  {
+    "word": "alive",
+    "phonetic": "/əˈlaɪv/",
+    "meaning": "a. 1.活着的，在世的 2.有活力的，活泼的"
+  },
+  {
+    "word": "alternative",
+    "phonetic": "/ɒl.ˈtɜː(r).nə.tɪv/",
+    "meaning": "a. 二中选一的 n. 可供选择的事物，取舍"
+  },
+  {
+    "word": "appropriate",
+    "phonetic": "/əˈproʊpriˌeɪt/",
+    "meaning": "a. 适当的，恰如其分的"
+  },
+  {
+    "word": "association",
+    "phonetic": "/əˌsəʊsiˈeɪʃən/",
+    "meaning": "n. 1.协会，社团，团体 2.联合，合伙"
+  },
+  {
+    "word": "band",
+    "phonetic": "/bænd/",
+    "meaning": "n. 1.带子，箍 2.乐队（尤指管乐队） 3.波段，频带 4.一群，一伙"
+  },
+  {
+    "word": "basic",
+    "phonetic": "/ˈbeɪsɪk/",
+    "meaning": "a. 1.基础的，基本，根本的2.主要的，首要的 n. （用复数）基础，基本"
+  },
+  {
+    "word": "bid",
+    "phonetic": "/bɪd/",
+    "meaning": "vt. 报价，投标 n. 出价，投标"
+  },
+  {
+    "word": "broad",
+    "phonetic": "/brɑd/",
+    "meaning": "a. 1.广的，阔的，广阔的 2.概括的，广泛的"
+  },
+  {
+    "word": "cable",
+    "phonetic": "/keɪ.bl/",
+    "meaning": "n. 1.缆，电缆 2.电报 vt. 打电报"
+  },
+  {
+    "word": "challenge",
+    "phonetic": "/ˈtʃæl.əndʒ/",
+    "meaning": "n. 挑战（书） vt. 向…挑战"
+  },
+  {
+    "word": "charge",
+    "phonetic": "/t͡ʃɑːd͡ʒ/",
+    "meaning": "n. 1.收费 2.罪名，指控 3.充电，电荷 4. 负责 vt. 1.装满，使充满 2.索价， 收费 3.（常与介词with 连用）控告，指控4.充电"
+  },
+  {
+    "word": "chronic(al)",
+    "phonetic": "/ˈkrɒnɪk/",
+    "meaning": "a. 慢性的，延续很长的"
+  },
+  {
+    "word": "cite",
+    "phonetic": "/saɪt/",
+    "meaning": "vt. 引用，引证，举例"
+  },
+  {
+    "word": "clue",
+    "phonetic": "/kluː/",
+    "meaning": "n. 线索，暗示，提示"
+  },
+  {
+    "word": "code",
+    "phonetic": "/kəʊd/",
+    "meaning": "n. 1.规则，法规 2.密码，代码"
+  },
+  {
+    "word": "colleague",
+    "phonetic": "/ˈkɒliːg/",
+    "meaning": "n. 同事，同僚"
+  },
+  {
+    "word": "comfort",
+    "phonetic": "/ˈkʊm.fət/",
+    "meaning": "vt. 使安慰，使舒适 n. 1.安慰，慰劳 2.舒适，惬意，安逸"
+  },
+  {
+    "word": "construct",
+    "phonetic": "/ˈkɒn.strʌkt/",
+    "meaning": "vt. 构筑，建造 n. 构筑物，建筑物，构想"
+  },
+  {
+    "word": "contact",
+    "phonetic": "/ˈkɑnˌtækt/",
+    "meaning": "n. 接触，联系；联络员；带菌者 vt. 接触，联系"
+  },
+  {
+    "word": "crack",
+    "phonetic": "/kræk/",
+    "meaning": "n. 1.裂纹，裂缝 2.爆裂声，噼啪声 vt./vi. 1.（使）破裂，（使）爆裂 2.（使） 发噼啪声"
+  },
+  {
+    "word": "curiosity",
+    "phonetic": "/ˌkjʊərɪˈɒsɪti/",
+    "meaning": "n. 好奇（心）"
+  },
+  {
+    "word": "cycle",
+    "phonetic": "/ˈsaɪkəl/",
+    "meaning": "n. 1.周期，循环 2.自行车 vi. 1.循环 2.骑自行车"
+  },
+  {
+    "word": "desirable",
+    "phonetic": "/dɪˈzaɪərəbəl/",
+    "meaning": "a. 1.理想的 2.称心的"
+  },
+  {
+    "word": "develop",
+    "phonetic": "/dɛˈvɛ.ləp/",
+    "meaning": "vt./vi. 1.（使）发达，（使）发展2.开发，研制3.（使）显影4.发育，生长，进 化device n. 1.设计，方法 2.装置，设备"
+  },
+  {
+    "word": "divorce",
+    "phonetic": "/dɪˈvɔrs/",
+    "meaning": "n. 1.离婚 2.分离，分裂 vt. 1.同…离婚 2.分离，脱离"
+  },
+  {
+    "word": "eliminate",
+    "phonetic": "/ɪˈlɪməneɪt/",
+    "meaning": "vt. 消灭，消除，除去，排出"
+  },
+  {
+    "word": "entertainment",
+    "phonetic": "/ˈɛn.tə(r)ˈteɪn.mənt/",
+    "meaning": "n. 1.款待，招待 2.游艺，表演文娱节目"
+  },
+  {
+    "word": "escape",
+    "phonetic": "/əˈskeɪp/",
+    "meaning": "vi./vt. 1.逃跑，逃脱，避免，避开2.（液体等）漏出，漏气 n. 逃跑，逃脱，逸 出"
+  },
+  {
+    "word": "essential",
+    "phonetic": "/ɪˈsɛn.ʃəl/",
+    "meaning": "a. 1.（常与介词to 连用）必要的，必不可少的 2.根本的，本质的 n. （常用 复数）本质，要点"
+  },
+  {
+    "word": "exception",
+    "phonetic": "/əkˈsɛpʃən/",
+    "meaning": "n. 除外，例外"
+  },
+  {
+    "word": "exhaust",
+    "phonetic": "/ɪgˈzɔst/",
+    "meaning": "vt. 用尽，耗尽；使疲竭 n. 排气装置；废气"
+  },
+  {
+    "word": "expand",
+    "phonetic": "/ɛkˈspænd/",
+    "meaning": "vt./vi. 1.张开，展开 2.扩大，发展"
+  },
+  {
+    "word": "expend",
+    "phonetic": "/ɪkˈspɛnd/",
+    "meaning": "vt. 花费，耗费（金钱、时间、精力等）"
+  },
+  {
+    "word": "expert",
+    "phonetic": "/ˈɛkspəːt/",
+    "meaning": "n. 专家，能手 a. 1.熟练的，老练的2.内行的"
+  },
+  {
+    "word": "fatal",
+    "phonetic": "/ˈfeɪtəl/",
+    "meaning": "a. 1.致命的 2.关键的"
+  },
+  {
+    "word": "favo(u)r",
+    "phonetic": "/ˈfeɪvə/",
+    "meaning": "n. 1.赞赏2.偏爱，偏袒3.帮助，恩惠，善意的行为 vt. 1.赞成，赞同 2.偏爱， 偏袒"
+  },
+  {
+    "word": "feasible",
+    "phonetic": "/ˈfiːzəbəl/",
+    "meaning": "a. 可行的，可能的，办得通的"
+  },
+  {
+    "word": "female",
+    "phonetic": "/ˈfiˌmeɪl/",
+    "meaning": "a. 女（性）的，雌性的 n. 1.女人 2.雌性动物"
+  },
+  {
+    "word": "fiction",
+    "phonetic": "/ˈfɪkʃən/",
+    "meaning": "n. 1.小说 2.虚构的事物，捏造的故事"
+  },
+  {
+    "word": "funeral",
+    "phonetic": "/ˈfjuːnərəl/",
+    "meaning": "n./a. 葬礼（的）"
+  },
+  {
+    "word": "generation",
+    "phonetic": "/ˌd͡ʒɛnəˈreɪʃən/",
+    "meaning": "n. 1.发生，产生 2.一代，世代 3.生育"
+  },
+  {
+    "word": "genetic",
+    "phonetic": "/dʒəˈnɛtɪk/",
+    "meaning": "a. 1.创始的 2.遗传学的"
+  },
+  {
+    "word": "genuine",
+    "phonetic": "/ˈdʒɛnjuˌaɪn/",
+    "meaning": "a. 1.真实的，真正的 2.真心的，真诚的"
+  },
+  {
+    "word": "goal",
+    "phonetic": "/gɒʊl/",
+    "meaning": "n. 1.（足球运动的）球门2.（球赛等的）进球，得分 3.目的，目标"
+  },
+  {
+    "word": "gossip",
+    "phonetic": "/ˈgɒs.ɪp/",
+    "meaning": "n. 1.闲话，流言 2.闲谈，随笔 vi. 说闲话，漫谈；搬弄是非"
+  },
+  {
+    "word": "hydraulic",
+    "phonetic": "/haɪˈdrɒlɪk/",
+    "meaning": "a. 水力的，水压的"
+  },
+  {
+    "word": "ignore",
+    "phonetic": "/ɪgˈnɔː/",
+    "meaning": "vt. 忽视，不顾"
+  },
+  {
+    "word": "imagine",
+    "phonetic": "/ˌɪˈmædʒən/",
+    "meaning": "vt. 想像，设想，料想，以为"
+  },
+  {
+    "word": "indicate",
+    "phonetic": "/ˈɪndɪkeɪt/",
+    "meaning": "vt. 1.指点，引起注意 2.指出，表明 3.（用手势、灯光等）指示"
+  },
+  {
+    "word": "influence",
+    "phonetic": "/ˈɪnfluəns/",
+    "meaning": "n. 1.影响，感化 2.势力，权势 3.〈电学〉感应 vt. 影响，感化"
+  },
+  {
+    "word": "initial",
+    "phonetic": "/ˌɪˈnɪʃəl/",
+    "meaning": "a. 最初的，开头的，初期的 n. （用复数）姓名的起首字母"
+  },
+  {
+    "word": "instruction",
+    "phonetic": "/ˌɪnˈstrəkʃən/",
+    "meaning": "n. 1.（用复数）命令，指示，用法说明 2.讲授，教导"
+  },
+  {
+    "word": "intelligence",
+    "phonetic": "/ɪnˈtɛl.ɪ.d͡ʒəns/",
+    "meaning": "n. 1.智力，理解力 2.情报，消息"
+  },
+  {
+    "word": "introduction",
+    "phonetic": "/ˌɪntrəˈdʌkʃən/",
+    "meaning": "n. 1.引导，传入 2.介绍 3.导言，绪论"
+  },
+  {
+    "word": "item",
+    "phonetic": "/ˈaɪtəm/",
+    "meaning": "n. 1.条，条款，项目2.一条（新闻），节目"
+  },
+  {
+    "word": "jury",
+    "phonetic": "/ˈd͡ʒʊə.ri/",
+    "meaning": "n. 陪审委员会，陪审团（英美为12 人）"
+  },
+  {
+    "word": "latter",
+    "phonetic": "/ˈlæt̬.ər/",
+    "meaning": "a. 1.后面的，末了的2.后一半的，接近终了的 n. 后者"
+  },
+  {
+    "word": "layer",
+    "phonetic": "/leɪə/",
+    "meaning": "n. 层（次）"
+  },
+  {
+    "word": "list",
+    "phonetic": "/lɪst/",
+    "meaning": "n. 目录，名单，表 v. 列举，排列"
+  },
+  {
+    "word": "logic",
+    "phonetic": "/ˈlɒdʒɪk/",
+    "meaning": "n. 1.逻辑（学） 2.逻辑性"
+  },
+  {
+    "word": "mass",
+    "phonetic": "/mæs/",
+    "meaning": "n. 1.（大的）团，块，群2.大量，众多 3.(pl.)群众，集团"
+  },
+  {
+    "word": "microwave",
+    "phonetic": "/ˈmaɪkrəˌweɪv/",
+    "meaning": "n. 微波"
+  },
+  {
+    "word": "misery",
+    "phonetic": "/ˈmɪz(ə)rɪ/",
+    "meaning": "n. 痛苦，悲惨"
+  },
+  {
+    "word": "mission",
+    "phonetic": "/ˈmɪʃən/",
+    "meaning": "n. 1.使命，任务 2.代表团"
+  },
+  {
+    "word": "mobile",
+    "phonetic": "/ˈməʊbaɪl/",
+    "meaning": "a. 1.可移动的 2.易变的 n. 活动装置"
+  },
+  {
+    "word": "narrow",
+    "phonetic": "/ˈnærəʊ/",
+    "meaning": "a. 1.狭窄的2.范围小的3.眼光短浅的，有偏见的"
+  },
+  {
+    "word": "nerve",
+    "phonetic": "/nɛɾv/",
+    "meaning": "n. 1.神经 2.勇气"
+  },
+  {
+    "word": "official",
+    "phonetic": "/əˈfɪʃəl/",
+    "meaning": "a. 1.官方的，正式的 2.官员的，公务的 n. 官员，高级职员"
+  },
+  {
+    "word": "order",
+    "phonetic": "/ˈɔːdə/",
+    "meaning": "n. 1.次序，顺序2.正常状况3.秩序 4.命令5.订购，定货6.等级 v. 1.命令 2.定购 3.整理，安排"
+  },
+  {
+    "word": "origin",
+    "phonetic": "/ˈɒr.ə.dʒən/",
+    "meaning": "n. 1.起源，开端 2.出身，血统"
+  },
+  {
+    "word": "ozone",
+    "phonetic": "/ˈoʊzoʊn/",
+    "meaning": "n. 1.臭氧 2.（海岸等的）新鲜空气"
+  },
+  {
+    "word": "pattern",
+    "phonetic": "/ˈpat(ə)n/",
+    "meaning": "n. 1.图案，图样2.形式，方式3.模范，典范 vt. 仿制，模仿"
+  },
+  {
+    "word": "permit",
+    "phonetic": "/ˈpərˌmɪt/",
+    "meaning": "v. 容许，许可 n. 执照，许可证"
+  },
+  {
+    "word": "philosopher",
+    "phonetic": "/fɪˈlɒs.ə.fə(r)/",
+    "meaning": "n. 哲学家，哲人"
+  },
+  {
+    "word": "pioneer",
+    "phonetic": "/ˌpaɪəˈnɪər/",
+    "meaning": "n. 先驱，倡导者，开拓者"
+  },
+  {
+    "word": "powerful",
+    "phonetic": "/ˈpaʊəfl/",
+    "meaning": "a. 1.强大的，强有力的2.强烈的3.有影响的，有权力的"
+  },
+  {
+    "word": "preserve",
+    "phonetic": "/prəˈzɜːv/",
+    "meaning": "vt. 1.保藏，保存 2.保护，维持 3.防腐，腌制"
+  },
+  {
+    "word": "process",
+    "phonetic": "/ˈprəʊsɛs/",
+    "meaning": "n. 1.过程，进程2.工序，制作法3.诉讼 vt. 加工，处理"
+  },
+  {
+    "word": "production",
+    "phonetic": "/prəˈdʌkʃən/",
+    "meaning": "n. 1.生产，制造 2.生产量 3.产品，作品"
+  },
+  {
+    "word": "publish",
+    "phonetic": "/ˈpʌblɪʃ/",
+    "meaning": "v. 1.出版，刊印 2.公布，发表"
+  },
+  {
+    "word": "punishment",
+    "phonetic": "/ˈpʌnɪʃmənt/",
+    "meaning": "n. 处罚，惩罚"
+  },
+  {
+    "word": "quarter",
+    "phonetic": "/ˈkoː.tɘ/",
+    "meaning": "n. 1.四分之一 2.一刻钟3.地区，区域 4.（pl.）住处 5.（美元）两角五分"
+  },
+  {
+    "word": "range",
+    "phonetic": "/reɪndʒ/",
+    "meaning": "n. 1.范围，领域 2.（山）脉 3.射击场 vt. 1.排列成行 2.把…分类 vi. 1.列 成行，并列2.绵亘，延伸3.(一定范围内)变动，变化"
+  },
+  {
+    "word": "rare",
+    "phonetic": "/[rɜr]/",
+    "meaning": "a. 1.稀少的，稀薄的2.极好的，珍奇的 ad. 很，非常"
+  },
+  {
+    "word": "react",
+    "phonetic": "/riːˈækt/",
+    "meaning": "vi. 1.反应 2.起作用，有影响 3.反抗"
+  },
+  {
+    "word": "recite",
+    "phonetic": "/rɪˈsaɪt/",
+    "meaning": "vt./vi. 背诵，朗诵"
+  },
+  {
+    "word": "reinforce",
+    "phonetic": "/ˌriːɪnˈfɔː(r)s/",
+    "meaning": "vt. 加强，增援"
+  },
+  {
+    "word": "reluctant",
+    "phonetic": "/rɪˈləktənt/",
+    "meaning": "a. 不愿意的，勉强的"
+  },
+  {
+    "word": "remedy",
+    "phonetic": "/ˈrɛmədi/",
+    "meaning": "n. 1.治疗，治疗法2.补救法 vt. 1.医治2.补救，纠正"
+  },
+  {
+    "word": "remote",
+    "phonetic": "/[rəˈməʊt]/",
+    "meaning": "a. 1.遥远的，偏僻的 2.（关系）不密切的，疏远的"
+  },
+  {
+    "word": "represent",
+    "phonetic": "/rɛp.rɪ.ˈzɛnt/",
+    "meaning": "vt. 1.代表，代理 2.表示，象征"
+  },
+  {
+    "word": "require",
+    "phonetic": "/rɪˈkwaɪə/",
+    "meaning": "vt. 要求，需求"
+  },
+  {
+    "word": "requirement",
+    "phonetic": "/rɪˈkwʌɪəm(ə)nt/",
+    "meaning": "n. 要求，需求"
+  },
+  {
+    "word": "retard",
+    "phonetic": "/rɪˈtɑrd/",
+    "meaning": "n. 阻止，延迟 vt. 妨碍，延迟，使减速"
+  },
+  {
+    "word": "return",
+    "phonetic": "/rɪˈtɜːn/",
+    "meaning": "vi./n.1.回去，归来2.还，归还 vt. 1.归还，送回2.回报，报答 a. 1.回程的2. 回报的"
+  },
+  {
+    "word": "review",
+    "phonetic": "/rɪˈvjuː/",
+    "meaning": "vt./n.1.回顾，审视2.复习3.评论 vi. 评论，写评论"
+  },
+  {
+    "word": "rhythm",
+    "phonetic": "/ˈrɪ.ð(ə)m/",
+    "meaning": "n. 1.节奏，韵律2.有规律的循环运动"
+  },
+  {
+    "word": "running",
+    "phonetic": "/ˈrənɪŋ/",
+    "meaning": "n. 1.跑，赛跑 2.（机器等的）开动，运转3.经营，运行 a. 1.跑着的，跑步用 的2.（水）流动的3.连续的，接连不断的"
+  },
+  {
+    "word": "scan",
+    "phonetic": "/skæn/",
+    "meaning": "n. 浏览，扫描 v. 浏览，扫描"
+  },
+  {
+    "word": "sequence",
+    "phonetic": "/ˈsikwəns/",
+    "meaning": "n. 1.连续，系列2.次序，顺序"
+  },
+  {
+    "word": "sight",
+    "phonetic": "/saɪt/",
+    "meaning": "n. 1.视力，视觉2.看，观看 3.景物，景象4.视野5.（pl.）名胜 6.看法，见解 vt. 看见，观测"
+  },
+  {
+    "word": "significant",
+    "phonetic": "/sɪgˈnɪ.fɪ.kənt/",
+    "meaning": "a. 1.有意义的，意味深长的 2.重要的，重大的"
+  },
+  {
+    "word": "special",
+    "phonetic": "/ˈspɛʃəl/",
+    "meaning": "a. 1.特别的，特殊的2.特别好的，格外的 n. 特别的事或物"
+  },
+  {
+    "word": "spirit",
+    "phonetic": "/ˈspɪrɪt/",
+    "meaning": "n. 1.精神，心灵2.精灵，妖精 3.（pl.）情绪，心境4.（pl.）酒精，烈性酒"
+  },
+  {
+    "word": "stand",
+    "phonetic": "/stænd/",
+    "meaning": "vi. 1.站立，竖立 2.站起，起立3.放置，位于4.处于某种状态 vt. 1.使站立，竖放 2.忍受，经受 n. 1.货摊，售货台2.置物架3.看台，观众席4.立场，态度"
+  },
+  {
+    "word": "steady",
+    "phonetic": "/ˈstɛdi/",
+    "meaning": "a. 稳定的，稳固的"
+  },
+  {
+    "word": "strengthen",
+    "phonetic": "/ˈstrɛŋ(k)θən/",
+    "meaning": "vt. 加强，巩固"
+  },
+  {
+    "word": "substance",
+    "phonetic": "/ˈsəbstəns/",
+    "meaning": "n. 1.物质 2.实质，本质 3.要义，主要部分"
+  },
+  {
+    "word": "succeed",
+    "phonetic": "/səkˈsid/",
+    "meaning": "vi. 1.成功 2.继承，接着发生 vt. 接替，接…之后"
+  },
+  {
+    "word": "suppose",
+    "phonetic": "/səˈpəʊz/",
+    "meaning": "vt. 假定，料想"
+  },
+  {
+    "word": "sweat",
+    "phonetic": "/swɛt/",
+    "meaning": "n. 汗（水） v. （使）出汗"
+  },
+  {
+    "word": "teaching",
+    "phonetic": "/ˈtitʃɪŋ/",
+    "meaning": "n. 1.教学，执教，任教，讲授2.（复数）教诲，教义"
+  },
+  {
+    "word": "tolerate",
+    "phonetic": "/ˈtɒl.ə.reɪt/",
+    "meaning": "vt. 容忍，忍受，容许transfer vt. 1.转移，转换 2.转让，过户 n. 1.迁移，转移 2.改乘，换车"
+  },
+  {
+    "word": "transportation",
+    "phonetic": "/trænspɔːˈteɪʃən/",
+    "meaning": "n. 1.运输 2.运输系统（工具）"
+  },
+  {
+    "word": "treat",
+    "phonetic": "/trit/",
+    "meaning": "v. 1.对待，看待 2.治疗 3. 招待 n. 款待，请客"
+  },
+  {
+    "word": "unique",
+    "phonetic": "/juːˈniːk/",
+    "meaning": "a. 1.唯一的 2.独特的，异常的 n. 独一无二的事物"
+  },
+  {
+    "word": "unknown",
+    "phonetic": "/ʌnˈnəʊn/",
+    "meaning": "a. 1.未知的 2.无名的 3. 陌生 10 的"
+  },
+  {
+    "word": "veto",
+    "phonetic": "/ˈviːtəʊ/",
+    "meaning": "n. 否决权 vt. 使用否决权 vi. 否决，禁止"
+  },
+  {
+    "word": "vital",
+    "phonetic": "/ˈvaɪt̬əl/",
+    "meaning": "a. 1.极其重要的 2.有生命的，生气勃勃的3. 致命的"
+  },
+  {
+    "word": "weak",
+    "phonetic": "/wiːk/",
+    "meaning": "a. 1.虚弱的，无力的 2.（能力等）差的，弱的 3.微弱的，淡薄的"
+  },
+  {
+    "word": "willing",
+    "phonetic": "/ˈwɪlɪŋ/",
+    "meaning": "a. 愿意的，心甘情愿的"
+  },
+  {
+    "word": "yield",
+    "phonetic": "/jiːld/",
+    "meaning": "vt. 1.生产，出产 2.放弃 vi. 屈服，服从 n. 产量，收益"
+  }
+]
