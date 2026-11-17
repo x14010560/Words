@@ -3,6 +3,7 @@ import { speak } from './audio.js';
 import { triggerAutoSync } from './sync.js';
 
 const state = { queue: [], index: 0, current: null, input: "", locked: false, waitingForRetry: false };
+let wordsSinceLastSync = 0; // 距离上次同步学了多少个词
 let currentLibData = [];
 let els = {};
 
@@ -13,13 +14,6 @@ export function setLibData(data) {
 
 export function initPractice(elements) {
   els = elements;
-
-  const originalRecord = Storage.record;
-  Storage.record = function(...args) {
-    const res = originalRecord.apply(Storage, args);
-    triggerAutoSync();
-    return res;
-  };
 
   const originalSaveSettings = Storage.saveSettings;
   Storage.saveSettings = function(...args) {
@@ -356,9 +350,33 @@ function handleSkip() {
 export function nextWord() {
   state.waitingForRetry = false;
   if (state.queue.length === 0) return;
-  if (state.current) Storage.addDailyLearnedWord(state.current.word);
-  const status = Storage.getStatus(state.current.word);
+  
+  if (state.current) {
+    Storage.addDailyLearnedWord(state.current.word);
+    wordsSinceLastSync++; // 👈 每次学完一个词，计数器 +1
+  }
 
+  // 👇 核心逻辑：判断是否触发自动同步
+  const settings = Storage.getSettings();
+  const dailyStats = Storage.getDailyStats();
+  const todayLearned = dailyStats.learnedWords.length;
+  
+  // 规则1：每满 50 个词同步一次
+  if (wordsSinceLastSync >= 50) {
+    triggerAutoSync();
+    wordsSinceLastSync = 0; // 重置计数器
+    console.log("☁️ 已积累50个词，触发自动同步");
+  }
+
+  // 规则2：刚好完成每日目标时同步一次
+  if (todayLearned === settings.dailyGoal) {
+    triggerAutoSync();
+    wordsSinceLastSync = 0; // 既然完成目标同步了，顺便重置计数器
+    console.log("🎉 完成每日目标，触发自动同步");
+  }
+
+  const status = Storage.getStatus(state.current.word);
+  
   if (status.stage === 2 && !status.isWrongBook) {
      const insertPos = Math.min(state.queue.length, state.index + 3 + Math.floor(Math.random() * 2));
      state.queue.splice(insertPos, 0, state.current);
@@ -366,7 +384,7 @@ export function nextWord() {
      const insertPos = Math.min(state.queue.length, state.index + 6 + Math.floor(Math.random() * 3));
      state.queue.splice(insertPos, 0, state.current);
   }
-
+  
   state.index += 1;
   if (state.index >= state.queue.length) { state.queue = buildQueue(); state.index = 0; }
   renderCurrent();

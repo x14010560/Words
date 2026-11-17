@@ -116,8 +116,9 @@ els.saveSettingsBtn.addEventListener("click", () => {
   const val = parseInt(els.goalInput.value, 10);
   if (val > 0) {
     Storage.saveSettings({ dailyGoal: val });
+    triggerAutoSync(); // 👈 确保这里有这句，修改设置立刻同步
     els.settingsModal.classList.remove("show");
-    window.location.reload();
+    window.location.reload(); 
   }
 });
 
