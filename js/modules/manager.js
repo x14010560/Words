@@ -15,7 +15,11 @@ export function renderManagerList() {
   const words = Storage.getCustomLib();
   els.managerList.innerHTML = "";
   if (words.length === 0) {
-    els.managerList.innerHTML = `<p class="empty">暂无自定义单词</p>`;
+    els.managerList.innerHTML = `
+      <div class="empty">
+        <p class="empty-title">还没有自定义词条</p>
+        <p class="empty-hint">导入 CSV 或手动添加后出现在这里</p>
+      </div>`;
     return;
   }
   words.forEach((w, idx) => {

@@ -50,10 +50,17 @@ export function restartPractice() {
 function buildQueue() {
   const reviewWords = [];
   const newWords = [];
+
   currentLibData.forEach(w => {
     const status = Storage.getStatus(w.word);
-    if (status.isWrongBook || status.stage === 2 || status.stage === 3) reviewWords.push(w);
-    else if (status.stage === 1) newWords.push(w);
+    if (status.isWrongBook || status.stage === 2 || status.stage === 3) {
+      reviewWords.push(w);
+    } else if (status.stage === 1) {
+      newWords.push(w);
+    } else if (status.stage === 4 && status.nextReview && Date.now() > status.nextReview) {
+      // 到了该复习的日子，重新排进队列
+      reviewWords.push(w);
+    }
   });
 
   const settings = Storage.getSettings();
@@ -194,6 +201,13 @@ export function renderCurrent() {
     els.stageSteps.dataset.stage = "3";
     els.meaning.textContent = state.current.meaning;
     els.phonetic.textContent = "";
+  } else if (status.stage === 4) {
+    // 长期复习：默认用听写方式，不给释义提示
+    setMode(`定期复习 · 间隔 ${Math.round(status.interval || 3)} 天`, "due");
+    els.stageSteps.dataset.stage = "0";
+    els.meaning.textContent = "听发音拼写";
+    els.phonetic.textContent = "";
+    speak(state.current.word);
   }
 
   renderSlots(status.stage === 1, false);
@@ -205,7 +219,7 @@ function judge() {
   const target = state.current.word;
   const ok = window.Typing.isExact(target, state.input);
   const oldStatus = Storage.getStatus(target);
-  const newStatus = Storage.record(target, ok);
+  const newStatus = Storage.record(target, ok, state.input);
 
   state.locked = true;
   els.meaning.textContent = state.current.meaning;
@@ -337,7 +351,7 @@ function handleSkip() {
   if (state.locked) return;
   const target = state.current.word;
   const oldStatus = Storage.getStatus(target);
-  const newStatus = Storage.record(target, false);
+  const newStatus = Storage.record(target, false, ""); 
   let text = `已跳过，答案为 ${target}`;
   if (newStatus.isWrongBook && !oldStatus.isWrongBook) text += "，已记入错题本";
   setHint(text, "wrong");
@@ -353,10 +367,10 @@ export function nextWord() {
   
   if (state.current) {
     Storage.addDailyLearnedWord(state.current.word);
-    wordsSinceLastSync++; // 👈 每次学完一个词，计数器 +1
+    wordsSinceLastSync++; // 每次学完一个词，计数器 +1
   }
 
-  // 👇 核心逻辑：判断是否触发自动同步
+  // 核心逻辑：判断是否触发自动同步
   const settings = Storage.getSettings();
   const dailyStats = Storage.getDailyStats();
   const todayLearned = dailyStats.learnedWords.length;
@@ -365,14 +379,14 @@ export function nextWord() {
   if (wordsSinceLastSync >= 50) {
     triggerAutoSync();
     wordsSinceLastSync = 0; // 重置计数器
-    console.log("☁️ 已积累50个词，触发自动同步");
+    console.log("已积累 50 个词，触发自动同步");
   }
 
   // 规则2：刚好完成每日目标时同步一次
   if (todayLearned === settings.dailyGoal) {
     triggerAutoSync();
     wordsSinceLastSync = 0; // 既然完成目标同步了，顺便重置计数器
-    console.log("🎉 完成每日目标，触发自动同步");
+    console.log("完成每日目标，触发自动同步");
   }
 
   const status = Storage.getStatus(state.current.word);

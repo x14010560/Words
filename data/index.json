@@ -4,5 +4,5 @@
   { "id": "tdxl", "name": "同等学力高频词汇", "path": "data/official/tdxl.json" },
   { "id": "ts1000", "name": "同硕核心词汇1000", "path": "data/official/ts1000.json" },
   { "id": "ts2000", "name": "同硕核心词汇2000", "path": "data/official/ts2000.json" },
-  { "id": "custom", "name": "🌟 我的自定义词库", "path": "local" }
+  { "id": "custom", "name": "我的词库", "path": "local" }
 ]

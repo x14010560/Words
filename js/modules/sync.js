@@ -29,13 +29,13 @@ export async function fetchFromCloud() {
     const data = await res.json();
     
     if (Object.keys(data).length > 0) {
-      // 🌟 优化：我们简单对比一下进度。如果云端有数据，并且本地也有进度，弹窗问问用户
+      // 优化：我们简单对比一下进度。如果云端有数据，并且本地也有进度，弹窗问问用户
       const localProgress = Storage.getAllLocalData();
       const hasLocalData = Object.keys(localProgress).some(k => k.includes('progress_') && localProgress[k] !== '{}');
 
       if (hasLocalData) {
         // 如果本地已经有学习记录，先问用户要不要覆盖
-        if (confirm("☁️ 检测到云端有更新进度。\n\n点击“确定”将拉取云端进度并覆盖本地；\n点击“取消”保留当前本地进度（稍后会由本地覆盖云端）。")) {
+        if (confirm("检测到云端有更新的进度。\n\n点击“确定”将拉取云端进度并覆盖本地；\n点击“取消”保留当前本地进度（稍后会由本地覆盖云端）。")) {
           Storage.applySyncData(data);
           return true;
         } else {

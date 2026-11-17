@@ -30,24 +30,75 @@ export const Storage = {
     return all[word] || { stage: 1, consecutiveCorrect: 0, consecutiveErrors: 0, isWrongBook: false };
   },
 
-  record(word, isCorrect) {
+  record(word, isCorrect, userInput = "") {
     const all = this.loadAll();
-    let item = all[word] || { stage: 1, consecutiveCorrect: 0, consecutiveErrors: 0, isWrongBook: false };
+    let item = all[word] || { 
+      stage: 1, 
+      consecutiveCorrect: 0, 
+      consecutiveErrors: 0, 
+      isWrongBook: false,
+      interval: 1,
+      nextReview: 0,
+      totalErrors: 0,
+      wrongSpellings: {} // 改为字典，记录错误拼写及其频率
+    };
+
     if (isCorrect) {
       item.consecutiveCorrect += 1;
       item.consecutiveErrors = 0; 
+      
       if (item.isWrongBook) {
-        if (item.consecutiveCorrect >= 3) { item.isWrongBook = false; item.stage = 4; }
+        if (item.consecutiveCorrect >= 3) { 
+          item.isWrongBook = false; 
+          item.stage = 4; 
+          item.interval = 3;
+          item.nextReview = Date.now() + 3 * 24 * 60 * 60 * 1000;
+        }
       } else {
         if (item.stage === 1) item.stage = 2;
         else if (item.stage === 2) item.stage = 3;
-        else if (item.stage === 3) item.stage = 4;
+        else if (item.stage === 3) {
+          item.stage = 4;
+          item.interval = 3;
+          item.nextReview = Date.now() + 3 * 24 * 60 * 60 * 1000;
+        } else if (item.stage === 4) {
+          item.interval = Math.max(3, (item.interval || 3) * 2.5); 
+          item.nextReview = Date.now() + item.interval * 24 * 60 * 60 * 1000;
+        }
       }
     } else {
       item.consecutiveErrors += 1;
       item.consecutiveCorrect = 0; 
-      if (item.consecutiveErrors >= 2) item.isWrongBook = true;
+      item.totalErrors = (item.totalErrors || 0) + 1;
+
+      // 记录错误的拼写，并统计频率
+      if (userInput && userInput !== word) {
+        if (!item.wrongSpellings) item.wrongSpellings = {};
+        item.wrongSpellings[userInput] = (item.wrongSpellings[userInput] || 0) + 1;
+        
+        // 限制最多只存 10 种不同的错误拼写，防止数据过大
+        const keys = Object.keys(item.wrongSpellings);
+        if (keys.length > 10) {
+          // 找出频率最低的删掉
+          let minKey = keys[0];
+          for (const k of keys) {
+            if (item.wrongSpellings[k] < item.wrongSpellings[minKey]) minKey = k;
+          }
+          delete item.wrongSpellings[minKey];
+        }
+      }
+      
+      if (item.stage === 4) {
+        item.stage = 2;
+        item.interval = 1;
+        item.nextReview = 0;
+      }
+
+      if (item.consecutiveErrors >= 2) {
+        item.isWrongBook = true;
+      }
     }
+    
     all[word] = item;
     this.saveAll(all);
     return item; 
@@ -90,6 +141,10 @@ export const Storage = {
       const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
       return all[this.getTodayString()] || { learnedWords: [] };
     } catch { return { learnedWords: [] }; }
+  },
+
+  getDailyHistory() {
+    try { return JSON.parse(localStorage.getItem(this.getKeys().daily)) || {}; } catch { return {}; }
   },
 
   addDailyLearnedWord(word) {
