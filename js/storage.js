@@ -19,6 +19,14 @@ export const Storage = {
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   },
 
+  // 次日 00:00（本地时间），错题当天不再回流到练习队列
+  getTomorrowStart() {
+    const d = new Date();
+    d.setDate(d.getDate() + 1);
+    d.setHours(0, 0, 0, 0);
+    return d.getTime();
+  },
+
   loadAll() {
     try { return JSON.parse(localStorage.getItem(this.getKeys().progress)) || {}; } catch { return {}; }
   },
@@ -27,7 +35,7 @@ export const Storage = {
 
   getStatus(word) {
     const all = this.loadAll();
-    return all[word] || { stage: 1, consecutiveCorrect: 0, consecutiveErrors: 0, isWrongBook: false };
+    return all[word] || { stage: 1, consecutiveCorrect: 0, consecutiveErrors: 0, isWrongBook: false, dailyErrors: {}, streakDate: "" };
   },
 
   record(word, isCorrect, userInput = "") {
@@ -40,19 +48,40 @@ export const Storage = {
       interval: 1,
       nextReview: 0,
       totalErrors: 0,
-      wrongSpellings: {} // 改为字典，记录错误拼写及其频率
+      wrongSpellings: {}, // 改为字典，记录错误拼写及其频率
+      lastErrorDate: "",       // 最近一次答错的日期
+      wrongReviewDate: 0,      // 错题复习日（次日 00:00）
+      dailyErrors: {},         // 当日错误权重，只加不减
+      streakDate: ""           // 当前连对是在哪一天攒出来的
     };
 
+    const today = this.getTodayString();
+    // 答错当天不允许靠连对移出错题本；必须等到首个“无错日”，且三次连对都在这一天
+    const canClearToday = !item.lastErrorDate || today > item.lastErrorDate;
+
     if (isCorrect) {
-      item.consecutiveCorrect += 1;
+      if (item.isWrongBook) {
+        if (canClearToday) {
+          if (item.streakDate !== today) {
+            item.consecutiveCorrect = 0;
+            item.streakDate = today;
+          }
+          item.consecutiveCorrect += 1;
+        }
+      } else {
+        item.consecutiveCorrect += 1;
+      }
       item.consecutiveErrors = 0; 
       
       if (item.isWrongBook) {
-        if (item.consecutiveCorrect >= 3) { 
+        if (canClearToday && item.consecutiveCorrect >= 3) { 
           item.isWrongBook = false; 
           item.stage = 4; 
           item.interval = 3;
           item.nextReview = Date.now() + 3 * 24 * 60 * 60 * 1000;
+          item.wrongReviewDate = 0;
+          item.consecutiveCorrect = 0;
+          item.streakDate = "";
         }
       } else {
         if (item.stage === 1) item.stage = 2;
@@ -69,7 +98,13 @@ export const Storage = {
     } else {
       item.consecutiveErrors += 1;
       item.consecutiveCorrect = 0; 
+      item.streakDate = "";
       item.totalErrors = (item.totalErrors || 0) + 1;
+      item.lastErrorDate = today;
+
+      // 错误权重：同一天只会增加，答对也不会回退
+      if (!item.dailyErrors) item.dailyErrors = {};
+      item.dailyErrors[today] = (item.dailyErrors[today] || 0) + 1;
 
       // 记录错误的拼写，并统计频率
       if (userInput && userInput !== word) {
@@ -96,6 +131,10 @@ export const Storage = {
 
       if (item.consecutiveErrors >= 2) {
         item.isWrongBook = true;
+      }
+      if (item.isWrongBook) {
+        // 错题次日再复习，当天不回流到练习队列
+        item.wrongReviewDate = this.getTomorrowStart();
       }
     }
     
@@ -131,16 +170,18 @@ export const Storage = {
   },
 
   getSettings() {
-    try { return JSON.parse(localStorage.getItem(this.getKeys().settings)) || { dailyGoal: 20 }; } catch { return { dailyGoal: 20 }; }
+    const defaults = { dailyGoal: 20, reviewMultiplier: 2 };
+    try { return { ...defaults, ...(JSON.parse(localStorage.getItem(this.getKeys().settings)) || {}) }; }
+    catch { return { ...defaults }; }
   },
-  
+
   saveSettings(settings) { localStorage.setItem(this.getKeys().settings, JSON.stringify(settings)); },
 
   getDailyStats() {
     try {
       const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
-      return all[this.getTodayString()] || { learnedWords: [] };
-    } catch { return { learnedWords: [] }; }
+      return all[this.getTodayString()] || { learnedWords: [], reviewedWords: [] };
+    } catch { return { learnedWords: [], reviewedWords: [] }; }
   },
 
   getDailyHistory() {
@@ -157,6 +198,87 @@ export const Storage = {
         localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
       }
     } catch {}
+  },
+
+  addDailyReviewedWord(word) {
+    try {
+      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const today = this.getTodayString();
+      if (!all[today]) all[today] = { learnedWords: [] };
+      if (!Array.isArray(all[today].reviewedWords)) all[today].reviewedWords = [];
+      if (!all[today].reviewedWords.includes(word)) {
+        all[today].reviewedWords.push(word);
+        localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
+      }
+    } catch {}
+  },
+
+  // 每日复习上限 = 每日计划 × 倍数（向下取整）
+  getReviewLimit() {
+    const settings = this.getSettings();
+    const multiplier = Number(settings.reviewMultiplier) || 2;
+    return Math.max(0, Math.floor((settings.dailyGoal || 20) * multiplier));
+  },
+
+  // --- 已掌握 · 快速复习 ---
+
+  // 认识：跳过本次复习，按当前间隔顺延下次复习（间隔倍数不变）
+  skipMasteredReview(word) {
+    const all = this.loadAll();
+    const item = all[word];
+    if (!item || item.stage !== 4 || item.isWrongBook) return;
+    const days = Math.max(3, item.interval || 3);
+    item.nextReview = Date.now() + days * 24 * 60 * 60 * 1000;
+    all[word] = item;
+    this.saveAll(all);
+  },
+
+  // 模糊：加入当日复习队列
+  addTodayReviewWord(word) {
+    try {
+      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const today = this.getTodayString();
+      if (!all[today]) all[today] = { learnedWords: [] };
+      if (!all[today].reviewWords) all[today].reviewWords = [];
+      if (!all[today].reviewWords.includes(word)) {
+        all[today].reviewWords.push(word);
+        localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
+      }
+    } catch {}
+  },
+
+  removeTodayReviewWord(word) {
+    try {
+      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const today = all[this.getTodayString()];
+      if (!today || !Array.isArray(today.reviewWords)) return;
+      today.reviewWords = today.reviewWords.filter(w => w !== word);
+      localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
+    } catch {}
+  },
+
+  getTodayReviewWords() {
+    try {
+      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const today = all[this.getTodayString()];
+      return today && Array.isArray(today.reviewWords) ? today.reviewWords : [];
+    } catch { return []; }
+  },
+
+  // 不认识：移出已掌握，回到第 1 阶段重新学习
+  demoteMasteredWord(word) {
+    const all = this.loadAll();
+    const item = all[word];
+    if (!item) return;
+    item.stage = 1;
+    item.interval = 1;
+    item.nextReview = 0;
+    item.consecutiveCorrect = 0;
+    item.consecutiveErrors = 0;
+    item.isWrongBook = false;
+    all[word] = item;
+    this.saveAll(all);
+    this.removeTodayReviewWord(word);
   },
 
   getCustomLib() {

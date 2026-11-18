@@ -22,6 +22,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
 
 html, body { height: 100%; }
 
@@ -228,6 +229,17 @@ button:disabled { cursor: not-allowed; }
 .meta-row { display: flex; align-items: center; gap: 12px; min-height: 36px; }
 .phonetic { font-family: var(--font-mono); font-size: 14px; color: var(--ink-2); }
 .phonetic:empty { display: none; }
+.example-line, .word-card-example, .review-example {
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; min-width: 0;
+}
+.example-label { flex: none; font-size: 11px; color: var(--ink-3); }
+.example-body { min-width: 0; font-size: 13px; color: var(--ink-2); word-break: break-word; }
+.example-code {
+  display: inline-block; padding: 2px 6px;
+  border: 1px solid var(--line); border-radius: 4px;
+  background: var(--raised); color: var(--ink);
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.4;
+}
 .speak-btn {
   display: flex; align-items: center; justify-content: center;
   width: 36px; height: 36px;
@@ -361,6 +373,8 @@ button:disabled { cursor: not-allowed; }
 .word-card-word { font-family: var(--font-mono); font-size: 17px; font-weight: 500; color: var(--ink); word-break: break-word; }
 .word-card-phonetic { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); }
 .word-card-meaning { margin-top: 4px; font-size: 13px; color: var(--ink-2); padding-right: 76px; }
+.word-card-example { margin-top: 6px; padding-right: 76px; font-size: 12px; }
+.word-card-example .example-body { font-size: 12px; }
 .word-card-meta { margin-top: 10px; font-size: 12px; color: var(--ink-3); }
 .word-card-meta b {
   font-family: var(--font-mono); font-weight: 700; font-variant-numeric: tabular-nums;
@@ -417,6 +431,56 @@ button:disabled { cursor: not-allowed; }
 .list-grid > .empty { grid-column: 1 / -1; }
 .empty-title { font-size: 14px; color: var(--ink-2); }
 .empty-hint { font-size: 12px; color: var(--ink-3); }
+
+/* ---------- quick review (mastered) ---------- */
+
+.review-session {
+  display: flex; flex-direction: column; gap: 16px;
+  padding: 24px;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-panel);
+  animation: rise 320ms var(--ease) both;
+}
+.review-session-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.review-count {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+  font-variant-numeric: tabular-nums; color: var(--ink-3);
+}
+.review-card {
+  display: flex; flex-direction: column; gap: 32px;
+  padding: 40px 32px 28px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-panel);
+  text-align: center;
+}
+.review-face { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.review-word-line { display: flex; align-items: baseline; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.review-word { font-family: var(--font-mono); font-size: 32px; font-weight: 500; color: var(--ink); word-break: break-word; }
+.review-phonetic { font-family: var(--font-mono); font-size: 14px; color: var(--ink-3); }
+.review-phonetic:empty { display: none; }
+.review-meaning { font-family: var(--font-serif); font-size: 28px; line-height: 1.35; color: var(--ink); }
+.review-example { justify-content: center; }
+.review-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.review-choice {
+  height: 48px;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-control);
+  background: var(--card); font-size: 14px; font-weight: 500;
+  transition: background-color 140ms var(--ease), border-color 140ms var(--ease), transform 140ms var(--ease);
+}
+.review-choice:active { transform: scale(0.98); }
+.review-choice--know { color: var(--positive); }
+.review-choice--fuzzy { color: var(--accent); }
+.review-choice--unknown { color: var(--negative); }
+.review-choice--know:hover { border-color: var(--positive); background: rgba(78, 122, 58, 0.08); }
+.review-choice--fuzzy:hover { border-color: var(--accent); background: rgba(146, 64, 14, 0.08); }
+.review-choice--unknown:hover { border-color: var(--negative); background: rgba(176, 64, 58, 0.08); }
+.review-done {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 48px 24px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-panel);
+}
+.review-done-title { font-family: var(--font-serif); font-size: 24px; color: var(--ink); }
+.review-done-note { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+.review-done .btn { margin-top: 8px; }
+.review-foot { text-align: center; font-size: 12px; color: var(--ink-3); }
 
 /* ---------- stats ---------- */
 
@@ -519,6 +583,15 @@ button:disabled { cursor: not-allowed; }
   transition: border-color 140ms var(--ease);
 }
 .form-group input:focus, .text-input:focus { border-color: var(--accent); }
+.form-hint { font-size: 12px; color: var(--ink-3); }
+.form-group select.text-input {
+  appearance: none;
+  padding-right: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235E554A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
 .sync-section { display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
 .sync-section .field-label { line-height: 1.4; }
 .sync-row { display: flex; gap: 8px; }
@@ -587,6 +660,13 @@ button:disabled { cursor: not-allowed; }
   .word-card-head, .word-card-meaning { padding-right: 68px; }
   .word-card-actions { top: 12px; right: 12px; }
   .cell { width: 20px; height: 22px; font-size: 11px; }
+
+  .review-session { padding: 16px; }
+  .review-card { gap: 24px; padding: 28px 16px 20px; }
+  .review-word { font-size: 26px; }
+  .review-meaning { font-size: 24px; }
+  .review-choices { gap: 8px; }
+  .review-choice { height: 44px; font-size: 13px; }
 
   .stat-hero { padding: 20px; gap: 16px; }
   .stat-hero-value > span:first-child { font-size: 44px; }

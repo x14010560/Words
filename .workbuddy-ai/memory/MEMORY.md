@@ -21,4 +21,10 @@
 - 统计页结构：`.stat-hero`（今日大数字 + 进度条）→ `.stat-row` 双栏（`.stat-panel` 近 7 天柱状图 + 词库概览行表）→ 脚注。柱状图容器要给固定 `height`，`flex:1` 在 auto 高度的 column 里会算成 0。
 - 图标是「线稿单词卡」：`icon.svg`（64 视框，纸色填充 + 墨色描边 + 琥珀短线）+ `icon-small.svg`（≤48px 直角加粗版）。favicon 必须透明底（Chrome 加 `--default-background-color=00000000`），apple-touch/android 才用纸色底。`favicon.ico` 是手写的 PNG-in-ICO。改图标要同时更新 `site.webmanifest`、`index.html` 的 link 与侧栏 `.brand-mark`。
 - 第三方授权统一登记在 `CREDITS.md`（Lucide ISC 全文、字体、TTS、词库来源）。
-- 改了 `styles.css` / `js/app.js` 要顺手把 `?v=N` 递增，否则用户会看到「HTML 是新的、样式是旧的」。
+- `data/official/ecdict.json` 来自 ECDICT（MIT）的 `cet4`/`cet6`/`oxford=1` 精选，6891 词，按字母序；释义取首条、音标补 `/.../`。新增官方词库需同时改 `data/index.json`，并在 `CREDITS.md` 登记来源/许可。
+- 改了 `styles.css` / `js/app.js` 要顺手把 `?v=N` 递增，否则用户会看到「HTML 是新的、样式是旧的」。原生 ES 模块（`storage.js`、`modules/*.js`）也要带**同一个** `?v=N`，且所有 import 同步改，否则浏览器复用旧模块或产生多份 Storage 实例。
+- 已掌握页「快速复习」：认识 = 按当前 interval 顺延 `nextReview`（间隔不放大）；模糊 = 写入当天 `daily.reviewWords`，`buildQueue()` 优先排进今天的练习；不认识 = stage 打回 1 并清复习字段。会话状态在 `app.js` 的模块内 `review` 对象。`handleGlobalKeyDown()` 只在练习页生效，其他页面的按键不会误触发判定。
+- 错题本规则（2026-11-18）：连错两次加入；`dailyErrors[今天]` 只增不减，`lastErrorDate` 记录最近答错日。移出条件 = 今天 > `lastErrorDate` 且 `streakDate === 今天` 且 `consecutiveCorrect >= 3`，即三次连对必须在**同一无错日**攒满，跨日不累计；`wrongReviewDate`（次日 00:00）到期前不排进练习队列。移出后 stage=4、interval=3、nextReview=+3 天。
+- 每日复习上限 = `floor(dailyGoal * reviewMultiplier)`，默认 2 倍，设置里可改 1/1.5/2/3；daily 的 `reviewedWords` 记录当天已完成复习（按词去重），`buildQueue()` 扣掉这部分再排复习。超限先砍普通复习，今日「模糊」标记和到期错题优先保留。
+- 词条可选 `example` 字段（`python.json` 有）：反引号内容渲染成代码 chip，其余纯文本，均需转义（`js/modules/example.js`）。练习页只在 stage 1 与判卷后显示示例——示例常含目标词，听写/默写阶段显示会泄题；列表卡片和快速复习卡片可常显。
+- `audio/` 的 527 个 wav 对应 `computer.json`。`speak()` 先 HEAD 探测 `./audio/<小写词>.wav`（结果按词缓存），命中播本地、否则走 TTS；本地查找用原始词条，不受 `SPEAK_OVERRIDES` 发音替换影响。

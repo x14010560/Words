@@ -49,6 +49,34 @@ SOFTWARE.
 - `data/official/tdxl.json`、`ts1000.json`、`ts2000.json`、`computer.json`、`commands.json` 共约 3600 条词条，来源未在仓库中记录。
 - 「同等学力」「同硕核心词汇」等命名与词表编排通常来自教辅出版物，词条的选取与释义可能构成汇编作品。若要公开发布或商用，请确认词表来源与授权，或替换为公共领域 / 自建词表。
 - `computer.json` / `commands.json` 为通用技术词与命令名，事实性内容一般不构成作品，风险较低。
+- `data/official/ecdict.json`（6891 条）由 **ECDICT** 的 `ecdict.csv` 筛选转换而来：
+  - 来源：<https://github.com/skywind3000/ECDICT>
+  - 筛选：保留带 `cet4` / `cet6` 标签或 `oxford=1` 的纯字母单词；仅取首条中文释义，音标统一补 `/.../`，按字母排序；无词频、无音标的词条仍保留（音标留空）。
+  - 许可：MIT License；按许可要求收录全文：
+
+```
+MIT License
+
+Copyright (c) 2025 Linwei
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 ## 设计与方法
 

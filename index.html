@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -94,6 +94,10 @@
                 <span class="phonetic" id="phonetic"></span>
                 <button class="speak-btn" id="speakBtn" type="button" aria-label="播放发音"><svg class="icon"><use href="#i-volume"/></svg></button>
               </div>
+              <div class="example-line" id="exampleLine" hidden>
+                <span class="example-label">示例</span>
+                <span class="example-body" id="exampleBody"></span>
+              </div>
               <p class="stage-steps" id="stageSteps" data-stage="1"><span class="step">学习</span><span class="step">听写</span><span class="step">默写</span></p>
             </div>
           </div>
@@ -120,7 +124,7 @@
         <header class="view-head">
           <div class="view-head-text">
             <h2 class="view-title">错题本</h2>
-            <p class="view-desc">连续拼错两次自动加入，连续答对三次移除</p>
+            <p class="view-desc">连错两次加入；答错当日不移除，首个无错日连对三次才移出</p>
           </div>
         </header>
         <div class="list-grid" id="wrongbookList"></div>
@@ -132,7 +136,44 @@
             <h2 class="view-title">已掌握</h2>
             <p class="view-desc">完成学习、听写、默写后进入定期复习</p>
           </div>
+          <div class="view-head-actions">
+            <button class="btn" id="startReviewBtn" type="button"><svg class="icon"><use href="#i-rotate"/></svg>快速复习</button>
+          </div>
         </header>
+
+        <section class="review-session" id="reviewSession" hidden aria-label="快速复习">
+          <div class="review-session-head">
+            <span class="pane-label">快速复习</span>
+            <span class="review-count" id="reviewCount">1 / 0</span>
+            <button class="icon-btn" id="exitReviewBtn" type="button" aria-label="退出快速复习"><svg class="icon"><use href="#i-x"/></svg></button>
+          </div>
+          <div class="review-card" id="reviewCard">
+            <div class="review-face">
+              <div class="review-word-line">
+                <span class="review-word" id="reviewWord"></span>
+                <span class="review-phonetic" id="reviewPhonetic"></span>
+              </div>
+              <p class="review-meaning" id="reviewMeaning"></p>
+              <div class="review-example" id="reviewExample" hidden>
+                <span class="example-label">示例</span>
+                <span class="example-body" id="reviewExampleBody"></span>
+              </div>
+              <button class="speak-btn" id="reviewSpeakBtn" type="button" aria-label="播放发音"><svg class="icon"><use href="#i-volume"/></svg></button>
+            </div>
+            <div class="review-choices">
+              <button class="review-choice review-choice--know" id="reviewKnowBtn" type="button">认识</button>
+              <button class="review-choice review-choice--fuzzy" id="reviewFuzzyBtn" type="button">模糊</button>
+              <button class="review-choice review-choice--unknown" id="reviewUnknownBtn" type="button">不认识</button>
+            </div>
+          </div>
+          <div class="review-done" id="reviewDone" hidden>
+            <p class="review-done-title">本轮复习完成</p>
+            <p class="review-done-note" id="reviewDoneNote"></p>
+            <button class="btn primary" id="finishReviewBtn" type="button">返回列表</button>
+          </div>
+          <p class="review-foot">认识：跳过本次复习 · 模糊：加入今日复习 · 不认识：移出已掌握</p>
+        </section>
+
         <div class="list-grid" id="masteredList"></div>
       </div>
 
@@ -222,6 +263,16 @@
         <label for="goalInput">每日学习目标（词数）</label>
         <input type="number" id="goalInput" min="1" max="500" value="20">
       </div>
+      <div class="form-group">
+        <label for="reviewMultiplierSelect">每日复习上限（每日计划的倍数）</label>
+        <select id="reviewMultiplierSelect" class="text-input">
+          <option value="1">1 倍</option>
+          <option value="1.5">1.5 倍</option>
+          <option value="2">2 倍</option>
+          <option value="3">3 倍</option>
+        </select>
+        <span class="form-hint" id="reviewLimitHint">当前上限 40 词复习 / 天</span>
+      </div>
       <div class="sync-section">
         <span class="field-label">设备同步码 · 在其他设备输入即可同步</span>
         <div class="sync-row">
@@ -244,6 +295,6 @@
   </div>
 
   <script src="js/typing.js"></script>
-  <script type="module" src="js/app.js?v=4"></script>
+  <script type="module" src="js/app.js?v=9"></script>
 </body>
 </html>

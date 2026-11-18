@@ -1,0 +1,30 @@
+| `nonlocal` | 改外层函数的变量 | 见阶段二 2.2 |
+| `global` | 改模块最外层的变量 | `global x` |
+| `lambda` | 一句话的匿名函数 | `f = lambda a: a+1` |
+| `yield` | 函数在这里"暂停并交出一个值" | 见阶段三 |
+| `next` | 让生成器往下走一步 | `next(g)` |
+| `iter` / `iterator` | 能一个个吐东西的东西 | `iter([1,2])` |
+| `super` | 调用父类的那份实现 | `super().__init__()` |
+| `property` | 把方法伪装成属性来读 | `@property` |
+| `decorator` | 给函数套一层外壳 | `@xxx` |
+| `closure` | 函数记住了出生时的外部变量 | 见阶段二 |
+| `scope` | 变量的可见范围 | — |
+| `mutable` / `immutable` | 能不能原地改 | list / tuple |
+| `copy` / `deepcopy` | 浅复制 / 深复制 | `import copy` |
+| `default argument` | 默认参数 | `def f(a=[])` |
+| `exception` | 异常 | `try/except` |
+| `raise` | 主动抛异常 | `raise ValueError` |
+| `finally` | 无论如何都执行的块 | 见阶段一 1.3 |
+| `with` / `context manager` | 自动收尾的块 | `with open(...)` |
+| `attribute` / `instance` | 属性 / 实例 | `self.x` |
+| `inherit` / `override` | 继承 / 覆盖 | `class B(A)` |
+| `generator` | 边算边给的函数 | 见阶段三 |
+| `comprehension` | 推导式 | `[x for x in ...]` |
+| `key` | 排序/比较时用的那把尺子 | `sorted(a, key=...)` |
+| `iterable` | 能被 for 遍历的 | list/str/dict |
+| `module` / `import` | 模块 / 导入 | — |
+| `None` | 空值（不是 0、不是空串） | — |
+| `is` vs `==` | 是不是同一个东西 / 值是否相等 | 易混点 |
+| `self` | 当前这个实例自己 | — |
+| `argument` / `parameter` | 实参 / 形参 | — |
+| `return` | 交回结果并结束函数 | — |

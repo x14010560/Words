@@ -1,8 +1,9 @@
-import { Storage } from '../storage.js';
-import { speak } from './audio.js';
-import { triggerAutoSync } from './sync.js';
+import { Storage } from '../storage.js?v=9';
+import { speak } from './audio.js?v=9';
+import { hasExample, renderExample } from './example.js?v=9';
+import { triggerAutoSync } from './sync.js?v=9';
 
-const state = { queue: [], index: 0, current: null, input: "", locked: false, waitingForRetry: false };
+const state = { queue: [], index: 0, current: null, input: "", locked: false, waitingForRetry: false, reviewWordSet: new Set(), isReview: false };
 let wordsSinceLastSync = 0; // 距离上次同步学了多少个词
 let currentLibData = [];
 let els = {};
@@ -48,34 +49,49 @@ export function restartPractice() {
 }
 
 function buildQueue() {
-  const reviewWords = [];
+  const priorityReviews = []; // 「模糊」标记与到期错题，上限内优先保留
+  const otherReviews = [];
   const newWords = [];
-
-  currentLibData.forEach(w => {
-    const status = Storage.getStatus(w.word);
-    if (status.isWrongBook || status.stage === 2 || status.stage === 3) {
-      reviewWords.push(w);
-    } else if (status.stage === 1) {
-      newWords.push(w);
-    } else if (status.stage === 4 && status.nextReview && Date.now() > status.nextReview) {
-      // 到了该复习的日子，重新排进队列
-      reviewWords.push(w);
-    }
-  });
 
   const settings = Storage.getSettings();
   const dailyGoal = settings.dailyGoal || 20;
-  const learnedToday = Storage.getDailyStats().learnedWords.length;
-  const remainingNew = Math.max(0, dailyGoal - learnedToday);
+  const daily = Storage.getDailyStats();
+  const learnedTodayWords = daily.learnedWords || [];
+  const reviewedTodayWords = daily.reviewedWords || [];
+  const remainingNew = Math.max(0, dailyGoal - learnedTodayWords.length);
+  const remainingReview = Math.max(0, Storage.getReviewLimit() - reviewedTodayWords.length);
+  // 已掌握页「模糊」标记的词，今天排进复习队列；今天已练过的不再重复排入
+  const todayReviewWords = Storage.getTodayReviewWords().filter(w => !learnedTodayWords.includes(w));
+  state.reviewWordSet = new Set(todayReviewWords);
 
+  currentLibData.forEach(w => {
+    const status = Storage.getStatus(w.word);
+    if (todayReviewWords.includes(w.word)) {
+      priorityReviews.push(w);
+    } else if (status.isWrongBook) {
+      // 错题次日复习：还没到复习日就不排进今天的队列
+      if (!status.wrongReviewDate || Date.now() >= status.wrongReviewDate) priorityReviews.push(w);
+    } else if (status.stage === 2 || status.stage === 3) {
+      otherReviews.push(w);
+    } else if (status.stage === 1) {
+      newWords.push(w);
+    } else if (status.stage === 4 && status.nextReview && Date.now() > status.nextReview) {
+      otherReviews.push(w);
+    }
+  });
+
+  // 超出上限先砍普通复习，今日明确标记的和到期错题优先
+  const pickedReviews = [
+    ...priorityReviews.sort(() => Math.random() - 0.5),
+    ...otherReviews.sort(() => Math.random() - 0.5)
+  ].slice(0, remainingReview);
   const pickedNewWords = newWords.sort(() => Math.random() - 0.5).slice(0, remainingNew);
-  reviewWords.sort(() => Math.random() - 0.5);
 
   let finalQueue = [];
   let rIndex = 0, nIndex = 0;
-  while (rIndex < reviewWords.length || nIndex < pickedNewWords.length) {
-    if (rIndex < reviewWords.length) finalQueue.push(reviewWords[rIndex++]);
-    if (rIndex < reviewWords.length && Math.random() > 0.5) finalQueue.push(reviewWords[rIndex++]);
+  while (rIndex < pickedReviews.length || nIndex < pickedNewWords.length) {
+    if (rIndex < pickedReviews.length) finalQueue.push(pickedReviews[rIndex++]);
+    if (rIndex < pickedReviews.length && Math.random() > 0.5) finalQueue.push(pickedReviews[rIndex++]);
     if (nIndex < pickedNewWords.length) finalQueue.push(pickedNewWords[nIndex++]);
   }
   return finalQueue;
@@ -90,6 +106,13 @@ function setHint(text, tone = "") {
   els.hint.textContent = text;
   if (tone) els.hint.dataset.tone = tone;
   else delete els.hint.dataset.tone;
+}
+
+// 示例可能包含目标词，只有学习阶段和判完卷后才展示，避免泄露听写/默写答案
+function setExample(text) {
+  if (!els.exampleLine) return;
+  els.exampleLine.hidden = !hasExample(text);
+  renderExample(els.exampleBody, text);
 }
 
 function renderTopNav() {
@@ -162,6 +185,7 @@ export function renderCurrent() {
     els.phonetic.textContent = "";
     els.slots.innerHTML = "";
     setHint("");
+    setExample("");
     els.stageSteps.dataset.stage = "0";
     els.nextBtn.disabled = true;
     renderProgress();
@@ -169,6 +193,7 @@ export function renderCurrent() {
   }
   state.current = state.queue[state.index];
   const status = Storage.getStatus(state.current.word);
+  state.isReview = state.reviewWordSet.has(state.current.word) || status.isWrongBook || status.stage >= 2;
 
   state.input = "";
   els.input.value = "";
@@ -176,6 +201,7 @@ export function renderCurrent() {
   state.waitingForRetry = false;
 
   setHint("输入对应的英文单词");
+  setExample(status.stage === 1 ? state.current.example : "");
   els.nextBtn.disabled = true;
 
   if (status.isWrongBook) {
@@ -224,6 +250,7 @@ function judge() {
   state.locked = true;
   els.meaning.textContent = state.current.meaning;
   els.phonetic.textContent = state.current.phonetic || "";
+  setExample(state.current.example);
 
   if (ok) {
     setHint("拼写正确", "correct");
@@ -233,6 +260,7 @@ function judge() {
   } else {
     let text = `应为 ${target}`;
     if (newStatus.isWrongBook && !oldStatus.isWrongBook) text += "，已记入错题本";
+    if (newStatus.isWrongBook && newStatus.wrongReviewDate > Date.now()) text += "，次日复习";
     setHint(text, "wrong");
     els.nextBtn.disabled = false;
     renderSlots(false, true);
@@ -313,6 +341,10 @@ function handlePhysicalInput(e) {
 }
 
 function handleGlobalKeyDown(e) {
+  // 全局快捷键只在练习页生效，避免在其他页面按回车/字母误触发练习判定
+  const practiceView = document.getElementById("view-practice");
+  if (!practiceView || !practiceView.classList.contains("active")) return;
+
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
     if (e.target.id !== 'hiddenInput' && e.target.id !== 'syncKeyInput') {
       return;
@@ -354,6 +386,7 @@ function handleSkip() {
   const newStatus = Storage.record(target, false, ""); 
   let text = `已跳过，答案为 ${target}`;
   if (newStatus.isWrongBook && !oldStatus.isWrongBook) text += "，已记入错题本";
+  if (newStatus.isWrongBook && newStatus.wrongReviewDate > Date.now()) text += "，次日复习";
   setHint(text, "wrong");
   state.locked = true;
   els.nextBtn.disabled = false;
@@ -367,6 +400,7 @@ export function nextWord() {
   
   if (state.current) {
     Storage.addDailyLearnedWord(state.current.word);
+    if (state.isReview) Storage.addDailyReviewedWord(state.current.word);
     wordsSinceLastSync++; // 每次学完一个词，计数器 +1
   }
 

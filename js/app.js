@@ -1,9 +1,10 @@
-import { Storage } from './storage.js';
-import { speak } from './modules/audio.js';
-import { fetchFromCloud } from './modules/sync.js';
-import { initPractice, setLibData, restartPractice, renderCurrent, nextWord } from './modules/practice.js';
-import { initManager, renderManagerList } from './modules/manager.js';
-import { triggerAutoSync } from './modules/sync.js';
+import { Storage } from './storage.js?v=9';
+import { speak } from './modules/audio.js?v=9';
+import { hasExample, exampleHtml, renderExample } from './modules/example.js?v=9';
+import { fetchFromCloud } from './modules/sync.js?v=9';
+import { initPractice, setLibData, restartPractice } from './modules/practice.js?v=9';
+import { initManager, renderManagerList } from './modules/manager.js?v=9';
+import { triggerAutoSync } from './modules/sync.js?v=9';
 
 const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 
@@ -23,6 +24,8 @@ const els = {
   stageSteps: document.getElementById("stageSteps"),
   meaning: document.getElementById("meaning"),
   phonetic: document.getElementById("phonetic"),
+  exampleLine: document.getElementById("exampleLine"),
+  exampleBody: document.getElementById("exampleBody"),
   speakBtn: document.getElementById("speakBtn"),
   slots: document.getElementById("slots"),
   input: document.getElementById("hiddenInput"),
@@ -34,12 +37,31 @@ const els = {
 
   wrongbookList: document.getElementById("wrongbookList"),
   masteredList: document.getElementById("masteredList"),
+  startReviewBtn: document.getElementById("startReviewBtn"),
+  reviewSession: document.getElementById("reviewSession"),
+  reviewCard: document.getElementById("reviewCard"),
+  reviewDone: document.getElementById("reviewDone"),
+  reviewDoneNote: document.getElementById("reviewDoneNote"),
+  reviewCount: document.getElementById("reviewCount"),
+  reviewWord: document.getElementById("reviewWord"),
+  reviewPhonetic: document.getElementById("reviewPhonetic"),
+  reviewMeaning: document.getElementById("reviewMeaning"),
+  reviewExample: document.getElementById("reviewExample"),
+  reviewExampleBody: document.getElementById("reviewExampleBody"),
+  reviewSpeakBtn: document.getElementById("reviewSpeakBtn"),
+  reviewKnowBtn: document.getElementById("reviewKnowBtn"),
+  reviewFuzzyBtn: document.getElementById("reviewFuzzyBtn"),
+  reviewUnknownBtn: document.getElementById("reviewUnknownBtn"),
+  exitReviewBtn: document.getElementById("exitReviewBtn"),
+  finishReviewBtn: document.getElementById("finishReviewBtn"),
 
   settingsModal: document.getElementById("settingsModal"),
   openSettingsBtn: document.getElementById("openSettingsBtn"),
   cancelSettingsBtn: document.getElementById("cancelSettingsBtn"),
   saveSettingsBtn: document.getElementById("saveSettingsBtn"),
   goalInput: document.getElementById("goalInput"),
+  reviewMultiplierSelect: document.getElementById("reviewMultiplierSelect"),
+  reviewLimitHint: document.getElementById("reviewLimitHint"),
   syncKeyDisplay: document.getElementById("syncKeyDisplay"),
   copySyncKeyBtn: document.getElementById("copySyncKeyBtn"),
   syncKeyInput: document.getElementById("syncKeyInput"),
@@ -168,6 +190,7 @@ function renderList(type) {
   const container = type === "wrongbook" ? els.wrongbookList : els.masteredList;
   const words = type === "wrongbook" ? Storage.getWrongBookWords() : Storage.getMasteredWords();
   container.innerHTML = "";
+  if (type === "mastered" && els.startReviewBtn) els.startReviewBtn.disabled = words.length === 0;
 
   if (words.length === 0) {
     const isWrong = type === "wrongbook";
@@ -187,6 +210,11 @@ function renderList(type) {
     if (type === "wrongbook" && w.status) {
       const total = w.status.totalErrors || 0;
       meta += `<p class="word-card-meta">累计错 <b>${total}</b> 次</p>`;
+      const todayCount = (w.status.dailyErrors || {})[Storage.getTodayString()] || 0;
+      if (todayCount) {
+        const pending = w.status.wrongReviewDate && Date.now() < w.status.wrongReviewDate;
+        meta += `<p class="word-card-meta">今日错 <b>${todayCount}</b> 次${pending ? " · 次日复习" : ""}</p>`;
+      }
       meta += spellRows(w.word, w.status.wrongSpellings);
     }
     if (type === "mastered" && w.status && w.status.nextReview) {
@@ -199,6 +227,7 @@ function renderList(type) {
         ${w.phonetic ? `<span class="word-card-phonetic">${escapeHtml(w.phonetic)}</span>` : ""}
       </div>
       <p class="word-card-meaning">${escapeHtml(w.meaning)}</p>
+      ${hasExample(w.example) ? `<p class="word-card-example"><span class="example-label">示例</span> ${exampleHtml(w.example)}</p>` : ""}
       ${meta}
       <div class="word-card-actions">
         <button class="icon-btn btn-icon" type="button" aria-label="播放 ${escapeHtml(w.word)} 发音">${icon("volume")}</button>
@@ -220,18 +249,101 @@ function renderList(type) {
   });
 }
 
+// --- 已掌握：快速复习 ---
+const review = { words: [], index: 0, counts: { know: 0, fuzzy: 0, unknown: 0 }, current: null, active: false };
+
+function renderReview() {
+  if (review.index >= review.words.length) {
+    review.current = null;
+    els.reviewCard.hidden = true;
+    els.reviewDone.hidden = false;
+    els.reviewCount.textContent = `${review.words.length} / ${review.words.length}`;
+    els.reviewDoneNote.textContent = `认识 ${review.counts.know} · 模糊 ${review.counts.fuzzy} · 不认识 ${review.counts.unknown}`;
+    return;
+  }
+  const w = review.words[review.index];
+  review.current = w;
+  els.reviewCard.hidden = false;
+  els.reviewDone.hidden = true;
+  els.reviewCount.textContent = `${review.index + 1} / ${review.words.length}`;
+  els.reviewWord.textContent = w.word;
+  els.reviewPhonetic.textContent = w.phonetic || "";
+  els.reviewMeaning.textContent = w.meaning;
+  els.reviewExample.hidden = !hasExample(w.example);
+  renderExample(els.reviewExampleBody, w.example);
+}
+
+function startQuickReview() {
+  review.words = Storage.getMasteredWords();
+  if (!review.words.length) return;
+  review.index = 0;
+  review.counts = { know: 0, fuzzy: 0, unknown: 0 };
+  review.active = true;
+  els.startReviewBtn.disabled = true;
+  els.reviewSession.hidden = false;
+  els.masteredList.hidden = true;
+  renderReview();
+}
+
+function closeQuickReview(rerender = true) {
+  review.active = false;
+  review.current = null;
+  els.reviewSession.hidden = true;
+  els.masteredList.hidden = false;
+  els.startReviewBtn.disabled = Storage.getMasteredWords().length === 0;
+  if (rerender) renderList("mastered");
+}
+
+function handleReviewChoice(kind) {
+  const w = review.words[review.index];
+  if (!w) return;
+  if (kind === "know") {
+    Storage.skipMasteredReview(w.word);
+    review.counts.know++;
+  } else if (kind === "fuzzy") {
+    Storage.addTodayReviewWord(w.word);
+    review.counts.fuzzy++;
+  } else {
+    Storage.demoteMasteredWord(w.word);
+    review.counts.unknown++;
+  }
+  triggerAutoSync();
+  review.index++;
+  renderReview();
+}
+
+els.startReviewBtn.addEventListener("click", startQuickReview);
+els.exitReviewBtn.addEventListener("click", () => closeQuickReview());
+els.finishReviewBtn.addEventListener("click", () => closeQuickReview());
+els.reviewSpeakBtn.addEventListener("click", () => review.current && speak(review.current.word));
+els.reviewKnowBtn.addEventListener("click", () => handleReviewChoice("know"));
+els.reviewFuzzyBtn.addEventListener("click", () => handleReviewChoice("fuzzy"));
+els.reviewUnknownBtn.addEventListener("click", () => handleReviewChoice("unknown"));
+
 // --- 设置弹窗 ---
+function updateReviewLimitHint() {
+  const goal = parseInt(els.goalInput.value, 10) || 0;
+  const mult = Number(els.reviewMultiplierSelect.value) || 2;
+  els.reviewLimitHint.textContent = `当前上限 ${Math.floor(goal * mult)} 词复习 / 天`;
+}
+
 els.openSettingsBtn.addEventListener("click", () => {
   const settings = Storage.getSettings();
   els.goalInput.value = settings.dailyGoal;
+  const mult = String(settings.reviewMultiplier ?? 2);
+  const options = [...els.reviewMultiplierSelect.options].map(o => o.value);
+  els.reviewMultiplierSelect.value = options.includes(mult) ? mult : "2";
+  updateReviewLimitHint();
   els.syncKeyDisplay.value = Storage.getSyncKey();
   els.settingsModal.classList.add("show");
 });
+els.goalInput.addEventListener("input", updateReviewLimitHint);
+els.reviewMultiplierSelect.addEventListener("change", updateReviewLimitHint);
 els.cancelSettingsBtn.addEventListener("click", () => els.settingsModal.classList.remove("show"));
 els.saveSettingsBtn.addEventListener("click", () => {
   const val = parseInt(els.goalInput.value, 10);
   if (val > 0) {
-    Storage.saveSettings({ dailyGoal: val });
+    Storage.saveSettings({ dailyGoal: val, reviewMultiplier: Number(els.reviewMultiplierSelect.value) || 2 });
     triggerAutoSync(); // 确保这里有这句，修改设置立刻同步
     els.settingsModal.classList.remove("show");
     window.location.reload(); 
@@ -315,6 +427,7 @@ async function initLibSelector() {
   els.libSelect.addEventListener("change", async (e) => {
     const newLibId = e.target.value;
     Storage.setCurrentLib(newLibId);
+    if (review.active) closeQuickReview(false);
     els.meaning.textContent = "正在加载词库";
     els.slots.innerHTML = "";
     await loadLibData(newLibId);
