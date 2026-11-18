@@ -339,6 +339,19 @@ button:disabled { cursor: not-allowed; }
 
 /* ---------- lists ---------- */
 
+.mastered-groups { display: flex; flex-direction: column; gap: 24px; }
+.mastered-group { display: flex; flex-direction: column; gap: 12px; }
+.mastered-group-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--line);
+}
+.mastered-group-name { font-family: var(--font-serif); font-size: 18px; color: var(--ink); }
+.mastered-group-count {
+  font-family: var(--font-mono); font-size: 12px;
+  font-variant-numeric: tabular-nums; color: var(--ink-3);
+}
+.review-lib { font-size: 12px; color: var(--ink-3); margin-left: auto; }
+
 .list-container { display: flex; flex-direction: column; gap: 8px; }
 .list-container--scroll { max-height: 60vh; overflow-y: auto; }
 .list-grid {
@@ -574,6 +587,12 @@ button:disabled { cursor: not-allowed; }
   animation: rise 200ms var(--ease) both;
 }
 .modal-title { font-family: var(--font-serif); font-size: 20px; font-weight: 500; margin-bottom: 24px; }
+.sync-conflict-desc { font-size: 13px; line-height: 1.6; color: var(--ink-2); }
+.sync-conflict-time {
+  margin-top: 12px; padding: 10px 12px;
+  background: var(--raised); border-radius: var(--radius-control);
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);
+}
 .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
 .form-group label { font-size: 12px; color: var(--ink-3); }
 .form-group input, .text-input {

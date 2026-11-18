@@ -28,3 +28,4 @@
 - 每日复习上限 = `floor(dailyGoal * reviewMultiplier)`，默认 2 倍，设置里可改 1/1.5/2/3；daily 的 `reviewedWords` 记录当天已完成复习（按词去重），`buildQueue()` 扣掉这部分再排复习。超限先砍普通复习，今日「模糊」标记和到期错题优先保留。
 - 词条可选 `example` 字段（`python.json` 有）：反引号内容渲染成代码 chip，其余纯文本，均需转义（`js/modules/example.js`）。练习页只在 stage 1 与判卷后显示示例——示例常含目标词，听写/默写阶段显示会泄题；列表卡片和快速复习卡片可常显。
 - `audio/` 的 527 个 wav 对应 `computer.json`。`speak()` 先 HEAD 探测 `./audio/<小写词>.wav`（结果按词缓存），命中播本地、否则走 TTS；本地查找用原始词条，不受 `SPEAK_OVERRIDES` 发音替换影响。
+- 已掌握页是**跨词库汇总**的，不跟随词库下拉框；每个词库各自独立保存已掌握集合（`Storage.getMasteredByLib()`）。快速复习覆盖全部分组，词条带 `libId`，三选一/删除都作用于其所属词库。跨库「模糊」写入该词库自己的 daily，切到该词库练习时才进队列。

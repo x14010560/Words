@@ -1,10 +1,10 @@
-import { Storage } from './storage.js?v=9';
-import { speak } from './modules/audio.js?v=9';
-import { hasExample, exampleHtml, renderExample } from './modules/example.js?v=9';
-import { fetchFromCloud } from './modules/sync.js?v=9';
-import { initPractice, setLibData, restartPractice } from './modules/practice.js?v=9';
-import { initManager, renderManagerList } from './modules/manager.js?v=9';
-import { triggerAutoSync } from './modules/sync.js?v=9';
+import { Storage } from './storage.js?v=11';
+import { speak } from './modules/audio.js?v=11';
+import { hasExample, exampleHtml, renderExample } from './modules/example.js?v=11';
+import { fetchFromCloud } from './modules/sync.js?v=11';
+import { initPractice, setLibData, restartPractice } from './modules/practice.js?v=11';
+import { initManager, renderManagerList } from './modules/manager.js?v=11';
+import { triggerAutoSync } from './modules/sync.js?v=11';
 
 const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 
@@ -43,6 +43,7 @@ const els = {
   reviewDone: document.getElementById("reviewDone"),
   reviewDoneNote: document.getElementById("reviewDoneNote"),
   reviewCount: document.getElementById("reviewCount"),
+  reviewLib: document.getElementById("reviewLib"),
   reviewWord: document.getElementById("reviewWord"),
   reviewPhonetic: document.getElementById("reviewPhonetic"),
   reviewMeaning: document.getElementById("reviewMeaning"),
@@ -185,67 +186,147 @@ function formatReviewDate(ts) {
   return `${d.getMonth() + 1} 月 ${d.getDate()} 日`;
 }
 
+// --- 词库元数据（用于按来源分组显示已掌握词） ---
+const libMeta = { index: null, words: new Map() };
+
+async function ensureLibIndex() {
+  if (!libMeta.index) {
+    try {
+      const res = await fetch('./data/index.json');
+      libMeta.index = res.ok ? await res.json() : [];
+    } catch { libMeta.index = []; }
+  }
+  return libMeta.index;
+}
+
+async function getLibWords(libId) {
+  if (libId === 'custom') return Storage.getCustomLib();
+  if (!libMeta.words.has(libId)) {
+    let words = [];
+    try {
+      const res = await fetch(`./data/official/${libId}.json`);
+      if (res.ok) words = await res.json();
+    } catch {}
+    libMeta.words.set(libId, words);
+  }
+  return libMeta.words.get(libId);
+}
+
+function libDisplayName(libId) {
+  const entry = (libMeta.index || []).find(x => x.id === libId);
+  return entry ? entry.name : (libId === 'custom' ? '我的词库' : libId);
+}
+
+async function loadMasteredGroups() {
+  await ensureLibIndex();
+  const groups = [];
+  for (const group of Storage.getMasteredByLib()) {
+    const words = await getLibWords(group.libId);
+    const byWord = new Map(words.map(w => [w.word, w]));
+    const entries = group.words.map(({ word, status }) => ({
+      ...(byWord.get(word) || { word, meaning: '未知', phonetic: '' }),
+      status, libId: group.libId, libName: libDisplayName(group.libId)
+    }));
+    groups.push({ libId: group.libId, name: libDisplayName(group.libId), entries });
+  }
+  return groups;
+}
+
 // --- 列表渲染 ---
 function renderList(type) {
-  const container = type === "wrongbook" ? els.wrongbookList : els.masteredList;
-  const words = type === "wrongbook" ? Storage.getWrongBookWords() : Storage.getMasteredWords();
+  if (type === "mastered") { renderMastered(); return; }
+  const container = els.wrongbookList;
+  const words = Storage.getWrongBookWords();
   container.innerHTML = "";
-  if (type === "mastered" && els.startReviewBtn) els.startReviewBtn.disabled = words.length === 0;
-
   if (words.length === 0) {
-    const isWrong = type === "wrongbook";
     container.innerHTML = `
       <div class="empty">
-        <p class="empty-title">${isWrong ? "还没有错题" : "还没有已掌握的词"}</p>
-        <p class="empty-hint">${isWrong ? "连续拼错两次的词会出现在这里" : "完成学习、听写、默写后进入定期复习"}</p>
+        <p class="empty-title">还没有错题</p>
+        <p class="empty-hint">连续拼错两次的词会出现在这里</p>
+      </div>`;
+    return;
+  }
+  words.forEach(w => container.appendChild(createWordCard(w, "wrongbook")));
+}
+
+function createWordCard(w, type, libId) {
+  const card = document.createElement("article");
+  card.className = "word-card";
+
+  let meta = "";
+  if (type === "wrongbook" && w.status) {
+    const total = w.status.totalErrors || 0;
+    meta += `<p class="word-card-meta">累计错 <b>${total}</b> 次</p>`;
+    const todayCount = (w.status.dailyErrors || {})[Storage.getTodayString()] || 0;
+    if (todayCount) {
+      const pending = w.status.wrongReviewDate && Date.now() < w.status.wrongReviewDate;
+      meta += `<p class="word-card-meta">今日错 <b>${todayCount}</b> 次${pending ? " · 次日复习" : ""}</p>`;
+    }
+    meta += spellRows(w.word, w.status.wrongSpellings);
+  }
+  if (type === "mastered" && w.status && w.status.nextReview) {
+    meta += `<p class="word-card-meta">下次复习 ${formatReviewDate(w.status.nextReview)}</p>`;
+  }
+
+  card.innerHTML = `
+    <div class="word-card-head">
+      <span class="word-card-word">${escapeHtml(w.word)}</span>
+      ${w.phonetic ? `<span class="word-card-phonetic">${escapeHtml(w.phonetic)}</span>` : ""}
+    </div>
+    <p class="word-card-meaning">${escapeHtml(w.meaning)}</p>
+    ${hasExample(w.example) ? `<p class="word-card-example"><span class="example-label">示例</span> ${exampleHtml(w.example)}</p>` : ""}
+    ${meta}
+    <div class="word-card-actions">
+      <button class="icon-btn btn-icon" type="button" aria-label="播放 ${escapeHtml(w.word)} 发音">${icon("volume")}</button>
+      <button class="icon-btn btn-icon btn-delete" type="button" aria-label="移除 ${escapeHtml(w.word)}">${icon("trash")}</button>
+    </div>
+  `;
+
+  card.querySelector(".btn-icon:not(.btn-delete)").addEventListener("click", () => speak(w.word));
+
+  card.querySelector(".btn-delete").addEventListener("click", () => {
+    if (confirm(`确定将 "${w.word}" 移出已掌握并重置该词库的学习进度吗？`)) {
+      Storage.removeWordStatus(w.word, libId);
+      triggerAutoSync();
+      if (type === "mastered") renderMastered(); else renderList("wrongbook");
+    }
+  });
+
+  return card;
+}
+
+let masteredRenderId = 0;
+async function renderMastered() {
+  const renderId = ++masteredRenderId;
+  const groups = await loadMasteredGroups();
+  if (renderId !== masteredRenderId) return;
+
+  const container = els.masteredList;
+  const total = groups.reduce((n, g) => n + g.entries.length, 0);
+  els.startReviewBtn.disabled = total === 0;
+  container.innerHTML = "";
+
+  if (!total) {
+    container.innerHTML = `
+      <div class="empty">
+        <p class="empty-title">还没有已掌握的词</p>
+        <p class="empty-hint">完成学习、听写、默写后进入定期复习</p>
       </div>`;
     return;
   }
 
-  words.forEach(w => {
-    const card = document.createElement("article");
-    card.className = "word-card";
-
-    let meta = "";
-    if (type === "wrongbook" && w.status) {
-      const total = w.status.totalErrors || 0;
-      meta += `<p class="word-card-meta">累计错 <b>${total}</b> 次</p>`;
-      const todayCount = (w.status.dailyErrors || {})[Storage.getTodayString()] || 0;
-      if (todayCount) {
-        const pending = w.status.wrongReviewDate && Date.now() < w.status.wrongReviewDate;
-        meta += `<p class="word-card-meta">今日错 <b>${todayCount}</b> 次${pending ? " · 次日复习" : ""}</p>`;
-      }
-      meta += spellRows(w.word, w.status.wrongSpellings);
-    }
-    if (type === "mastered" && w.status && w.status.nextReview) {
-      meta += `<p class="word-card-meta">下次复习 ${formatReviewDate(w.status.nextReview)}</p>`;
-    }
-
-    card.innerHTML = `
-      <div class="word-card-head">
-        <span class="word-card-word">${escapeHtml(w.word)}</span>
-        ${w.phonetic ? `<span class="word-card-phonetic">${escapeHtml(w.phonetic)}</span>` : ""}
+  groups.forEach(group => {
+    const section = document.createElement("section");
+    section.className = "mastered-group";
+    section.innerHTML = `
+      <div class="mastered-group-head">
+        <span class="mastered-group-name">${escapeHtml(group.name)}</span>
+        <span class="mastered-group-count">${group.entries.length} 词</span>
       </div>
-      <p class="word-card-meaning">${escapeHtml(w.meaning)}</p>
-      ${hasExample(w.example) ? `<p class="word-card-example"><span class="example-label">示例</span> ${exampleHtml(w.example)}</p>` : ""}
-      ${meta}
-      <div class="word-card-actions">
-        <button class="icon-btn btn-icon" type="button" aria-label="播放 ${escapeHtml(w.word)} 发音">${icon("volume")}</button>
-        <button class="icon-btn btn-icon btn-delete" type="button" aria-label="移除 ${escapeHtml(w.word)}">${icon("trash")}</button>
-      </div>
-    `;
-
-    card.querySelector(".btn-icon:not(.btn-delete)").addEventListener("click", () => speak(w.word));
-
-    card.querySelector(".btn-delete").addEventListener("click", () => {
-      if (confirm(`确定将 "${w.word}" 移出列表并重置学习进度吗？`)) {
-        Storage.removeWordStatus(w.word);
-        triggerAutoSync();
-        renderList(type);
-      }
-    });
-
-    container.appendChild(card);
+      <div class="list-grid"></div>`;
+    const grid = section.querySelector(".list-grid");
+    group.entries.forEach(w => grid.appendChild(createWordCard(w, "mastered", group.libId)));
+    container.appendChild(section);
   });
 }
 
@@ -266,6 +347,7 @@ function renderReview() {
   els.reviewCard.hidden = false;
   els.reviewDone.hidden = true;
   els.reviewCount.textContent = `${review.index + 1} / ${review.words.length}`;
+  els.reviewLib.textContent = w.libName || "";
   els.reviewWord.textContent = w.word;
   els.reviewPhonetic.textContent = w.phonetic || "";
   els.reviewMeaning.textContent = w.meaning;
@@ -273,8 +355,9 @@ function renderReview() {
   renderExample(els.reviewExampleBody, w.example);
 }
 
-function startQuickReview() {
-  review.words = Storage.getMasteredWords();
+async function startQuickReview() {
+  const groups = await loadMasteredGroups();
+  review.words = groups.flatMap(g => g.entries);
   if (!review.words.length) return;
   review.index = 0;
   review.counts = { know: 0, fuzzy: 0, unknown: 0 };
@@ -290,7 +373,7 @@ function closeQuickReview(rerender = true) {
   review.current = null;
   els.reviewSession.hidden = true;
   els.masteredList.hidden = false;
-  els.startReviewBtn.disabled = Storage.getMasteredWords().length === 0;
+  els.startReviewBtn.disabled = Storage.getMasteredByLib().every(g => !g.words.length);
   if (rerender) renderList("mastered");
 }
 
@@ -298,13 +381,13 @@ function handleReviewChoice(kind) {
   const w = review.words[review.index];
   if (!w) return;
   if (kind === "know") {
-    Storage.skipMasteredReview(w.word);
+    Storage.skipMasteredReview(w.word, w.libId);
     review.counts.know++;
   } else if (kind === "fuzzy") {
-    Storage.addTodayReviewWord(w.word);
+    Storage.addTodayReviewWord(w.word, w.libId);
     review.counts.fuzzy++;
   } else {
-    Storage.demoteMasteredWord(w.word);
+    Storage.demoteMasteredWord(w.word, w.libId);
     review.counts.unknown++;
   }
   triggerAutoSync();

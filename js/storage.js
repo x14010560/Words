@@ -5,8 +5,8 @@ export const Storage = {
   getCurrentLib() { return localStorage.getItem(CURRENT_LIB_KEY) || "computer"; },
   setCurrentLib(id) { localStorage.setItem(CURRENT_LIB_KEY, id); },
 
-  getKeys() {
-    const lib = this.getCurrentLib();
+  getKeys(libId) {
+    const lib = libId || this.getCurrentLib();
     return {
       progress: `${KEY_PREFIX}progress_${lib}`,
       settings: `${KEY_PREFIX}settings_${lib}`,
@@ -27,19 +27,19 @@ export const Storage = {
     return d.getTime();
   },
 
-  loadAll() {
-    try { return JSON.parse(localStorage.getItem(this.getKeys().progress)) || {}; } catch { return {}; }
+  loadAll(libId) {
+    try { return JSON.parse(localStorage.getItem(this.getKeys(libId).progress)) || {}; } catch { return {}; }
   },
   
-  saveAll(data) { localStorage.setItem(this.getKeys().progress, JSON.stringify(data)); },
+  saveAll(data, libId) { localStorage.setItem(this.getKeys(libId).progress, JSON.stringify(data)); },
 
-  getStatus(word) {
-    const all = this.loadAll();
+  getStatus(word, libId) {
+    const all = this.loadAll(libId);
     return all[word] || { stage: 1, consecutiveCorrect: 0, consecutiveErrors: 0, isWrongBook: false, dailyErrors: {}, streakDate: "" };
   },
 
-  record(word, isCorrect, userInput = "") {
-    const all = this.loadAll();
+  record(word, isCorrect, userInput = "", libId) {
+    const all = this.loadAll(libId);
     let item = all[word] || { 
       stage: 1, 
       consecutiveCorrect: 0, 
@@ -139,12 +139,12 @@ export const Storage = {
     }
     
     all[word] = item;
-    this.saveAll(all);
+    this.saveAll(all, libId);
     return item; 
   },
 
-  getStats() {
-    const all = this.loadAll();
+  getStats(libId) {
+    const all = this.loadAll(libId);
     let mastered = 0, wrongBook = 0;
     for (const k in all) {
       if (all[k].isWrongBook) wrongBook++;
@@ -153,69 +153,95 @@ export const Storage = {
     return { mastered, wrongBook };
   },
 
-  getWrongBookWords() {
-    const all = this.loadAll();
+  getWrongBookWords(libId) {
+    const all = this.loadAll(libId);
     return Object.keys(all).filter(k => all[k].isWrongBook).map(k => {
       const wordData = (window.currentLibDataCache || []).find(w => w.word === k) || { word: k, meaning: "未知", phonetic: "" };
       return { ...wordData, status: all[k] };
     });
   },
 
-  getMasteredWords() {
-    const all = this.loadAll();
+  getMasteredWords(libId) {
+    const all = this.loadAll(libId);
     return Object.keys(all).filter(k => all[k].stage === 4 && !all[k].isWrongBook).map(k => {
       const wordData = (window.currentLibDataCache || []).find(w => w.word === k) || { word: k, meaning: "未知", phonetic: "" };
       return { ...wordData, status: all[k] };
     });
   },
 
-  getSettings() {
+  // 所有词库的已掌握词：每个词库独立存放，页面再按来源分组汇总
+  getAllLibIdsWithProgress() {
+    const prefix = `${KEY_PREFIX}progress_`;
+    const ids = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(prefix)) {
+        const id = key.slice(prefix.length);
+        if (id && !ids.includes(id)) ids.push(id);
+      }
+    }
+    return ids;
+  },
+
+  getMasteredByLib() {
+    const groups = [];
+    for (const libId of this.getAllLibIdsWithProgress()) {
+      const all = this.loadAll(libId);
+      const words = Object.keys(all)
+        .filter(k => all[k].stage === 4 && !all[k].isWrongBook)
+        .map(k => ({ word: k, status: all[k] }));
+      if (words.length) groups.push({ libId, words });
+    }
+    return groups;
+  },
+
+  getSettings(libId) {
     const defaults = { dailyGoal: 20, reviewMultiplier: 2 };
-    try { return { ...defaults, ...(JSON.parse(localStorage.getItem(this.getKeys().settings)) || {}) }; }
+    try { return { ...defaults, ...(JSON.parse(localStorage.getItem(this.getKeys(libId).settings)) || {}) }; }
     catch { return { ...defaults }; }
   },
 
-  saveSettings(settings) { localStorage.setItem(this.getKeys().settings, JSON.stringify(settings)); },
+  saveSettings(settings, libId) { localStorage.setItem(this.getKeys(libId).settings, JSON.stringify(settings)); },
 
-  getDailyStats() {
+  getDailyStats(libId) {
     try {
-      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const all = JSON.parse(localStorage.getItem(this.getKeys(libId).daily)) || {};
       return all[this.getTodayString()] || { learnedWords: [], reviewedWords: [] };
     } catch { return { learnedWords: [], reviewedWords: [] }; }
   },
 
-  getDailyHistory() {
-    try { return JSON.parse(localStorage.getItem(this.getKeys().daily)) || {}; } catch { return {}; }
+  getDailyHistory(libId) {
+    try { return JSON.parse(localStorage.getItem(this.getKeys(libId).daily)) || {}; } catch { return {}; }
   },
 
-  addDailyLearnedWord(word) {
+  addDailyLearnedWord(word, libId) {
     try {
-      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const all = JSON.parse(localStorage.getItem(this.getKeys(libId).daily)) || {};
       const today = this.getTodayString();
       if (!all[today]) all[today] = { learnedWords: [] };
       if (!all[today].learnedWords.includes(word)) {
         all[today].learnedWords.push(word);
-        localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
+        localStorage.setItem(this.getKeys(libId).daily, JSON.stringify(all));
       }
     } catch {}
   },
 
-  addDailyReviewedWord(word) {
+  addDailyReviewedWord(word, libId) {
     try {
-      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const all = JSON.parse(localStorage.getItem(this.getKeys(libId).daily)) || {};
       const today = this.getTodayString();
       if (!all[today]) all[today] = { learnedWords: [] };
       if (!Array.isArray(all[today].reviewedWords)) all[today].reviewedWords = [];
       if (!all[today].reviewedWords.includes(word)) {
         all[today].reviewedWords.push(word);
-        localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
+        localStorage.setItem(this.getKeys(libId).daily, JSON.stringify(all));
       }
     } catch {}
   },
 
   // 每日复习上限 = 每日计划 × 倍数（向下取整）
-  getReviewLimit() {
-    const settings = this.getSettings();
+  getReviewLimit(libId) {
+    const settings = this.getSettings(libId);
     const multiplier = Number(settings.reviewMultiplier) || 2;
     return Math.max(0, Math.floor((settings.dailyGoal || 20) * multiplier));
   },
@@ -223,51 +249,52 @@ export const Storage = {
   // --- 已掌握 · 快速复习 ---
 
   // 认识：跳过本次复习，按当前间隔顺延下次复习（间隔倍数不变）
-  skipMasteredReview(word) {
-    const all = this.loadAll();
+  skipMasteredReview(word, libId) {
+    const all = this.loadAll(libId);
     const item = all[word];
     if (!item || item.stage !== 4 || item.isWrongBook) return;
     const days = Math.max(3, item.interval || 3);
     item.nextReview = Date.now() + days * 24 * 60 * 60 * 1000;
     all[word] = item;
-    this.saveAll(all);
+    this.saveAll(all, libId);
   },
 
-  // 模糊：加入当日复习队列
-  addTodayReviewWord(word) {
+  // 模糊：加入对应词库的当日复习队列
+  addTodayReviewWord(word, libId) {
     try {
-      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const all = JSON.parse(localStorage.getItem(this.getKeys(libId).daily)) || {};
       const today = this.getTodayString();
       if (!all[today]) all[today] = { learnedWords: [] };
       if (!all[today].reviewWords) all[today].reviewWords = [];
       if (!all[today].reviewWords.includes(word)) {
         all[today].reviewWords.push(word);
-        localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
+        localStorage.setItem(this.getKeys(libId).daily, JSON.stringify(all));
       }
     } catch {}
   },
 
-  removeTodayReviewWord(word) {
+  removeTodayReviewWord(word, libId) {
     try {
-      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const key = this.getKeys(libId).daily;
+      const all = JSON.parse(localStorage.getItem(key)) || {};
       const today = all[this.getTodayString()];
       if (!today || !Array.isArray(today.reviewWords)) return;
       today.reviewWords = today.reviewWords.filter(w => w !== word);
-      localStorage.setItem(this.getKeys().daily, JSON.stringify(all));
+      localStorage.setItem(key, JSON.stringify(all));
     } catch {}
   },
 
-  getTodayReviewWords() {
+  getTodayReviewWords(libId) {
     try {
-      const all = JSON.parse(localStorage.getItem(this.getKeys().daily)) || {};
+      const all = JSON.parse(localStorage.getItem(this.getKeys(libId).daily)) || {};
       const today = all[this.getTodayString()];
       return today && Array.isArray(today.reviewWords) ? today.reviewWords : [];
     } catch { return []; }
   },
 
   // 不认识：移出已掌握，回到第 1 阶段重新学习
-  demoteMasteredWord(word) {
-    const all = this.loadAll();
+  demoteMasteredWord(word, libId) {
+    const all = this.loadAll(libId);
     const item = all[word];
     if (!item) return;
     item.stage = 1;
@@ -277,8 +304,8 @@ export const Storage = {
     item.consecutiveErrors = 0;
     item.isWrongBook = false;
     all[word] = item;
-    this.saveAll(all);
-    this.removeTodayReviewWord(word);
+    this.saveAll(all, libId);
+    this.removeTodayReviewWord(word, libId);
   },
 
   getCustomLib() {
@@ -309,15 +336,15 @@ export const Storage = {
   },
 
   getSyncData() {
-    return { progress: this.getAllLocalData(), customLib: this.getCustomLib() };
+    return { progress: this.getAllLocalData(), customLib: this.getCustomLib(), updatedAt: Date.now() };
   },
 
   // --- 删除单个单词进度 ---
-  removeWordStatus(word) {
-    const all = this.loadAll();
+  removeWordStatus(word, libId) {
+    const all = this.loadAll(libId);
     if (all[word]) {
       delete all[word];
-      this.saveAll(all);
+      this.saveAll(all, libId);
     }
   },
 

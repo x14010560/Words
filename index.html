@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
   <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@
         <header class="view-head">
           <div class="view-head-text">
             <h2 class="view-title">已掌握</h2>
-            <p class="view-desc">完成学习、听写、默写后进入定期复习</p>
+            <p class="view-desc">汇总所有词库的已掌握词，按来源词库分组</p>
           </div>
           <div class="view-head-actions">
             <button class="btn" id="startReviewBtn" type="button"><svg class="icon"><use href="#i-rotate"/></svg>快速复习</button>
@@ -145,6 +145,7 @@
           <div class="review-session-head">
             <span class="pane-label">快速复习</span>
             <span class="review-count" id="reviewCount">1 / 0</span>
+            <span class="review-lib" id="reviewLib"></span>
             <button class="icon-btn" id="exitReviewBtn" type="button" aria-label="退出快速复习"><svg class="icon"><use href="#i-x"/></svg></button>
           </div>
           <div class="review-card" id="reviewCard">
@@ -174,7 +175,7 @@
           <p class="review-foot">认识：跳过本次复习 · 模糊：加入今日复习 · 不认识：移出已掌握</p>
         </section>
 
-        <div class="list-grid" id="masteredList"></div>
+        <div class="mastered-groups" id="masteredList"></div>
       </div>
 
       <div id="view-stats" class="view">
@@ -256,6 +257,18 @@
     </main>
   </div>
 
+  <div class="modal-overlay" id="syncConflictModal" role="dialog" aria-modal="true" aria-labelledby="syncConflictTitle">
+    <div class="modal-content">
+      <h3 class="modal-title" id="syncConflictTitle">云端与本地进度冲突</h3>
+      <p class="sync-conflict-desc">两边都有学习记录，请选择保留哪一份。下载会覆盖本地进度，上传会用本地进度覆盖云端。</p>
+      <p class="sync-conflict-time" id="syncConflictTime">云端未记录同步时间</p>
+      <div class="modal-actions">
+        <button class="btn" id="downloadCloudBtn" type="button">下载到本地</button>
+        <button class="btn primary" id="uploadCloudBtn" type="button">上传到云端</button>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="modal-content">
       <h3 class="modal-title" id="settingsTitle">学习计划与同步</h3>
@@ -295,6 +308,6 @@
   </div>
 
   <script src="js/typing.js"></script>
-  <script type="module" src="js/app.js?v=9"></script>
+  <script type="module" src="js/app.js?v=11"></script>
 </body>
 </html>

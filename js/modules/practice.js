@@ -1,7 +1,7 @@
-import { Storage } from '../storage.js?v=9';
-import { speak } from './audio.js?v=9';
-import { hasExample, renderExample } from './example.js?v=9';
-import { triggerAutoSync } from './sync.js?v=9';
+import { Storage } from '../storage.js?v=11';
+import { speak } from './audio.js?v=11';
+import { hasExample, renderExample } from './example.js?v=11';
+import { triggerAutoSync } from './sync.js?v=11';
 
 const state = { queue: [], index: 0, current: null, input: "", locked: false, waitingForRetry: false, reviewWordSet: new Set(), isReview: false };
 let wordsSinceLastSync = 0; // 距离上次同步学了多少个词

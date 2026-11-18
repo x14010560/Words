@@ -36,6 +36,9 @@ export async function onRequest(context) {
     try {
       const body = await request.json();
       
+      // 服务端记录写入时间，供冲突对话框显示云端文件的同步时间
+      body.syncedAt = new Date().toISOString();
+      
       // 存入 KV 数据库
       await env.WORD_KV.put(`data_${syncKey}`, JSON.stringify(body));
       

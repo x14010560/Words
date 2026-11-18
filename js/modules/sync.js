@@ -1,6 +1,39 @@
-import { Storage } from '../storage.js?v=9';
+import { Storage } from '../storage.js?v=11';
 
 let syncTimer = null;
+
+function formatSyncTime(data) {
+  const raw = data.syncedAt || data.updatedAt;
+  if (!raw) return '云端未记录同步时间';
+  const d = new Date(typeof raw === 'number' ? raw : raw.replace(' ', 'T'));
+  if (isNaN(d.getTime())) return '云端同步时间未知';
+  return `云端同步时间：${d.toLocaleString('zh-CN', { hour12: false })}`;
+}
+
+// 冲突时由用户决定：下载（云端覆盖本地）/ 上传（本地覆盖云端）
+function askSyncConflict(timeText) {
+  return new Promise(resolve => {
+    const modal = document.getElementById('syncConflictModal');
+    const timeEl = document.getElementById('syncConflictTime');
+    const downloadBtn = document.getElementById('downloadCloudBtn');
+    const uploadBtn = document.getElementById('uploadCloudBtn');
+    if (!modal || !downloadBtn || !uploadBtn) { resolve(false); return; }
+
+    if (timeEl) timeEl.textContent = timeText;
+    modal.classList.add('show');
+
+    const finish = choice => {
+      modal.classList.remove('show');
+      downloadBtn.removeEventListener('click', onDownload);
+      uploadBtn.removeEventListener('click', onUpload);
+      resolve(choice);
+    };
+    const onDownload = () => finish(true);
+    const onUpload = () => finish(false);
+    downloadBtn.addEventListener('click', onDownload);
+    uploadBtn.addEventListener('click', onUpload);
+  });
+}
 
 export function triggerAutoSync() {
   clearTimeout(syncTimer);
@@ -34,15 +67,14 @@ export async function fetchFromCloud() {
       const hasLocalData = Object.keys(localProgress).some(k => k.includes('progress_') && localProgress[k] !== '{}');
 
       if (hasLocalData) {
-        // 如果本地已经有学习记录，先问用户要不要覆盖
-        if (confirm("检测到云端有更新的进度。\n\n点击“确定”将拉取云端进度并覆盖本地；\n点击“取消”保留当前本地进度（稍后会由本地覆盖云端）。")) {
+        const download = await askSyncConflict(formatSyncTime(data));
+        if (download) {
           Storage.applySyncData(data);
           return true;
-        } else {
-          // 用户选择不覆盖，那我们就触发一次同步，把本地的新数据传上去
-          triggerAutoSync();
-          return false;
         }
+        // 上传到云端：保留本地进度并触发一次同步覆盖云端
+        triggerAutoSync();
+        return false;
       } else {
         // 本地是空的（比如新手机第一次打开），直接静默拉取云端
         Storage.applySyncData(data);
