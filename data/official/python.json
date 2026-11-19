@@ -30,9 +30,15 @@
     "example": "`next(g)`"
   },
   {
-    "word": "iter / iterator",
-    "phonetic": "/ˈɪtə(r) / ˈɪtəreɪtə(r)/",
-    "meaning": "能一个个吐东西的东西",
+    "word": "iter",
+    "phonetic": "/ˈɪtə(r)/",
+    "meaning": "把东西变成迭代器的工具",
+    "example": "`iter([1,2])`"
+  },
+  {
+    "word": "iterator",
+    "phonetic": "/ˈɪtəreɪtə(r)/",
+    "meaning": "能一个个吐东西的对象",
     "example": "`iter([1,2])`"
   },
   {
@@ -66,15 +72,27 @@
     "example": "—"
   },
   {
-    "word": "mutable / immutable",
-    "phonetic": "/ˈmjuːtəbl / ɪˈmjuːtəbl/",
+    "word": "mutable",
+    "phonetic": "/ˈmjuːtəbl/",
     "meaning": "能不能原地改",
-    "example": "list / tuple"
+    "example": "list"
   },
   {
-    "word": "copy / deepcopy",
-    "phonetic": "/ˈkɒpi / ˈdiːpkɒpi/",
-    "meaning": "浅复制 / 深复制",
+    "word": "immutable",
+    "phonetic": "/ɪˈmjuːtəbl/",
+    "meaning": "能不能原地改",
+    "example": "tuple"
+  },
+  {
+    "word": "copy",
+    "phonetic": "/ˈkɒpi/",
+    "meaning": "浅复制",
+    "example": "`import copy`"
+  },
+  {
+    "word": "deepcopy",
+    "phonetic": "/ˈdiːpkɒpi/",
+    "meaning": "深复制",
     "example": "`import copy`"
   },
   {
@@ -102,21 +120,39 @@
     "example": "见阶段一 1.3"
   },
   {
-    "word": "with / context manager",
-    "phonetic": "/wɪð / ˈkɒntekst ˈmænɪdʒə(r)/",
+    "word": "with",
+    "phonetic": "/wɪð/",
     "meaning": "自动收尾的块",
     "example": "`with open(...)`"
   },
   {
-    "word": "attribute / instance",
-    "phonetic": "/ˈætrɪbjuːt / ˈɪnstəns/",
-    "meaning": "属性 / 实例",
+    "word": "context manager",
+    "phonetic": "/ˈkɒntekst ˈmænɪdʒə(r)/",
+    "meaning": "自动收尾的块",
+    "example": "`with open(...)`"
+  },
+  {
+    "word": "attribute",
+    "phonetic": "/ˈætrɪbjuːt/",
+    "meaning": "属性",
     "example": "`self.x`"
   },
   {
-    "word": "inherit / override",
-    "phonetic": "/ɪnˈherɪt / ˌəʊvəˈraɪd/",
-    "meaning": "继承 / 覆盖",
+    "word": "instance",
+    "phonetic": "/ˈɪnstəns/",
+    "meaning": "实例",
+    "example": "`self.x`"
+  },
+  {
+    "word": "inherit",
+    "phonetic": "/ɪnˈherɪt/",
+    "meaning": "继承",
+    "example": "`class B(A)`"
+  },
+  {
+    "word": "override",
+    "phonetic": "/ˌəʊvəˈraɪd/",
+    "meaning": "覆盖",
     "example": "`class B(A)`"
   },
   {
@@ -144,9 +180,15 @@
     "example": "list/str/dict"
   },
   {
-    "word": "module / import",
-    "phonetic": "/ˈmɒdjuːl / ɪmˈpɔːt/",
-    "meaning": "模块 / 导入",
+    "word": "module",
+    "phonetic": "/ˈmɒdjuːl/",
+    "meaning": "模块",
+    "example": "—"
+  },
+  {
+    "word": "import",
+    "phonetic": "/ɪmˈpɔːt/",
+    "meaning": "导入",
     "example": "—"
   },
   {
@@ -156,9 +198,15 @@
     "example": "—"
   },
   {
-    "word": "is vs ==",
-    "phonetic": "/ɪz / ˈiːkwəl/",
-    "meaning": "是不是同一个东西 / 值是否相等",
+    "word": "is",
+    "phonetic": "/ɪz/",
+    "meaning": "是不是同一个东西",
+    "example": "易混点"
+  },
+  {
+    "word": "==",
+    "phonetic": "/ˈiːkwəlz/",
+    "meaning": "值是否相等",
     "example": "易混点"
   },
   {
@@ -168,9 +216,15 @@
     "example": "—"
   },
   {
-    "word": "argument / parameter",
-    "phonetic": "/ˈɑːɡjumənt / pəˈræmɪtə(r)/",
-    "meaning": "实参 / 形参",
+    "word": "argument",
+    "phonetic": "/ˈɑːɡjumənt/",
+    "meaning": "实参",
+    "example": "—"
+  },
+  {
+    "word": "parameter",
+    "phonetic": "/pəˈræmɪtə(r)/",
+    "meaning": "形参",
     "example": "—"
   },
   {
