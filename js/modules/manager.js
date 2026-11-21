@@ -1,6 +1,6 @@
-import { Storage } from '../storage.js?v=11';
-import { speak } from './audio.js?v=11';
-import { triggerAutoSync } from './sync.js?v=11';
+import { Storage } from '../storage.js?v=13';
+import { speak } from './audio.js?v=13';
+import { triggerAutoSync } from './sync.js?v=13';
 
 let els = {};
 const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;

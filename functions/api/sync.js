@@ -35,7 +35,23 @@ export async function onRequest(context) {
   if (request.method === "POST") {
     try {
       const body = await request.json();
-      
+
+      // 手动上传：5 分钟内只允许一次，防止被反复提交
+      if (body.manual) {
+        const cooldownMs = 5 * 60 * 1000;
+        const rateKey = `rate_${syncKey}`;
+        const lastRaw = await env.WORD_KV.get(rateKey);
+        const last = lastRaw ? Number(lastRaw) : 0;
+        const elapsed = Date.now() - last;
+        if (last && elapsed < cooldownMs) {
+          return new Response(JSON.stringify({ error: "上传过于频繁", retryAfter: Math.ceil((cooldownMs - elapsed) / 1000) }), {
+            status: 429,
+            headers: { "Content-Type": "application/json", ...corsHeaders },
+          });
+        }
+        await env.WORD_KV.put(rateKey, String(Date.now()), { expirationTtl: 300 });
+      }
+
       // 服务端记录写入时间，供冲突对话框显示云端文件的同步时间
       body.syncedAt = new Date().toISOString();
       

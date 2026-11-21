@@ -333,13 +333,29 @@ button:disabled { cursor: not-allowed; }
 
 .view-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .view-head-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.view-head-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.view-head-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.scope-switch {
+  display: inline-flex; flex: none; padding: 2px;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-control);
+  background: var(--raised);
+}
+.scope-btn {
+  height: 28px; padding: 0 12px;
+  border: 0; border-radius: 6px;
+  background: transparent; color: var(--ink-3); font-size: 12px;
+  transition: background-color 140ms var(--ease), color 140ms var(--ease);
+}
+.scope-btn:hover { color: var(--ink); }
+.scope-btn.active {
+  background: var(--card); color: var(--ink); font-weight: 500;
+  box-shadow: 0 1px 3px rgba(31, 27, 22, 0.08);
+}
 .view-title { font-family: var(--font-serif); font-size: 28px; font-weight: 500; color: var(--ink); }
 .view-desc { font-size: 13px; color: var(--ink-3); }
 
 /* ---------- lists ---------- */
 
-.mastered-groups { display: flex; flex-direction: column; gap: 24px; }
+.grouped-lists { display: flex; flex-direction: column; gap: 24px; }
 .mastered-group { display: flex; flex-direction: column; gap: 12px; }
 .mastered-group-head {
   display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
@@ -617,6 +633,8 @@ button:disabled { cursor: not-allowed; }
 .sync-row .text-input { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 12px; }
 .sync-row .text-input[readonly] { background: var(--raised); color: var(--ink-2); }
 .sync-row .btn { flex: none; height: 40px; min-width: 0; padding: 0 12px; font-size: 13px; }
+.sync-row--upload { align-items: center; }
+.sync-row--upload .form-hint { flex: 1; min-width: 0; line-height: 1.4; }
 .modal-actions { display: flex; gap: 12px; margin-top: 24px; }
 .modal-actions .btn { flex: 1; }
 .danger-zone { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }

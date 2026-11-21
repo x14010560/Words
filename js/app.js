@@ -1,10 +1,9 @@
-import { Storage } from './storage.js?v=11';
-import { speak } from './modules/audio.js?v=11';
-import { hasExample, exampleHtml, renderExample } from './modules/example.js?v=11';
-import { fetchFromCloud } from './modules/sync.js?v=11';
-import { initPractice, setLibData, restartPractice } from './modules/practice.js?v=11';
-import { initManager, renderManagerList } from './modules/manager.js?v=11';
-import { triggerAutoSync } from './modules/sync.js?v=11';
+import { Storage } from './storage.js?v=13';
+import { speak } from './modules/audio.js?v=13';
+import { hasExample, exampleHtml, renderExample } from './modules/example.js?v=13';
+import { fetchFromCloud, triggerAutoSync, uploadToCloud, getUploadCooldown } from './modules/sync.js?v=13';
+import { initPractice, setLibData, restartPractice } from './modules/practice.js?v=13';
+import { initManager, renderManagerList } from './modules/manager.js?v=13';
 
 const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 
@@ -36,7 +35,10 @@ const els = {
   nextWordBtn: document.getElementById("nextWordBtn"),
 
   wrongbookList: document.getElementById("wrongbookList"),
+  wrongbookScope: document.getElementById("wrongbookScope"),
   masteredList: document.getElementById("masteredList"),
+  masteredDesc: document.getElementById("masteredDesc"),
+  masteredScope: document.getElementById("masteredScope"),
   startReviewBtn: document.getElementById("startReviewBtn"),
   reviewSession: document.getElementById("reviewSession"),
   reviewCard: document.getElementById("reviewCard"),
@@ -67,6 +69,8 @@ const els = {
   copySyncKeyBtn: document.getElementById("copySyncKeyBtn"),
   syncKeyInput: document.getElementById("syncKeyInput"),
   bindSyncKeyBtn: document.getElementById("bindSyncKeyBtn"),
+  manualUploadBtn: document.getElementById("manualUploadBtn"),
+  uploadHint: document.getElementById("uploadHint"),
 
   csvInput: document.getElementById("csvInput"),
   importCsvBtn: document.getElementById("importCsvBtn"),
@@ -217,36 +221,97 @@ function libDisplayName(libId) {
   return entry ? entry.name : (libId === 'custom' ? '我的词库' : libId);
 }
 
-async function loadMasteredGroups() {
+async function loadWordGroups(kind) {
   await ensureLibIndex();
   const groups = [];
-  for (const group of Storage.getMasteredByLib()) {
-    const words = await getLibWords(group.libId);
+  for (const libId of Storage.getAllLibIdsWithProgress()) {
+    const all = Storage.loadAll(libId);
+    const keys = Object.keys(all).filter(k => kind === 'mastered'
+      ? (all[k].stage === 4 && !all[k].isWrongBook)
+      : !!all[k].isWrongBook);
+    if (!keys.length) continue;
+    const words = await getLibWords(libId);
     const byWord = new Map(words.map(w => [w.word, w]));
-    const entries = group.words.map(({ word, status }) => ({
-      ...(byWord.get(word) || { word, meaning: '未知', phonetic: '' }),
-      status, libId: group.libId, libName: libDisplayName(group.libId)
-    }));
-    groups.push({ libId: group.libId, name: libDisplayName(group.libId), entries });
+    const name = libDisplayName(libId);
+    groups.push({
+      libId, name,
+      entries: keys.map(k => ({
+        ...(byWord.get(k) || { word: k, meaning: '未知', phonetic: '' }),
+        status: all[k], libId, libName: name
+      }))
+    });
   }
   return groups;
 }
 
-// --- 列表渲染 ---
+// 两个列表各自记住「当前词库 / 全部」
+const listScope = {
+  wrongbook: localStorage.getItem('typing_words_scope_wrongbook') || 'current',
+  mastered: localStorage.getItem('typing_words_scope_mastered') || 'all'
+};
+
+function scopedGroups(groups, type) {
+  return listScope[type] === 'current'
+    ? groups.filter(g => g.libId === Storage.getCurrentLib())
+    : groups;
+}
+
+function updateScopeButtons(type) {
+  const scopeEl = type === 'mastered' ? els.masteredScope : els.wrongbookScope;
+  if (!scopeEl) return;
+  scopeEl.querySelectorAll('.scope-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.scope === listScope[type]);
+  });
+}
+
+function setListScope(type, scope) {
+  listScope[type] = scope;
+  localStorage.setItem(`typing_words_scope_${type}`, scope);
+  updateScopeButtons(type);
+  if (type === 'mastered') renderMastered(); else renderWrongBook();
+}
+
+[['mastered', els.masteredScope], ['wrongbook', els.wrongbookScope]].forEach(([type, scopeEl]) => {
+  if (!scopeEl) return;
+  scopeEl.querySelectorAll('.scope-btn').forEach(btn => {
+    btn.addEventListener('click', () => setListScope(type, btn.dataset.scope));
+  });
+  updateScopeButtons(type);
+});
+
 function renderList(type) {
-  if (type === "mastered") { renderMastered(); return; }
-  const container = els.wrongbookList;
-  const words = Storage.getWrongBookWords();
-  container.innerHTML = "";
-  if (words.length === 0) {
-    container.innerHTML = `
-      <div class="empty">
-        <p class="empty-title">还没有错题</p>
-        <p class="empty-hint">连续拼错两次的词会出现在这里</p>
-      </div>`;
-    return;
+  if (type === 'mastered') renderMastered();
+  else renderWrongBook();
+}
+
+function renderGroupedList(container, groups, type, showGroupHead, emptyTitle, emptyHint) {
+  container.innerHTML = '';
+  const total = groups.reduce((n, g) => n + g.entries.length, 0);
+  if (!total) {
+    container.innerHTML = `<div class="empty"><p class="empty-title">${emptyTitle}</p><p class="empty-hint">${emptyHint}</p></div>`;
+    return total;
   }
-  words.forEach(w => container.appendChild(createWordCard(w, "wrongbook")));
+  groups.forEach(group => {
+    if (showGroupHead) {
+      const section = document.createElement("section");
+      section.className = "mastered-group";
+      section.innerHTML = `
+        <div class="mastered-group-head">
+          <span class="mastered-group-name">${escapeHtml(group.name)}</span>
+          <span class="mastered-group-count">${group.entries.length} 词</span>
+        </div>
+        <div class="list-grid"></div>`;
+      const grid = section.querySelector(".list-grid");
+      group.entries.forEach(w => grid.appendChild(createWordCard(w, type, group.libId)));
+      container.appendChild(section);
+    } else {
+      const grid = document.createElement("div");
+      grid.className = "list-grid";
+      group.entries.forEach(w => grid.appendChild(createWordCard(w, type, group.libId)));
+      container.appendChild(grid);
+    }
+  });
+  return total;
 }
 
 function createWordCard(w, type, libId) {
@@ -295,39 +360,26 @@ function createWordCard(w, type, libId) {
   return card;
 }
 
-let masteredRenderId = 0;
+let wrongbookRenderId = 0, masteredRenderId = 0;
+
+async function renderWrongBook() {
+  const renderId = ++wrongbookRenderId;
+  const groups = scopedGroups(await loadWordGroups("wrongbook"), "wrongbook");
+  if (renderId !== wrongbookRenderId) return;
+  renderGroupedList(els.wrongbookList, groups, "wrongbook", listScope.wrongbook === "all",
+    "还没有错题", "连续拼错两次的词会出现在这里");
+}
+
 async function renderMastered() {
   const renderId = ++masteredRenderId;
-  const groups = await loadMasteredGroups();
+  const groups = scopedGroups(await loadWordGroups("mastered"), "mastered");
   if (renderId !== masteredRenderId) return;
-
-  const container = els.masteredList;
-  const total = groups.reduce((n, g) => n + g.entries.length, 0);
+  const total = renderGroupedList(els.masteredList, groups, "mastered", listScope.mastered === "all",
+    "还没有已掌握的词", "完成学习、听写、默写后进入定期复习");
+  els.masteredDesc.textContent = listScope.mastered === "all"
+    ? "汇总所有词库的已掌握词，按来源词库分组"
+    : "当前词库的已掌握词，完成学习后进入定期复习";
   els.startReviewBtn.disabled = total === 0;
-  container.innerHTML = "";
-
-  if (!total) {
-    container.innerHTML = `
-      <div class="empty">
-        <p class="empty-title">还没有已掌握的词</p>
-        <p class="empty-hint">完成学习、听写、默写后进入定期复习</p>
-      </div>`;
-    return;
-  }
-
-  groups.forEach(group => {
-    const section = document.createElement("section");
-    section.className = "mastered-group";
-    section.innerHTML = `
-      <div class="mastered-group-head">
-        <span class="mastered-group-name">${escapeHtml(group.name)}</span>
-        <span class="mastered-group-count">${group.entries.length} 词</span>
-      </div>
-      <div class="list-grid"></div>`;
-    const grid = section.querySelector(".list-grid");
-    group.entries.forEach(w => grid.appendChild(createWordCard(w, "mastered", group.libId)));
-    container.appendChild(section);
-  });
 }
 
 // --- 已掌握：快速复习 ---
@@ -356,7 +408,7 @@ function renderReview() {
 }
 
 async function startQuickReview() {
-  const groups = await loadMasteredGroups();
+  const groups = scopedGroups(await loadWordGroups("mastered"), "mastered");
   review.words = groups.flatMap(g => g.entries);
   if (!review.words.length) return;
   review.index = 0;
@@ -373,7 +425,8 @@ function closeQuickReview(rerender = true) {
   review.current = null;
   els.reviewSession.hidden = true;
   els.masteredList.hidden = false;
-  els.startReviewBtn.disabled = Storage.getMasteredByLib().every(g => !g.words.length);
+  els.startReviewBtn.disabled = !Storage.getMasteredByLib().some(g =>
+    listScope.mastered === "all" || g.libId === Storage.getCurrentLib());
   if (rerender) renderList("mastered");
 }
 
@@ -404,6 +457,41 @@ els.reviewFuzzyBtn.addEventListener("click", () => handleReviewChoice("fuzzy"));
 els.reviewUnknownBtn.addEventListener("click", () => handleReviewChoice("unknown"));
 
 // --- 设置弹窗 ---
+function formatCooldown(seconds) {
+  return seconds >= 60 ? `${Math.ceil(seconds / 60)} 分钟` : `${seconds} 秒`;
+}
+
+let uploadHintTimer = null;
+function refreshUploadHint() {
+  const left = getUploadCooldown();
+  els.manualUploadBtn.disabled = left > 0;
+  if (left > 0) els.uploadHint.textContent = `请 ${formatCooldown(left)}后再上传`;
+  return left;
+}
+function startUploadCountdown() {
+  clearInterval(uploadHintTimer);
+  uploadHintTimer = setInterval(() => {
+    if (!els.settingsModal.classList.contains("show")) { clearInterval(uploadHintTimer); return; }
+    refreshUploadHint();
+  }, 1000);
+}
+
+els.manualUploadBtn.addEventListener("click", async () => {
+  if (getUploadCooldown()) return;
+  els.manualUploadBtn.disabled = true;
+  els.uploadHint.textContent = "正在上传…";
+  const res = await uploadToCloud();
+  if (res.ok) {
+    els.uploadHint.textContent = "已上传到云端";
+  } else if (res.reason === "cooldown" || res.reason === "server") {
+    els.uploadHint.textContent = `请 ${formatCooldown(res.retryAfter)}后再上传`;
+  } else {
+    els.uploadHint.textContent = "上传失败，请稍后重试";
+  }
+  els.manualUploadBtn.disabled = getUploadCooldown() > 0;
+  startUploadCountdown();
+});
+
 function updateReviewLimitHint() {
   const goal = parseInt(els.goalInput.value, 10) || 0;
   const mult = Number(els.reviewMultiplierSelect.value) || 2;
@@ -418,6 +506,9 @@ els.openSettingsBtn.addEventListener("click", () => {
   els.reviewMultiplierSelect.value = options.includes(mult) ? mult : "2";
   updateReviewLimitHint();
   els.syncKeyDisplay.value = Storage.getSyncKey();
+  const uploadLeft = refreshUploadHint();
+  if (!uploadLeft) els.uploadHint.textContent = "将当前本地进度上传到云端";
+  startUploadCountdown();
   els.settingsModal.classList.add("show");
 });
 els.goalInput.addEventListener("input", updateReviewLimitHint);
@@ -515,6 +606,8 @@ async function initLibSelector() {
     els.slots.innerHTML = "";
     await loadLibData(newLibId);
     restartPractice();
+    if (listScope.mastered === "current") renderMastered();
+    if (listScope.wrongbook === "current") renderWrongBook();
   });
 }
 

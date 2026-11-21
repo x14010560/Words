@@ -1,6 +1,42 @@
-import { Storage } from '../storage.js?v=11';
+import { Storage } from '../storage.js?v=13';
 
 let syncTimer = null;
+const LAST_MANUAL_UPLOAD_KEY = 'typing_words_last_manual_upload';
+const MANUAL_COOLDOWN_MS = 5 * 60 * 1000;
+
+export function getUploadCooldown() {
+  const last = Number(localStorage.getItem(LAST_MANUAL_UPLOAD_KEY) || 0);
+  const left = MANUAL_COOLDOWN_MS - (Date.now() - last);
+  return left > 0 ? Math.ceil(left / 1000) : 0;
+}
+
+// 手动上传：本地先挡一次，服务端还有同样的 5 分钟限制
+export async function uploadToCloud() {
+  const retryAfter = getUploadCooldown();
+  if (retryAfter) return { ok: false, reason: 'cooldown', retryAfter };
+
+  const key = Storage.getSyncKey();
+  try {
+    const res = await fetch(`/api/sync?key=${key}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...Storage.getSyncData(), manual: true })
+    });
+    if (res.status === 429) {
+      const info = await res.json().catch(() => ({}));
+      const seconds = Math.max(1, Number(info.retryAfter) || 300);
+      // 与服务端时间对齐，避免刷新页面绕过本地倒计时
+      localStorage.setItem(LAST_MANUAL_UPLOAD_KEY, String(Date.now() - (MANUAL_COOLDOWN_MS - seconds * 1000)));
+      return { ok: false, reason: 'server', retryAfter: seconds };
+    }
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    localStorage.setItem(LAST_MANUAL_UPLOAD_KEY, String(Date.now()));
+    return { ok: true };
+  } catch (e) {
+    console.warn('手动上传失败', e);
+    return { ok: false, reason: 'error' };
+  }
+}
 
 function formatSyncTime(data) {
   const raw = data.syncedAt || data.updatedAt;

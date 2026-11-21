@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
   <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -126,17 +126,27 @@
             <h2 class="view-title">错题本</h2>
             <p class="view-desc">连错两次加入；答错当日不移除，首个无错日连对三次才移出</p>
           </div>
+          <div class="view-head-actions">
+            <div class="scope-switch" id="wrongbookScope" role="group" aria-label="错题本显示范围">
+              <button class="scope-btn active" type="button" data-scope="current">当前词库</button>
+              <button class="scope-btn" type="button" data-scope="all">全部</button>
+            </div>
+          </div>
         </header>
-        <div class="list-grid" id="wrongbookList"></div>
+        <div class="grouped-lists" id="wrongbookList"></div>
       </div>
 
       <div id="view-mastered" class="view">
         <header class="view-head">
           <div class="view-head-text">
             <h2 class="view-title">已掌握</h2>
-            <p class="view-desc">汇总所有词库的已掌握词，按来源词库分组</p>
+            <p class="view-desc" id="masteredDesc">汇总所有词库的已掌握词，按来源词库分组</p>
           </div>
           <div class="view-head-actions">
+            <div class="scope-switch" id="masteredScope" role="group" aria-label="已掌握显示范围">
+              <button class="scope-btn" type="button" data-scope="current">当前词库</button>
+              <button class="scope-btn active" type="button" data-scope="all">全部</button>
+            </div>
             <button class="btn" id="startReviewBtn" type="button"><svg class="icon"><use href="#i-rotate"/></svg>快速复习</button>
           </div>
         </header>
@@ -175,7 +185,7 @@
           <p class="review-foot">认识：跳过本次复习 · 模糊：加入今日复习 · 不认识：移出已掌握</p>
         </section>
 
-        <div class="mastered-groups" id="masteredList"></div>
+        <div class="grouped-lists" id="masteredList"></div>
       </div>
 
       <div id="view-stats" class="view">
@@ -296,6 +306,10 @@
           <input type="text" class="text-input" id="syncKeyInput" placeholder="输入同步码" aria-label="输入同步码">
           <button class="btn primary" id="bindSyncKeyBtn" type="button"><svg class="icon"><use href="#i-link"/></svg>绑定</button>
         </div>
+        <div class="sync-row sync-row--upload">
+          <button class="btn" id="manualUploadBtn" type="button"><svg class="icon"><use href="#i-upload"/></svg>立即上传云端</button>
+          <span class="form-hint" id="uploadHint">将当前本地进度上传到云端</span>
+        </div>
       </div>
       <div class="modal-actions">
         <button class="btn" id="cancelSettingsBtn" type="button">关闭</button>
@@ -308,6 +322,6 @@
   </div>
 
   <script src="js/typing.js"></script>
-  <script type="module" src="js/app.js?v=11"></script>
+  <script type="module" src="js/app.js?v=13"></script>
 </body>
 </html>
